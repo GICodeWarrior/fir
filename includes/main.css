@@ -1,0 +1,26 @@
+li { line-height: 1.25; }
+input { display: block; }
+
+div.render {
+  display: flex;
+  flex-flow: column wrap;
+  height: 1024px;
+  margin-bottom: 200px;
+
+  font: 26px Arial;
+  color: #ed2121;
+  background-color: #111;
+
+  overflow-x: auto;
+  resize: vertical;
+}
+
+div.render > div {
+  display: block;
+  padding: 8px;
+}
+div.render > div > span {
+  display: inline-block;
+  padding: 4px 0;
+}
+div.render > div > img { display: block; }
