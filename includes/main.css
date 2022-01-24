@@ -5,7 +5,6 @@ div.render {
   display: flex;
   flex-flow: column wrap;
   height: 1024px;
-  margin-bottom: 200px;
 
   font: 26px Arial;
   color: #ed2121;
@@ -24,3 +23,12 @@ div.render > div > span {
   padding: 4px 0;
 }
 div.render > div > img { display: block; }
+
+table {
+  margin-top: 25px;
+  margin-bottom: 200px;
+}
+
+table th:first-child, table td:first-child {
+  text-align: right;
+}
