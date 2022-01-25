@@ -414,22 +414,37 @@ function coalesceAndIdentifyItems(itemBundles) {
       */
 
       rawItem.icon.cropped = autoCropImage(rawItem.icon.canvas);
-      rawItem.icon.aHash = pHashImage(rawItem.icon.cropped);
+      const hashes = {
+        pHashFull: pHashImage(rawItem.icon.canvas),
+        pHashCrop: pHashImage(rawItem.icon.cropped),
+        aHashFull: aHashImage(rawItem.icon.canvas),
+        aHashCrop: aHashImage(rawItem.icon.cropped),
+      };
+      rawItem.icon.hashes = hashes;
 
-      const canvasA = rawItem.icon.cropped;
-      const subWidth = Math.floor(canvasA.width / 3);
-      const subHeight = Math.floor(canvasA.height / 3);
+      //rawItem.icon.hash = pHashImage(rawItem.icon.canvas);
 
-      var found = false;
+      //const canvasA = rawItem.icon.canvas;
+      //const subWidth = Math.floor(canvasA.width / 3);
+      //const subHeight = Math.floor(canvasA.height / 3);
+
+      var matches = [];
       for (const item of items) {
-        const distance = hammingDistance(rawItem.icon.aHash, item.aHash);
+        const distances = Object.entries(hashes).map(([k, v]) => hammingDistance(v, item.hashes[k]));
+
+        const average = distances.reduce((a, b) => a + b, 0) / distances.length;
+        if (average > MAX_HAMMING_DISTANCE) {
+          continue;
+        }
+
+/*
         if (distance > MAX_PERFECT_HAMMING_DISTANCE) {
           if (distance > MAX_HAMMING_DISTANCE) {
             continue;
           }
 
-/*
-          const canvasB = item.collection[0].icon.cropped;
+          const canvasB = item.collection[0].icon.canvas;
+
           if (diffImages(canvasA, canvasB) > MAX_IMAGE_DIFF) {
             continue;
           }
@@ -445,18 +460,20 @@ function coalesceAndIdentifyItems(itemBundles) {
           if (diffImages(canvasA, canvasB, subWidth * 2, subHeight * 2, subWidth, subHeight) > MAX_IMAGE_BOTTOM_CORNER_DIFF) {
             continue;
           }
-*/
         }
+*/
 
-        item.collection.push(rawItem);
-        item.total += rawItem.quantity.amount;
-        found = true;
-        break;
+        matches.push([average, item])
       }
 
-      if (!found) {
+      if (matches.length) {
+        matches.sort((a, b) => a[0] - b[0]);
+
+        matches[0][1].collection.push(rawItem);
+        matches[0][1].total += rawItem.quantity.amount;
+      } else {
         items.push({
-          aHash: rawItem.icon.aHash,
+          hashes: rawItem.icon.hashes,
           collection: [rawItem],
           total: rawItem.quantity.amount,
         });
@@ -465,7 +482,7 @@ function coalesceAndIdentifyItems(itemBundles) {
   }
 
   items.sort(function(a, b) {
-    const diff = a.aHash - b.aHash;
+    const diff = a.hashes.pHashFull - b.hashes.pHashFull;
     if (diff > 0n) return 1;
     if (diff < 0n) return -1;
     return 0;
@@ -482,15 +499,15 @@ function coalesceAndIdentifyItems(itemBundles) {
     for (const rawItem of item.collection) {
       icon.appendChild(rawItem.icon.canvas);
     }
-    icon.appendChild(document.createElement('br'));
-    for (const rawItem of item.collection) {
-      icon.appendChild(rawItem.icon.cropped);
-    }
+    //icon.appendChild(document.createElement('br'));
+    //for (const rawItem of item.collection) {
+    //  icon.appendChild(rawItem.icon.cropped);
+    //}
     row.appendChild(icon);
 
     const name = document.createElement('td');
-    name.textContent = "" + index++ + " diffs: " +
-      item.collection.map((i) => hammingDistance(i.icon.aHash, item.aHash));
+    //name.textContent = "" + index++ + " diffs: " +
+    //  item.collection.map((i) => hammingDistance(i.icon.hashes.pHashFull, item.hashes.pHashFull));
     row.appendChild(name);
 
     table.appendChild(row);
@@ -621,17 +638,20 @@ function pHashImage(image) {
 
   cols.length = HASH_SIZE;
   const hashPixels = [];
+  var totalValue = 0;
   for (let row = 0; row < HASH_SIZE; ++row) {
     for (const col of cols) {
+      totalValue += col[row];
       hashPixels.push(col[row]);
     }
   }
-  const medianValue = hashPixels.slice().sort()[Math.floor(hashPixels.length / 2)];
+  const averageValue = totalValue / hashPixels.length;
+  //const medianValue = hashPixels.slice().sort()[Math.floor(hashPixels.length / 2)];
 
   var pHash = 0n;
   for (const pixel of hashPixels) {
     pHash = pHash << 1n;
-    if (pixel > medianValue) {
+    if (pixel > averageValue) {
       pHash = pHash | 1n;
     }
   }

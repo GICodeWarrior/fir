@@ -24,6 +24,8 @@ div.render > div > span {
 }
 div.render > div > img { display: block; }
 
+div.report { columns: 5; }
+
 table {
   margin-top: 25px;
   margin-bottom: 200px;
