@@ -359,9 +359,19 @@ async function cropItems(tesseract, canvas) {
   });
 
   for (const item of items) {
-    var result = await (item.quantity.analysis);
+    let result = await (item.quantity.analysis);
     item.quantity.tesseractResult = result;
-    item.quantity.amount = parseInt(result.data.text.trim(), 10);
+
+    let value = result.data.text.trim();
+    if (value.match(/^[1-9][0-9]*k\+$/)) {
+      value = parseInt(value.slice(0, -2), 10) * 1000;
+    } else if (value.match(/^([1-9][0-9]*|[0-9])$/)) {
+      value = parseInt(value, 10);
+    } else {
+      value = 0;
+      console.log('unable to parse quantity: ', item);
+    }
+    item.quantity.amount = value;
   }
 
   //console.log("quantityGap: " + quantityGap + " iconWidth: " + iconWidth);
@@ -782,7 +792,7 @@ async function initTesseractScheduler() {
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
     await worker.setParameters({
-      tessedit_char_whitelist: '0123456789',
+      tessedit_char_whitelist: '0123456789k+',
     });
 
     scheduler.addWorker(worker);
