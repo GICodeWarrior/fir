@@ -1,3 +1,7 @@
+body::after {
+  content: '';
+  margin-bottom: 200px;
+}
 li { line-height: 1.25; }
 input { display: block; }
 
@@ -24,13 +28,29 @@ div.render > div > span {
 }
 div.render > div > img { display: block; }
 
-div.report { columns: 5; }
+div.report {
+  display: flex;
+  flex-flow: column wrap;
 
-table {
   margin-top: 25px;
-  margin-bottom: 200px;
+  height: 1024px;
+  resize: vertical;
+
+  color: #CCC;
+  font-size: 25px;
+  background-color: #444;
+  padding: 25px 0;
 }
 
-table th:first-child, table td:first-child {
+div.report > div {
+  display: flex;
+}
+
+div.report > div > div {
+}
+
+div.report > div > div:first-child {
   text-align: right;
+  width: 8ch;
+  padding: 0 0.5ch;
 }

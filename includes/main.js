@@ -23,7 +23,7 @@ addEventListener('DOMContentLoaded', function() {
     const collage = document.querySelector('div.render');
     collage.innerHTML = '';
 
-    document.querySelector('table > tbody').innerHTML = '';
+    document.querySelector('div.report').innerHTML = '';
     itemBundles = [];
 
     imagesProcessed = 0;
@@ -322,7 +322,7 @@ async function cropItems(tesseract, canvas) {
         if ((quantityHeight >= MIN_QUANTITY_HEIGHT) && (quantityHeight <= MAX_QUANTITY_HEIGHT)) {
           quantity.canvas = cropCanvas(canvas,
               quantity.top, quantity.right, quantity.bottom, quantity.left,
-              'invert(100%) contrast(250%)', 2);
+              'invert(100%) contrast(250%)', 1.25);
 
           quantity.analysis = (await tesseract).addJob('recognize', quantity.canvas);
           quantities.push(quantity);
@@ -401,7 +401,7 @@ function coalesceAndIdentifyItems(itemBundles) {
   const MAX_IMAGE_MIDDLE_DIFF = 20;
   const MAX_IMAGE_BOTTOM_CORNER_DIFF = 20;
 
-  const table = document.querySelector('table > tbody');
+  const report = document.querySelector('div.report');
 
   const items = [];
   for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
@@ -492,20 +492,21 @@ function coalesceAndIdentifyItems(itemBundles) {
   }
 
   items.sort(function(a, b) {
-    const diff = a.hashes.pHashFull - b.hashes.pHashFull;
-    if (diff > 0n) return 1;
-    if (diff < 0n) return -1;
-    return 0;
+    const countDiff = b.collection.length - a.collection.length;
+    if (countDiff != 0) {
+      return countDiff;
+    }
+    return b.total - a.total;
   });
 
   var index = 0
   for (const item of items) {
-    const row = document.createElement('tr');
-    const quantity = document.createElement('td');
+    const cell = document.createElement('div');
+    const quantity = document.createElement('div');
     quantity.textContent = item.total;
-    row.appendChild(quantity);
+    cell.appendChild(quantity);
 
-    const icon = document.createElement('td');
+    const icon = document.createElement('div');
     for (const rawItem of item.collection) {
       icon.appendChild(rawItem.icon.canvas);
     }
@@ -513,14 +514,14 @@ function coalesceAndIdentifyItems(itemBundles) {
     //for (const rawItem of item.collection) {
     //  icon.appendChild(rawItem.icon.cropped);
     //}
-    row.appendChild(icon);
+    cell.appendChild(icon);
 
-    const name = document.createElement('td');
+    //const name = document.createElement('td');
     //name.textContent = "" + index++ + " diffs: " +
     //  item.collection.map((i) => hammingDistance(i.icon.hashes.pHashFull, item.hashes.pHashFull));
-    row.appendChild(name);
+    //row.appendChild(name);
 
-    table.appendChild(row);
+    report.appendChild(cell);
   }
 
   window.items = items;
