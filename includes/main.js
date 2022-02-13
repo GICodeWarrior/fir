@@ -322,7 +322,7 @@ async function cropItems(tesseract, canvas) {
         if ((quantityHeight >= MIN_QUANTITY_HEIGHT) && (quantityHeight <= MAX_QUANTITY_HEIGHT)) {
           quantity.canvas = cropCanvas(canvas,
               quantity.top, quantity.right, quantity.bottom, quantity.left,
-              'invert(100%) contrast(200%)');
+              'invert(100%) contrast(250%)', 2);
 
           quantity.analysis = (await tesseract).addJob('recognize', quantity.canvas);
           quantities.push(quantity);
@@ -793,6 +793,7 @@ async function initTesseractScheduler() {
     await worker.initialize('eng');
     await worker.setParameters({
       tessedit_char_whitelist: '0123456789k+',
+      tessedit_pageseg_mode: 7,  // Single line
     });
 
     scheduler.addWorker(worker);
@@ -804,23 +805,28 @@ async function terminateTesseractScheduler(scheduler) {
   return await (await scheduler).terminate();
 }
 
-function cropCanvas(input, top, right, bottom, left, filter) {
+function cropCanvas(input, top, right, bottom, left, filter, resize) {
   if (!filter) filter = 'none';
+  if (!resize) resize = 1;
 
-  const cropped = document.createElement('canvas');
   const croppedWidth = right - left + 1;
   const croppedHeight = bottom - top + 1;
 
-  cropped.width = croppedWidth;
-  cropped.height = croppedHeight;
+  const outputWidth = Math.round(croppedWidth * resize);
+  const outputHeight = Math.round(croppedHeight * resize);
 
-  const croppedContext = cropped.getContext("2d");
-  croppedContext.filter = filter;
-  croppedContext.drawImage(input,
+  const output = document.createElement('canvas');
+
+  output.width = outputWidth;
+  output.height = outputHeight;
+
+  const outputContext = output.getContext("2d");
+  outputContext.filter = filter;
+  outputContext.drawImage(input,
       left, top, croppedWidth, croppedHeight,
-      0, 0, croppedWidth, croppedHeight);
+      0, 0, outputWidth, outputHeight);
 
-  return cropped;
+  return output;
 }
 
 function calcRedIndex(row, col, width) {
