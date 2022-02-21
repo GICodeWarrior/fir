@@ -110,6 +110,7 @@ function getProcessImage(scheduler) {
 function cropInventory(canvas) {
   // These tune the cropping of inventory boxes
   const MIN_INVENTORY_WIDTH = 100;
+  const MIN_INVENTORY_HEIGHT = 25;
   const MIN_CORNER_LIGHT = 5; // out of 7
   const MIN_CORNER_DARK = 6; // out of 6
 
@@ -127,33 +128,22 @@ function cropInventory(canvas) {
 
   const context = canvas.getContext('2d');
   const pixels = context.getImageData(0, 0, width, height).data;
-  var boxes = [];
+  let darkStripes = {};
 
-  var darkCount = 0;
+  let darkCount = 0;
   for (var row = 0; row < height; ++row) {
     for (var col = 0; col < width; ++col) {
       const redIndex = calcRedIndex(row, col, width);
       if (isDark(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
         ++darkCount;
       } else if (darkCount >= MIN_INVENTORY_WIDTH) {
-        var box = {
+        let left = col - darkCount;
+        darkStripes[left] = darkStripes[left] || [];
+        darkStripes[left].push({
+          row: row,
           right: col - 1,
-          bottom: row,
-          left: col - darkCount,
-        };
-
-        if (checkRightCorner(pixels, box.bottom, box.right, width) &&
-              checkLeftCorner(pixels, box.bottom, box.left, width)) {
-          box.top = findTop(pixels, box.bottom, Math.round(box.right - darkCount / 2), width);
-
-          // Inventory windows can't start at the top
-          if (box.top > 0) {
-            var leftOffset = Math.abs((box.right - box.left) - width / 2);
-            var topOffset = Math.abs((box.bottom - box.top) - height / 2);
-            box.middleOffset = Math.sqrt(leftOffset * leftOffset + topOffset * topOffset);
-            boxes.push(box);
-          }
-        }
+          left: left,
+        });
 
         darkCount = 0;
       } else {
@@ -162,96 +152,86 @@ function cropInventory(canvas) {
     }
   }
 
-  if (boxes.length) {
-    // Prefer the box closest to the middle
-    boxes.sort((a, b) => a.middleOffset - b.middleOffset);
-    var box = boxes[0];
-
-    // Prefer tallest box with similar left and right
-    boxes = boxes.filter(function(a) {
-      return Math.abs(a.left - box.left) <= MAX_MERGE_VARIANCE &&
-        Math.abs(a.right - box.right) <= MAX_MERGE_VARIANCE
+  let boxes = Object.values(darkStripes).map(function(stripes) {
+    let rights = {};
+    stripes.forEach(function(stripe) {
+      rights[stripe.right] = (rights[stripe.right] || 0) + 1;
     });
-    boxes.sort((a, b) => (b.bottom - b.top) - (a.bottom - a.top));
-    box = boxes[0];
+    // parseInt since keys are strings
+    let mostRight = parseInt(Object.keys(rights).sort((a, b) => rights[b] - rights[a])[0], 10);
+
+    let top = Number.MAX_SAFE_INTEGER;
+    let bottom = 0;
+    let darkStripes = 0;
+    stripes.forEach(function(stripe) {
+      if ((stripe.right > mostRight - MAX_MERGE_VARIANCE) ||
+          (stripe.right < mostRight + MAX_MERGE_VARIANCE)) {
+        if (stripe.row < top) top = stripe.row;
+        if (stripe.row > bottom) bottom = stripe.row;
+
+        ++darkStripes;
+      }
+    });
+
+    return {
+      top: top,
+      right: mostRight,
+      bottom: bottom,
+      left: stripes[0].left,
+      darkStripes: darkStripes,
+    };
+  });
+  boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
+
+  if (boxes.length) {
+    // Merge overlapping boxes
+    let primaryOffset = 0;
+    while (primaryOffset < boxes.length - 1) {
+      let primary = boxes[primaryOffset];
+      let innerOffset = primaryOffset + 1;
+      while (innerOffset < boxes.length) {
+        let inner = boxes[innerOffset];
+        if ((primary.top <= inner.top) &&
+            (primary.right >= inner.right) &&
+            (primary.bottom >= inner.bottom) &&
+            (primary.left <= inner.left)) {
+          primary.darkStripes += inner.darkStripes;
+          boxes.splice(innerOffset, 1);
+        } else {
+          ++innerOffset;
+        }
+      }
+      ++primaryOffset;
+    }
+
+    // Prefer the box closest to the middle
+    let middle = Math.round(width / 2);
+    boxes.sort((a, b) => Math.abs(a.left - middle) - Math.abs(b.left - middle));
+    let box = boxes[0];
+
+    // Prefer the box with the most dark stripes by volume
+    //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
+    //box = boxes[0];
+
+    // Include the grey banner at the top
+    //let middleCol = Math.round(box.left + (box.right - box.left) / 2);
+    //console.log('findTop: ', box.top, middleCol, width);
+    //box.top = findTop(pixels, box.top, middleCol, width);
+    //console.log('findTop: ', box.top, middleCol, width);
 
     box.canvas = cropCanvas(canvas, box.top, box.right, box.bottom, box.left);
     return box;
   }
   return false;
 
-  function checkRightCorner(pixels, row, col, width) {
-    var darkCornerCount = 0;
-    for (var darkRow = row - 2; darkRow < row; ++darkRow) {
-      for (var darkCol = col - 2; darkCol <= col; ++darkCol) {
-        const darkRedIdx = calcRedIndex(darkRow, darkCol, width);
-        if (isDark(pixels[darkRedIdx], pixels[darkRedIdx+1], pixels[darkRedIdx+2])) {
-          ++darkCornerCount;
-        }
-      }
-    }
-
-    var lightCornerCount = 0;
-    var lightCol = col + 1;
-    for (var lightRow = row - 2; lightRow <= row + 1; ++lightRow) {
-      const lightRedIdx = calcRedIndex(lightRow, lightCol, width);
-      if (!isDark(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
-        ++lightCornerCount;
-      }
-    }
-
-    lightRow = row + 1;
-    for (lightCol = col - 2; lightCol <= col; ++lightCol) {
-      const lightRedIdx = calcRedIndex(lightRow, lightCol, width);
-      if (!isDark(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
-        ++lightCornerCount;
-      }
-    }
-
-    return (darkCornerCount >= MIN_CORNER_DARK) &&
-      (lightCornerCount >= MIN_CORNER_LIGHT);
-  }
-
-  function checkLeftCorner(pixels, row, col, width) {
-    var darkCornerCount = 0;
-    for (var darkRow = row - 2; darkRow < row; ++darkRow) {
-      for (var darkCol = col; darkCol <= col + 2; ++darkCol) {
-        const darkRedIdx = calcRedIndex(darkRow, darkCol, width);
-        if (isDark(pixels[darkRedIdx], pixels[darkRedIdx+1], pixels[darkRedIdx+2])) {
-          ++darkCornerCount;
-        }
-      }
-    }
-
-    var lightCornerCount = 0;
-    var lightCol = col - 1;
-    for (var lightRow = row - 2; lightRow <= row + 1; ++lightRow) {
-      const lightRedIdx = calcRedIndex(lightRow, lightCol, width);
-      if (!isDark(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
-        ++lightCornerCount;
-      }
-    }
-
-    lightRow = row + 1;
-    for (lightCol = col; lightCol <= col + 2; ++lightCol) {
-      const lightRedIdx = calcRedIndex(lightRow, lightCol, width);
-      if (!isDark(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
-        ++lightCornerCount;
-      }
-    }
-
-    return (darkCornerCount >= MIN_CORNER_DARK) &&
-      (lightCornerCount >= MIN_CORNER_LIGHT);
-  }
-
   function findTop(pixels, row, col, width) {
-    var checkRow = row - 1;
-    var foundGrey = false;
+    let checkRow = row - 1;
+    let foundGrey = false;
     while (checkRow > 0) {
-      var lightRedIdx = calcRedIndex(checkRow, col, width);
-      if (foundGrey && isLight(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
+      let redIdx = calcRedIndex(checkRow, col, width);
+      if (foundGrey && isLight(pixels[redIdx], pixels[redIdx+1], pixels[redIdx+2])) {
         break;
-      } else if (isGrey(pixels[lightRedIdx], pixels[lightRedIdx+1], pixels[lightRedIdx+2])) {
+      } else if (isGrey(pixels[redIdx], pixels[redIdx+1], pixels[redIdx+2])) {
         foundGrey = true;
       } else {
         foundGrey = false;
@@ -276,21 +256,36 @@ function cropInventory(canvas) {
 
 async function cropItems(tesseract, canvas) {
   // These tune the cropping of inventory items
-  const MIN_QUANTITY_WIDTH = 50;
+  const MIN_QUANTITY_WIDTH = 40;
   const MAX_QUANTITY_WIDTH = 60;
 
-  const MIN_QUANTITY_HEIGHT = 40;
+  const MIN_QUANTITY_HEIGHT = 30;
   const MAX_QUANTITY_HEIGHT = 50;
 
   const MAX_GREY_CHANNEL_VARIANCE = 16;
   const MAX_GREY_PIXEL_VARIANCE = 16;
-  const QUANTITY_GREY_VALUE = 84;
 
   const width = canvas.width;
   const height = canvas.height;
 
   const context = canvas.getContext('2d');
   const pixels = context.getImageData(0, 0, width, height).data;
+
+  // Find the most common grey which is probably the quantity background
+  const MIN_GREY = 32;
+  const MAX_GREY = 224;
+  let greys = {};
+  for (let offset = 0; offset < pixels.length; offset += 4) {
+    let value = pixels[offset];
+    if ((value >= MIN_GREY) &&
+        (value <= MAX_GREY) &&
+        (pixels[offset + 1] == value) &&
+        (pixels[offset + 2] == value)) {
+      greys[value] = (greys[value] || 0) + 1;
+    }
+  }
+  const QUANTITY_GREY_VALUE = Object.keys(greys).sort((a, b) => greys[b] - greys[a])[0];
+
   const quantities = [];
 
   var greyCount = 0;
@@ -301,7 +296,7 @@ async function cropItems(tesseract, canvas) {
     for (var col = 0; col < width; ++col) {
       // Opportunity: If > N of same pixel counted, skip to next line
       const redIndex = calcRedIndex(row, col, width);
-      if (isGrey(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2], QUANTITY_GREY_VALUE)) {
+      if (isGrey(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
         ++greyCount;
       } else if ((greyCount >= MIN_QUANTITY_WIDTH) && (greyCount <= MAX_QUANTITY_WIDTH)) {
         var quantity = {
@@ -311,7 +306,7 @@ async function cropItems(tesseract, canvas) {
         };
         if (!quantityBottom) {
           quantityBottom = findQtyBottom(pixels, quantity.top, quantity.left, width, height);
-        } else if (!quantityGap) {
+        } else if (!quantityGap && quantities.length) {
           var previous = quantities[quantities.length - 1];
           quantityGap = quantity.left - previous.right - 1;
           iconWidth = previous.bottom - previous.top + 1;
