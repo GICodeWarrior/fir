@@ -61,10 +61,10 @@ addEventListener('DOMContentLoaded', function() {
       windowWidth: collage.scrollWidth + 16,
       windowHeight: collage.scrollHeight + 16,
     }).then(function(canvas) {
-      var link = document.createElement('a');
+      const link = document.createElement('a');
       link.href = canvas.toDataURL();
 
-      var time = new Date();
+      const time = new Date();
       link.download = time.toISOString() + "_" + 'foxhole-inventory.png';
 
       document.body.appendChild(link);
@@ -136,8 +136,8 @@ function cropInventory(canvas) {
   let darkStripes = {};
 
   let darkCount = 0;
-  for (var row = 0; row < height; ++row) {
-    for (var col = 0; col < width; ++col) {
+  for (let row = 0; row < height; ++row) {
+    for (let col = 0; col < width; ++col) {
       const redIndex = calcRedIndex(row, col, width);
       if (isDark(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
         ++darkCount;
@@ -218,33 +218,10 @@ function cropInventory(canvas) {
     //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
     //box = boxes[0];
 
-    // Include the grey banner at the top
-    //let middleCol = Math.round(box.left + (box.right - box.left) / 2);
-    //console.log('findTop: ', box.top, middleCol, width);
-    //box.top = findTop(pixels, box.top, middleCol, width);
-    //console.log('findTop: ', box.top, middleCol, width);
-
     box.canvas = cropCanvas(canvas, box.top, box.right, box.bottom, box.left);
     return box;
   }
   return false;
-
-  function findTop(pixels, row, col, width) {
-    let checkRow = row - 1;
-    let foundGrey = false;
-    while (checkRow > 0) {
-      let redIdx = calcRedIndex(checkRow, col, width);
-      if (foundGrey && isLight(pixels[redIdx], pixels[redIdx+1], pixels[redIdx+2])) {
-        break;
-      } else if (isGrey(pixels[redIdx], pixels[redIdx+1], pixels[redIdx+2])) {
-        foundGrey = true;
-      } else {
-        foundGrey = false;
-      }
-      --checkRow;
-    }
-    return checkRow;
-  }
 
   function isDark(r, g, b) {
     return checkPixel(r, g, b, MAX_DARK_CHANNEL_VARIANCE, 0, MAX_DARK_PIXEL_VALUE);
@@ -293,18 +270,18 @@ async function cropItems(tesseract, canvas) {
 
   const quantities = [];
 
-  var greyCount = 0;
-  var quantityBottom = null;
-  var quantityGap = null;
-  var iconWidth = null;
-  for (var row = 0; row < height; ++row) {
-    for (var col = 0; col < width; ++col) {
+  let greyCount = 0;
+  let quantityBottom = null;
+  let quantityGap = null;
+  let iconWidth = null;
+  for (let row = 0; row < height; ++row) {
+    for (let col = 0; col < width; ++col) {
       // Opportunity: If > N of same pixel counted, skip to next line
       const redIndex = calcRedIndex(row, col, width);
       if (isGrey(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
         ++greyCount;
       } else if ((greyCount >= MIN_QUANTITY_WIDTH) && (greyCount <= MAX_QUANTITY_WIDTH)) {
-        var quantity = {
+        const quantity = {
           right: col - 1,
           top: row,
           left: col - greyCount,
@@ -312,13 +289,13 @@ async function cropItems(tesseract, canvas) {
         if (!quantityBottom) {
           quantityBottom = findQtyBottom(pixels, quantity.top, quantity.left, width, height);
         } else if (!quantityGap && quantities.length) {
-          var previous = quantities[quantities.length - 1];
+          const previous = quantities[quantities.length - 1];
           quantityGap = quantity.left - previous.right - 1;
           iconWidth = previous.bottom - previous.top + 1;
         }
         quantity.bottom = quantityBottom;
 
-        var quantityHeight = quantity.bottom - quantity.top;
+        const quantityHeight = quantity.bottom - quantity.top;
         if ((quantityHeight >= MIN_QUANTITY_HEIGHT) && (quantityHeight <= MAX_QUANTITY_HEIGHT)) {
           quantity.canvas = cropCanvas(canvas,
               quantity.top, quantity.right, quantity.bottom, quantity.left,
@@ -343,7 +320,7 @@ async function cropItems(tesseract, canvas) {
   const iconRightOffset = Math.ceil((quantityGap - iconWidth) / 2);
   const iconLeftOffset = iconRightOffset + iconWidth;
   const items = quantities.map(function(quantity) {
-    var icon = {
+    const icon = {
       top: quantity.top,
       right: quantity.left - iconRightOffset,
       bottom: quantity.bottom,
@@ -438,7 +415,7 @@ function coalesceAndIdentifyItems(itemBundles) {
       //const subWidth = Math.floor(canvasA.width / 3);
       //const subHeight = Math.floor(canvasA.height / 3);
 
-      var matches = [];
+      const matches = [];
       for (const item of items) {
         const distances = Object.entries(hashes).map(([k, v]) => hammingDistance(v, item.hashes[k]));
 
@@ -499,7 +476,7 @@ function coalesceAndIdentifyItems(itemBundles) {
     return b.total - a.total;
   });
 
-  var index = 0
+  let index = 0;
   for (const item of items) {
     const cell = document.createElement('div');
     const quantity = document.createElement('div');
@@ -534,14 +511,14 @@ function autoCropImage(image) {
   const imageWidth = image.width;
   const imageHeight = image.height;
 
-  var top = 0;
-  var right = imageWidth - 1;
-  var bottom = imageHeight - 1;
-  var left = 0;
+  let top = 0;
+  let right = imageWidth - 1;
+  let bottom = imageHeight - 1;
+  let left = 0;
   const imgContext = image.getContext('2d');
   const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
 
-  var highCount = 0;
+  let highCount = 0;
   for (let offset = 0; offset < imgPixels.length; offset += 4) {
     if (!(offset / 4 % imageWidth)) highCount = 0;
     if ((imgPixels[offset] > MIN_VALUE_CROP) ||
@@ -649,7 +626,7 @@ function pHashImage(image) {
 
   cols.length = HASH_SIZE;
   const hashPixels = [];
-  var totalValue = 0;
+  let totalValue = 0;
   for (let row = 0; row < HASH_SIZE; ++row) {
     for (const col of cols) {
       totalValue += col[row];
@@ -659,7 +636,7 @@ function pHashImage(image) {
   const averageValue = totalValue / hashPixels.length;
   //const medianValue = hashPixels.slice().sort()[Math.floor(hashPixels.length / 2)];
 
-  var pHash = 0n;
+  let pHash = 0n;
   for (const pixel of hashPixels) {
     pHash = pHash << 1n;
     if (pixel > averageValue) {
@@ -708,14 +685,14 @@ function aHashImage(image) {
 
   const pixels = context.getImageData(0, 0, HASH_SIZE, HASH_SIZE).data;
 
-  var totalValue = 0;
+  let totalValue = 0;
   for (let offset = 0; offset < pixels.length; offset += 4) {
     totalValue += pixels[offset];
   }
   const averageValue = Math.round(totalValue / (HASH_SIZE * HASH_SIZE));
 
-  var aHash = 0n;
-  for (var offset = 0; offset < pixels.length; offset += 4) {
+  let aHash = 0n;
+  for (let offset = 0; offset < pixels.length; offset += 4) {
     aHash = aHash << 1n;
     if (pixels[offset] >= averageValue) {
       aHash = aHash | 1n;
@@ -726,9 +703,9 @@ function aHashImage(image) {
 }
 
 function hammingDistance(a, b) {
-  var bits = a ^ b;
+  let bits = a ^ b;
 
-  var distance = 0;
+  let distance = 0;
   while (bits != 0n) {
     if (bits & 1n) {
       ++distance;
@@ -757,8 +734,8 @@ function diffImages(a, b, x, y, width, height) {
 
   const pixels = context.getImageData(0, 0, width, height).data;
 
-  var totalValue = 0;
-  for (var i = 0; i < pixels.length; ++i) {
+  let totalValue = 0;
+  for (let i = 0; i < pixels.length; ++i) {
     totalValue += pixels[i++];
     totalValue += pixels[i++];
     totalValue += pixels[i++];
@@ -775,7 +752,7 @@ async function initTesseractScheduler() {
   const scheduler = Tesseract.createScheduler();
 
   const workers = [];
-  for (var i = 0; i < WORKER_COUNT; ++i) {
+  for (let i = 0; i < WORKER_COUNT; ++i) {
     const worker = Tesseract.createWorker({
       //logger: m => console.log(m),
       langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
@@ -836,7 +813,7 @@ function calcRedIndex(row, col, width) {
 }
 
 function checkPixel(r, g, b, channel_variance, pixel_value, pixel_variance) {
-  var avg = (r + g + b) / 3;
+  const avg = (r + g + b) / 3;
   return (Math.abs(avg - r) < channel_variance) &&
     (Math.abs(avg - g) < channel_variance) &&
     (Math.abs(avg - b) < channel_variance) &&
