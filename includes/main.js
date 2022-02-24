@@ -89,11 +89,16 @@ function getProcessImage(scheduler) {
 
     const inventory = cropInventory(canvas);
     if (inventory) {
+      const items = await cropItems(scheduler, inventory.canvas);
+      itemBundles.push(items);
+
+      if (items.length) {
+        const bannerHeight = items[0].quantity.bottom - items[0].quantity.top;
+        const invTop = Math.max(inventory.top - bannerHeight, 0);
+        inventory.canvas = cropCanvas(canvas, invTop, inventory.right, inventory.bottom, inventory.left);
+      }
       this.src = inventory.canvas.toDataURL();
     }
-
-    const items = await cropItems(scheduler, inventory.canvas);
-    itemBundles.push(items);
 
     this.style.display = '';
     ++imagesProcessed;
