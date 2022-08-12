@@ -299,7 +299,7 @@ async function cropItems(tesseract, canvas) {
         if ((quantityHeight >= MIN_QUANTITY_HEIGHT) && (quantityHeight <= MAX_QUANTITY_HEIGHT)) {
           quantity.canvas = cropCanvas(canvas,
               quantity.top, quantity.right, quantity.bottom, quantity.left,
-              'invert(100%) contrast(250%)', 1.25);
+              'invert(100%) contrast(250%)', 5);
 
           quantity.analysis = (await tesseract).addJob('recognize', quantity.canvas);
           quantities.push(quantity);
