@@ -4,6 +4,19 @@ var imagesProcessed = 0;
 var imagesTotal = 0;
 var itemBundles = [];
 
+/*
+var itemCatalog;
+(function() {
+  const request = new XMLHttpRequest();
+  request.addEventListener('load', function() {
+    itemCatalog = this.response;
+  });
+  request.open('GET', 'items.json');
+  request.responseType = 'json';
+  request.send();
+})();
+*/
+
 addEventListener('DOMContentLoaded', function() {
   const input = document.querySelector('form input');
   const download = document.querySelector('button');
@@ -292,6 +305,7 @@ async function cropItems(tesseract, canvas) {
           const previous = quantities[quantities.length - 1];
           quantityGap = quantity.left - previous.right - 1;
           iconWidth = previous.bottom - previous.top + 1;
+          console.log(quantityGap, iconWidth);
         }
         quantity.bottom = quantityBottom;
 
@@ -380,7 +394,8 @@ function coalesceAndIdentifyItems(itemBundles) {
 
   const report = document.querySelector('div.report');
 
-  const items = [];
+  //const items = [];
+  const items = {};
   for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
     for (const rawItem of itemBundles[bundleIdx]) {
       /*
@@ -415,6 +430,38 @@ function coalesceAndIdentifyItems(itemBundles) {
       //const subWidth = Math.floor(canvasA.width / 3);
       //const subHeight = Math.floor(canvasA.height / 3);
 
+      let bestMatch = {
+        distance: Infinity,
+      };
+      for (const item of itemCatalog) {
+        let crated = hammingDistance(hashes.pHashFull, BigInt(item.IconHashes.pHashCrated));
+        if (crated < bestMatch.distance) {
+          bestMatch = {
+            key: `${item.CodeName}-crated`,
+            distance: crated,
+          };
+        }
+
+        let individual = hammingDistance(hashes.pHashFull, BigInt(item.IconHashes.pHash));
+        if (individual < bestMatch.distance) {
+          bestMatch = {
+            key: `${item.CodeName}-individual`,
+            distance: individual,
+          };
+        }
+      }
+
+      items[bestMatch.key] ||= {
+        collection: [],
+        total: 0,
+      };
+      items[bestMatch.key].total += rawItem.quantity.amount;
+      items[bestMatch.key].collection.push({
+        item: rawItem,
+        distance: bestMatch.distance,
+      });
+
+/*
       const matches = [];
       for (const item of items) {
         const distances = Object.entries(hashes).map(([k, v]) => hammingDistance(v, item.hashes[k]));
@@ -423,7 +470,7 @@ function coalesceAndIdentifyItems(itemBundles) {
         if (average > MAX_HAMMING_DISTANCE) {
           continue;
         }
-
+*/
 /*
         if (distance > MAX_PERFECT_HAMMING_DISTANCE) {
           if (distance > MAX_HAMMING_DISTANCE) {
@@ -449,10 +496,9 @@ function coalesceAndIdentifyItems(itemBundles) {
           }
         }
 */
-
+/*
         matches.push([average, item])
       }
-
       if (matches.length) {
         matches.sort((a, b) => a[0] - b[0]);
 
@@ -465,33 +511,42 @@ function coalesceAndIdentifyItems(itemBundles) {
           total: rawItem.quantity.amount,
         });
       }
+*/
     }
   }
 
-  items.sort(function(a, b) {
-    const countDiff = b.collection.length - a.collection.length;
+  const keyOrder = Object.keys(items).sort(function(a, b) {
+    const countDiff = items[b].collection.length - items[a].collection.length;
     if (countDiff != 0) {
       return countDiff;
     }
-    return b.total - a.total;
+    return items[b].total - items[a].total;
   });
 
   let index = 0;
-  for (const item of items) {
+  for (const key of keyOrder) {
+    const item = items[key];
     const cell = document.createElement('div');
     const quantity = document.createElement('div');
     quantity.textContent = item.total;
     cell.appendChild(quantity);
 
     const icon = document.createElement('div');
-    for (const rawItem of item.collection) {
-      icon.appendChild(rawItem.icon.canvas);
+    for (const element of item.collection) {
+      icon.appendChild(element.item.icon.canvas);
     }
     //icon.appendChild(document.createElement('br'));
     //for (const rawItem of item.collection) {
     //  icon.appendChild(rawItem.icon.cropped);
     //}
     cell.appendChild(icon);
+
+    const catalog = itemCatalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
+    const nameSuffix = key.replace(/^.*-/, ' (') + ')';
+
+    const name = document.createElement('td');
+    name.textContent = catalog.DisplayName + nameSuffix;
+    cell.appendChild(name);
 
     //const name = document.createElement('td');
     //name.textContent = "" + index++ + " diffs: " +
