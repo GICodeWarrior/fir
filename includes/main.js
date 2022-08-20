@@ -19,7 +19,8 @@ var itemCatalog;
 
 addEventListener('DOMContentLoaded', function() {
   const input = document.querySelector('form input');
-  const download = document.querySelector('button');
+  const downloadCollage = document.querySelector('button.collage');
+  const downloadTotals = document.querySelector('button.totals');
 
   document.querySelector('form').addEventListener('submit', function(e) {
     // Prevent a submit that would lose our work
@@ -66,7 +67,7 @@ addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  download.addEventListener('click', function() {
+  downloadCollage.addEventListener('click', function() {
     const collage = document.querySelector('div.render');
     html2canvas(collage, {
       width: collage.scrollWidth,
@@ -78,7 +79,27 @@ addEventListener('DOMContentLoaded', function() {
       link.href = canvas.toDataURL();
 
       const time = new Date();
-      link.download = time.toISOString() + "_" + 'foxhole-inventory.png';
+      link.download = time.toISOString() + "_" + 'foxhole-inventory-collage.png';
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  });
+
+  downloadTotals.addEventListener('click', function() {
+    const totals = document.querySelector('div.report');
+    html2canvas(totals, {
+      width: totals.scrollWidth,
+      height: totals.scrollHeight,
+      windowWidth: totals.scrollWidth + 16,
+      windowHeight: totals.scrollHeight + 16,
+    }).then(function(canvas) {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL();
+
+      const time = new Date();
+      link.download = time.toISOString() + "_" + 'foxhole-inventory-totals.png';
 
       document.body.appendChild(link);
       link.click();
@@ -252,10 +273,10 @@ function cropInventory(canvas) {
 async function cropItems(tesseract, canvas) {
   // These tune the cropping of inventory items
   const MIN_QUANTITY_WIDTH = 40;
-  const MAX_QUANTITY_WIDTH = 60;
+  const MAX_QUANTITY_WIDTH = 90;
 
   const MIN_QUANTITY_HEIGHT = 30;
-  const MAX_QUANTITY_HEIGHT = 50;
+  const MAX_QUANTITY_HEIGHT = 70;
 
   const MAX_GREY_CHANNEL_VARIANCE = 16;
   const MAX_GREY_PIXEL_VARIANCE = 16;
@@ -301,16 +322,16 @@ async function cropItems(tesseract, canvas) {
         };
         if (!quantityBottom) {
           quantityBottom = findQtyBottom(pixels, quantity.top, quantity.left, width, height);
-        } else if (!quantityGap && quantities.length) {
+          quantity.gap = quantity.left;
+        } else {
           const previous = quantities[quantities.length - 1];
-          quantityGap = quantity.left - previous.right - 1;
-          iconWidth = previous.bottom - previous.top + 1;
-          console.log(quantityGap, iconWidth);
+          quantity.gap = quantity.left - previous.right - 1;
         }
         quantity.bottom = quantityBottom;
+        quantity.width = quantity.right - quantity.left + 1;
+        quantity.height = quantity.bottom - quantity.top + 1;
 
-        const quantityHeight = quantity.bottom - quantity.top;
-        if ((quantityHeight >= MIN_QUANTITY_HEIGHT) && (quantityHeight <= MAX_QUANTITY_HEIGHT)) {
+        if ((quantity.height >= MIN_QUANTITY_HEIGHT) && (quantity.height <= MAX_QUANTITY_HEIGHT)) {
           quantity.canvas = cropCanvas(canvas,
               quantity.top, quantity.right, quantity.bottom, quantity.left,
               'invert(100%) contrast(250%)', 5);
@@ -331,12 +352,13 @@ async function cropItems(tesseract, canvas) {
     }
   }
 
-  const iconRightOffset = Math.ceil((quantityGap - iconWidth) / 2);
-  const iconLeftOffset = iconRightOffset + iconWidth;
   const items = quantities.map(function(quantity) {
+    const iconWidth = quantity.height;
+    const iconRightOffset = Math.ceil((quantity.gap - iconWidth) / 2);
+    const iconLeftOffset = iconRightOffset + iconWidth;
     const icon = {
       top: quantity.top,
-      right: quantity.left - iconRightOffset,
+      right: quantity.left - iconRightOffset - 1,
       bottom: quantity.bottom,
       left: quantity.left - iconLeftOffset,
     };
@@ -545,7 +567,7 @@ function coalesceAndIdentifyItems(itemBundles) {
     const nameSuffix = key.replace(/^.*-/, ' (') + ')';
 
     const name = document.createElement('td');
-    name.textContent = catalog.DisplayName + nameSuffix;
+    name.textContent = catalog.DisplayName + nameSuffix; // + ` ${item.collection.map(e=>e.distance)}`;
     cell.appendChild(name);
 
     //const name = document.createElement('td');
@@ -664,6 +686,7 @@ function pHashImage(image) {
   const context = PHASH_CANVAS.getContext('2d');
 
   context.filter = 'grayscale(100%)';
+  context.imageSmoothingQuality = 'high';
   context.drawImage(image, 0, 0, workSize, workSize);
 
   const greyPixels = context.getImageData(0, 0, workSize, workSize).data;
