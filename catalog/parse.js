@@ -68,46 +68,20 @@ class FHStruct {
     return this.#structPath;
   }
 
-  extractValues(selector, path, properties, result) {
+  extractValues(path, properties, result) {
     if (result === undefined) {
       result = {};
     }
 
-/*
-    const selected = this.#data.find(function(element) {
-      for (const pathElement of selector) {
-        if (!element.hasOwnProperty(pathElement)) {
-          return false;
-        }
-        element = element[pathElement]
-      }
-      return !!element;
-    });
-
-    if (selected === undefined) {
-      if (this.#superStruct) {
-        this.#superStruct.extractValues(selector, path, properties, result);
-      }
-      return result;
-    }
-*/
-
-    //let base = selected;
     let base = this.#selected;
     for (const element of path) {
-      //debugger;
       base = (base || {})[element];
     }
-
-    //if (this.#structPath.match(/BPATRPGHeavyCProjectile/)) {
-    //  debugger;
-    //}
 
     const superProperties = [];
     for (const propertyPath of properties) {
       let value = base;
       for (const element of propertyPath) {
-        //debugger;
         value = (value || {})[element];
       }
 
@@ -119,7 +93,7 @@ class FHStruct {
     }
 
     if (superProperties.length && this.#superStruct) {
-      this.#superStruct.extractValues(selector, path, superProperties, result);
+      this.#superStruct.extractValues(path, superProperties, result);
     }
 
     return result;
@@ -178,12 +152,12 @@ function coalesceObject(coreObject) {
     ['DepthCuttoffForSwimDamage'],
     ['BuildLocationType'],
     ['MaxHealth'],
+    ['VehiclesPerCrateBonusQuantity'],
     ['bIsLarge'],
     ['bSupportsVehicleMounts'],
   ];
 
   coreObject.extractValues(
-    ['Properties', 'CodeName'],
     ['Properties'],
     coreProperties,
     combinedObject
@@ -208,7 +182,6 @@ function coalesceObject(coreObject) {
       ObjectPath: itemComponent.getPath(),
     };
     itemComponent.extractValues(
-      ['Properties'],
       ['Properties'],
       componentProperties,
       combinedObject.ItemComponentClass
@@ -236,7 +209,6 @@ function coalesceObject(coreObject) {
         //  debugger;
         //}
         componentData.ProjectileClass = projectileData.extractValues(
-          ['Properties', 'ExplosiveCodeName'],
           ['Properties'],
           projectileProperties
         );
@@ -265,18 +237,12 @@ function coalesceObject(coreObject) {
     ['EnvironmentImpactAmount'],
   ];
 
-  //if (combinedObject.CodeName == 'RPGTW') {
-  //  //process.stderr.write(componentData.CompatibleAmmoCodeName + "\n");
-  //  process.stderr.write(JSON.stringify(Array.from(ammoTypes), null, 2) + "\n");
-  //}
-
   let ammoName = combinedObject.CodeName;
   if (ammoTypes.size == 1) {
     ammoName = ammoTypes.values().next().value;
   }
 
   const ammoValues = common.ammoDynamicData.extractValues(
-    ['Rows', ammoName],
     ['Rows', ammoName],
     ammoProperties
   );
@@ -310,7 +276,6 @@ function coalesceObject(coreObject) {
         ObjectPath: damageType.getPath(),
       };
       damageType.extractValues(
-        ['Properties', 'DisplayName'],
         ['Properties'],
         damageTypeProperties,
         ammoValues.DamageType
@@ -324,12 +289,31 @@ function coalesceObject(coreObject) {
 
       if (!Object.hasOwn(combinedObject, 'SubTypeIcon')
             && !(combinedObject.ItemFlagsMask & 128)) {
-        //  && (combinedObject.ItemProfileType != 'EItemProfileType::HandheldWeapon')
-        //  || (combinedObject.ItemCategory != 'EItemCategory::SmallArms')) {
         combinedObject.SubTypeIcon = ammoValues.DamageType.Icon;
       }
     }
   }
+
+  if ((combinedObject.CodeName == 'ISGTC') && !combinedObject.SubTypeIcon) {
+    combinedObject.SubTypeIcon = 'War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0';
+  }
+
+/*
+  const grenadeProperties = [
+    ['MinTossSpeed'],
+    ['MaxTossSpeed'],
+    ['GrenadeFuseTimer'],
+    ['GrenadeRangeLimit'],
+  ];
+  const grenadeValues = common.grenadeDynamicData.extractValues(
+    ['Rows', combinedObject.CodeName],
+    grenadeProperties
+  );
+  if (Object.keys(grenadeValues).length) {
+    grenadeValues.ObjectPath = common.grenadeDynamicData.getPath();
+    combinedObject.GrenadeDynamicData = grenadeValues;
+  }
+*/
 
   // TODO: Replace with data lookups instead of hard-coding.
   const materialNames = {
@@ -348,7 +332,6 @@ function coalesceObject(coreObject) {
   ];
 
   const itemDynamicValues = common.itemDynamicData.extractValues(
-    ['Rows', combinedObject.CodeName],
     ['Rows', combinedObject.CodeName],
     productionProperties
   );
@@ -374,7 +357,6 @@ function coalesceObject(coreObject) {
   ];
 
   const itemProfileValues = common.itemProfiles.extractValues(
-    ['Properties', 'ItemProfileTable', combinedObject.ItemProfileType],
     ['Properties', 'ItemProfileTable', combinedObject.ItemProfileType],
     profileProperties
   );
@@ -411,7 +393,6 @@ function coalesceObject(coreObject) {
   ];
 
   const vehicleDynamicValues = common.vehicleDynamicData.extractValues(
-    ['Rows', combinedObject.CodeName],
     ['Rows', combinedObject.CodeName],
     vehicleDynamicProperties
   );
@@ -522,42 +503,94 @@ function discreteCosineTransform(vector, skipFactor) {
 const CRATE_ICON = loadImage('War/Content/Textures/UI/Menus/IconFilterCrates.png');
 async function hashIcon(objectValues) {
   const ICON_SIZE = 32;
-  const canvas = createCanvas(ICON_SIZE, ICON_SIZE);
-  const context = canvas.getContext('2d');
+  const CORNER_ICON_SIZE = 14;
+  const CRATE_OFFSET = ICON_SIZE - CORNER_ICON_SIZE;
 
+  const ICON_CANVAS = createCanvas(ICON_SIZE, ICON_SIZE);
+  const CORNER_CANVAS = createCanvas(CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+
+  const hashes = {
+    individual: {},
+    crated: {},
+  };
+
+  const context = ICON_CANVAS.getContext('2d');
   context.fillStyle = 'black';
   context.fillRect(0, 0, ICON_SIZE, ICON_SIZE);
 
-  const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
+/*
+  // Put a little color in the corners to avoid the corner pHash being 0
+  context.fillStyle = '#010101';
+  context.fillRect(0, 0, 1, 1);
+  context.fillStyle = '#010101';
+  context.fillRect(ICON_SIZE - 1, ICON_SIZE - 1, 1, 1);
+  context.fillStyle = 'black';
+*/
+  //context.patternQuality = 'best';
 
+  const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
   context.drawImage(icon, 0, 0, ICON_SIZE, ICON_SIZE);
 
-  const SUB_ICON_SIZE = 14;
+/*
+  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
+    const out = fs.createWriteStream('debugicon-iconOnly.png');
+    const png = ICON_CANVAS.createPNGStream();
+    png.pipe(out);
+    await events.once(out, 'finish');
+  }
+*/
   if (objectValues.SubTypeIcon) {
     const subTypeIcon = await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
 
     context.globalAlpha = 0.75;
-    context.drawImage(subTypeIcon, 0, 0, SUB_ICON_SIZE, SUB_ICON_SIZE);
+    context.drawImage(subTypeIcon, 0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
     context.globalAlpha = 1;
   }
-
-  if (objectValues.DisplayName == 'Shrapnel Mortar Shell') {
+  hashes.individual.full = pHashImage(ICON_CANVAS).toString();
+/*
+  if (objectValues.DisplayName == 'Wrench') {
     const out = fs.createWriteStream('debugicon.png');
-    const png = canvas.createPNGStream();
+    const png = ICON_CANVAS.createPNGStream();
     png.pipe(out);
-    await events.once(png, 'end');
+    await events.once(out, 'finish');
+  }
+*/
+  const corner_context = CORNER_CANVAS.getContext('2d');
+  corner_context.drawImage(ICON_CANVAS,
+      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
+      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  hashes.individual.topLeft = pHashImage(CORNER_CANVAS).toString();
+  hashes.crated.topLeft = hashes.individual.topLeft;
+/*
+  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
+    const out = fs.createWriteStream('debugicon-topLeft.png');
+    const png = CORNER_CANVAS.createPNGStream();
+    png.pipe(out);
+    await events.once(out, 'finish');
+  }
+*/
+  corner_context.drawImage(ICON_CANVAS,
+      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
+      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  hashes.individual.bottomRight = pHashImage(CORNER_CANVAS).toString();
+
+  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
+    const out = fs.createWriteStream('debugicon-bottomRight.png');
+    const png = CORNER_CANVAS.createPNGStream();
+    png.pipe(out);
+    await events.once(out, 'finish');
   }
 
-  const hashes = {
-    pHash: pHashImage(canvas).toString(),
-  }
-
-  const CRATE_OFFSET = ICON_SIZE - SUB_ICON_SIZE;
   context.globalAlpha = 0.75;
-  context.drawImage(await CRATE_ICON, CRATE_OFFSET, CRATE_OFFSET, SUB_ICON_SIZE, SUB_ICON_SIZE);
+  context.drawImage(await CRATE_ICON,
+      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
   context.globalAlpha = 1;
+  hashes.crated.full = pHashImage(ICON_CANVAS).toString();
 
-  hashes.pHashCrated = pHashImage(canvas).toString();
+  corner_context.drawImage(ICON_CANVAS,
+      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
+      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  hashes.crated.bottomRight = pHashImage(CORNER_CANVAS).toString();
 
   return hashes;
 }
@@ -566,7 +599,15 @@ const common = {
   ammoDynamicData: new FHDataTable('BPAmmoDynamicData'),
   itemDynamicData: new FHDataTable('BPItemDynamicData'),
   itemProfiles: new FHDataTable('BPItemProfileTable'),
+  grenadeDynamicData: new FHDataTable('BPGrenadeDynamicData'), // TODO
+  weaponDynamicData: new FHDataTable('BPWeaponDynamicData'), // TODO
   vehicleDynamicData: new FHDataTable('BPVehicleDynamicData'),
+  vehicleProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleProfileList'), // TODO
+  vehicleMovementProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleMovementProfileList'), // TODO
+  structureProfileList: new FHStruct('War/Content/Blueprints/Data/BPStructureProfileList'), // TODO
+  structureDynamicData: new FHDataTable('BPStructureDynamicData'), // TODO
+  factory: new FHStruct('War/Content/Blueprints/Structures/BPFactory'), // TODO
+  massProductionFactory: new FHStruct('War/Content/Blueprints/Structures/BPMassProductionFactory'), // TODO
 };
 
 const searchDirectories = [
@@ -617,7 +658,8 @@ for (const directory of searchDirectories) {
       if (objectValues.CodeName
           && objectValues.DisplayName
           && objectValues.Description
-          && objectValues.Icon) {
+          && objectValues.Icon
+          && objectValues.CodeName != 'Lore') {
         objects.push(objectValues);
 
         const promise = hashIcon(objectValues);

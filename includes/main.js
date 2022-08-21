@@ -3,6 +3,7 @@
 var imagesProcessed = 0;
 var imagesTotal = 0;
 var itemBundles = [];
+var itemBundleLabels = [];
 
 /*
 var itemCatalog;
@@ -21,6 +22,7 @@ addEventListener('DOMContentLoaded', function() {
   const input = document.querySelector('form input');
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
+  const downloadTSV = document.querySelector('button.tsv');
 
   document.querySelector('form').addEventListener('submit', function(e) {
     // Prevent a submit that would lose our work
@@ -59,7 +61,7 @@ addEventListener('DOMContentLoaded', function() {
 
       const image = document.createElement('img');
       image.style.display = 'none';
-      image.addEventListener('load', getProcessImage(scheduler), { once: true });
+      image.addEventListener('load', getProcessImage(scheduler, label), { once: true });
       image.src = URL.createObjectURL(file);
       container.appendChild(image);
 
@@ -106,14 +108,76 @@ addEventListener('DOMContentLoaded', function() {
       document.body.removeChild(link);
     });
   });
+
+  downloadTSV.addEventListener('click', function() {
+    const items = [[
+      'Stockpile',
+      'Quantity',
+      'Name',
+      'Crated?',
+      'Per Crate',
+      'Total',
+      'Description',
+    ].join('\t')];
+    for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
+      const stockpile = itemBundleLabels[bundleIdx].textContent;
+      for (const rawItem of itemBundles[bundleIdx]) {
+        const quantity = rawItem.quantity.amount;
+        if (quantity == 0) {
+          continue;
+        }
+
+        const item = itemCatalog.find(e => e.CodeName == rawItem.CodeName);
+        const perCrate = ((item.ItemDynamicData || {}).QuantityPerCrate || 3)
+            + (item.VehiclesPerCrateBonusQuantity || 0);
+        const perUnit = rawItem.isCrated ? perCrate : 1;
+
+        items.push([
+          stockpile,
+          quantity,
+          item.DisplayName,
+          rawItem.isCrated,
+          rawItem.isCrated ? perUnit : '',
+          quantity * perUnit,
+          item.Description,
+        ].join('\t'));
+      }
+    }
+
+    // convert a Unicode string to a string where each 16-bit unit occupies only one byte
+    // courtesy of mdn: https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings
+    function toBinary(string) {
+      const codeUnits = new Uint16Array(string.length);
+      for (let i = 0; i < codeUnits.length; i++) {
+        codeUnits[i] = string.charCodeAt(i);
+      }
+      const charCodes = new Uint8Array(codeUnits.buffer);
+      let result = '';
+      for (let i = 0; i < charCodes.byteLength; i++) {
+        result += String.fromCharCode(charCodes[i]);
+      }
+      return result;
+    }
+    const base64TSV = btoa(toBinary(items.join('\n')));
+
+    const link = document.createElement('a');
+    link.href = `data:text/tab-separated-values;base64,${base64TSV}`;
+
+    const time = new Date();
+    link.download = time.toISOString() + "_" + 'foxhole-inventory.tsv';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
 });
 
-function getProcessImage(scheduler) {
+function getProcessImage(scheduler, label) {
   return function() {
-    return processImage.call(this, scheduler);
+    return processImage.call(this, scheduler, label);
   };
 
-  async function processImage(scheduler) {
+  async function processImage(scheduler, label) {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
 
@@ -125,6 +189,7 @@ function getProcessImage(scheduler) {
     if (inventory) {
       const items = await cropItems(scheduler, inventory.canvas);
       itemBundles.push(items);
+      itemBundleLabels.push(label);
 
       if (items.length) {
         const bannerHeight = items[0].quantity.bottom - items[0].quantity.top;
@@ -361,6 +426,7 @@ async function cropItems(tesseract, canvas) {
       right: quantity.left - iconRightOffset - 1,
       bottom: quantity.bottom,
       left: quantity.left - iconLeftOffset,
+      width: iconWidth,
     };
     icon.canvas = cropCanvas(canvas, icon.top, icon.right, icon.bottom, icon.left);
 
@@ -437,12 +503,27 @@ function coalesceAndIdentifyItems(itemBundles) {
       item.icon.avgValue = totalValue / (width * height * 3);
       */
 
+      /*
       rawItem.icon.cropped = autoCropImage(rawItem.icon.canvas);
       const hashes = {
         pHashFull: pHashImage(rawItem.icon.canvas),
         pHashCrop: pHashImage(rawItem.icon.cropped),
         aHashFull: aHashImage(rawItem.icon.canvas),
         aHashCrop: aHashImage(rawItem.icon.cropped),
+      };
+      */
+
+      const width = rawItem.icon.width;
+      const cornerSize = Math.round(7 / 16 * rawItem.icon.width) - 1;
+      const bottomRightOffset = rawItem.icon.width - cornerSize - 1;
+      rawItem.icon.fullCanvas = cropCanvas(rawItem.icon.canvas, 0, width - 1, width - 1, 0, 'contrast(110%)');
+      rawItem.icon.topLeftCanvas = cropCanvas(rawItem.icon.canvas, 0, cornerSize, cornerSize, 0, 'contrast(110%)');
+      rawItem.icon.bottomRightCanvas = cropCanvas(rawItem.icon.canvas, bottomRightOffset, width - 1, width - 1, bottomRightOffset, 'contrast(110%)');
+
+      const hashes = {
+        full: pHashImage(rawItem.icon.fullCanvas),
+        topLeft: pHashImage(rawItem.icon.topLeftCanvas),
+        bottomRight: pHashImage(rawItem.icon.bottomRightCanvas),
       };
       rawItem.icon.hashes = hashes;
 
@@ -452,36 +533,54 @@ function coalesceAndIdentifyItems(itemBundles) {
       //const subWidth = Math.floor(canvasA.width / 3);
       //const subHeight = Math.floor(canvasA.height / 3);
 
+      let computeDistance = function(itemHashes, catalogHashes) {
+        const FULL_WEIGHT = 7;
+        const areas = Object.keys(itemHashes);
+        let sum = 0;
+        for (const area of areas) {
+          const weight = area == 'full' ? FULL_WEIGHT : 1;
+          sum += weight * hammingDistance(hashes[area], BigInt(catalogHashes[area]));
+        }
+        return sum / (areas.length + FULL_WEIGHT - 1);
+      };
+
       let bestMatch = {
         distance: Infinity,
       };
       for (const item of itemCatalog) {
-        let crated = hammingDistance(hashes.pHashFull, BigInt(item.IconHashes.pHashCrated));
-        if (crated < bestMatch.distance) {
+        //const cratedDistance = hammingDistance(hashes.full, BigInt(item.IconHashes.crated.full));
+        const cratedDistance = computeDistance(hashes, item.IconHashes.crated);
+        if (cratedDistance < bestMatch.distance) {
           bestMatch = {
-            key: `${item.CodeName}-crated`,
-            distance: crated,
+            CodeName: item.CodeName,
+            isCrated: true,
+            distance: cratedDistance,
           };
         }
 
-        let individual = hammingDistance(hashes.pHashFull, BigInt(item.IconHashes.pHash));
-        if (individual < bestMatch.distance) {
+        //const individualDistance = hammingDistance(hashes.full, BigInt(item.IconHashes.individual.full));
+        const individualDistance = computeDistance(hashes, item.IconHashes.individual);
+        if (individualDistance < bestMatch.distance) {
           bestMatch = {
-            key: `${item.CodeName}-individual`,
-            distance: individual,
+            CodeName: item.CodeName,
+            isCrated: false,
+            distance: individualDistance,
           };
         }
       }
 
-      items[bestMatch.key] ||= {
+      const bestMatchKey = `${bestMatch.CodeName}${bestMatch.isCrated ? '-crated' : '' }`
+      items[bestMatchKey] ||= {
         collection: [],
         total: 0,
       };
-      items[bestMatch.key].total += rawItem.quantity.amount;
-      items[bestMatch.key].collection.push({
+      items[bestMatchKey].total += rawItem.quantity.amount;
+      items[bestMatchKey].collection.push({
         item: rawItem,
         distance: bestMatch.distance,
       });
+      rawItem.CodeName = bestMatch.CodeName;
+      rawItem.isCrated = bestMatch.isCrated;
 
 /*
       const matches = [];
@@ -564,10 +663,10 @@ function coalesceAndIdentifyItems(itemBundles) {
     cell.appendChild(icon);
 
     const catalog = itemCatalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
-    const nameSuffix = key.replace(/^.*-/, ' (') + ')';
+    const nameSuffix = key.replace(/^.*(?:-([^-]+))?$/, (m,g) => g ? ' ($1)' : '');
 
     const name = document.createElement('td');
-    name.textContent = catalog.DisplayName + nameSuffix; // + ` ${item.collection.map(e=>e.distance)}`;
+    name.textContent = catalog.DisplayName + nameSuffix;// + ` ${item.collection.map(e=>e.distance)}`;
     cell.appendChild(name);
 
     //const name = document.createElement('td');
