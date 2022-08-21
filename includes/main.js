@@ -469,37 +469,9 @@ function coalesceAndIdentifyItems(itemBundles) {
 
   const report = document.querySelector('div.report');
 
-  //const items = [];
   const items = {};
   for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
     for (const rawItem of itemBundles[bundleIdx]) {
-      /*
-      const width = item.icon.canvas.width;
-      const height = item.icon.canvas.height;
-
-      const context = item.icon.canvas.getContext('2d');
-      const pixels = context.getImageData(0, 0, width, height).data;
-
-      var totalValue = 0;
-      for (var i = 0; i < pixels.length; ++i) {
-        totalValue += pixels[i++];
-        totalValue += pixels[i++];
-        totalValue += pixels[i++];
-        // Ignore alpha channel
-      }
-      item.icon.avgValue = totalValue / (width * height * 3);
-      */
-
-      /*
-      rawItem.icon.cropped = autoCropImage(rawItem.icon.canvas);
-      const hashes = {
-        pHashFull: pHashImage(rawItem.icon.canvas),
-        pHashCrop: pHashImage(rawItem.icon.cropped),
-        aHashFull: aHashImage(rawItem.icon.canvas),
-        aHashCrop: aHashImage(rawItem.icon.cropped),
-      };
-      */
-
       const width = rawItem.icon.width;
       const cornerSize = Math.round(7 / 16 * rawItem.icon.width) - 1;
       const bottomRightOffset = rawItem.icon.width - cornerSize - 1;
@@ -513,12 +485,6 @@ function coalesceAndIdentifyItems(itemBundles) {
         bottomRight: pHashImage(rawItem.icon.bottomRightCanvas),
       };
       rawItem.icon.hashes = hashes;
-
-      //rawItem.icon.hash = pHashImage(rawItem.icon.canvas);
-
-      //const canvasA = rawItem.icon.canvas;
-      //const subWidth = Math.floor(canvasA.width / 3);
-      //const subHeight = Math.floor(canvasA.height / 3);
 
       let computeDistance = function(itemHashes, catalogHashes) {
         const FULL_WEIGHT = 7;
@@ -568,58 +534,6 @@ function coalesceAndIdentifyItems(itemBundles) {
       });
       rawItem.CodeName = bestMatch.CodeName;
       rawItem.isCrated = bestMatch.isCrated;
-
-/*
-      const matches = [];
-      for (const item of items) {
-        const distances = Object.entries(hashes).map(([k, v]) => hammingDistance(v, item.hashes[k]));
-
-        const average = distances.reduce((a, b) => a + b, 0) / distances.length;
-        if (average > MAX_HAMMING_DISTANCE) {
-          continue;
-        }
-*/
-/*
-        if (distance > MAX_PERFECT_HAMMING_DISTANCE) {
-          if (distance > MAX_HAMMING_DISTANCE) {
-            continue;
-          }
-
-          const canvasB = item.collection[0].icon.canvas;
-
-          if (diffImages(canvasA, canvasB) > MAX_IMAGE_DIFF) {
-            continue;
-          }
-
-          if (diffImages(canvasA, canvasB, 0, 0, subWidth, subHeight) > MAX_IMAGE_TOP_CORNER_DIFF) {
-            continue;
-          }
-
-          if (diffImages(canvasA, canvasB, subWidth, subHeight, subWidth, subHeight) > MAX_IMAGE_MIDDLE_DIFF) {
-            continue;
-          }
-
-          if (diffImages(canvasA, canvasB, subWidth * 2, subHeight * 2, subWidth, subHeight) > MAX_IMAGE_BOTTOM_CORNER_DIFF) {
-            continue;
-          }
-        }
-*/
-/*
-        matches.push([average, item])
-      }
-      if (matches.length) {
-        matches.sort((a, b) => a[0] - b[0]);
-
-        matches[0][1].collection.push(rawItem);
-        matches[0][1].total += rawItem.quantity.amount;
-      } else {
-        items.push({
-          hashes: rawItem.icon.hashes,
-          collection: [rawItem],
-          total: rawItem.quantity.amount,
-        });
-      }
-*/
     }
   }
 
@@ -650,9 +564,9 @@ function coalesceAndIdentifyItems(itemBundles) {
     cell.appendChild(icon);
 
     const catalogItem = catalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
-    const nameSuffix = key.replace(/^.*(?:-([^-]+))?$/, (m,g) => g ? ' ($1)' : '');
+    const nameSuffix = item.collection[0].item.isCrated ? ' (crated)' : '';
 
-    const name = document.createElement('td');
+    const name = document.createElement('div');
     name.textContent = catalogItem.DisplayName + nameSuffix;// + ` ${item.collection.map(e=>e.distance)}`;
     cell.appendChild(name);
 
