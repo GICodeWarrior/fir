@@ -5,19 +5,6 @@ var imagesTotal = 0;
 var itemBundles = [];
 var itemBundleLabels = [];
 
-/*
-var itemCatalog;
-(function() {
-  const request = new XMLHttpRequest();
-  request.addEventListener('load', function() {
-    itemCatalog = this.response;
-  });
-  request.open('GET', 'items.json');
-  request.responseType = 'json';
-  request.send();
-})();
-*/
-
 addEventListener('DOMContentLoaded', function() {
   const input = document.querySelector('form input');
   const downloadCollage = document.querySelector('button.collage');
@@ -127,7 +114,7 @@ addEventListener('DOMContentLoaded', function() {
           continue;
         }
 
-        const item = itemCatalog.find(e => e.CodeName == rawItem.CodeName);
+        const item = catalog.find(e => e.CodeName == rawItem.CodeName);
         const perCrate = ((item.ItemDynamicData || {}).QuantityPerCrate || 3)
             + (item.VehiclesPerCrateBonusQuantity || 0);
         const perUnit = rawItem.isCrated ? perCrate : 1;
@@ -547,7 +534,7 @@ function coalesceAndIdentifyItems(itemBundles) {
       let bestMatch = {
         distance: Infinity,
       };
-      for (const item of itemCatalog) {
+      for (const item of catalog) {
         //const cratedDistance = hammingDistance(hashes.full, BigInt(item.IconHashes.crated.full));
         const cratedDistance = computeDistance(hashes, item.IconHashes.crated);
         if (cratedDistance < bestMatch.distance) {
@@ -662,11 +649,11 @@ function coalesceAndIdentifyItems(itemBundles) {
     //}
     cell.appendChild(icon);
 
-    const catalog = itemCatalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
+    const catalogItem = catalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
     const nameSuffix = key.replace(/^.*(?:-([^-]+))?$/, (m,g) => g ? ' ($1)' : '');
 
     const name = document.createElement('td');
-    name.textContent = catalog.DisplayName + nameSuffix;// + ` ${item.collection.map(e=>e.distance)}`;
+    name.textContent = catalogItem.DisplayName + nameSuffix;// + ` ${item.collection.map(e=>e.distance)}`;
     cell.appendChild(name);
 
     //const name = document.createElement('td');

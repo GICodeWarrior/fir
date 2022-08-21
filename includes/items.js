@@ -1,4 +1,4 @@
-const itemCatalog = [
+const catalog = [
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/AntiTankMinePickup",
     "CodeName": "TankMine",
@@ -52,6 +52,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -117,6 +131,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
     "IconHashes": {
       "individual": {
         "full": "14118898408345509392",
@@ -143,7 +172,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/BandagesItemIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BandagesComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::SingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::SingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -158,6 +188,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 0.5,
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Medical"
     },
     "IconHashes": {
       "individual": {
@@ -201,6 +245,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "14166142067613786754",
@@ -230,6 +288,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -266,6 +335,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -324,6 +404,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14028774279689959623",
@@ -377,6 +472,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 0.8,
+      "MaxAmmo": 40,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.2,
+      "Agility": 0.75,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.8,
+      "MaximumRange": 1800,
+      "MaximumReachability": 2300,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -390,6 +503,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -442,6 +570,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 36,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.15,
+      "Agility": 0.4,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.7,
+      "MaximumRange": 2250,
+      "MaximumReachability": 3200,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -455,6 +601,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -508,6 +669,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 0.8,
+      "MaxAmmo": 25,
+      "MaxApexHalfAngle": 9.5,
+      "BaselineApexHalfAngle": 3.5,
+      "StabilityCostPerShot": 0.15,
+      "Agility": 0.5,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2000,
+      "MaximumReachability": 2500,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -521,6 +700,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -573,6 +767,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeATIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1250,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 1800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -591,6 +792,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -649,6 +865,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14107593071041865595",
@@ -701,6 +932,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 8,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 3.5,
+      "StabilityCostPerShot": 1,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.5,
+      "MaximumRange": 3450,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -714,6 +963,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -766,6 +1030,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -832,6 +1111,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15110531603066132084",
@@ -892,6 +1186,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -910,6 +1222,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -972,6 +1299,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -990,6 +1335,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -1057,6 +1417,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15039596597347422980",
@@ -1118,6 +1493,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -1136,6 +1529,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -1214,6 +1622,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13877667906652211004",
@@ -1276,6 +1699,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 3500,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -1294,6 +1735,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -1331,6 +1787,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 5,
+      "RetrieveQuantity": 20,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -1371,6 +1838,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "13888873537270731350",
@@ -1406,6 +1887,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 0.5,
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Medical"
     },
     "IconHashes": {
       "individual": {
@@ -1459,6 +1954,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 15,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 2,
+      "StabilityCostPerShot": 0.32,
+      "Agility": 0.7,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2500,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 0.888,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -1472,6 +1992,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -1509,6 +2044,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10902118091275199654",
@@ -1545,6 +2091,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10420551016478893950",
@@ -1574,6 +2131,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -1609,6 +2177,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -1652,6 +2231,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 25,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "9894040252822525625",
@@ -1688,6 +2278,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 5,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "11125409730138759578",
@@ -1713,7 +2314,8 @@ const itemCatalog = [
     "Icon": "War/Content/Slate/Images/ResourceFuelIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPDieselComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -1727,6 +2329,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": true,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -1797,6 +2410,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "13957044399798555422",
@@ -1832,6 +2459,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 7.5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -1869,6 +2507,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 2.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -1914,6 +2566,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -1965,6 +2631,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSHIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1450,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -1983,6 +2656,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -2021,6 +2709,31 @@ const itemCatalog = [
         "HELaunchedGrenade"
       ]
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1650,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2039,6 +2752,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -2075,6 +2803,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -2123,6 +2862,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1000,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2141,6 +2887,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -2196,6 +2957,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14100824747924865986",
@@ -2225,6 +3001,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -2261,6 +3048,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10420607581996006354",
@@ -2294,6 +3092,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 30,
       "CrateRetrieveTime": 120,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -2347,6 +3156,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 30,
+      "MaxApexHalfAngle": 9.5,
+      "BaselineApexHalfAngle": 3.5,
+      "StabilityCostPerShot": 0.2,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2700,
+      "MaximumReachability": 3200,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2360,6 +3187,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -2405,6 +3247,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -2456,6 +3312,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeHEIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2474,6 +3348,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo"
     },
     "IconHashes": {
       "individual": {
@@ -2527,6 +3415,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 75,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.145,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2700,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2540,6 +3446,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -2593,6 +3514,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15176621014505866034",
@@ -2644,6 +3580,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -2698,6 +3649,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 125,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.145,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2700,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 0.64,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -2711,6 +3680,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -2774,6 +3758,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13958099239500961409",
@@ -2832,6 +3831,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -2893,6 +3907,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -2956,6 +3985,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -3024,6 +4068,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
     "IconHashes": {
       "individual": {
         "full": "14029108036801178643",
@@ -3049,7 +4108,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/RefinedFuelIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPPetrolComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -3063,6 +4123,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": true,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -3121,6 +4192,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14247194488908303435",
@@ -3148,6 +4234,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -3186,6 +4283,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10715514217689938115",
@@ -3221,6 +4329,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -3279,6 +4398,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14091878000753613494",
@@ -3331,6 +4465,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 6,
+      "MaxApexHalfAngle": 8,
+      "BaselineApexHalfAngle": 1,
+      "StabilityCostPerShot": 0.6,
+      "Agility": 0.35,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.4,
+      "StabilityGainRate": 1,
+      "MaximumRange": 1235,
+      "MaximumReachability": 1800,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 140,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -3344,6 +4496,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -3402,6 +4569,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13958977152598089255",
@@ -3452,6 +4634,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 12,
+      "MaxApexHalfAngle": 8,
+      "BaselineApexHalfAngle": 1,
+      "StabilityCostPerShot": 0.72,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2700,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -3465,6 +4672,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -3527,6 +4749,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -3602,6 +4835,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13876770657604950721",
@@ -3660,6 +4908,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -3678,6 +4944,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -3713,6 +4994,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 3,
       "CrateRetrieveTime": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -3771,6 +5063,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14225884485052766259",
@@ -3797,7 +5104,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/SledgeHammerItemIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPSledgeHammerComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::Mortar"
+      "EquippedGripType": "EEquippedWeaponGripType::Mortar",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -3812,6 +5120,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -3865,6 +5187,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 20,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 3,
+      "StabilityCostPerShot": 0.17,
+      "Agility": 0.35,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2200,
+      "MaximumReachability": 2500,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -3878,6 +5218,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -3932,6 +5287,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 25,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 3,
+      "StabilityCostPerShot": 0.15,
+      "Agility": 0.4,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.7,
+      "MaximumRange": 2400,
+      "MaximumReachability": 2800,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -3945,6 +5318,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -4004,6 +5392,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "13899302070602437465",
@@ -4040,6 +5439,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10490359498501112442",
@@ -4066,7 +5476,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/TraumaKitItemIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPTraumaKitComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -4081,6 +5492,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Medical"
     },
     "IconHashes": {
       "individual": {
@@ -4124,6 +5549,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -4188,6 +5627,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 5,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "9299502807150769649",
@@ -4224,6 +5674,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 10,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Supplies"
     },
     "IconHashes": {
       "individual": {
@@ -4273,6 +5737,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeGAIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1250,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4286,6 +5757,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -4345,6 +5831,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "10459445879572997752",
@@ -4371,7 +5868,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/FirstAidKitItem.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/FirstAidKitComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -4386,6 +5884,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 7,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Medical"
     },
     "IconHashes": {
       "individual": {
@@ -4424,6 +5936,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 10,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Supplies"
+    },
     "IconHashes": {
       "individual": {
         "full": "14861154812356159343",
@@ -4460,6 +5986,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -4511,6 +6051,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSBIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 380,
+      "MaxTossSpeed": 1365,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4529,6 +6076,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -4579,6 +6141,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeHEIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4597,6 +6177,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
     },
     "IconHashes": {
       "individual": {
@@ -4626,6 +6221,17 @@ const itemCatalog = [
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPHeavyMachineGunItemComponent.0",
       "CompatibleAmmoCodeName": "HMGAmmo"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -4673,6 +6279,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1450,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4691,6 +6304,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -4741,6 +6369,24 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeHEIcon.0",
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4759,6 +6405,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 6,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
     },
     "IconHashes": {
       "individual": {
@@ -4817,6 +6478,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 14,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13966277643616483901",
@@ -4851,6 +6527,24 @@ const itemCatalog = [
         "MortarAmmoFL"
       ]
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 1,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 0,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 550,
+      "ArtilleryAccuracyMaxDist": 1200,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4869,6 +6563,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -4923,6 +6632,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 12,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 3,
+      "StabilityCostPerShot": 0.4,
+      "Agility": 0.3,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.55,
+      "StabilityGainRate": 1,
+      "MaximumRange": 1200,
+      "MaximumReachability": 1800,
+      "DamageMultiplier": 0.888,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 140,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -4936,6 +6663,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 2.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -4989,6 +6731,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 8,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 2,
+      "StabilityCostPerShot": 0.3,
+      "Agility": 0.3,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.55,
+      "StabilityGainRate": 1,
+      "MaximumRange": 1400,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 140,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5002,6 +6762,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -5055,6 +6826,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 8,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 2,
+      "StabilityCostPerShot": 0.3,
+      "Agility": 0.3,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.55,
+      "StabilityGainRate": 1,
+      "MaximumRange": 1400,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 140,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5068,6 +6857,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -5110,6 +6910,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "14644646966975162169",
@@ -5145,6 +6959,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -5197,6 +7025,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 0.8,
+      "MaxAmmo": 12,
+      "MaxApexHalfAngle": 9.5,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.35,
+      "Agility": 0.65,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.4,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2400,
+      "MaximumReachability": 3800,
+      "DamageMultiplier": 0.8,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5210,6 +7056,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5262,6 +7123,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 12,
+      "MaxApexHalfAngle": 8,
+      "BaselineApexHalfAngle": 1.5,
+      "StabilityCostPerShot": 0.55,
+      "Agility": 0.9,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2500,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5275,6 +7161,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5328,6 +7229,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 8,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 1.5,
+      "StabilityCostPerShot": 0.95,
+      "Agility": 0.9,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.8,
+      "MaximumRange": 2950,
+      "MaximumReachability": 3550,
+      "DamageMultiplier": 1.75,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5341,6 +7267,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5394,6 +7335,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 6,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 1.5,
+      "StabilityCostPerShot": 0.6,
+      "Agility": 0.6,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.9,
+      "MaximumRange": 2250,
+      "MaximumReachability": 3250,
+      "DamageMultiplier": 1.3,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5407,6 +7373,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5459,6 +7440,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 18,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 2,
+      "StabilityCostPerShot": 0.32,
+      "Agility": 0.7,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.7,
+      "MaximumRange": 2300,
+      "MaximumReachability": 3500,
+      "DamageMultiplier": 0.888,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5472,6 +7478,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5525,6 +7546,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 10,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 1.25,
+      "StabilityCostPerShot": 0.8,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.4,
+      "MaximumRange": 3500,
+      "MaximumReachability": 4550,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5538,6 +7584,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5591,6 +7652,31 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 390,
+      "MaxTossSpeed": 1550,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 12,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 1,
+      "StabilityCostPerShot": 0.85,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.5,
+      "MaximumRange": 3300,
+      "MaximumReachability": 4300,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5604,6 +7690,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5641,6 +7742,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 600,
       "CrateRetrieveTime": 600,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -5709,6 +7824,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "15320519568171482381",
@@ -5760,6 +7889,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 6,
+      "MaxApexHalfAngle": 15,
+      "BaselineApexHalfAngle": 15,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 650,
+      "MaximumReachability": 1800,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5773,6 +7920,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5799,7 +7961,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/ShovelIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPShovelComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::Shovel"
+      "EquippedGripType": "EEquippedWeaponGripType::Shovel",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -5814,6 +7977,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
     },
     "IconHashes": {
       "individual": {
@@ -5868,6 +8045,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 15,
+      "MaxApexHalfAngle": 6.5,
+      "BaselineApexHalfAngle": 3.5,
+      "StabilityCostPerShot": 0.3,
+      "Agility": 0.2,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.4,
+      "StabilityGainRate": 1,
+      "MaximumRange": 1650,
+      "MaximumReachability": 2000,
+      "DamageMultiplier": 0.75,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 75,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5881,6 +8076,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 2.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5928,6 +8138,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSMKIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1300,
+      "GrenadeFuseTimer": 2.8,
+      "GrenadeRangeLimit": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -5941,6 +8158,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -5994,6 +8226,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 10,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 0.001,
+      "StabilityCostPerShot": 1,
+      "Agility": 3.5,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.12,
+      "MaximumRange": 5400,
+      "MaximumReachability": 5900,
+      "DamageMultiplier": 1.25,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -6012,6 +8262,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -6065,6 +8330,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 5,
+      "MaxApexHalfAngle": 10,
+      "BaselineApexHalfAngle": 0.001,
+      "StabilityCostPerShot": 1,
+      "Agility": 4,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 0.1,
+      "MaximumRange": 5750,
+      "MaximumReachability": 6250,
+      "DamageMultiplier": 1.35,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -6083,6 +8366,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -6119,6 +8417,20 @@ const itemCatalog = [
       "SingleRetrieveTime": 8,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 10,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Medical"
     },
     "IconHashes": {
       "individual": {
@@ -6168,6 +8480,13 @@ const itemCatalog = [
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
     "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeATIcon.0",
+    "GrenadeDynamicData": {
+      "MinTossSpeed": 400,
+      "MaxTossSpeed": 1100,
+      "GrenadeFuseTimer": 4,
+      "GrenadeRangeLimit": 720,
+      "ObjectPath": "War/Content/Blueprints/Data/BPGrenadeDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -6186,6 +8505,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyArms",
+      "MassProductionFactory": "EFactoryQueueType::HeavyArms"
     },
     "IconHashes": {
       "individual": {
@@ -6244,6 +8578,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13951923368343638327",
@@ -6296,6 +8645,24 @@ const itemCatalog = [
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 25,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 4,
+      "StabilityCostPerShot": 0.2,
+      "Agility": 0.2,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2200,
+      "MaximumReachability": 2500,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -6309,6 +8676,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 3.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
     },
     "IconHashes": {
       "individual": {
@@ -6368,6 +8750,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "13876823434162937721",
@@ -6410,6 +8803,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo"
+    },
     "IconHashes": {
       "individual": {
         "full": "14369924916573818533",
@@ -6434,7 +8841,8 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/HammerIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPHammerComponent.0",
-      "EquippedGripType": "EEquippedWeaponGripType::SingleHandItem"
+      "EquippedGripType": "EEquippedWeaponGripType::SingleHandItem",
+      "SafeItem": true
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -6449,6 +8857,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -6491,6 +8910,20 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Utility"
+    },
     "IconHashes": {
       "individual": {
         "full": "10490418894049117050",
@@ -6527,6 +8960,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -6565,6 +9009,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "14309120075512926742",
@@ -6601,6 +9056,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -6664,6 +9130,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": true,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
     "IconHashes": {
       "individual": {
         "full": "14028769254126093204",
@@ -6708,6 +9189,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -6754,6 +9250,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "13898224058616443099",
@@ -6798,6 +9309,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -6844,6 +9370,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15663639991219090212",
@@ -6888,6 +9429,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -6934,6 +9490,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14222483776771154735",
@@ -6978,6 +9549,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -7024,6 +9610,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15015398653102666551",
@@ -7068,6 +9669,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -7114,6 +9730,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15591859063806115041",
@@ -7158,6 +9789,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -7204,6 +9850,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14873253998088231223",
@@ -7248,6 +9909,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -7294,6 +9970,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14801196401969691437",
@@ -7339,6 +10030,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "15306442269325157171",
@@ -7382,6 +10088,17 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
     "IconHashes": {
       "individual": {
         "full": "11346939819184055085",
@@ -7424,6 +10141,17 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "IconHashes": {
       "individual": {
@@ -7470,6 +10198,21 @@ const itemCatalog = [
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
     "IconHashes": {
       "individual": {
         "full": "14798944597861423981",
@@ -7514,6 +10257,21 @@ const itemCatalog = [
       "SingleRetrieveTime": 5,
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::Uniforms",
+      "MassProductionFactory": "EFactoryQueueType::Uniforms"
     },
     "IconHashes": {
       "individual": {
@@ -7574,6 +10332,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10865339058085978411",
@@ -7626,6 +10409,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -7682,6 +10477,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.4,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10744580333755080169",
@@ -7736,6 +10556,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.5,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -7794,6 +10639,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "15293991034690769679",
@@ -7850,6 +10720,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10671960883621452433",
@@ -7904,6 +10799,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -7964,6 +10884,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9526075171608120760",
@@ -8022,6 +10967,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.85,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8082,6 +11052,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679842227194008816",
@@ -8140,6 +11135,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.85,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8200,6 +11220,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9554173754696713106",
@@ -8258,6 +11303,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.75,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8318,6 +11388,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14138820582335044508",
@@ -8376,6 +11471,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.85,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 18500,
+      "HandbrakeForce": 12000,
+      "AirResistance": 60,
+      "RollingResistance": 220,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.3,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8436,6 +11556,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10751898539790310115",
@@ -8493,6 +11638,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8552,6 +11722,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10798341237033874714",
@@ -8609,6 +11804,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8668,6 +11888,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10532624117330507209",
@@ -8725,6 +11970,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8784,6 +12054,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10865612729551066309",
@@ -8841,6 +12136,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -8900,6 +12220,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "13863556962423753667",
@@ -8958,6 +12303,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10838027641934199533",
@@ -9013,6 +12383,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9070,6 +12452,18 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14132078891962453208",
@@ -9125,6 +12519,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9185,6 +12591,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14346334134375782456",
@@ -9243,6 +12674,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.75,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9303,6 +12759,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14382591098772495292",
@@ -9361,6 +12842,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.65,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9421,6 +12927,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14202447094887194265",
@@ -9478,6 +13009,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.55,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9537,6 +13093,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10494352910549883574",
@@ -9594,6 +13175,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.55,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9654,6 +13260,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9542681967562051300",
@@ -9712,6 +13343,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9772,6 +13428,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10706863815562993398",
@@ -9830,6 +13511,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -9890,6 +13596,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679840980848205540",
@@ -9949,6 +13680,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679842046872556272",
@@ -10006,6 +13762,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 6000,
+      "BrakeForce": 22000,
+      "HandbrakeForce": 22000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 1,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10065,6 +13846,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 6000,
+      "BrakeForce": 22000,
+      "HandbrakeForce": 22000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 1,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9627968549961063569",
@@ -10117,6 +13923,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": false,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10171,6 +13989,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10229,6 +14059,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625734333868786588",
@@ -10286,6 +14141,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9337508261028479127",
@@ -10341,6 +14221,51 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 50,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 475,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10764534104521260236",
@@ -10395,6 +14320,51 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 50,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 475,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 125
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 125,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
     "IconHashes": {
       "individual": {
@@ -10452,6 +14422,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14346281448074890812",
@@ -10504,6 +14499,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": false,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10563,6 +14570,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10203866361512840921",
@@ -10615,6 +14647,38 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 30,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 60
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 60,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
     "IconHashes": {
       "individual": {
@@ -10673,6 +14737,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 6000,
+      "BrakeForce": 22000,
+      "HandbrakeForce": 22000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 1,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9627986142021260956",
@@ -10730,6 +14819,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 6000,
+      "BrakeForce": 22000,
+      "HandbrakeForce": 22000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 1,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9553113824121242805",
@@ -10783,6 +14897,18 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": false,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10843,6 +14969,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9623412179498873276",
@@ -10901,6 +15052,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.23,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -10961,6 +15137,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10599622926734564067",
@@ -11020,6 +15221,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10459732118099335920",
@@ -11078,6 +15304,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.23,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11139,6 +15390,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10678433575898815472",
@@ -11199,6 +15475,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10705388826084085712",
@@ -11257,6 +15558,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.27,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11317,6 +15643,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 35000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10680686466149861809",
@@ -11375,6 +15726,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0.4,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11435,6 +15811,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 15000,
+      "BrakeForce": 30000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 240,
+      "RollingResistance": 5150,
+      "LowSpeedEngineForceMultiplier": 2,
+      "LowGearCutoff": 0.6,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10669637612532113140",
@@ -11491,6 +15892,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1000,
+      "BrakeForce": 7500,
+      "HandbrakeForce": 8000,
+      "AirResistance": 15,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.3,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11549,6 +15975,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1000,
+      "BrakeForce": 7500,
+      "HandbrakeForce": 8000,
+      "AirResistance": 15,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.3,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9770975482205067932",
@@ -11605,6 +16056,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1000,
+      "BrakeForce": 7500,
+      "HandbrakeForce": 8000,
+      "AirResistance": 15,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.3,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11665,6 +16141,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "11037811353214355816",
@@ -11724,6 +16225,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14140805720531979384",
@@ -11780,6 +16306,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -11838,6 +16389,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9527218676547175922",
@@ -11895,6 +16471,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9598150370677673404",
@@ -11951,6 +16552,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -12010,6 +16636,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9526092793854725267",
@@ -12066,6 +16717,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 1300,
+      "BrakeForce": 12000,
+      "HandbrakeForce": 7000,
+      "AirResistance": 24,
+      "RollingResistance": 200,
+      "LowSpeedEngineForceMultiplier": 1,
+      "LowGearCutoff": 0.2,
+      "CenterOfGravityHeight": 0.8,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -12125,6 +16801,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.4,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10709115032133607104",
@@ -12180,6 +16881,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -12238,6 +16964,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "10707143601018604957",
@@ -12294,6 +17045,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -12352,6 +17128,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.4,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625668362361360142",
@@ -12408,6 +17209,31 @@ const itemCatalog = [
       "TankArmourMinPenetrationChance": 0,
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
     "IconHashes": {
       "individual": {
@@ -12467,6 +17293,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14238194425661738654",
@@ -12525,6 +17376,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "14236224143774638493",
@@ -12581,6 +17457,31 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625734333209955231",
@@ -12604,6 +17505,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier2Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 950,
+    "StructureDynamicData": {
+      "MaxHealth": 950,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 85
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 32,
+      "RepairCost": 85,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": true,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10910652420557020257",
@@ -12626,6 +17547,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 500,
+    "StructureDynamicData": {
+      "MaxHealth": 500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 24,
+      "DecayDurationHours": 12,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 5,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14128701226787706807",
@@ -12648,6 +17589,25 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier2BStructure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 600,
+    "StructureDynamicData": {
+      "MaxHealth": 600,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "BarbedWire",
+          "Quantity": 3
+        }
+      ],
+      "DecayStartHours": 25.000002,
+      "DecayDurationHours": 16.666666,
+      "RepairCost": 20,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": true,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "16172496146428104035",
@@ -12672,6 +17632,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1200,
+    "StructureDynamicData": {
+      "MaxHealth": 1200,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Wood",
+          "DisplayName": "Refined Materials",
+          "Quantity": 75
+        }
+      ],
+      "DecayStartHours": 14.400002,
+      "DecayDurationHours": 28.8,
+      "RepairCost": 75,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 9,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10381689825954471227",
@@ -12690,6 +17670,7 @@ const itemCatalog = [
     "CodeName": "Construction",
     "DisplayName": "Construction Vehicle",
     "Description": "A vehicle used to build large structures.",
+    "ProfileType": "EStructureProfileType::VehicleProxy",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ConstructionVehicleIcon.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "VehicleDynamicData": {
@@ -12723,6 +17704,26 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10764534104521260236",
@@ -12743,6 +17744,26 @@ const itemCatalog = [
     "Description": "An area where certain structures can be built and prepared for shipping.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconConstructionYard.0",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10767663268630641364",
@@ -12761,6 +17782,7 @@ const itemCatalog = [
     "CodeName": "Crane",
     "DisplayName": "Crane",
     "Description": "A heavy mobile Crane used to lift vehicles and very heavy equipment.",
+    "ProfileType": "EStructureProfileType::VehicleProxy",
     "Icon": "War/Content/Textures/UI/VehicleIcons/CraneVehicleIcon.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "VehicleDynamicData": {
@@ -12794,6 +17816,26 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 125
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 125,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10404275704879385371",
@@ -12815,6 +17857,20 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/ItemIcons/ListeningKitIcon.0",
     "ArmourType": "EArmourType::Tier1Tank",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 750,
+      "ResourceRequirements": [],
+      "DecayStartHours": 12,
+      "DecayDurationHours": 12,
+      "RepairCost": 20,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 2,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10551209978858738029",
@@ -12838,6 +17894,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1500,
+    "StructureDynamicData": {
+      "MaxHealth": 1500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 150
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10687722708430800402",
@@ -12862,6 +17938,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 750,
+    "StructureDynamicData": {
+      "MaxHealth": 750,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Wood",
+          "DisplayName": "Refined Materials",
+          "Quantity": 195
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 150,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10469295411894504454",
@@ -12886,6 +17982,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
+    "StructureDynamicData": {
+      "MaxHealth": 1250,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Wood",
+          "DisplayName": "Refined Materials",
+          "Quantity": 175
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "11271209781758480327",
@@ -12910,6 +18026,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 750,
+    "StructureDynamicData": {
+      "MaxHealth": 750,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Wood",
+          "DisplayName": "Refined Materials",
+          "Quantity": 35
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "11124283133776383623",
@@ -12933,6 +18069,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1500,
+    "StructureDynamicData": {
+      "MaxHealth": 1500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 75
+        }
+      ],
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10843088477756419026",
@@ -12953,6 +18109,26 @@ const itemCatalog = [
     "Description": "A manufacturing plant for producing military equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconFactory.0",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 40,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10680971037086415655",
@@ -12971,11 +18147,31 @@ const itemCatalog = [
     "CodeName": "FieldBridge",
     "DisplayName": "Field Bridge",
     "Description": "A makeshift bridge for transporting light equipment over a short distance. Will take damage when vehicles drive across.",
+    "ProfileType": "EStructureProfileType::FieldBridge",
     "TechID": "ETechID::UnlockFieldBridge",
     "Icon": "War/Content/Textures/UI/StructureIcons/FieldBridgeItemIcon.0",
     "ArmourType": "EArmourType::Tier2BStructure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 1500,
+    "StructureDynamicData": {
+      "MaxHealth": 1500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "MetalBeam",
+          "Quantity": 5
+        }
+      ],
+      "DecayStartHours": 5,
+      "DecayDurationHours": 7,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 32,
+      "bCanBeHarvested": true,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13879600790812725744",
@@ -12994,10 +18190,31 @@ const itemCatalog = [
     "CodeName": "FieldHospital",
     "DisplayName": "Field Hospital",
     "Description": "A field medical facility used to treat critically wounded soldiers at the front line. ",
+    "ProfileType": "EStructureProfileType::FieldLogiStructure",
     "Icon": "War/Content/Textures/UI/StructureIcons/FieldHospitalIcon.0",
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 500,
+    "StructureDynamicData": {
+      "MaxHealth": 500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 200
+        }
+      ],
+      "DecayStartHours": 41.666668,
+      "DecayDurationHours": 20,
+      "RepairCost": 200,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 6,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9553959353185586834",
@@ -13019,6 +18236,26 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/FirePitIcon.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 35
+        }
+      ],
+      "DecayStartHours": 24,
+      "DecayDurationHours": 24,
+      "RepairCost": 35,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 1,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "11054409394024381389",
@@ -13039,6 +18276,26 @@ const itemCatalog = [
     "Description": "An abandoned building in the world that has been fortified and garrisoned.",
     "Icon": "War/Content/Textures/UI/StructureIcons/GarrisonStructureIcon.0",
     "MaxHealth": 800,
+    "StructureDynamicData": {
+      "MaxHealth": 800,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 120
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 120,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "15046310164345813720",
@@ -13059,6 +18316,26 @@ const itemCatalog = [
     "Description": "A large medical facility for treating critically wounded soldiers returning from the battlefield.",
     "Icon": "War/Content/Textures/UI/StructureIcons/HospitalIcon.0",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625663800351580301",
@@ -13080,6 +18357,25 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/IntelligenceCenterIcon.0",
     "ArmourType": "EArmourType::Tier3Structure",
     "MaxHealth": 2550,
+    "StructureDynamicData": {
+      "MaxHealth": 2550,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Strong",
+          "Quantity": 250
+        }
+      ],
+      "DecayStartHours": 120,
+      "DecayDurationHours": 60,
+      "RepairCost": 1200,
+      "StructuralIntegrity": 0.65,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10478309002597680506",
@@ -13101,6 +18397,25 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/LongRangedArtilleryIcon.0",
     "ArmourType": "EArmourType::Tier3Structure",
     "MaxHealth": 2550,
+    "StructureDynamicData": {
+      "MaxHealth": 2550,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Strong",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 119.00001,
+      "DecayDurationHours": 67.10526,
+      "RepairCost": 1600,
+      "StructuralIntegrity": 0.65,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14726895679902291809",
@@ -13119,9 +18434,30 @@ const itemCatalog = [
     "CodeName": "MagicBox",
     "DisplayName": "Magic Box",
     "Description": "A magical box that duplicates the item in its first inventory slot.",
+    "ProfileType": "EStructureProfileType::GenericWorldStructure",
     "Icon": "War/Content/Textures/UI/StructureIcons/StorageItemIcon.0",
     "BuildLocationType": "EBuildLocationType::TestShard",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 5
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 5,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13852068877588484277",
@@ -13142,6 +18478,26 @@ const itemCatalog = [
     "Description": "A manufacturing plant for producing military equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconFactory.0",
     "MaxHealth": 6500,
+    "StructureDynamicData": {
+      "MaxHealth": 6500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 40,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10680971037086415655",
@@ -13164,6 +18520,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 500,
+    "StructureDynamicData": {
+      "MaxHealth": 500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 24,
+      "DecayDurationHours": 12,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 5,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9237849051193362992",
@@ -13187,6 +18563,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier2Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 650,
+    "StructureDynamicData": {
+      "MaxHealth": 650,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 75
+        }
+      ],
+      "DecayStartHours": 36,
+      "DecayDurationHours": 24,
+      "RepairCost": 75,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": true,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10478590542364151611",
@@ -13205,6 +18601,7 @@ const itemCatalog = [
     "CodeName": "Motorboat",
     "DisplayName": "Motorboat",
     "Description": "A motorized boat for moving small groups of infantry across rivers and between islands.",
+    "ProfileType": "EStructureProfileType::VehicleProxy",
     "Icon": "War/Content/Textures/UI/VehicleIcons/Motorboat.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 20,
@@ -13239,6 +18636,26 @@ const itemCatalog = [
       "VehicleSubsystemDisableChances": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
+    "StructureDynamicData": {
+      "MaxHealth": 20,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 60
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 60,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9601510305979942325",
@@ -13257,8 +18674,29 @@ const itemCatalog = [
     "CodeName": "ResourceBox",
     "DisplayName": "Resource Box",
     "Description": "A mysterious box with a never ending supply of resources",
+    "ProfileType": "EStructureProfileType::GenericWorldStructure",
     "Icon": "War/Content/Textures/UI/StructureIcons/StorageItemIcon.0",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 5
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 5,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 18,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13852068877588484277",
@@ -13281,6 +18719,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Small",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 600,
+    "StructureDynamicData": {
+      "MaxHealth": 600,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 50
+        }
+      ],
+      "DecayStartHours": 12.000001,
+      "DecayDurationHours": 24,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14138276745508638608",
@@ -13303,6 +18761,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 60
+        }
+      ],
+      "DecayStartHours": 24,
+      "DecayDurationHours": 16,
+      "RepairCost": 60,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": true,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9568877281864043361",
@@ -13321,9 +18799,30 @@ const itemCatalog = [
     "CodeName": "RocketSite",
     "DisplayName": "Rocket Launch Site",
     "Description": "An abandoned launch site from the Great Wars for firing long range ballistic rockets.",
+    "ProfileType": "EStructureProfileType::GenericWorldStructure",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconRocketFacility.0",
     "FuelTank": 720,
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Wood",
+          "DisplayName": "Refined Materials",
+          "Quantity": 200
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 200,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14802262919765767107",
@@ -13346,6 +18845,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 500,
+    "StructureDynamicData": {
+      "MaxHealth": 500,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 24,
+      "DecayDurationHours": 12,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 5,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14993098803421305528",
@@ -13366,6 +18885,26 @@ const itemCatalog = [
     "Description": "A large building used to store crates of weapons and equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconSeaport.0",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13929139504274833088",
@@ -13388,6 +18927,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1000,
+    "StructureDynamicData": {
+      "MaxHealth": 1000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 12.000001,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14174300595001541525",
@@ -13410,6 +18969,26 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier1Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 1000,
+    "StructureDynamicData": {
+      "MaxHealth": 1000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 25
+        }
+      ],
+      "DecayStartHours": 25.000002,
+      "DecayDurationHours": 25,
+      "RepairCost": 25,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14685732825075901489",
@@ -13432,6 +19011,26 @@ const itemCatalog = [
     "ShippableInfo": "EShippableType::Normal",
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1000,
+    "StructureDynamicData": {
+      "MaxHealth": 1000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 100
+        }
+      ],
+      "DecayStartHours": 12.000001,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "10606655301142287160",
@@ -13453,6 +19052,26 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/StorageItemIcon.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 25
+        }
+      ],
+      "DecayStartHours": 33.333336,
+      "DecayDurationHours": 20,
+      "RepairCost": 25,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 2,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13852068877588484277",
@@ -13473,6 +19092,26 @@ const itemCatalog = [
     "Description": "A large building used to store crates, vehicles, and shippable structures.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconStorageFacility.0",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 400
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 400,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 15,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "9325334308711529100",
@@ -13494,6 +19133,26 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/ProductionPartsStructureIcon.0",
     "ShippableInfo": "EShippableType::Normal",
     "MaxHealth": 800,
+    "StructureDynamicData": {
+      "MaxHealth": 800,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 50
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13886055924388708533",
@@ -13517,6 +19176,25 @@ const itemCatalog = [
     "ArmourType": "EArmourType::Tier2Structure",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 2000,
+    "StructureDynamicData": {
+      "MaxHealth": 2000,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "MetalBeam",
+          "Quantity": 3
+        }
+      ],
+      "DecayStartHours": 33.333336,
+      "DecayDurationHours": 25,
+      "RepairCost": 25,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13915121825318635489",
@@ -13538,6 +19216,26 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/ProductionPartsStructureIcon.0",
     "ShippableInfo": "EShippableType::Normal",
     "MaxHealth": 800,
+    "StructureDynamicData": {
+      "MaxHealth": 800,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 50
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 50,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13886055924388708533",
@@ -13559,6 +19257,26 @@ const itemCatalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/WatchTowerStructureIcon.0",
     "BuildLocationType": "EBuildLocationType::Anywhere",
     "MaxHealth": 350,
+    "StructureDynamicData": {
+      "MaxHealth": 350,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 60
+        }
+      ],
+      "DecayStartHours": 32.083336,
+      "DecayDurationHours": 20.588236,
+      "RepairCost": 60,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 0,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "14658144971098831251",
@@ -13577,8 +19295,29 @@ const itemCatalog = [
     "CodeName": "WeaponRack",
     "DisplayName": "Weapon Rack",
     "Description": "A rack used to mount multiple firearms.",
+    "ProfileType": "EStructureProfileType::GenericWorldStructure",
     "Icon": "War/Content/Textures/UI/StructureIcons/StorageItemIcon.0",
     "MaxHealth": 400,
+    "StructureDynamicData": {
+      "MaxHealth": 400,
+      "ResourceRequirements": [
+        {
+          "ItemCodeName": "Cloth",
+          "DisplayName": "Basic Materials",
+          "Quantity": 25
+        }
+      ],
+      "DecayStartHours": 0,
+      "DecayDurationHours": 0,
+      "RepairCost": 25,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 50,
+      "RamDamageReceivedFlags": 2,
+      "bCanBeHarvested": false,
+      "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
     "IconHashes": {
       "individual": {
         "full": "13852068877588484277",

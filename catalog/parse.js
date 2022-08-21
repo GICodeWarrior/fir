@@ -52,9 +52,7 @@ class FHStruct {
     }
 
     this.#type = type;
-    this.#selected = this.#data.find(function(element) {
-      return element.Type == type;
-    });
+    this.#selected = this.#data.find(e => e.Type == type);
   }
 
   static constructBPFromReference(node) {
@@ -99,6 +97,14 @@ class FHStruct {
     return result;
   }
 
+  bundleValues(path, properties, callback) {
+    const values = this.extractValues(path, properties);
+    if (Object.keys(values).length) {
+      values.ObjectPath = this.getPath();
+      callback(values);
+    }
+  }
+
   static combineDetails(list, path, separator) {
     if (path === undefined) {
       path = ['Text', 'SourceString'];
@@ -138,6 +144,7 @@ function coalesceObject(coreObject) {
     ['EquipmentSlot'],
     ['ItemCategory'],
     ['ItemProfileType'],
+    ['ProfileType'],
     ['FactionVariant'],
     ['TechID'],
     ['ItemFlagsMask'],
@@ -174,6 +181,7 @@ function coalesceObject(coreObject) {
       ['MultiAmmo', 'CompatibleAmmoNames'],
       ['CompatibleAmmoCodeName'],
       ['DeployCodeName'],
+      ['SafeItem'],
       ['bCanFireFromVehicle'],
       ['bIsSingleUse'],
     ];
@@ -298,22 +306,40 @@ function coalesceObject(coreObject) {
     combinedObject.SubTypeIcon = 'War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0';
   }
 
-/*
   const grenadeProperties = [
     ['MinTossSpeed'],
     ['MaxTossSpeed'],
     ['GrenadeFuseTimer'],
     ['GrenadeRangeLimit'],
   ];
-  const grenadeValues = common.grenadeDynamicData.extractValues(
+  common.grenadeDynamicData.bundleValues(
     ['Rows', combinedObject.CodeName],
-    grenadeProperties
+    grenadeProperties,
+    v => combinedObject.GrenadeDynamicData = v
   );
-  if (Object.keys(grenadeValues).length) {
-    grenadeValues.ObjectPath = common.grenadeDynamicData.getPath();
-    combinedObject.GrenadeDynamicData = grenadeValues;
-  }
-*/
+
+  const weaponProperties = [
+    ['SuppressionMultiplier'],
+    ['MaxAmmo'],
+    ['MaxApexHalfAngle'],
+    ['BaselineApexHalfAngle'],
+    ['StabilityCostPerShot'],
+    ['Agility'],
+    ['CoverProvided'],
+    ['StabilityFloorFromMovement'],
+    ['StabilityGainRate'],
+    ['MaximumRange'],
+    ['MaximumReachability'],
+    ['DamageMultiplier'],
+    ['ArtilleryAccuracyMinDist'],
+    ['ArtilleryAccuracyMaxDist'],
+    ['MaxVehicleDeviationAngle'],
+  ];
+  common.weaponDynamicData.bundleValues(
+    ['Rows', combinedObject.CodeName],
+    weaponProperties,
+    v => combinedObject.WeaponDynamicData = v
+  );
 
   // TODO: Replace with data lookups instead of hard-coding.
   const materialNames = {
@@ -330,19 +356,17 @@ function coalesceObject(coreObject) {
     ['SingleRetrieveTime'],
     ['CrateRetrieveTime'],
   ];
-
-  const itemDynamicValues = common.itemDynamicData.extractValues(
+  common.itemDynamicData.bundleValues(
     ['Rows', combinedObject.CodeName],
-    productionProperties
-  );
-  if (Object.keys(itemDynamicValues).length) {
-    itemDynamicValues.ObjectPath = common.itemDynamicData.getPath();
-    combinedObject.ItemDynamicData = itemDynamicValues;
+    productionProperties,
+    function (values) {
+      combinedObject.ItemDynamicData = values;
 
-    for (const item of (itemDynamicValues.CostPerCrate || [])) {
-      item.DisplayName = materialNames[item.ItemCodeName];
+      for (const item of (values.CostPerCrate || [])) {
+        item.DisplayName = materialNames[item.ItemCodeName];
+      }
     }
-  }
+  );
 
   const profileProperties = [
     ['bIsStockpilable'],
@@ -356,15 +380,11 @@ function coalesceObject(coreObject) {
     ['ReserveStockpileMaxQuantity'],
   ];
 
-  const itemProfileValues = common.itemProfiles.extractValues(
+  common.itemProfiles.bundleValues(
     ['Properties', 'ItemProfileTable', combinedObject.ItemProfileType],
-    profileProperties
+    profileProperties,
+    v => combinedObject.ItemProfilesData = v
   );
-
-  if (Object.keys(itemProfileValues).length) {
-    itemProfileValues.ObjectPath = common.itemProfiles.getPath();
-    combinedObject.ItemProfileData = itemProfileValues;
-  }
 
   const vehicleDynamicProperties = [
     ['ResourceRequirements'],
@@ -415,7 +435,110 @@ function coalesceObject(coreObject) {
     vehicleDynamicValues.ResourceRequirements = resources;
   }
 
-  //console.log(combinedObject);
+  const vehicleProfileProperties = [
+    ['bUsesRollTrace'],
+    ['bCanTriggerMine'],
+    ['bCanUseStructures'],
+    ['RamDamageDealtFlags'],
+    ['bUsesGas'],
+    ['DrivingSpeedThreshold'],
+    ['MaxVehicleAngle'],
+    ['bEnableStealth'],
+    ['DamageDrivingOverStructures'],
+  ];
+  common.vehicleProfileList.bundleValues(
+    ['Properties', 'VehicleProfileMap', combinedObject.VehicleProfileType],
+    vehicleProfileProperties,
+    v => combinedObject.VehicleProfileData = v
+  );
+
+  const vehicleMovementProfileProperties = [
+    ['Mass'],
+    ['BrakeForce'],
+    ['HandbrakeForce'],
+    ['AirResistance'],
+    ['RollingResistance'],
+    ['LowSpeedEngineForceMultiplier'],
+    ['LowGearCutoff'],
+    ['CenterOfGravityHeight'],
+    ['bUsesDifferentialSteering'],
+    ['bCanRotateInPlace'],
+  ];
+  common.vehicleMovementProfileList.bundleValues(
+    ['Properties', 'VehicleMovementProfileMap', combinedObject.VehicleMovementProfileType],
+    vehicleMovementProfileProperties,
+    v => combinedObject.VehicleMovementProfileData = v
+  );
+
+  const structureProfileProperties = [
+    ['bSupportsAdvancedConstruction'],
+    ['bHasDynamicStartingCondition'],
+    ['bIsRepairable'],
+    ['bIsOnlyMountableByFriendly'],
+    ['bIsUpgradeRotationAllowed'],
+    ['bIsUsableFromVehicle'],
+    ['bAllowUpgradeWhenDamaged'],
+    ['bCanOverlapNonBlockingFoliage'],
+    ['bDisallowAdjacentUpgradesInIsland'],
+    ['bIncludeInStructureIslands'],
+    ['bCanDecayBePrevented'],
+    ['VerticalEjectionDistance'],
+    ['bEnableStealth'],
+    ['bIsRuinable'],
+    ['bBypassesRapidDecayForNearbyStructures'],
+    ['bUsesImpactsMaterial'],
+  ];
+  common.structureProfileList.bundleValues(
+    ['Properties', 'VehicleMovementProfileMap', combinedObject.ProfileType],
+    structureProfileProperties,
+    v => combinedObject.ProfileData = v
+  );
+
+  const structureDynamicProperties = [
+    ['MaxHealth'],
+    ['ResourceRequirements'],
+    ['DecayStartHours'],
+    ['DecayDurationHours'],
+    ['RepairCost'],
+    ['StructuralIntegrity'],
+    ['StoredItemCapacity'],
+    ['RamDamageReceivedFlags'],
+    ['bCanBeHarvested'],
+    ['IsVaultable'],
+    ['bIsDamagedWhileDrivingOver'],
+  ];
+  const structureDynamicValues = common.structureDynamicData.extractValues(
+    ['Rows', combinedObject.CodeName],
+    structureDynamicProperties
+  );
+  if (Object.keys(structureDynamicValues).length) {
+    structureDynamicValues.ObjectPath = common.structureDynamicData.getPath();
+    combinedObject.StructureDynamicData = structureDynamicValues;
+
+    const resources = [];
+    for (const entry of Object.entries(structureDynamicValues.ResourceRequirements)) {
+      if (entry[1] == 0) {
+        continue;
+      }
+
+      resources.push({
+        ItemCodeName: entry[0],
+        DisplayName: materialNames[entry[0]],
+        Quantity: entry[1],
+      });
+    }
+    structureDynamicValues.ResourceRequirements = resources;
+  }
+
+  const productionCategories = {};
+  productionCategories.Factory = (common.factoryProductionCategories.find(c => c.CategoryItems.find(e => e.CodeName == combinedObject.CodeName)) || {}).Type;
+
+  productionCategories.MassProductionFactory = (common.massProductionFactoryProductionCategories.find(c => c.CategoryItems.find(e => e.CodeName == combinedObject.CodeName)) || {}).Type;
+
+  if (Object.values(productionCategories).filter(e => !!e).length) {
+    combinedObject.ProductionCategories = productionCategories;
+  }
+
   return combinedObject;
 }
 
@@ -598,16 +721,26 @@ async function hashIcon(objectValues) {
 const common = {
   ammoDynamicData: new FHDataTable('BPAmmoDynamicData'),
   itemDynamicData: new FHDataTable('BPItemDynamicData'),
-  itemProfiles: new FHDataTable('BPItemProfileTable'),
-  grenadeDynamicData: new FHDataTable('BPGrenadeDynamicData'), // TODO
-  weaponDynamicData: new FHDataTable('BPWeaponDynamicData'), // TODO
+  itemProfiles: new FHStruct('War/Content/Blueprints/Data/BPItemProfileTable'),
+  grenadeDynamicData: new FHDataTable('BPGrenadeDynamicData'),
+  weaponDynamicData: new FHDataTable('BPWeaponDynamicData'),
   vehicleDynamicData: new FHDataTable('BPVehicleDynamicData'),
-  vehicleProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleProfileList'), // TODO
-  vehicleMovementProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleMovementProfileList'), // TODO
-  structureProfileList: new FHStruct('War/Content/Blueprints/Data/BPStructureProfileList'), // TODO
-  structureDynamicData: new FHDataTable('BPStructureDynamicData'), // TODO
-  factory: new FHStruct('War/Content/Blueprints/Structures/BPFactory'), // TODO
-  massProductionFactory: new FHStruct('War/Content/Blueprints/Structures/BPMassProductionFactory'), // TODO
+  vehicleProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleProfileList'),
+  vehicleMovementProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleMovementProfileList'),
+  structureProfileList: new FHStruct('War/Content/Blueprints/Data/BPStructureProfileList'),
+  structureDynamicData: new FHDataTable('BPStructureDynamicData'),
+  factoryProductionCategories: new FHStruct(
+      'War/Content/Blueprints/Structures/BPFactory',
+      'SpecializedFactoryComponent',
+      false).extractValues(
+        ['Properties'],
+        [['ProductionCategories']]).ProductionCategories,
+  massProductionFactoryProductionCategories: new FHStruct(
+      'War/Content/Blueprints/Structures/BPMassProductionFactory',
+      'SpecializedFactoryComponent',
+      false).extractValues(
+        ['Properties'],
+        [['ProductionCategories']]).ProductionCategories,
 };
 
 const searchDirectories = [
@@ -718,6 +851,6 @@ for (const element of objects) {
 */
 
 Promise.allSettled(promises).then(function() {
-  process.stdout.write('const itemCatalog = ');
+  process.stdout.write('const catalog = ');
   process.stdout.write(JSON.stringify(objects, null, 2));
 });
