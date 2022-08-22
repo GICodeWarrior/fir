@@ -160,8 +160,13 @@ function coalesceObject(coreObject) {
     ['BuildLocationType'],
     ['MaxHealth'],
     ['VehiclesPerCrateBonusQuantity'],
+    ['VehicleBuildType'],
+    ['MapIconType'],
+    ['BuildLocationFilter'],
     ['bIsLarge'],
     ['bSupportsVehicleMounts'],
+    ['bRequiresVehicleToBuild'],
+    ['bRequiresCoverOrLowStanceToInvoke'],
   ];
 
   coreObject.extractValues(
@@ -534,6 +539,16 @@ function coalesceObject(coreObject) {
   productionCategories.Factory = (common.factoryProductionCategories.find(c => c.CategoryItems.find(e => e.CodeName == combinedObject.CodeName)) || {}).Type;
 
   productionCategories.MassProductionFactory = (common.massProductionFactoryProductionCategories.find(c => c.CategoryItems.find(e => e.CodeName == combinedObject.CodeName)) || {}).Type;
+
+  if (!productionCategories.MassProductionFactory) {
+    const vehicleType = combinedObject.VehicleBuildType;
+    const structureType = combinedObject.BuildLocationType;
+    if (vehicleType && (vehicleType != 'EVehicleBuildType::NotBuildable')) {
+      productionCategories.MassProductionFactory = 'EFactoryQueueType::Vehicles';
+    } else if (structureType && ((structureType == 'EBuildLocationType::Anywhere') || (structureType == 'EBuildLocationType::ConstructionYard'))) {
+      productionCategories.MassProductionFactory = 'EFactoryQueueType::Structures';
+    }
+  }
 
   if (Object.values(productionCategories).filter(e => !!e).length) {
     combinedObject.ProductionCategories = productionCategories;

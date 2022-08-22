@@ -10447,6 +10447,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 230,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10502,6 +10503,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10744580333755080169",
@@ -10527,6 +10531,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 220,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10582,6 +10587,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9555928547917141198",
@@ -10609,6 +10617,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10664,6 +10673,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "15293991034690769679",
@@ -10690,6 +10702,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 240,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10745,6 +10758,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10671960883621452433",
@@ -10770,6 +10786,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 240,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10825,6 +10842,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625664000147033244",
@@ -10853,6 +10873,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10909,6 +10930,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9526075171608120760",
@@ -10937,6 +10961,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -10993,6 +11018,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14165296823405020060",
@@ -11021,6 +11049,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11077,6 +11106,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679842227194008816",
@@ -11105,6 +11137,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11161,6 +11194,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10666330181968041716",
@@ -11189,6 +11225,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11245,6 +11282,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9554173754696713106",
@@ -11273,6 +11313,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11329,6 +11370,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10706035844523715736",
@@ -11357,6 +11401,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11413,6 +11458,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14138820582335044508",
@@ -11441,6 +11489,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11497,6 +11546,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14165644272301690560",
@@ -11525,6 +11577,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 225,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11581,6 +11634,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10751898539790310115",
@@ -11608,6 +11664,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11664,6 +11721,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "15018730232474078150",
@@ -11685,6 +11745,7 @@ const catalog = [
     "Description": "Armed with heavy anti-tank rounds, the Smelter is perfect for engaging enemy armour. The frontal blast shielding providers operators with ample cover in heated skirmishes.",
     "TechID": "ETechID::UnlockFieldATDamageGun",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldATOffensiveCIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
@@ -11747,6 +11808,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10798341237033874714",
@@ -11768,6 +11832,7 @@ const catalog = [
     "Description": "The Battering Ram is a mobile Anti-Tank field gun firing 68mm armour-piercing rounds.",
     "TechID": "ETechID::UnlockFieldATGun",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldAntiTankColVehicleIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
@@ -11830,6 +11895,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10694478556502898120",
@@ -11852,6 +11920,7 @@ const catalog = [
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFieldATGun",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldAntiTankWarVehicleIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -11912,6 +11981,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -11935,6 +12007,7 @@ const catalog = [
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFieldCannon",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldCannonWVehicleIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -11996,6 +12069,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "13865808993636260452",
@@ -12015,6 +12091,7 @@ const catalog = [
     "ChassisName": "Field Machine Gun",
     "DisplayName": "G40 “Sagittarii”",
     "Description": "A dual barrelled, high calibre anti-infantry machine gun. The “Sagittarii” is fitted with forward-facing armour plating and is excellent for suppression. ",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockFieldMG",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldMachineGun.0",
@@ -12079,6 +12156,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10865612729551066309",
@@ -12100,6 +12180,7 @@ const catalog = [
     "Description": "A dual barrelled, high calibre anti-infantry machine gun. The Swallowtail is fitted with forward-facing armour plating and is excellent for suppression. ",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldMachineGunWar.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "TechID": "ETechID::UnlockFieldMG",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
@@ -12162,6 +12243,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10866175697015437901",
@@ -12189,6 +12273,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12245,6 +12330,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "13863556962423753667",
@@ -12267,6 +12355,7 @@ const catalog = [
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFieldCannonDamage",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldCannonOffensiveWIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -12328,6 +12417,9 @@ const catalog = [
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10838027641934199533",
@@ -12353,6 +12445,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12396,6 +12489,9 @@ const catalog = [
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9601528997660772529",
@@ -12421,6 +12517,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12464,6 +12561,9 @@ const catalog = [
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14132078891962453208",
@@ -12489,6 +12589,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12532,6 +12633,9 @@ const catalog = [
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14132079991474080984",
@@ -12560,6 +12664,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12616,6 +12721,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14346334134375782456",
@@ -12644,6 +12752,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12700,6 +12809,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9770887471004356536",
@@ -12728,6 +12840,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12784,6 +12897,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14382591098772495292",
@@ -12812,6 +12928,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12868,6 +12985,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "13914217285958497433",
@@ -12896,6 +13016,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -12951,6 +13072,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -13223,6 +13347,7 @@ const catalog = [
     "TechID": "ETechID::UnlockLightTankArtillery",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankArtilleryWar.0",
     "FactionVariant": "EFactionId::Wardens",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -13285,6 +13410,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9542681967562051300",
@@ -13304,6 +13432,7 @@ const catalog = [
     "ChassisName": "Light Tank",
     "Description": "A highly maneuverable lightweight tank. Designed for urban environments, the “Hatchet” is fitted with a 40mm cannon.",
     "FuelTank": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "DisplayName": "H5 \"Hatchet\"",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockLightTank",
@@ -13369,6 +13498,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "11248140165813591776",
@@ -13391,6 +13523,7 @@ const catalog = [
     "TechID": "ETechID::UnlockLightTankDefensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarDefensiveVehicleIcon.0",
     "FactionVariant": "EFactionId::Wardens",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -13453,6 +13586,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10706863815562993398",
@@ -13474,6 +13610,7 @@ const catalog = [
     "Description": "The “Kranesca” Light Tank is fitted with an overpowered engine and a reinforced chassis, capable of boosting its top speed at the expense of overall acceleration and maneuverability.",
     "TechID": "ETechID::UnlockLightTankMobility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankColMobilityVehicleIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -13537,6 +13674,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "11248140165813620448",
@@ -13558,6 +13698,7 @@ const catalog = [
     "Description": "A highly maneuverable lightweight tank. Designed for urban environments, the Devitt is fitted with a 40mm cannon.",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarVehicleIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "TechID": "ETechID::UnlockLightTank",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -13621,6 +13762,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679840980848205540",
@@ -13643,6 +13787,7 @@ const catalog = [
     "TechID": "ETechID::UnlockLightTankOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankOffensiveCVehicleIcon.0",
     "FuelTank": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -13705,6 +13850,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679842046872556272",
@@ -13732,6 +13880,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -13787,6 +13936,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -13815,6 +13967,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -13871,6 +14024,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9627968549961063569",
@@ -13893,6 +14049,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -13935,6 +14092,9 @@ const catalog = [
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -14028,6 +14188,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14083,6 +14244,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -14110,6 +14274,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14166,6 +14331,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9337508261028479127",
@@ -14190,6 +14358,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 265,
+    "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14266,6 +14435,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10764534104521260236",
@@ -14290,6 +14462,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 270,
+    "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14366,6 +14539,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10404275704879385371",
@@ -14391,6 +14567,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 265,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14447,6 +14624,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14346281448074890812",
@@ -14469,6 +14649,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 300,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14512,6 +14693,9 @@ const catalog = [
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10679842078081062502",
@@ -14539,6 +14723,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 185,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14595,6 +14780,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10203866361512840921",
@@ -14617,6 +14805,7 @@ const catalog = [
     "Icon": "War/Content/Textures/UI/VehicleIcons/Motorboat.0",
     "VehicleProfileType": "EVehicleProfileType::BeachableShip",
     "ArmourType": "EArmourType::LightVehicle",
+    "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14680,6 +14869,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9601510305979942325",
@@ -14706,6 +14898,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14761,6 +14954,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -14788,6 +14984,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14844,6 +15041,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9553113824121242805",
@@ -14867,6 +15067,7 @@ const catalog = [
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
+    "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14909,6 +15110,9 @@ const catalog = [
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -15022,6 +15226,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15078,6 +15283,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10452695171205143272",
@@ -15106,6 +15314,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15162,6 +15371,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10599622926734564067",
@@ -15190,6 +15402,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15246,6 +15459,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10459732118099335920",
@@ -15274,6 +15490,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15330,6 +15547,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14208640154277399153",
@@ -15359,6 +15579,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15415,6 +15636,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10678433575898815472",
@@ -15444,6 +15668,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15500,6 +15725,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10705388826084085712",
@@ -15528,6 +15756,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15584,6 +15813,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "15278297739795744918",
@@ -15612,6 +15844,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15668,6 +15901,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10680686466149861809",
@@ -15696,6 +15932,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15752,6 +15989,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10682093845276954208",
@@ -15780,6 +16020,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15836,6 +16077,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10669637612532113140",
@@ -15862,6 +16106,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -15918,6 +16163,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14094078976085707422",
@@ -15944,6 +16192,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16000,6 +16249,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9770975482205067932",
@@ -16026,6 +16278,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16082,6 +16335,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14094081208898210712",
@@ -16110,6 +16366,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 250,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16166,6 +16423,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "11037811353214355816",
@@ -16194,6 +16454,7 @@ const catalog = [
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 250,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16250,6 +16511,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14140805720531979384",
@@ -16276,6 +16540,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16332,6 +16597,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14138904699269517268",
@@ -16358,6 +16626,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16414,6 +16683,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9527218676547175922",
@@ -16440,6 +16712,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16496,6 +16769,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9598150370677673404",
@@ -16522,6 +16798,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16578,6 +16855,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10678994457330487562",
@@ -16605,6 +16885,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16661,6 +16942,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9526092793854725267",
@@ -16687,6 +16971,7 @@ const catalog = [
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16743,6 +17028,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9598132746049206684",
@@ -16770,6 +17058,7 @@ const catalog = [
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16826,6 +17115,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10709115032133607104",
@@ -16851,6 +17143,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16907,6 +17200,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9627986132486835865",
@@ -16933,6 +17229,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -16989,6 +17286,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "10707143601018604957",
@@ -17015,6 +17315,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17071,6 +17372,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9626578788859741853",
@@ -17097,6 +17401,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17153,6 +17458,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625668362361360142",
@@ -17179,6 +17487,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17235,6 +17544,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9627986141076770457",
@@ -17262,6 +17574,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17317,6 +17630,9 @@ const catalog = [
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     },
     "IconHashes": {
       "individual": {
@@ -17345,6 +17661,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17401,6 +17718,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "14236224143774638493",
@@ -17426,6 +17746,7 @@ const catalog = [
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -17482,6 +17803,9 @@ const catalog = [
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    },
     "IconHashes": {
       "individual": {
         "full": "9625734333209955231",
@@ -17525,6 +17849,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10910652420557020257",
@@ -17567,6 +17894,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "14128701226787706807",
@@ -17607,6 +17937,9 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -17651,6 +17984,9 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -17724,6 +18060,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10764534104521260236",
@@ -17744,6 +18083,8 @@ const catalog = [
     "Description": "An area where certain structures can be built and prepared for shipping.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconConstructionYard.0",
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::ConstructionYard",
+    "BuildLocationFilter": "EBuildLocationType::ConstructionYard",
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -17836,6 +18177,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10404275704879385371",
@@ -17914,6 +18258,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10687722708430800402",
@@ -17957,6 +18304,9 @@ const catalog = [
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -18002,6 +18352,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "11271209781758480327",
@@ -18046,6 +18399,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "11124283133776383623",
@@ -18089,6 +18445,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10843088477756419026",
@@ -18109,6 +18468,8 @@ const catalog = [
     "Description": "A manufacturing plant for producing military equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconFactory.0",
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::Factory",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -18172,6 +18533,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "13879600790812725744",
@@ -18215,6 +18579,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "9553959353185586834",
@@ -18256,6 +18623,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "11054409394024381389",
@@ -18276,6 +18646,7 @@ const catalog = [
     "Description": "An abandoned building in the world that has been fortified and garrisoned.",
     "Icon": "War/Content/Textures/UI/StructureIcons/GarrisonStructureIcon.0",
     "MaxHealth": 800,
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 800,
       "ResourceRequirements": [
@@ -18316,6 +18687,8 @@ const catalog = [
     "Description": "A large medical facility for treating critically wounded soldiers returning from the battlefield.",
     "Icon": "War/Content/Textures/UI/StructureIcons/HospitalIcon.0",
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::Hospital",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -18357,6 +18730,7 @@ const catalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/IntelligenceCenterIcon.0",
     "ArmourType": "EArmourType::Tier3Structure",
     "MaxHealth": 2550,
+    "MapIconType": "EMapIconType::IntelCenter",
     "StructureDynamicData": {
       "MaxHealth": 2550,
       "ResourceRequirements": [
@@ -18397,6 +18771,7 @@ const catalog = [
     "Icon": "War/Content/Textures/UI/StructureIcons/LongRangedArtilleryIcon.0",
     "ArmourType": "EArmourType::Tier3Structure",
     "MaxHealth": 2550,
+    "MapIconType": "EMapIconType::LRArtillery",
     "StructureDynamicData": {
       "MaxHealth": 2550,
       "ResourceRequirements": [
@@ -18478,6 +18853,8 @@ const catalog = [
     "Description": "A manufacturing plant for producing military equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconFactory.0",
     "MaxHealth": 6500,
+    "MapIconType": "EMapIconType::MassProductionFactory",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 6500,
       "ResourceRequirements": [
@@ -18540,6 +18917,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "9237849051193362992",
@@ -18582,6 +18962,9 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -18655,6 +19038,9 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -18739,6 +19125,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "14138276745508638608",
@@ -18781,6 +19170,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "9568877281864043361",
@@ -18803,6 +19195,8 @@ const catalog = [
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconRocketFacility.0",
     "FuelTank": 720,
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::RocketSite",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -18865,6 +19259,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "14993098803421305528",
@@ -18885,6 +19282,8 @@ const catalog = [
     "Description": "A large building used to store crates of weapons and equipment.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconSeaport.0",
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::Seaport",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -18947,6 +19346,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "14174300595001541525",
@@ -18988,6 +19390,9 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
@@ -19031,6 +19436,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "10606655301142287160",
@@ -19072,6 +19480,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "13852068877588484277",
@@ -19092,6 +19503,8 @@ const catalog = [
     "Description": "A large building used to store crates, vehicles, and shippable structures.",
     "Icon": "War/Content/Textures/UI/MapIcons/MapIconStorageFacility.0",
     "MaxHealth": 2000,
+    "MapIconType": "EMapIconType::StorageFacility",
+    "bRequiresVehicleToBuild": true,
     "StructureDynamicData": {
       "MaxHealth": 2000,
       "ResourceRequirements": [
@@ -19195,6 +19608,9 @@ const catalog = [
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    },
     "IconHashes": {
       "individual": {
         "full": "13915121825318635489",
@@ -19276,6 +19692,9 @@ const catalog = [
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     },
     "IconHashes": {
       "individual": {
