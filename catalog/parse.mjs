@@ -1,12 +1,9 @@
 'use strict';
 
-//import fs from 'node:fs';
-//import process from 'node:process';
-const fs = require('fs');
-//const path = require('path');
-const process = require('process');
-const { createCanvas, loadImage } = require('canvas');
-const events = require('events');
+import fs from 'node:fs';
+import process from 'node:process';
+import events from 'node:events';
+import { createCanvas, loadImage } from 'canvas';
 
 const warLocation = process.argv[2];
 process.chdir(warLocation);
@@ -656,16 +653,6 @@ async function hashIcon(objectValues) {
   context.fillStyle = 'black';
   context.fillRect(0, 0, ICON_SIZE, ICON_SIZE);
 
-/*
-  // Put a little color in the corners to avoid the corner pHash being 0
-  context.fillStyle = '#010101';
-  context.fillRect(0, 0, 1, 1);
-  context.fillStyle = '#010101';
-  context.fillRect(ICON_SIZE - 1, ICON_SIZE - 1, 1, 1);
-  context.fillStyle = 'black';
-*/
-  //context.patternQuality = 'best';
-
   const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
   context.drawImage(icon, 0, 0, ICON_SIZE, ICON_SIZE);
 
@@ -787,7 +774,20 @@ const searchDirectories = [
 const objects = [];
 const promises = [];
 for (const directory of searchDirectories) {
-  for (const entry of fs.readdirSync(directory, {withFileTypes: true})) {
+  const entries = fs.readdirSync(directory, {withFileTypes: true});
+  entries.sort(function(a, b) {
+    const aName = a.name.toLowerCase();
+    const bName = b.name.toLowerCase();
+    if (aName > bName) {
+      return 1;
+    }
+    if (aName < bName) {
+      return -1;
+    }
+    return 0;
+  });
+
+  for (const entry of entries) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) {
       continue;
     }
@@ -826,44 +826,6 @@ for (const directory of searchDirectories) {
     }
   }
 }
-
-/*
-const iconMap = new Map([
-  ["War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0", 'Armour Piercing'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeATIcon.0", 'Anti-Tank Explosive'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeAmmoIcon.0", 'Heavy Ammo Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeAntiTank.0", 'Anti-Tank Kinetic'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeArmourIcon.0", 'Armour Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeEngineerIcon.0", 'Engineer Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeFLIcon.0", 'Flare'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeGAIcon.0", 'Poisonous Gas'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeGrenadeIcon.0", 'Grenade Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeHBIcon.0", 'Heavy Kinetic'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeHEIcon.0", 'High Explosive'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeLRAIcon.0", 'Demolitions'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeMedicIcon.0", 'Medic Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeOfficerIcon.0", 'Officer Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeRainIcon.0", 'Rain Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeSBIcon.0", 'Light Kinetic'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0", 'Explosive'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeSHIcon.0", 'Shrapnel'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeSMKIcon.0", 'Smoke'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeScoutIcon.0", 'Scout Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeSnowIcon.0", 'Snow Uniform'],
-  ["War/Content/Textures/UI/ItemIcons/SubtypeTankIcon.0", 'Tank Uniform'],
-]);
-
-for (const element of objects) {
-  const fields = [
-    element.DisplayName,
-    iconMap.get(element.SubTypeIcon),
-    element.ItemFlagsMask,
-    element.Description,
-    element.Icon,
-  ];
-  process.stdout.write(fields.join('\t') + '\n');
-}
-*/
 
 Promise.allSettled(promises).then(function() {
   process.stdout.write('const catalog = ');
