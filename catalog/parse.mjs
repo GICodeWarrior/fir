@@ -635,81 +635,79 @@ function discreteCosineTransform(vector, skipFactor) {
   return result;
 }
 
+async function writePNG(canvas, file) {
+  const out = fs.createWriteStream(file);
+  const png = canvas.createPNGStream();
+  png.pipe(out);
+  await events.once(out, 'finish');
+}
+
+const CORNER_ICON_RATIO = 7 / 16;
+const CORNER_ICON_ALPHA = 0.75;
+async function drawIcon(objectValues, size) {
+  const CORNER_ICON_SIZE = size * CORNER_ICON_RATIO;
+  const canvas = createCanvas(size, size);
+  const context = canvas.getContext('2d');
+  context.fillRect(0, 0, size, size);
+
+  const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
+  context.drawImage(icon, 0, 0, size, size);
+
+  if (objectValues.SubTypeIcon) {
+    const subTypeIcon = await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
+
+    context.globalAlpha = CORNER_ICON_ALPHA;
+    context.drawImage(subTypeIcon, 0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+    context.globalAlpha = 1;
+  }
+
+  return canvas;
+}
+
 const CRATE_ICON = loadImage('War/Content/Textures/UI/Menus/IconFilterCrates.png');
+async function addCrate(canvas) {
+  const size = canvas.width;
+  const CORNER_ICON_SIZE = size * CORNER_ICON_RATIO;
+  const crateOffset = size - CORNER_ICON_SIZE;
+
+  const context = canvas.getContext('2d');
+
+  context.globalAlpha = CORNER_ICON_ALPHA;
+  context.drawImage(await CRATE_ICON, crateOffset, crateOffset, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  context.globalAlpha = 1;
+}
+
 async function hashIcon(objectValues) {
   const ICON_SIZE = 32;
-  const CORNER_ICON_SIZE = 14;
+  const CORNER_ICON_SIZE = ICON_SIZE * CORNER_ICON_RATIO;
   const CRATE_OFFSET = ICON_SIZE - CORNER_ICON_SIZE;
 
-  const ICON_CANVAS = createCanvas(ICON_SIZE, ICON_SIZE);
+  const ICON_CANVAS = await drawIcon(objectValues, ICON_SIZE);
   const CORNER_CANVAS = createCanvas(CORNER_ICON_SIZE, CORNER_ICON_SIZE);
 
   const hashes = {
     individual: {},
     crated: {},
   };
-
-  const context = ICON_CANVAS.getContext('2d');
-  context.fillStyle = 'black';
-  context.fillRect(0, 0, ICON_SIZE, ICON_SIZE);
-
-  const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
-  context.drawImage(icon, 0, 0, ICON_SIZE, ICON_SIZE);
-
-/*
-  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
-    const out = fs.createWriteStream('debugicon-iconOnly.png');
-    const png = ICON_CANVAS.createPNGStream();
-    png.pipe(out);
-    await events.once(out, 'finish');
-  }
-*/
-  if (objectValues.SubTypeIcon) {
-    const subTypeIcon = await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
-
-    context.globalAlpha = 0.75;
-    context.drawImage(subTypeIcon, 0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
-    context.globalAlpha = 1;
-  }
   hashes.individual.full = pHashImage(ICON_CANVAS).toString();
-/*
-  if (objectValues.DisplayName == 'Wrench') {
-    const out = fs.createWriteStream('debugicon.png');
-    const png = ICON_CANVAS.createPNGStream();
-    png.pipe(out);
-    await events.once(out, 'finish');
-  }
-*/
+
   const corner_context = CORNER_CANVAS.getContext('2d');
   corner_context.drawImage(ICON_CANVAS,
       0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
       0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
   hashes.individual.topLeft = pHashImage(CORNER_CANVAS).toString();
   hashes.crated.topLeft = hashes.individual.topLeft;
-/*
-  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
-    const out = fs.createWriteStream('debugicon-topLeft.png');
-    const png = CORNER_CANVAS.createPNGStream();
-    png.pipe(out);
-    await events.once(out, 'finish');
-  }
-*/
+
   corner_context.drawImage(ICON_CANVAS,
       CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
       0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
   hashes.individual.bottomRight = pHashImage(CORNER_CANVAS).toString();
 
   if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
-    const out = fs.createWriteStream('debugicon-bottomRight.png');
-    const png = CORNER_CANVAS.createPNGStream();
-    png.pipe(out);
-    await events.once(out, 'finish');
+    await writePNG(CORNER_CANVAS, 'debugicon-bottomRight.png');
   }
 
-  context.globalAlpha = 0.75;
-  context.drawImage(await CRATE_ICON,
-      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
-  context.globalAlpha = 1;
+  await addCrate(ICON_CANVAS);
   hashes.crated.full = pHashImage(ICON_CANVAS).toString();
 
   corner_context.drawImage(ICON_CANVAS,
