@@ -6207,46 +6207,6 @@ const catalog = [
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/HeavyMachineGunPickup",
-    "CodeName": "HMG",
-    "DisplayName": "HMG",
-    "Description": "A heavy machine gun that is capable of long range, indirect sustained fire. This weapon must be mounted on a tripod before it can be fired.",
-    "Encumbrance": 200,
-    "EquipmentSlot": "EEquipmentSlot::Primary",
-    "ItemCategory": "EItemCategory::HeavyArms",
-    "ItemProfileType": "EItemProfileType::HandheldWeapon",
-    "TechID": "ETechID::ETechID_MAX",
-    "ItemFlagsMask": 129,
-    "Icon": "War/Content/Textures/UI/ItemIcons/HeavyMachineGunIcon.0",
-    "ItemComponentClass": {
-      "ObjectPath": "War/Content/Blueprints/Items/BPHeavyMachineGunItemComponent.0",
-      "CompatibleAmmoCodeName": "HMGAmmo"
-    },
-    "ItemProfilesData": {
-      "bIsStockpilable": true,
-      "bIsStackable": false,
-      "bIsCratable": true,
-      "bIsStockpiledWithAmmo": false,
-      "bUsableInVehicle": false,
-      "StackTransferLimit": 1,
-      "RetrieveQuantity": 1,
-      "ReserveStockpileMaxQuantity": 100,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15176621014505866034",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10816015623112966962",
-        "bottomRight": "9591113069832988672"
-      }
-    }
-  },
-  {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/HELaunchedGrenadePickup",
     "CodeName": "HELaunchedGrenade",
     "ChassisName": "Grenade",

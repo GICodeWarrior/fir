@@ -5,8 +5,9 @@ import process from 'node:process';
 import events from 'node:events';
 import { createCanvas, loadImage } from 'canvas';
 
-const warLocation = process.argv[2];
-process.chdir(warLocation);
+const TRAINING_LOCATION = `${process.cwd()}/training`
+const WAR_LOCATION = process.argv[2];
+process.chdir(WAR_LOCATION);
 
 class NonBPError extends Error {}
 class BPTypeMismatchError extends Error {}
@@ -645,7 +646,6 @@ async function writePNG(canvas, file) {
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
 async function drawIcon(objectValues, size) {
-  const CORNER_ICON_SIZE = size * CORNER_ICON_RATIO;
   const canvas = createCanvas(size, size);
   const context = canvas.getContext('2d');
   context.fillRect(0, 0, size, size);
@@ -655,9 +655,10 @@ async function drawIcon(objectValues, size) {
 
   if (objectValues.SubTypeIcon) {
     const subTypeIcon = await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
+    const cornerSize = size * CORNER_ICON_RATIO;
 
     context.globalAlpha = CORNER_ICON_ALPHA;
-    context.drawImage(subTypeIcon, 0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+    context.drawImage(subTypeIcon, 0, 0, cornerSize, cornerSize);
     context.globalAlpha = 1;
   }
 
@@ -667,53 +668,70 @@ async function drawIcon(objectValues, size) {
 const CRATE_ICON = loadImage('War/Content/Textures/UI/Menus/IconFilterCrates.png');
 async function addCrate(canvas) {
   const size = canvas.width;
-  const CORNER_ICON_SIZE = size * CORNER_ICON_RATIO;
-  const crateOffset = size - CORNER_ICON_SIZE;
+  const cornerSize = size * CORNER_ICON_RATIO;
+  const crateOffset = size - cornerSize;
 
   const context = canvas.getContext('2d');
-
   context.globalAlpha = CORNER_ICON_ALPHA;
-  context.drawImage(await CRATE_ICON, crateOffset, crateOffset, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  context.drawImage(await CRATE_ICON, crateOffset, crateOffset, cornerSize, cornerSize);
   context.globalAlpha = 1;
 }
 
-async function hashIcon(objectValues) {
-  const ICON_SIZE = 32;
-  const CORNER_ICON_SIZE = ICON_SIZE * CORNER_ICON_RATIO;
-  const CRATE_OFFSET = ICON_SIZE - CORNER_ICON_SIZE;
+async function writeTrainingPNGs(objectValues, destination) {
+  const smallestSize = 32;
+  const largestSize = 64;
+  const baseName = `${destination}/${objectValues.CodeName}`;
 
-  const ICON_CANVAS = await drawIcon(objectValues, ICON_SIZE);
-  const CORNER_CANVAS = createCanvas(CORNER_ICON_SIZE, CORNER_ICON_SIZE);
+  for (let size = smallestSize; size <= largestSize; ++size) {
+    const canvas = await drawIcon(objectValues, size);
+    await fs.promises.mkdir(baseName, {recursive: true});
+    await writePNG(canvas, `${baseName}/${size}.png`);
+
+    await addCrate(canvas);
+    await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
+    await writePNG(canvas, `${baseName}-crated/${size}.png`);
+  }
+}
+
+async function hashIcon(objectValues) {
+  const size = 32;
+  const cornerSize = size * CORNER_ICON_RATIO;
+  const crateOffset = size - cornerSize;
+
+  const canvas = await drawIcon(objectValues, size);
 
   const hashes = {
     individual: {},
     crated: {},
   };
-  hashes.individual.full = pHashImage(ICON_CANVAS).toString();
+  hashes.individual.full = pHashImage(canvas).toString();
 
-  const corner_context = CORNER_CANVAS.getContext('2d');
-  corner_context.drawImage(ICON_CANVAS,
-      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
-      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
-  hashes.individual.topLeft = pHashImage(CORNER_CANVAS).toString();
+  const cornerCanvas = createCanvas(cornerSize, cornerSize);
+  const corner_context = cornerCanvas.getContext('2d');
+  corner_context.drawImage(canvas,
+      0, 0, cornerSize, cornerSize,
+      0, 0, cornerSize, cornerSize);
+  hashes.individual.topLeft = pHashImage(cornerCanvas).toString();
   hashes.crated.topLeft = hashes.individual.topLeft;
 
-  corner_context.drawImage(ICON_CANVAS,
-      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
-      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
-  hashes.individual.bottomRight = pHashImage(CORNER_CANVAS).toString();
+  corner_context.drawImage(canvas,
+      crateOffset, crateOffset, cornerSize, cornerSize,
+      0, 0, cornerSize, cornerSize);
+  hashes.individual.bottomRight = pHashImage(cornerCanvas).toString();
 
+/*
   if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
     await writePNG(CORNER_CANVAS, 'debugicon-bottomRight.png');
   }
+*/
 
-  await addCrate(ICON_CANVAS);
-  hashes.crated.full = pHashImage(ICON_CANVAS).toString();
+  await addCrate(canvas);
+  hashes.crated.full = pHashImage(canvas).toString();
 
-  corner_context.drawImage(ICON_CANVAS,
-      CRATE_OFFSET, CRATE_OFFSET, CORNER_ICON_SIZE, CORNER_ICON_SIZE,
-      0, 0, CORNER_ICON_SIZE, CORNER_ICON_SIZE);
-  hashes.crated.bottomRight = pHashImage(CORNER_CANVAS).toString();
+  corner_context.drawImage(canvas,
+      crateOffset, crateOffset, cornerSize, cornerSize,
+      0, 0, cornerSize, cornerSize);
+  hashes.crated.bottomRight = pHashImage(cornerCanvas).toString();
 
   return hashes;
 }
@@ -785,6 +803,8 @@ for (const directory of searchDirectories) {
     return 0;
   });
 
+  process.stderr.write(`Processing JSON files in: ${directory}\n`);
+
   for (const entry of entries) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) {
       continue;
@@ -793,7 +813,7 @@ for (const directory of searchDirectories) {
     //if (file != 'War/Content/Blueprints/Vehicles/LightTank/BPLightTankC.json') {
     //  continue;
     //}
-    process.stderr.write('Processing: ' + file + '\n');
+    //process.stderr.write('Processing: ' + file + '\n');
 
     try {
       const coreObject = new FHStruct(file);
@@ -805,7 +825,8 @@ for (const directory of searchDirectories) {
           && objectValues.DisplayName
           && objectValues.Description
           && objectValues.Icon
-          && objectValues.CodeName != 'Lore') {
+          && objectValues.CodeName != 'Lore'
+          && (objectValues.TechID || '') != 'ETechID::ETechID_MAX') {
         objects.push(objectValues);
 
         const promise = hashIcon(objectValues);
@@ -814,6 +835,8 @@ for (const directory of searchDirectories) {
           //process.stderr.write(objectValues.CodeName + '\n');
           objectValues.IconHashes = hashes;
         }.bind(null, objectValues));
+
+        promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }
     } catch (e) {
       if (e instanceof NonBPError) {
@@ -825,6 +848,7 @@ for (const directory of searchDirectories) {
   }
 }
 
+process.stderr.write('Processing icons.\n');
 Promise.allSettled(promises).then(function() {
   process.stdout.write('const catalog = ');
   process.stdout.write(JSON.stringify(objects, null, 2));

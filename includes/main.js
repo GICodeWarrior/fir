@@ -191,7 +191,7 @@ function getProcessImage(scheduler, label) {
     document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
 
     if (imagesProcessed == imagesTotal) {
-      coalesceAndIdentifyItems(itemBundles);
+      await coalesceAndIdentifyItems(itemBundles);
 
       await terminateTesseractScheduler(scheduler);
     }
@@ -390,6 +390,8 @@ async function cropItems(tesseract, canvas) {
 
           quantity.analysis = (await tesseract).addJob('recognize', quantity.canvas);
           quantities.push(quantity);
+        } else {
+          quantityBottom = null;
         }
 
         greyCount = 0;
@@ -459,7 +461,8 @@ async function cropItems(tesseract, canvas) {
   }
 }
 
-function coalesceAndIdentifyItems(itemBundles) {
+const MODEL = tf.loadGraphModel('includes/classifier/model.json');
+async function coalesceAndIdentifyItems(itemBundles) {
   const MAX_HAMMING_DISTANCE = 5;
   const MAX_PERFECT_HAMMING_DISTANCE = 1;
   const MAX_IMAGE_DIFF = 20;
@@ -472,6 +475,20 @@ function coalesceAndIdentifyItems(itemBundles) {
   const items = {};
   for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
     for (const rawItem of itemBundles[bundleIdx]) {
+      const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(rawItem.icon.canvas), [32, 32])
+      const prediction = (await MODEL).predict(tfImage.expandDims(0));
+
+      const key = CLASS_NAMES[prediction.argMax(1).dataSync()[0]];
+      const CodeName = key.replace(/-crated$/, '');
+      const isCrated = !!key.match(/-crated$/);
+
+      const bestMatchKey = key;
+      const bestMatch = {
+        CodeName: CodeName,
+        isCrated: isCrated,
+      };
+
+/*
       const width = rawItem.icon.width;
       const cornerSize = Math.round(7 / 16 * rawItem.icon.width) - 1;
       const bottomRightOffset = rawItem.icon.width - cornerSize - 1;
@@ -522,7 +539,8 @@ function coalesceAndIdentifyItems(itemBundles) {
         }
       }
 
-      const bestMatchKey = `${bestMatch.CodeName}${bestMatch.isCrated ? '-crated' : '' }`
+      const bestMatchKey = `${bestMatch.CodeName}${bestMatch.isCrated ? '-crated' : '' }`;
+*/
       items[bestMatchKey] ||= {
         collection: [],
         total: 0,
