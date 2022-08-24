@@ -161,6 +161,8 @@ function coalesceObject(coreObject) {
     ['VehicleBuildType'],
     ['MapIconType'],
     ['BuildLocationFilter'],
+    ['BoostSpeedModifier'],
+    ['BoostGasUsageModifier'],
     ['bIsLarge'],
     ['bSupportsVehicleMounts'],
     ['bRequiresVehicleToBuild'],

@@ -8899,6 +8899,8 @@
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 240,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "BoostSpeedModifier": 1.25,
+    "BoostGasUsageModifier": 4,
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -11398,6 +11400,8 @@
     "Description": "The “Kranesca” Light Tank is fitted with an overpowered engine and a reinforced chassis, capable of boosting its top speed at the expense of overall acceleration and maneuverability.",
     "TechID": "ETechID::UnlockLightTankMobility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankColMobilityVehicleIcon.0",
+    "BoostSpeedModifier": 1.8,
+    "BoostGasUsageModifier": 6,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
@@ -12856,6 +12860,8 @@
     "TechID": "ETechID::UnlockMediumTank2Multi",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2MultiWIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
+    "BoostSpeedModifier": 1.6,
+    "BoostGasUsageModifier": 6,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -12932,6 +12938,8 @@
     "TechID": "ETechID::UnlockMediumTank2Range",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2RangeWIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
+    "BoostSpeedModifier": 1.6,
+    "BoostGasUsageModifier": 6,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -13547,6 +13555,8 @@
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "BoostSpeedModifier": 1.25,
+    "BoostGasUsageModifier": 4,
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -13621,6 +13631,8 @@
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "BoostSpeedModifier": 1.25,
+    "BoostGasUsageModifier": 4,
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -13695,6 +13707,8 @@
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "BoostSpeedModifier": 1.25,
+    "BoostGasUsageModifier": 4,
     "VehicleDynamicData": {
       "ResourceRequirements": [
         {
@@ -14581,6 +14595,8 @@
     "Description": "This variation of the standard R-5 Hauler is fitted with an improved suspension and axle system resulting in better overall handling. However, these improvements may not hold up under severe weather conditions.",
     "TechID": "ETechID::UnlockTruckMobility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckMobilityCVehicleIcon.0",
+    "BoostSpeedModifier": 1.3,
+    "BoostGasUsageModifier": 5,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
