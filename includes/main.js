@@ -477,81 +477,23 @@ async function coalesceAndIdentifyItems(itemBundles) {
     for (const rawItem of itemBundles[bundleIdx]) {
       const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(rawItem.icon.canvas), [32, 32])
       const prediction = (await MODEL).predict(tfImage.expandDims(0));
+      const best = prediction.argMax(1).dataSync()[0];
 
-      const key = CLASS_NAMES[prediction.argMax(1).dataSync()[0]];
+      const key = CLASS_NAMES[best];
       const CodeName = key.replace(/-crated$/, '');
       const isCrated = !!key.match(/-crated$/);
 
-      const bestMatchKey = key;
-      const bestMatch = {
-        CodeName: CodeName,
-        isCrated: isCrated,
-      };
-
-/*
-      const width = rawItem.icon.width;
-      const cornerSize = Math.round(7 / 16 * rawItem.icon.width) - 1;
-      const bottomRightOffset = rawItem.icon.width - cornerSize - 1;
-      rawItem.icon.fullCanvas = cropCanvas(rawItem.icon.canvas, 0, width - 1, width - 1, 0, 'contrast(110%)');
-      rawItem.icon.topLeftCanvas = cropCanvas(rawItem.icon.canvas, 0, cornerSize, cornerSize, 0, 'contrast(110%)');
-      rawItem.icon.bottomRightCanvas = cropCanvas(rawItem.icon.canvas, bottomRightOffset, width - 1, width - 1, bottomRightOffset, 'contrast(110%)');
-
-      const hashes = {
-        full: pHashImage(rawItem.icon.fullCanvas),
-        topLeft: pHashImage(rawItem.icon.topLeftCanvas),
-        bottomRight: pHashImage(rawItem.icon.bottomRightCanvas),
-      };
-      rawItem.icon.hashes = hashes;
-
-      let computeDistance = function(itemHashes, catalogHashes) {
-        const FULL_WEIGHT = 7;
-        const areas = Object.keys(itemHashes);
-        let sum = 0;
-        for (const area of areas) {
-          const weight = area == 'full' ? FULL_WEIGHT : 1;
-          sum += weight * hammingDistance(hashes[area], BigInt(catalogHashes[area]));
-        }
-        return sum / (areas.length + FULL_WEIGHT - 1);
-      };
-
-      let bestMatch = {
-        distance: Infinity,
-      };
-      for (const item of catalog) {
-        //const cratedDistance = hammingDistance(hashes.full, BigInt(item.IconHashes.crated.full));
-        const cratedDistance = computeDistance(hashes, item.IconHashes.crated);
-        if (cratedDistance < bestMatch.distance) {
-          bestMatch = {
-            CodeName: item.CodeName,
-            isCrated: true,
-            distance: cratedDistance,
-          };
-        }
-
-        //const individualDistance = hammingDistance(hashes.full, BigInt(item.IconHashes.individual.full));
-        const individualDistance = computeDistance(hashes, item.IconHashes.individual);
-        if (individualDistance < bestMatch.distance) {
-          bestMatch = {
-            CodeName: item.CodeName,
-            isCrated: false,
-            distance: individualDistance,
-          };
-        }
-      }
-
-      const bestMatchKey = `${bestMatch.CodeName}${bestMatch.isCrated ? '-crated' : '' }`;
-*/
-      items[bestMatchKey] ||= {
+      items[key] ||= {
         collection: [],
         total: 0,
       };
-      items[bestMatchKey].total += rawItem.quantity.amount;
-      items[bestMatchKey].collection.push({
+      items[key].total += rawItem.quantity.amount;
+      items[key].collection.push({
         item: rawItem,
-        distance: bestMatch.distance,
+        score: best[1],
       });
-      rawItem.CodeName = bestMatch.CodeName;
-      rawItem.isCrated = bestMatch.isCrated;
+      rawItem.CodeName = CodeName;
+      rawItem.isCrated = isCrated;
     }
   }
 
@@ -585,7 +527,7 @@ async function coalesceAndIdentifyItems(itemBundles) {
     const nameSuffix = item.collection[0].item.isCrated ? ' (crated)' : '';
 
     const name = document.createElement('div');
-    name.textContent = catalogItem.DisplayName + nameSuffix;// + ` ${item.collection.map(e=>e.distance)}`;
+    name.textContent = catalogItem.DisplayName + nameSuffix; // + ` ${item.collection.map(e=>Math.round(e.score * 100, 2))}`;
     cell.appendChild(name);
 
     //const name = document.createElement('td');

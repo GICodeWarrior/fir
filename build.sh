@@ -7,7 +7,7 @@ warLocation=$(cd "${1}"; pwd)
 parseCatalog() {
   cd catalog
   npm install
-  rm -r training
+  rm -r training || true
   node parse.mjs "${warLocation}" > ../includes/catalog.js
   cd ..
 }

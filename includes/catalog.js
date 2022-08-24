@@ -66,18 +66,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15123204209236612726",
-        "topLeft": "10045134609074116359",
-        "bottomRight": "14467963439856746496"
-      },
-      "crated": {
-        "topLeft": "10045134609074116359",
-        "full": "9637837399450308246",
-        "bottomRight": "15409145842870779904"
-      }
     }
   },
   {
@@ -145,18 +133,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14118898408345509392",
-        "topLeft": "15028845445381961585",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15028845445381961585",
-        "full": "9507212940752919056",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -202,18 +178,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11255737140398507996",
-        "topLeft": "12489244459931044198",
-        "bottomRight": "17933341407402246144"
-      },
-      "crated": {
-        "topLeft": "12489244459931044198",
-        "full": "10697871879573555160",
-        "bottomRight": "17645148300829016064"
-      }
     }
   },
   {
@@ -258,18 +222,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14166142067613786754",
-        "topLeft": "9403447367745357106",
-        "bottomRight": "10418115205222654016"
-      },
-      "crated": {
-        "topLeft": "9403447367745357106",
-        "full": "14184437940028334722",
-        "bottomRight": "10778302019002491072"
-      }
     }
   },
   {
@@ -299,18 +251,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14551190111576810593",
-        "topLeft": "9761759756159967676",
-        "bottomRight": "17941488763603517440"
-      },
-      "crated": {
-        "topLeft": "9761759756159967676",
-        "full": "9604549146815382625",
-        "bottomRight": "15419334431395028992"
-      }
     }
   },
   {
@@ -346,18 +286,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10778655882097270640",
-        "topLeft": "12560731090695998643",
-        "bottomRight": "13889313184910704768"
-      },
-      "crated": {
-        "topLeft": "12560731090695998643",
-        "full": "10757756347913412464",
-        "bottomRight": "14249524189286367360"
-      }
     }
   },
   {
@@ -418,18 +346,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14028774279689959623",
-        "topLeft": "9823262746129731161",
-        "bottomRight": "17940353960493711617"
-      },
-      "crated": {
-        "topLeft": "9823262746129731161",
-        "full": "13985990082827286727",
-        "bottomRight": "15418206227770900480"
-      }
     }
   },
   {
@@ -518,18 +434,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14996811694648946530",
-        "topLeft": "0",
-        "bottomRight": "16276538888567251425"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10385129798245109602",
-        "bottomRight": "9647126985215926497"
-      }
     }
   },
   {
@@ -616,18 +520,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907779778649074",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9520381907266767858",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -715,18 +607,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14131574656420287348",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10671689329003201396",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -807,18 +687,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14767365073847283554",
-        "topLeft": "9461839223721594631",
-        "bottomRight": "17357084096123895808"
-      },
-      "crated": {
-        "topLeft": "9461839223721594631",
-        "full": "14155438741772857186",
-        "bottomRight": "15413112879284486144"
-      }
     }
   },
   {
@@ -879,18 +747,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14107593071041865595",
-        "topLeft": "10337866098564701116",
-        "bottomRight": "16487731426827497696"
-      },
-      "crated": {
-        "topLeft": "10337866098564701116",
-        "full": "13963477918659536441",
-        "bottomRight": "15415866467028105440"
-      }
     }
   },
   {
@@ -978,18 +834,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14356684855049393860",
-        "topLeft": "0",
-        "bottomRight": "16204198816044162588"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9734865427153231556",
-        "bottomRight": "9646845574785018892"
-      }
     }
   },
   {
@@ -1045,18 +889,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13915895005114340190",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9592439501355025246",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -1125,18 +957,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15110531603066132084",
-        "topLeft": "15028845445381961585",
-        "bottomRight": "6989303482343251968"
-      },
-      "crated": {
-        "topLeft": "15028845445381961585",
-        "full": "10503349185348245108",
-        "bottomRight": "9619261078612502528"
-      }
     }
   },
   {
@@ -1237,18 +1057,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13884990619423146846",
-        "topLeft": "15028845445381961585",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15028845445381961585",
-        "full": "13893997270000026462",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -1350,18 +1158,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958732004153365366",
-        "topLeft": "15028845445314852721",
-        "bottomRight": "17940352998421094592"
-      },
-      "crated": {
-        "topLeft": "15028845445314852721",
-        "full": "13935088106910782326",
-        "bottomRight": "15419333364628350976"
-      }
     }
   },
   {
@@ -1431,18 +1227,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15039596597347422980",
-        "topLeft": "15028845445381961585",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15028845445381961585",
-        "full": "12741634888563774212",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -1544,18 +1328,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958172912052274804",
-        "topLeft": "15028845445314852657",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15028845445314852657",
-        "full": "10786653611960779380",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -1636,18 +1408,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13877667906652211004",
-        "topLeft": "9355150010732082993",
-        "bottomRight": "2917486471324641344"
-      },
-      "crated": {
-        "topLeft": "9355150010732082993",
-        "full": "10435791858076485436",
-        "bottomRight": "9618698128656984128"
-      }
     }
   },
   {
@@ -1750,18 +1510,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958170162265854828",
-        "topLeft": "15028845445314852721",
-        "bottomRight": "17363661486110736384"
-      },
-      "crated": {
-        "topLeft": "15028845445314852721",
-        "full": "9358869043625329452",
-        "bottomRight": "15419333431183736832"
-      }
     }
   },
   {
@@ -1798,18 +1546,6 @@ const catalog = [
       "RetrieveQuantity": 20,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9634658966038842745",
-        "topLeft": "11698583038029550245",
-        "bottomRight": "17361623678751605506"
-      },
-      "crated": {
-        "topLeft": "11698583038029550245",
-        "full": "10753804023192030585",
-        "bottomRight": "15415956489541517312"
-      }
     }
   },
   {
@@ -1851,18 +1587,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13888873537270731350",
-        "topLeft": "10551250501304685165",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "10551250501304685165",
-        "full": "10673303403271049814",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -1901,18 +1625,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14716413159499513266",
-        "topLeft": "12273904765277482346",
-        "bottomRight": "14703711700761010449"
-      },
-      "crated": {
-        "topLeft": "12273904765277482346",
-        "full": "10122741265638653939",
-        "bottomRight": "9585747856732397825"
-      }
     }
   },
   {
@@ -2007,18 +1719,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13915895116791288734",
-        "topLeft": "0",
-        "bottomRight": "18230571285019099136"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10475145019729646558",
-        "bottomRight": "9619542553581873152"
-      }
     }
   },
   {
@@ -2054,18 +1754,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10902118091275199654",
-        "topLeft": "10766493838540775597",
-        "bottomRight": "13893623430534775564"
-      },
-      "crated": {
-        "topLeft": "10766493838540775597",
-        "full": "9754267294048018599",
-        "bottomRight": "15334757557986246913"
-      }
     }
   },
   {
@@ -2101,18 +1789,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10420551016478893950",
-        "topLeft": "13424827678307017865",
-        "bottomRight": "16194962608158195712"
-      },
-      "crated": {
-        "topLeft": "13424827678307017865",
-        "full": "10781119911815368574",
-        "bottomRight": "15406823948117131264"
-      }
     }
   },
   {
@@ -2142,18 +1818,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10823673565061035441",
-        "topLeft": "12273905834858816858",
-        "bottomRight": "14757395207752327424"
-      },
-      "crated": {
-        "topLeft": "12273905834858816858",
-        "full": "10689691475886207409",
-        "bottomRight": "14180824538652082176"
-      }
     }
   },
   {
@@ -2188,18 +1852,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14174019119416066229",
-        "topLeft": "10338157661142883512",
-        "bottomRight": "15191436017852768256"
-      },
-      "crated": {
-        "topLeft": "10338157661142883512",
-        "full": "9536441800041415060",
-        "bottomRight": "15335454371332775936"
-      }
     }
   },
   {
@@ -2241,18 +1893,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9894040252822525625",
-        "topLeft": "11838650969999649365",
-        "bottomRight": "15378225597265767604"
-      },
-      "crated": {
-        "topLeft": "11838650969999649365",
-        "full": "10163200716616107769",
-        "bottomRight": "15366399541986797712"
-      }
     }
   },
   {
@@ -2288,18 +1928,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11125409730138759578",
-        "topLeft": "11843142575358911562",
-        "bottomRight": "16276300286459379712"
-      },
-      "crated": {
-        "topLeft": "11843142575358911562",
-        "full": "11417228848071532954",
-        "bottomRight": "17717197080520318976"
-      }
     }
   },
   {
@@ -2340,18 +1968,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14389397090714989261",
-        "topLeft": "13503027827486468786",
-        "bottomRight": "14756053249555695712"
-      },
-      "crated": {
-        "topLeft": "13503027827486468786",
-        "full": "9750408012642857620",
-        "bottomRight": "15333640507523858496"
-      }
     }
   },
   {
@@ -2423,18 +2039,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13957044399798555422",
-        "topLeft": "15678762210738368655",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15678762210738368655",
-        "full": "11655845694169223966",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -2470,18 +2074,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14716692398586249267",
-        "topLeft": "12345678650954896810",
-        "bottomRight": "15042233999627960448"
-      },
-      "crated": {
-        "topLeft": "12345678650954896810",
-        "full": "9541497875834128695",
-        "bottomRight": "15409183497914433536"
-      }
     }
   },
   {
@@ -2521,18 +2113,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10715241410181292965",
-        "topLeft": "10048737614504610393",
-        "bottomRight": "16484511676675129344"
-      },
-      "crated": {
-        "topLeft": "10048737614504610393",
-        "full": "10723685801254281605",
-        "bottomRight": "15414775617282899968"
-      }
     }
   },
   {
@@ -2580,18 +2160,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10528959412908943212",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10817189893142308716",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -2671,18 +2239,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15030605766186239868",
-        "topLeft": "10391843171734792136",
-        "bottomRight": "12261847362488814378"
-      },
-      "crated": {
-        "topLeft": "10391843171734792136",
-        "full": "10707079721879865212",
-        "bottomRight": "9595616119706642464"
-      }
     }
   },
   {
@@ -2767,18 +2323,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15032787301414017906",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10673302862120442738",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -2814,18 +2358,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15000979918018191077",
-        "topLeft": "12202127629128143978",
-        "bottomRight": "14178669182858563600"
-      },
-      "crated": {
-        "topLeft": "12202127629128143978",
-        "full": "10685422892398563301",
-        "bottomRight": "15345007205380259984"
-      }
     }
   },
   {
@@ -2902,18 +2434,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10418642808533960680",
-        "topLeft": "14153752149198227514",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "14153752149198227514",
-        "full": "10706802816742608872",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -2971,18 +2491,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14100824747924865986",
-        "topLeft": "14154033624175200318",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "14154033624175200318",
-        "full": "14364285600737608642",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -3012,18 +2520,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10391053161379781042",
-        "topLeft": "12273623273254856010",
-        "bottomRight": "17361623678751604736"
-      },
-      "crated": {
-        "topLeft": "12273623273254856010",
-        "full": "10672457734927800754",
-        "bottomRight": "15415938898437619712"
-      }
     }
   },
   {
@@ -3058,18 +2554,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10420607581996006354",
-        "topLeft": "12273894814055764589",
-        "bottomRight": "16204198715727069312"
-      },
-      "crated": {
-        "topLeft": "12273894814055764589",
-        "full": "10685687191808867282",
-        "bottomRight": "14258513934330904704"
-      }
     }
   },
   {
@@ -3103,18 +2587,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10499350137471091342",
-        "topLeft": "11780508105540808813",
-        "bottomRight": "16771616153334714368"
-      },
-      "crated": {
-        "topLeft": "11780508105540808813",
-        "full": "10744249855525637022",
-        "bottomRight": "15410271742917607424"
-      }
     }
   },
   {
@@ -3202,18 +2674,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14132138158345761768",
-        "topLeft": "0",
-        "bottomRight": "14757395258967641292"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9537269993552565224",
-        "bottomRight": "9587172450232723592"
-      }
     }
   },
   {
@@ -3261,18 +2721,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10551209978858738029",
-        "topLeft": "11983456647066200490",
-        "bottomRight": "14757390055151550656"
-      },
-      "crated": {
-        "topLeft": "11983456647066200490",
-        "full": "10756970379980720550",
-        "bottomRight": "15419313573431631872"
-      }
     }
   },
   {
@@ -3362,18 +2810,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958103628978347075",
-        "topLeft": "9474777381175337999",
-        "bottomRight": "17941493161786343424"
-      },
-      "crated": {
-        "topLeft": "9474777381175337999",
-        "full": "9634648123808176195",
-        "bottomRight": "9654726908765560832"
-      }
     }
   },
   {
@@ -3461,18 +2897,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14068176266267267782",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "17363908872188133376"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "9591598237470511814",
-        "bottomRight": "10807647480133517312"
-      }
     }
   },
   {
@@ -3528,18 +2952,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15176621014505866034",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10816015623112966962",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -3595,18 +3007,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843838501997560590",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9520382998238741262",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -3695,18 +3095,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10681804733988095644",
-        "topLeft": "0",
-        "bottomRight": "14107464018608308224"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10689615629162530460",
-        "bottomRight": "9639790931964092608"
-      }
     }
   },
   {
@@ -3772,18 +3160,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958099239500961409",
-        "topLeft": "9258603511915325566",
-        "bottomRight": "8141660387661602816"
-      },
-      "crated": {
-        "topLeft": "9258603511915325566",
-        "full": "9600888728698148481",
-        "bottomRight": "9654726925678045184"
-      }
     }
   },
   {
@@ -3846,18 +3222,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15110816363772604942",
-        "topLeft": "15895842688634454796",
-        "bottomRight": "6989303482343251968"
-      },
-      "crated": {
-        "topLeft": "15895842688634454796",
-        "full": "10456346149619200526",
-        "bottomRight": "9618134938186442752"
-      }
     }
   },
   {
@@ -3922,18 +3286,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13957894859157369359",
-        "topLeft": "9451221582838805519",
-        "bottomRight": "6989303482343251968"
-      },
-      "crated": {
-        "topLeft": "9451221582838805519",
-        "full": "15100683264623604239",
-        "bottomRight": "9618134938186442752"
-      }
     }
   },
   {
@@ -4000,18 +3352,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958176334150857230",
-        "topLeft": "10391843171734792136",
-        "bottomRight": "6989303482343251968"
-      },
-      "crated": {
-        "topLeft": "10391843171734792136",
-        "full": "10492656420625019406",
-        "bottomRight": "9618134938186442752"
-      }
     }
   },
   {
@@ -4082,18 +3422,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14029108036801178643",
-        "topLeft": "9932449805276082318",
-        "bottomRight": "17361641481138401504"
-      },
-      "crated": {
-        "topLeft": "9932449805276082318",
-        "full": "10552329640949328915",
-        "bottomRight": "9651349174292078816"
-      }
     }
   },
   {
@@ -4134,18 +3462,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14282103867654743747",
-        "topLeft": "12919821911606963625",
-        "bottomRight": "16196649533873905664"
-      },
-      "crated": {
-        "topLeft": "12919821911606963625",
-        "full": "9759926759679550355",
-        "bottomRight": "15331426173037076480"
-      }
     }
   },
   {
@@ -4206,18 +3522,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14247194488908303435",
-        "topLeft": "9896428579194276953",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "9896428579194276953",
-        "full": "14202158493444099147",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -4245,18 +3549,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15305829222052436192",
-        "topLeft": "9546476227574319269",
-        "bottomRight": "14617015429574426880"
-      },
-      "crated": {
-        "topLeft": "9546476227574319269",
-        "full": "9604553602994981056",
-        "bottomRight": "15409692848832905216"
-      }
     }
   },
   {
@@ -4293,18 +3585,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10715514217689938115",
-        "topLeft": "12273899203040203437",
-        "bottomRight": "17940353960493711360"
-      },
-      "crated": {
-        "topLeft": "12273899203040203437",
-        "full": "10678360070528325827",
-        "bottomRight": "15418206228307771392"
-      }
     }
   },
   {
@@ -4340,18 +3620,6 @@ const catalog = [
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11256301613767925436",
-        "topLeft": "12202105621114099305",
-        "bottomRight": "17352515138404491296"
-      },
-      "crated": {
-        "topLeft": "12202105621114099305",
-        "full": "11264182910904901300",
-        "bottomRight": "15334757284450402304"
-      }
     }
   },
   {
@@ -4412,18 +3680,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14091878000753613494",
-        "topLeft": "9897571855372799321",
-        "bottomRight": "16773868502893723651"
-      },
-      "crated": {
-        "topLeft": "9897571855372799321",
-        "full": "9320314745351788978",
-        "bottomRight": "15418188225423867904"
-      }
     }
   },
   {
@@ -4511,18 +3767,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14383424512954423515",
-        "topLeft": "11766977188206531109",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "11766977188206531109",
-        "full": "14347396282879793371",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -4583,18 +3827,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958977152598089255",
-        "topLeft": "10049037313844358489",
-        "bottomRight": "16782875667587667992"
-      },
-      "crated": {
-        "topLeft": "10049037313844358489",
-        "full": "13931955272443961127",
-        "bottomRight": "15419316322207074312"
-      }
     }
   },
   {
@@ -4687,18 +3919,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907231092906978",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10673514243161136098",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -4760,18 +3980,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15030306836489700324",
-        "topLeft": "9258603511915325566",
-        "bottomRight": "6989303482343251968"
-      },
-      "crated": {
-        "topLeft": "9258603511915325566",
-        "full": "10435443347068290020",
-        "bottomRight": "9619261078612502528"
-      }
     }
   },
   {
@@ -4849,18 +4057,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13876770657604950721",
-        "topLeft": "9618611104559181178",
-        "bottomRight": "35887507618889598"
-      },
-      "crated": {
-        "topLeft": "9618611104559181178",
-        "full": "14165005982666279617",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -4959,18 +4155,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14173163705289262038",
-        "topLeft": "14152626249358493754",
-        "bottomRight": "12273903644374837845"
-      },
-      "crated": {
-        "topLeft": "14152626249358493754",
-        "full": "9543463562961830870",
-        "bottomRight": "9588861270019303424"
-      }
     }
   },
   {
@@ -5005,18 +4189,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10608067054328865037",
-        "topLeft": "10623347586949157462",
-        "bottomRight": "16196084182462496768"
-      },
-      "crated": {
-        "topLeft": "10623347586949157462",
-        "full": "10462825966878417165",
-        "bottomRight": "15342647655037665280"
-      }
     }
   },
   {
@@ -5077,18 +4249,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14225884485052766259",
-        "topLeft": "10470123056535063721",
-        "bottomRight": "15046667102746345472"
-      },
-      "crated": {
-        "topLeft": "10470123056535063721",
-        "full": "14226377066257258679",
-        "bottomRight": "15335894179209281536"
-      }
     }
   },
   {
@@ -5134,18 +4294,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10787656366568982252",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "13050645321687977708",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -5233,18 +4381,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14643793695048569822",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "16204215858474257927"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10905806140633338782",
-        "bottomRight": "14263035226393149440"
-      }
     }
   },
   {
@@ -5333,18 +4469,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14132067357687286754",
-        "topLeft": "11841452904618273109",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "11841452904618273109",
-        "full": "9520381632389319650",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -5402,18 +4526,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13899302070602437465",
-        "topLeft": "9743577907255987817",
-        "bottomRight": "16194958347533811712"
-      },
-      "crated": {
-        "topLeft": "9743577907255987817",
-        "full": "13862710358132396952",
-        "bottomRight": "17708268908676382720"
-      }
     }
   },
   {
@@ -5449,18 +4561,6 @@ const catalog = [
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10490359498501112442",
-        "topLeft": "10766584540029096553",
-        "bottomRight": "13889876134864143556"
-      },
-      "crated": {
-        "topLeft": "10766584540029096553",
-        "full": "10777463993138004602",
-        "bottomRight": "14249506597637251268"
-      }
     }
   },
   {
@@ -5506,18 +4606,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13937020810290185067",
-        "topLeft": "11268999231483466572",
-        "bottomRight": "15191204633743720448"
-      },
-      "crated": {
-        "topLeft": "11268999231483466572",
-        "full": "13937020930885075767",
-        "bottomRight": "15337580830042095616"
-      }
     }
   },
   {
@@ -5563,18 +4651,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14742868896371795045",
-        "topLeft": "12346149274955422378",
-        "bottomRight": "14323526480496452248"
-      },
-      "crated": {
-        "topLeft": "12346149274955422378",
-        "full": "10113169028926500196",
-        "bottomRight": "9638666251844935873"
-      }
     }
   },
   {
@@ -5595,18 +4671,6 @@ const catalog = [
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9825623102353446824",
-        "topLeft": "12491391785981594262",
-        "bottomRight": "15378170621683527556"
-      },
-      "crated": {
-        "topLeft": "12491391785981594262",
-        "full": "10167685560288811000",
-        "bottomRight": "15348964860982143104"
-      }
     }
   },
   {
@@ -5637,18 +4701,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9299502807150769649",
-        "topLeft": "9254444051287325094",
-        "bottomRight": "15119750410661853184"
-      },
-      "crated": {
-        "topLeft": "9254444051287325094",
-        "full": "9304005857018410481",
-        "bottomRight": "15407985049575946240"
-      }
     }
   },
   {
@@ -5688,18 +4740,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Supplies"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9985078959723258498",
-        "topLeft": "13135115235280252236",
-        "bottomRight": "16420414515683786944"
-      },
-      "crated": {
-        "topLeft": "13135115235280252236",
-        "full": "10329626065095713682",
-        "bottomRight": "15416147806175363072"
-      }
     }
   },
   {
@@ -5772,18 +4812,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14695358615708843926",
-        "topLeft": "9710671653715665621",
-        "bottomRight": "17938048422099550208"
-      },
-      "crated": {
-        "topLeft": "9710671653715665621",
-        "full": "13939316554189320086",
-        "bottomRight": "15418187675135377408"
-      }
     }
   },
   {
@@ -5841,18 +4869,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10459445879572997752",
-        "topLeft": "9967646186359480918",
-        "bottomRight": "15335900638827520064"
-      },
-      "crated": {
-        "topLeft": "9967646186359480918",
-        "full": "10477459986021576376",
-        "bottomRight": "15335883183015067648"
-      }
     }
   },
   {
@@ -5898,18 +4914,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14140295416203220007",
-        "topLeft": "11636950857093895737",
-        "bottomRight": "15336041030308904960"
-      },
-      "crated": {
-        "topLeft": "11636950857093895737",
-        "full": "9520094771140417719",
-        "bottomRight": "15335900775206387712"
-      }
     }
   },
   {
@@ -5949,18 +4953,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Supplies"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14861154812356159343",
-        "topLeft": "12280913162524863835",
-        "bottomRight": "16630694947342270480"
-      },
-      "crated": {
-        "topLeft": "12280913162524863835",
-        "full": "10338063116064220007",
-        "bottomRight": "15333640452016463872"
-      }
     }
   },
   {
@@ -6000,18 +4992,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14851854253301189067",
-        "topLeft": "12491386995627890093",
-        "bottomRight": "17361623678751604736"
-      },
-      "crated": {
-        "topLeft": "12491386995627890093",
-        "full": "9519592294423218507",
-        "bottomRight": "15415954427957215232"
-      }
     }
   },
   {
@@ -6091,18 +5071,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14028824762857053006",
-        "topLeft": "9896160262579703225",
-        "bottomRight": "16204162565922095104"
-      },
-      "crated": {
-        "topLeft": "9896160262579703225",
-        "full": "9741327558524164938",
-        "bottomRight": "15411432825450135552"
-      }
     }
   },
   {
@@ -6192,18 +5160,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13958103641796135283",
-        "topLeft": "9456833489113228303",
-        "bottomRight": "17942056128919633920"
-      },
-      "crated": {
-        "topLeft": "9456833489113228303",
-        "full": "9634648136686782835",
-        "bottomRight": "9655289875630415872"
-      }
     }
   },
   {
@@ -6279,18 +5235,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13957822300013873227",
-        "topLeft": "9258603511915341950",
-        "bottomRight": "17363902111404843104"
-      },
-      "crated": {
-        "topLeft": "9258603511915341950",
-        "full": "10786162263440640075",
-        "bottomRight": "9653601008868155488"
-      }
     }
   },
   {
@@ -6380,18 +5324,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14046840818599442110",
-        "topLeft": "9451221582838805519",
-        "bottomRight": "17942056128920682496"
-      },
-      "crated": {
-        "topLeft": "9451221582838805519",
-        "full": "14046840818609935038",
-        "bottomRight": "9655289875630415872"
-      }
     }
   },
   {
@@ -6452,18 +5384,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13966277643616483901",
-        "topLeft": "9240952544032439000",
-        "bottomRight": "15697402672980951040"
-      },
-      "crated": {
-        "topLeft": "9240952544032439000",
-        "full": "13891985843024718140",
-        "bottomRight": "15418188223415320576"
-      }
     }
   },
   {
@@ -6538,18 +5458,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9634664492949984980",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10744802350858392276",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -6638,18 +5546,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13924064491345943378",
-        "topLeft": "11915017504451958445",
-        "bottomRight": "17940361794514059264"
-      },
-      "crated": {
-        "topLeft": "11915017504451958445",
-        "full": "9303370996642634578",
-        "bottomRight": "15347275770590396416"
-      }
     }
   },
   {
@@ -6733,18 +5629,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14750189032286481865",
-        "topLeft": "12273903665502901417",
-        "bottomRight": "18374687579166474495"
-      },
-      "crated": {
-        "topLeft": "12273903665502901417",
-        "full": "10120488752792759753",
-        "bottomRight": "10736699157180868863"
-      }
     }
   },
   {
@@ -6828,18 +5712,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14355292977940405705",
-        "topLeft": "12273899203006780973",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12273899203006780973",
-        "full": "14346276705495947721",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -6883,18 +5755,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14644646966975162169",
-        "topLeft": "13135230218383353930",
-        "bottomRight": "16348656469844963328"
-      },
-      "crated": {
-        "topLeft": "13135230218383353930",
-        "full": "9761610059804992280",
-        "bottomRight": "15411925681524727808"
-      }
     }
   },
   {
@@ -6933,18 +5793,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9348458425139477539",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "18230286487757258752"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10744504507815836707",
-        "bottomRight": "9655289858718965760"
-      }
     }
   },
   {
@@ -7031,18 +5879,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907367458642930",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9520381632388865010",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7136,18 +5972,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907771188188134",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10385073027131970532",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7242,18 +6066,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843908879289753570",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10691318635016821730",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7348,18 +6160,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907917251089398",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10673303411924407286",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7453,18 +6253,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14996829284393878490",
-        "topLeft": "0",
-        "bottomRight": "18229723537797545984"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10385073035738680282",
-        "bottomRight": "10807648413097664512"
-      }
     }
   },
   {
@@ -7559,18 +6347,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907231096052706",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9232221624981330914",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7665,18 +6441,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843907367461788658",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10691317535505189874",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7716,18 +6480,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13964886291024365260",
-        "topLeft": "11488897727161920185",
-        "bottomRight": "14468263573526154240"
-      },
-      "crated": {
-        "topLeft": "11488897727161920185",
-        "full": "9604557590536178630",
-        "bottomRight": "15409482293433073664"
-      }
     }
   },
   {
@@ -7797,18 +6549,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15320519568171482381",
-        "topLeft": "10327430679908967599",
-        "bottomRight": "14470085560381218912"
-      },
-      "crated": {
-        "topLeft": "10327430679908967599",
-        "full": "14184205122898509189",
-        "bottomRight": "15337055538361950272"
-      }
     }
   },
   {
@@ -7895,18 +6635,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843838622263472918",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "9232152604905632534",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -7951,18 +6679,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "16149693722080101900",
-        "topLeft": "0",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "16149693722075907596",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -8051,18 +6767,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14996812927035055090",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "14395694378036310321"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10385074130976840690",
-        "bottomRight": "14250352132835336561"
-      }
     }
   },
   {
@@ -8133,18 +6837,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14019763231479184527",
-        "topLeft": "9392587867757817447",
-        "bottomRight": "17940362756586733568"
-      },
-      "crated": {
-        "topLeft": "9392587867757817447",
-        "full": "14310245408526728335",
-        "bottomRight": "15419334328311619584"
-      }
     }
   },
   {
@@ -8237,18 +6929,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843836999789190130",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "12273903644374837845"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10673302587244551154",
-        "bottomRight": "9588861270019303424"
-      }
     }
   },
   {
@@ -8341,18 +7021,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13843836984807134198",
-        "topLeft": "12202126412967228842",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12202126412967228842",
-        "full": "9515878281918288886",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -8391,18 +7059,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10387055391103509628",
-        "topLeft": "12199848577531528361",
-        "bottomRight": "16194944809813721088"
-      },
-      "crated": {
-        "topLeft": "12199848577531528361",
-        "full": "10684292966553971892",
-        "bottomRight": "15341521754593968128"
-      }
     }
   },
   {
@@ -8480,18 +7136,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10787581595550304236",
-        "topLeft": "15090265701142253319",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "15090265701142253319",
-        "full": "13093424604766095212",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -8552,18 +7196,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13951923368343638327",
-        "topLeft": "9895298280074906985",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "9895298280074906985",
-        "full": "13932783062411122999",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -8651,18 +7283,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14992268645484818694",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "14323632521499211992"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10380573829896958342",
-        "bottomRight": "14251478170181132512"
-      }
     }
   },
   {
@@ -8720,18 +7340,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13876823434162937721",
-        "topLeft": "9428051061959927933",
-        "bottomRight": "8142225536638271488"
-      },
-      "crated": {
-        "topLeft": "9428051061959927933",
-        "full": "10416933021509295993",
-        "bottomRight": "9619261078612502528"
-      }
     }
   },
   {
@@ -8776,18 +7384,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14369924916573818533",
-        "topLeft": "13350527085133861993",
-        "bottomRight": "13889312984547733504"
-      },
-      "crated": {
-        "topLeft": "13350527085133861993",
-        "full": "9613560752530935717",
-        "bottomRight": "15334873831341817856"
-      }
     }
   },
   {
@@ -8828,18 +7424,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10565008698254632886",
-        "topLeft": "9223372036854775808",
-        "bottomRight": "9223372036854775808"
-      },
-      "crated": {
-        "topLeft": "9223372036854775808",
-        "full": "10816013973843945462",
-        "bottomRight": "9583794698963675136"
-      }
     }
   },
   {
@@ -8883,18 +7467,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10490418894049117050",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10673307260166865786",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -8931,18 +7503,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13851171270161326392",
-        "topLeft": "11915036052754903621",
-        "bottomRight": "16204198574618231491"
-      },
-      "crated": {
-        "topLeft": "11915036052754903621",
-        "full": "9518708429846733112",
-        "bottomRight": "14263034986545307842"
-      }
     }
   },
   {
@@ -8979,18 +7539,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14309120075512926742",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10816015614472339990",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -9027,18 +7575,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14525864071469171736",
-        "topLeft": "11693762653512305066",
-        "bottomRight": "18228565782386704384"
-      },
-      "crated": {
-        "topLeft": "11693762653512305066",
-        "full": "9591044779781112856",
-        "bottomRight": "15419313575029637120"
-      }
     }
   },
   {
@@ -9104,18 +7640,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14028769254126093204",
-        "topLeft": "14152626249358493754",
-        "bottomRight": "0"
-      },
-      "crated": {
-        "topLeft": "14152626249358493754",
-        "full": "9680541614878213012",
-        "bottomRight": "9591113069832988672"
-      }
     }
   },
   {
@@ -9164,18 +7688,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15882060089208894262",
-        "topLeft": "11559097939625585621",
-        "bottomRight": "14757299872897957900"
-      },
-      "crated": {
-        "topLeft": "11559097939625585621",
-        "full": "11270941418781438774",
-        "bottomRight": "15910206500811833344"
-      }
     }
   },
   {
@@ -9224,18 +7736,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13898224058616443099",
-        "topLeft": "9394083999909492936",
-        "bottomRight": "15910095363165177856"
-      },
-      "crated": {
-        "topLeft": "9394083999909492936",
-        "full": "13862195261597442715",
-        "bottomRight": "15910101238688008192"
-      }
     }
   },
   {
@@ -9284,18 +7784,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14150425706075681613",
-        "topLeft": "9401885859425893768",
-        "bottomRight": "15603970162548539392"
-      },
-      "crated": {
-        "topLeft": "9401885859425893768",
-        "full": "14150425706067291020",
-        "bottomRight": "15386680724371800064"
-      }
     }
   },
   {
@@ -9344,18 +7832,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15663639991219090212",
-        "topLeft": "9971591200086237256",
-        "bottomRight": "15621971235913596928"
-      },
-      "crated": {
-        "topLeft": "9971591200086237256",
-        "full": "9899032536904065828",
-        "bottomRight": "15910206535171571712"
-      }
     }
   },
   {
@@ -9404,18 +7880,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15015121576166568758",
-        "topLeft": "9971871575555514461",
-        "bottomRight": "14757299872897957900"
-      },
-      "crated": {
-        "topLeft": "9971871575555514461",
-        "full": "10403435695178150198",
-        "bottomRight": "15910206500811833344"
-      }
     }
   },
   {
@@ -9464,18 +7928,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14222483776771154735",
-        "topLeft": "10433217549346104922",
-        "bottomRight": "15603959589471518720"
-      },
-      "crated": {
-        "topLeft": "10433217549346104922",
-        "full": "14222483776846652198",
-        "bottomRight": "15892192413696131072"
-      }
     }
   },
   {
@@ -9524,18 +7976,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15231290028942649702",
-        "topLeft": "9892788087550190186",
-        "bottomRight": "15693958962649006080"
-      },
-      "crated": {
-        "topLeft": "9892788087550190186",
-        "full": "13934253473709386086",
-        "bottomRight": "15892192413695868928"
-      }
     }
   },
   {
@@ -9584,18 +8024,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15015398653102666551",
-        "topLeft": "9820726078280639013",
-        "bottomRight": "14448729356266111232"
-      },
-      "crated": {
-        "topLeft": "9820726078280639013",
-        "full": "13862195810943382327",
-        "bottomRight": "15313479859422887936"
-      }
     }
   },
   {
@@ -9644,18 +8072,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15664203078408551872",
-        "topLeft": "9248757329192911447",
-        "bottomRight": "15607590521499811856"
-      },
-      "crated": {
-        "topLeft": "9248757329192911447",
-        "full": "11341028906814617792",
-        "bottomRight": "15907075485771759616"
-      }
     }
   },
   {
@@ -9704,18 +8120,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15591859063806115041",
-        "topLeft": "9319689087770875439",
-        "bottomRight": "17909689958814187520"
-      },
-      "crated": {
-        "topLeft": "9319689087770875439",
-        "full": "10980735993184663777",
-        "bottomRight": "18196909230945484800"
-      }
     }
   },
   {
@@ -9764,18 +8168,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13934257317696992103",
-        "topLeft": "10261509274376024781",
-        "bottomRight": "15621971227424358500"
-      },
-      "crated": {
-        "topLeft": "10261509274376024781",
-        "full": "13934257253272413030",
-        "bottomRight": "15892192135588610048"
-      }
     }
   },
   {
@@ -9824,18 +8216,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14873253998088231223",
-        "topLeft": "11550935182044372141",
-        "bottomRight": "15621973907385352192"
-      },
-      "crated": {
-        "topLeft": "11550935182044372141",
-        "full": "14873253927288326454",
-        "bottomRight": "15910206482558484480"
-      }
     }
   },
   {
@@ -9884,18 +8264,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "16026461369357580607",
-        "topLeft": "11550113856523151533",
-        "bottomRight": "14739279684772560896"
-      },
-      "crated": {
-        "topLeft": "11550113856523151533",
-        "full": "14871006521226197311",
-        "bottomRight": "15315731661384318976"
-      }
     }
   },
   {
@@ -9944,18 +8312,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14801196401969691437",
-        "topLeft": "9821038284470349989",
-        "bottomRight": "15621971227357216772"
-      },
-      "crated": {
-        "topLeft": "9821038284470349989",
-        "full": "14801196333250341668",
-        "bottomRight": "15315731384358666240"
-      }
     }
   },
   {
@@ -10004,18 +8360,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15306442269325157171",
-        "topLeft": "9820712916001616628",
-        "bottomRight": "14418384295695482884"
-      },
-      "crated": {
-        "topLeft": "9820712916001616628",
-        "full": "15594672643329385271",
-        "bottomRight": "15852785040774660096"
-      }
     }
   },
   {
@@ -10058,18 +8402,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11346939819184055085",
-        "topLeft": "12198726734445390426",
-        "bottomRight": "15621971785669412864"
-      },
-      "crated": {
-        "topLeft": "12198726734445390426",
-        "full": "11346939818118701862",
-        "bottomRight": "15910206535171571712"
-      }
     }
   },
   {
@@ -10112,18 +8444,6 @@ const catalog = [
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11270378483860529958",
-        "topLeft": "12271080099219352149",
-        "bottomRight": "14757295442639192076"
-      },
-      "crated": {
-        "topLeft": "12271080099219352149",
-        "full": "11274882226295431990",
-        "bottomRight": "15910206500811833344"
-      }
     }
   },
   {
@@ -10172,18 +8492,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14798944597861423981",
-        "topLeft": "9748945673877688756",
-        "bottomRight": "15621971708360032256"
-      },
-      "crated": {
-        "topLeft": "9748945673877688756",
-        "full": "14798944533436848958",
-        "bottomRight": "15910206483631964160"
-      }
     }
   },
   {
@@ -10232,18 +8540,6 @@ const catalog = [
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14729138807932087102",
-        "topLeft": "9965127802885214868",
-        "bottomRight": "14757229504153780236"
-      },
-      "crated": {
-        "topLeft": "9965127802885214868",
-        "full": "14729138739212610366",
-        "bottomRight": "15892192102310739968"
-      }
     }
   },
   {
@@ -10316,18 +8612,6 @@ const catalog = [
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10865339058085978411",
-        "topLeft": "13145243511891862964",
-        "bottomRight": "13898459770337101824"
-      },
-      "crated": {
-        "topLeft": "13145243511891862964",
-        "full": "10869842795156496683",
-        "bottomRight": "14194355108334010496"
-      }
     }
   },
   {
@@ -10381,18 +8665,6 @@ const catalog = [
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15362687404980706929",
-        "topLeft": "11699707971606452074",
-        "bottomRight": "15625477228454739968"
-      },
-      "crated": {
-        "topLeft": "11699707971606452074",
-        "full": "10757761149689011825",
-        "bottomRight": "15409201092256333824"
-      }
     }
   },
   {
@@ -10465,18 +8737,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10744580333755080169",
-        "topLeft": "12419438397260913578",
-        "bottomRight": "15263420486317531392"
-      },
-      "crated": {
-        "topLeft": "12419438397260913578",
-        "full": "10756894859691219425",
-        "bottomRight": "15410889665097523200"
-      }
     }
   },
   {
@@ -10549,18 +8809,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9555928547917141198",
-        "topLeft": "13135199277701831781",
-        "bottomRight": "14468025458917126176"
-      },
-      "crated": {
-        "topLeft": "13135199277701831781",
-        "full": "9605679242467068110",
-        "bottomRight": "14251756194665332736"
-      }
     }
   },
   {
@@ -10635,18 +8883,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15293991034690769679",
-        "topLeft": "9761696452939031755",
-        "bottomRight": "15046684771184869632"
-      },
-      "crated": {
-        "topLeft": "9761696452939031755",
-        "full": "9537286905319971102",
-        "bottomRight": "15406823673243369472"
-      }
     }
   },
   {
@@ -10720,18 +8956,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10671960883621452433",
-        "topLeft": "12489225362282992165",
-        "bottomRight": "13891564983638032384"
-      },
-      "crated": {
-        "topLeft": "12489225362282992165",
-        "full": "10689975300116109969",
-        "bottomRight": "15337143499292147712"
-      }
     }
   },
   {
@@ -10804,18 +9028,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625664000147033244",
-        "topLeft": "12421943881461114009",
-        "bottomRight": "16059511712335790080"
-      },
-      "crated": {
-        "topLeft": "12421943881461114009",
-        "full": "9626794261603667356",
-        "bottomRight": "15338832417871888384"
-      }
     }
   },
   {
@@ -10892,18 +9104,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9526075171608120760",
-        "topLeft": "13422305403219650669",
-        "bottomRight": "15046755898569785344"
-      },
-      "crated": {
-        "topLeft": "13422305403219650669",
-        "full": "9532848141227707565",
-        "bottomRight": "15408072994399977472"
-      }
     }
   },
   {
@@ -10980,18 +9180,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14165296823405020060",
-        "topLeft": "12486188901315267747",
-        "bottomRight": "17361923917375078400"
-      },
-      "crated": {
-        "topLeft": "12486188901315267747",
-        "full": "9537285221978082204",
-        "bottomRight": "15128007660315607040"
-      }
     }
   },
   {
@@ -11068,18 +9256,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10679842227194008816",
-        "topLeft": "12202139987837561686",
-        "bottomRight": "15047793079218339840"
-      },
-      "crated": {
-        "topLeft": "12202139987837561686",
-        "full": "10689975317773520114",
-        "bottomRight": "15417062327127638016"
-      }
     }
   },
   {
@@ -11156,18 +9332,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10666330181968041716",
-        "topLeft": "13424548399418070453",
-        "bottomRight": "15046738011304763392"
-      },
-      "crated": {
-        "topLeft": "13424548399418070453",
-        "full": "10685470618896781300",
-        "bottomRight": "15338266924224086016"
-      }
     }
   },
   {
@@ -11244,18 +9408,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9554173754696713106",
-        "topLeft": "11836473810099618897",
-        "bottomRight": "17361641274167296002"
-      },
-      "crated": {
-        "topLeft": "11836473810099618897",
-        "full": "9517019055622867858",
-        "bottomRight": "15415956493308002304"
-      }
     }
   },
   {
@@ -11332,18 +9484,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10706035844523715736",
-        "topLeft": "11843258018209310554",
-        "bottomRight": "15625468433443848192"
-      },
-      "crated": {
-        "topLeft": "11843258018209310554",
-        "full": "10672258845703628952",
-        "bottomRight": "15337143568011624448"
-      }
     }
   },
   {
@@ -11420,18 +9560,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14138820582335044508",
-        "topLeft": "12848086550555303203",
-        "bottomRight": "17361887632409231364"
-      },
-      "crated": {
-        "topLeft": "12848086550555303203",
-        "full": "9519271405469289372",
-        "bottomRight": "15128570609195286528"
-      }
     }
   },
   {
@@ -11508,18 +9636,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14165644272301690560",
-        "topLeft": "13494081524421268649",
-        "bottomRight": "15625758807866523776"
-      },
-      "crated": {
-        "topLeft": "13494081524421268649",
-        "full": "9536999903007755968",
-        "bottomRight": "10509566242720891008"
-      }
     }
   },
   {
@@ -11596,18 +9712,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10751898539790310115",
-        "topLeft": "11915017508226962021",
-        "bottomRight": "15046738288058568704"
-      },
-      "crated": {
-        "topLeft": "11915017508226962021",
-        "full": "10757527765461129955",
-        "bottomRight": "15337143498218405888"
-      }
     }
   },
   {
@@ -11683,18 +9787,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15018730232474078150",
-        "topLeft": "11053676925379449693",
-        "bottomRight": "16349768796059205632"
-      },
-      "crated": {
-        "topLeft": "11053676925379449693",
-        "full": "13856238578058513350",
-        "bottomRight": "14187581827882942464"
-      }
     }
   },
   {
@@ -11770,18 +9862,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10798341237033874714",
-        "topLeft": "11556131638328934463",
-        "bottomRight": "10995697785744974016"
-      },
-      "crated": {
-        "topLeft": "11556131638328934463",
-        "full": "10757809939894461212",
-        "bottomRight": "9624327166351171744"
-      }
     }
   },
   {
@@ -11857,18 +9937,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10694478556502898120",
-        "topLeft": "0",
-        "bottomRight": "15623798989462765664"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "10685462561151937964",
-        "bottomRight": "15049476078462566400"
-      }
     }
   },
   {
@@ -11944,18 +10012,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10532624117330507209",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "13889348574087220230"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10829580085698654669",
-        "bottomRight": "14249522126091452416"
-      }
     }
   },
   {
@@ -12031,18 +10087,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13865808993636260452",
-        "topLeft": "11125468215627668515",
-        "bottomRight": "16493457341411364352"
-      },
-      "crated": {
-        "topLeft": "11125468215627668515",
-        "full": "9316327725349690038",
-        "bottomRight": "14261889020563816448"
-      }
     }
   },
   {
@@ -12118,18 +10162,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10865612729551066309",
-        "topLeft": "13139711604974822601",
-        "bottomRight": "14757673587397623808"
-      },
-      "crated": {
-        "topLeft": "13139711604974822601",
-        "full": "10829588263045847173",
-        "bottomRight": "14252882095645917184"
-      }
     }
   },
   {
@@ -12205,18 +10237,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10866175697015437901",
-        "topLeft": "11842683841025828314",
-        "bottomRight": "16204225204254343936"
-      },
-      "crated": {
-        "topLeft": "11842683841025828314",
-        "full": "10829579518509217869",
-        "bottomRight": "14193227199456215040"
-      }
     }
   },
   {
@@ -12292,18 +10312,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13863556962423753667",
-        "topLeft": "11125446447888962135",
-        "bottomRight": "16276855738339426560"
-      },
-      "crated": {
-        "topLeft": "11125446447888962135",
-        "full": "13856238629673061315",
-        "bottomRight": "15411997424658415616"
-      }
     }
   },
   {
@@ -12379,18 +10387,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10838027641934199533",
-        "topLeft": "11843240281600807597",
-        "bottomRight": "13889330707601293312"
-      },
-      "crated": {
-        "topLeft": "11843240281600807597",
-        "full": "10901561744463116709",
-        "bottomRight": "15408072787167805440"
-      }
     }
   },
   {
@@ -12451,18 +10447,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9601528997660772529",
-        "topLeft": "12489235287130199721",
-        "bottomRight": "13889313183832739856"
-      },
-      "crated": {
-        "topLeft": "12489235287130199721",
-        "full": "9591394799122303153",
-        "bottomRight": "14256279587649486864"
-      }
     }
   },
   {
@@ -12523,18 +10507,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14132078891962453208",
-        "topLeft": "13135230347365997413",
-        "bottomRight": "17361623819961286656"
-      },
-      "crated": {
-        "topLeft": "13135230347365997413",
-        "full": "9520392874684304600",
-        "bottomRight": "14263035126144319488"
-      }
     }
   },
   {
@@ -12595,18 +10567,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14132079991474080984",
-        "topLeft": "13135231464090391149",
-        "bottomRight": "17361623819961286656"
-      },
-      "crated": {
-        "topLeft": "13135231464090391149",
-        "full": "9520393974195932376",
-        "bottomRight": "14263035126144319488"
-      }
     }
   },
   {
@@ -12683,18 +10643,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14346334134375782456",
-        "topLeft": "13135230215308286822",
-        "bottomRight": "15625450563151343728"
-      },
-      "crated": {
-        "topLeft": "13135230215308286822",
-        "full": "9590462560336336952",
-        "bottomRight": "15409198616207696112"
-      }
     }
   },
   {
@@ -12771,18 +10719,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9770887471004356536",
-        "topLeft": "12848087416257825074",
-        "bottomRight": "13889312908948019216"
-      },
-      "crated": {
-        "topLeft": "12848087416257825074",
-        "full": "9734876283351306168",
-        "bottomRight": "15409201090108850320"
-      }
     }
   },
   {
@@ -12859,18 +10795,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14382591098772495292",
-        "topLeft": "13287760901004553363",
-        "bottomRight": "13889312908948017168"
-      },
-      "crated": {
-        "topLeft": "13287760901004553363",
-        "full": "9590761095258672060",
-        "bottomRight": "15409200815230943376"
-      }
     }
   },
   {
@@ -12947,18 +10871,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13914217285958497433",
-        "topLeft": "12846966178027311462",
-        "bottomRight": "13889330570121449472"
-      },
-      "crated": {
-        "topLeft": "12846966178027311462",
-        "full": "10743687535070277017",
-        "bottomRight": "15334891767393681408"
-      }
     }
   },
   {
@@ -13035,18 +10947,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14202447094887194265",
-        "topLeft": "12848086041867225426",
-        "bottomRight": "13889313252821700608"
-      },
-      "crated": {
-        "topLeft": "12848086041867225426",
-        "full": "9590761644210245272",
-        "bottomRight": "14177466595244245120"
-      }
     }
   },
   {
@@ -13118,18 +11018,6 @@ const catalog = [
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10498575035217320470",
-        "topLeft": "9331036762527983703",
-        "bottomRight": "13889312907068448768"
-      },
-      "crated": {
-        "topLeft": "9331036762527983703",
-        "full": "10764304656901441942",
-        "bottomRight": "15337125631154454528"
-      }
     }
   },
   {
@@ -13201,18 +11089,6 @@ const catalog = [
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10494352910549883574",
-        "topLeft": "9258979855952738455",
-        "bottomRight": "15042234411675287552"
-      },
-      "crated": {
-        "topLeft": "9258979855952738455",
-        "full": "10764234288694135190",
-        "bottomRight": "15337125631154454528"
-      }
     }
   },
   {
@@ -13284,18 +11160,6 @@ const catalog = [
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15038411198824284883",
-        "topLeft": "9977062631445862423",
-        "bottomRight": "14468025459187671040"
-      },
-      "crated": {
-        "topLeft": "9977062631445862423",
-        "full": "10757744142474594771",
-        "bottomRight": "15409183223049109504"
-      }
     }
   },
   {
@@ -13372,18 +11236,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9542681967562051300",
-        "topLeft": "13350526535362389067",
-        "bottomRight": "13889312907068452896"
-      },
-      "crated": {
-        "topLeft": "13350526535362389067",
-        "full": "9532496096683020000",
-        "bottomRight": "15409200817378426880"
-      }
     }
   },
   {
@@ -13460,18 +11312,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11248140165813591776",
-        "topLeft": "12489244464144296538",
-        "bottomRight": "14468034289773064192"
-      },
-      "crated": {
-        "topLeft": "12489244464144296538",
-        "full": "10685699020197677792",
-        "bottomRight": "15409183223044898816"
-      }
     }
   },
   {
@@ -13548,18 +11388,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10706863815562993398",
-        "topLeft": "13638758006774736345",
-        "bottomRight": "16197407990704242688"
-      },
-      "crated": {
-        "topLeft": "13638758006774736345",
-        "full": "10685417807448362742",
-        "bottomRight": "14260765592943329280"
-      }
     }
   },
   {
@@ -13636,18 +11464,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11248140165813620448",
-        "topLeft": "12491459971416172890",
-        "bottomRight": "14468034289773064192"
-      },
-      "crated": {
-        "topLeft": "12491459971416172890",
-        "full": "10685681428816972512",
-        "bottomRight": "15409183223044898816"
-      }
     }
   },
   {
@@ -13724,18 +11540,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10679840980848205540",
-        "topLeft": "13350527630623286619",
-        "bottomRight": "14468025459051859968"
-      },
-      "crated": {
-        "topLeft": "13350527630623286619",
-        "full": "10757528178044292836",
-        "bottomRight": "14251756194665332736"
-      }
     }
   },
   {
@@ -13812,18 +11616,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10679842046872556272",
-        "topLeft": "11770306508297550019",
-        "bottomRight": "13889312975790022752"
-      },
-      "crated": {
-        "topLeft": "11770306508297550019",
-        "full": "10689904949029427952",
-        "bottomRight": "15337143221193015424"
-      }
     }
   },
   {
@@ -13899,18 +11691,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625734374811227292",
-        "topLeft": "11340800131950323277",
-        "bottomRight": "13889312909251874944"
-      },
-      "crated": {
-        "topLeft": "11340800131950323277",
-        "full": "10743752982972844188",
-        "bottomRight": "14254009920771883136"
-      }
     }
   },
   {
@@ -13986,18 +11766,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9627968549961063569",
-        "topLeft": "11843260500768367963",
-        "bottomRight": "15046755948997771264"
-      },
-      "crated": {
-        "topLeft": "11843260500768367963",
-        "full": "10743735357650947217",
-        "bottomRight": "15406949362235867136"
-      }
     }
   },
   {
@@ -14055,18 +11823,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10749083854580716069",
-        "topLeft": "12561012544335754570",
-        "bottomRight": "13889341056286204422"
-      },
-      "crated": {
-        "topLeft": "12561012544335754570",
-        "full": "10766535238721402932",
-        "bottomRight": "15337670986774347780"
-      }
     }
   },
   {
@@ -14121,18 +11877,6 @@ const catalog = [
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10635088240230768029",
-        "topLeft": "10622466930292593845",
-        "bottomRight": "13905136748302090368"
-      },
-      "crated": {
-        "topLeft": "10622466930292593845",
-        "full": "10901856149404360085",
-        "bottomRight": "15418208372582793216"
-      }
     }
   },
   {
@@ -14207,18 +11951,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625734333868786588",
-        "topLeft": "11053691292035429963",
-        "bottomRight": "14757395258765524992"
-      },
-      "crated": {
-        "topLeft": "11053691292035429963",
-        "full": "9586895185937679260",
-        "bottomRight": "9641198330604175360"
-      }
     }
   },
   {
@@ -14293,18 +12025,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9337508261028479127",
-        "topLeft": "9474589821005412419",
-        "bottomRight": "13889313183832735744"
-      },
-      "crated": {
-        "topLeft": "9474589821005412419",
-        "full": "9316045932596349079",
-        "bottomRight": "14263034988164284416"
-      }
     }
   },
   {
@@ -14397,18 +12117,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10764534104521260236",
-        "topLeft": "10476864269681599828",
-        "bottomRight": "15335918640669130768"
-      },
-      "crated": {
-        "topLeft": "10476864269681599828",
-        "full": "10764569563771533516",
-        "bottomRight": "15407976236302991360"
-      }
     }
   },
   {
@@ -14501,18 +12209,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10404275704879385371",
-        "topLeft": "9893461960177247152",
-        "bottomRight": "15330334806815866880"
-      },
-      "crated": {
-        "topLeft": "9893461960177247152",
-        "full": "10403994504780581661",
-        "bottomRight": "15404642551407312896"
-      }
     }
   },
   {
@@ -14586,18 +12282,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14346281448074890812",
-        "topLeft": "10981913786003842777",
-        "bottomRight": "13893834305309786312"
-      },
-      "crated": {
-        "topLeft": "10981913786003842777",
-        "full": "14359792246961163324",
-        "bottomRight": "14263032511041896576"
-      }
     }
   },
   {
@@ -14655,18 +12339,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10679842078081062502",
-        "topLeft": "12273903644374837845",
-        "bottomRight": "15336045359367471104"
-      },
-      "crated": {
-        "topLeft": "12273903644374837845",
-        "full": "10682093877890013878",
-        "bottomRight": "15407984757522317312"
-      }
     }
   },
   {
@@ -14742,18 +12414,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10203866361512840921",
-        "topLeft": "12919870422636540493",
-        "bottomRight": "15046755672208191536"
-      },
-      "crated": {
-        "topLeft": "12919870422636540493",
-        "full": "9604905203192548313",
-        "bottomRight": "15408074915324104720"
-      }
     }
   },
   {
@@ -14831,18 +12491,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9601510305979942325",
-        "topLeft": "0",
-        "bottomRight": "15191433758495748144"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9601510306114652597",
-        "bottomRight": "15334891423526813696"
-      }
     }
   },
   {
@@ -14917,18 +12565,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9627986142021260956",
-        "topLeft": "12848122598422367635",
-        "bottomRight": "14323367472636452928"
-      },
-      "crated": {
-        "topLeft": "12848122598422367635",
-        "full": "9608845844679214748",
-        "bottomRight": "9642904720439787520"
-      }
     }
   },
   {
@@ -15003,18 +12639,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9553113824121242805",
-        "topLeft": "10335918582406596966",
-        "bottomRight": "15625477332888764416"
-      },
-      "crated": {
-        "topLeft": "10335918582406596966",
-        "full": "9537280857486050485",
-        "bottomRight": "10437225009175904384"
-      }
     }
   },
   {
@@ -15073,18 +12697,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14210104502439107378",
-        "topLeft": "11699703453752070765",
-        "bottomRight": "16195155916014229520"
-      },
-      "crated": {
-        "topLeft": "11699703453752070765",
-        "full": "9618051364317780786",
-        "bottomRight": "14261891492850171904"
-      }
     }
   },
   {
@@ -15157,18 +12769,6 @@ const catalog = [
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9623412179498873276",
-        "topLeft": "12498010553570403786",
-        "bottomRight": "15191445341959389200"
-      },
-      "crated": {
-        "topLeft": "12498010553570403786",
-        "full": "9605397776694702268",
-        "bottomRight": "15130540592582361088"
-      }
     }
   },
   {
@@ -15245,18 +12845,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10452695171205143272",
-        "topLeft": "12848095078487869555",
-        "bottomRight": "15046755672210284640"
-      },
-      "crated": {
-        "topLeft": "12848095078487869555",
-        "full": "10757761270482947048",
-        "bottomRight": "15336015124410409088"
-      }
     }
   },
   {
@@ -15333,18 +12921,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10599622926734564067",
-        "topLeft": "12273894813592081826",
-        "bottomRight": "13889317322027483328"
-      },
-      "crated": {
-        "topLeft": "12273894813592081826",
-        "full": "10901856684051356402",
-        "bottomRight": "14264140820910227584"
-      }
     }
   },
   {
@@ -15421,18 +12997,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10459732118099335920",
-        "topLeft": "12489236485232777780",
-        "bottomRight": "15046738013180665920"
-      },
-      "crated": {
-        "topLeft": "12489236485232777780",
-        "full": "10757461949372320752",
-        "bottomRight": "15343898897659510912"
-      }
     }
   },
   {
@@ -15509,18 +13073,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14208640154277399153",
-        "topLeft": "12848121318355650994",
-        "bottomRight": "15625468224327393280"
-      },
-      "crated": {
-        "topLeft": "12848121318355650994",
-        "full": "9604835165429713905",
-        "bottomRight": "15346148221424508928"
-      }
     }
   },
   {
@@ -15598,18 +13150,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10678433575898815472",
-        "topLeft": "12346820041422772821",
-        "bottomRight": "16204163115403188240"
-      },
-      "crated": {
-        "topLeft": "12346820041422772821",
-        "full": "10690185148668824560",
-        "bottomRight": "15418188498154307584"
-      }
     }
   },
   {
@@ -15687,18 +13227,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10705388826084085712",
-        "topLeft": "12199850265741138218",
-        "bottomRight": "16204163392293047304"
-      },
-      "crated": {
-        "topLeft": "12199850265741138218",
-        "full": "10690206734907445200",
-        "bottomRight": "14261891493923930240"
-      }
     }
   },
   {
@@ -15775,18 +13303,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15278297739795744918",
-        "topLeft": "12197115196004329145",
-        "bottomRight": "13889312908946444304"
-      },
-      "crated": {
-        "topLeft": "12197115196004329145",
-        "full": "10685681755202373782",
-        "bottomRight": "15409183500070289536"
-      }
     }
   },
   {
@@ -15863,18 +13379,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10680686466149861809",
-        "topLeft": "12269126356194986067",
-        "bottomRight": "13889313183824347136"
-      },
-      "crated": {
-        "topLeft": "12269126356194986067",
-        "full": "10685682390296119729",
-        "bottomRight": "14184204401425514496"
-      }
     }
   },
   {
@@ -15951,18 +13455,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10682093845276954208",
-        "topLeft": "11842697121250235977",
-        "bottomRight": "15046755122991357952"
-      },
-      "crated": {
-        "topLeft": "11842697121250235977",
-        "full": "10685405729984007776",
-        "bottomRight": "15334889222356099072"
-      }
     }
   },
   {
@@ -16039,18 +13531,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10669637612532113140",
-        "topLeft": "12848087104880024649",
-        "bottomRight": "15046755603490807808"
-      },
-      "crated": {
-        "topLeft": "12848087104880024649",
-        "full": "10685422222943178482",
-        "bottomRight": "15406949015417266176"
-      }
     }
   },
   {
@@ -16125,18 +13605,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14094078976085707422",
-        "topLeft": "11269024558500898716",
-        "bottomRight": "14757395240635142449"
-      },
-      "crated": {
-        "topLeft": "11269024558500898716",
-        "full": "9752613334152333982",
-        "bottomRight": "14252882130139875601"
-      }
     }
   },
   {
@@ -16211,18 +13679,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9770975482205067932",
-        "topLeft": "11197809200127371924",
-        "bottomRight": "14540374428116792115"
-      },
-      "crated": {
-        "topLeft": "11197809200127371924",
-        "full": "9752960799150070428",
-        "bottomRight": "14256561064773759794"
-      }
     }
   },
   {
@@ -16297,18 +13753,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14094081208898210712",
-        "topLeft": "10116093489471384682",
-        "bottomRight": "14757390809175162880"
-      },
-      "crated": {
-        "topLeft": "10116093489471384682",
-        "full": "9752611134822861721",
-        "bottomRight": "14252884296816656384"
-      }
     }
   },
   {
@@ -16385,18 +13829,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11037811353214355816",
-        "topLeft": "12273912524963407322",
-        "bottomRight": "17361798776117282816"
-      },
-      "crated": {
-        "topLeft": "12273912524963407322",
-        "full": "10469231831539501552",
-        "bottomRight": "15415936423466893312"
-      }
     }
   },
   {
@@ -16473,18 +13905,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14140805720531979384",
-        "topLeft": "11843242908447257930",
-        "bottomRight": "15119023892930756624"
-      },
-      "crated": {
-        "topLeft": "11843242908447257930",
-        "full": "9532497402898860280",
-        "bottomRight": "15415866058476617728"
-      }
     }
   },
   {
@@ -16559,18 +13979,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14138904699269517268",
-        "topLeft": "13135191026965328229",
-        "bottomRight": "15046755880311983116"
-      },
-      "crated": {
-        "topLeft": "13135191026965328229",
-        "full": "9537281373419556820",
-        "bottomRight": "15408356667326201856"
-      }
     }
   },
   {
@@ -16645,18 +14053,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9527218676547175922",
-        "topLeft": "13135226206877816236",
-        "bottomRight": "15046738285911343122"
-      },
-      "crated": {
-        "topLeft": "13135226206877816236",
-        "full": "9535099941543693302",
-        "bottomRight": "15406947093419393152"
-      }
     }
   },
   {
@@ -16731,18 +14127,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9598150370677673404",
-        "topLeft": "13063415457802263890",
-        "bottomRight": "15046755674363792384"
-      },
-      "crated": {
-        "topLeft": "13063415457802263890",
-        "full": "9591394972318715324",
-        "bottomRight": "10795261143979917312"
-      }
     }
   },
   {
@@ -16817,18 +14201,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10678994457330487562",
-        "topLeft": "11915016398988726890",
-        "bottomRight": "15047307162920960096"
-      },
-      "crated": {
-        "topLeft": "11915016398988726890",
-        "full": "10699260656862679478",
-        "bottomRight": "15336562679053549568"
-      }
     }
   },
   {
@@ -16904,18 +14276,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9526092793854725267",
-        "topLeft": "12489214204016167766",
-        "bottomRight": "10435069862903824384"
-      },
-      "crated": {
-        "topLeft": "12489214204016167766",
-        "full": "10690274397854780563",
-        "bottomRight": "10795263343812706432"
-      }
     }
   },
   {
@@ -16990,18 +14350,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9598132746049206684",
-        "topLeft": "12491495155855370834",
-        "bottomRight": "15046761118024335378"
-      },
-      "crated": {
-        "topLeft": "12491495155855370834",
-        "full": "10672241257181272476",
-        "bottomRight": "15408072718448328832"
-      }
     }
   },
   {
@@ -17077,18 +14425,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10709115032133607104",
-        "topLeft": "12489207639179703595",
-        "bottomRight": "15046755672210300928"
-      },
-      "crated": {
-        "topLeft": "12489207639179703595",
-        "full": "10689904364913860306",
-        "bottomRight": "15336017321286180864"
-      }
     }
   },
   {
@@ -17162,18 +14498,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9627986132486835865",
-        "topLeft": "12776319773085672858",
-        "bottomRight": "14179256668091580416"
-      },
-      "crated": {
-        "topLeft": "12776319773085672858",
-        "full": "9626864630500937369",
-        "bottomRight": "9571973095023968256"
-      }
     }
   },
   {
@@ -17248,18 +14572,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10707143601018604957",
-        "topLeft": "12846962304485853538",
-        "bottomRight": "15625477228454748192"
-      },
-      "crated": {
-        "topLeft": "12846962304485853538",
-        "full": "10673313827120434589",
-        "bottomRight": "15409764042209755264"
-      }
     }
   },
   {
@@ -17334,18 +14646,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9626578788859741853",
-        "topLeft": "13062579347676427630",
-        "bottomRight": "10706345573035829320"
-      },
-      "crated": {
-        "topLeft": "13062579347676427630",
-        "full": "9590549990502289053",
-        "bottomRight": "9625453064647360640"
-      }
     }
   },
   {
@@ -17420,18 +14720,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625668362361360142",
-        "topLeft": "13144209828978202152",
-        "bottomRight": "15480725782588089349"
-      },
-      "crated": {
-        "topLeft": "13144209828978202152",
-        "full": "10780841666255768334",
-        "bottomRight": "15408637865282003968"
-      }
     }
   },
   {
@@ -17506,18 +14794,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9627986141076770457",
-        "topLeft": "12197607255458623908",
-        "bottomRight": "14179256668091580416"
-      },
-      "crated": {
-        "topLeft": "12197607255458623908",
-        "full": "9626864639082482841",
-        "bottomRight": "9571973095023968256"
-      }
     }
   },
   {
@@ -17593,18 +14869,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14238194425661738654",
-        "topLeft": "10695936648679208365",
-        "bottomRight": "14323353946252612530"
-      },
-      "crated": {
-        "topLeft": "10695936648679208365",
-        "full": "9591324033803341470",
-        "bottomRight": "9639513576495813266"
-      }
     }
   },
   {
@@ -17680,18 +14944,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14236224143774638493",
-        "topLeft": "10623009787585852047",
-        "bottomRight": "15625477333022965760"
-      },
-      "crated": {
-        "topLeft": "10623009787585852047",
-        "full": "9590761127087104413",
-        "bottomRight": "10797512979365494784"
-      }
     }
   },
   {
@@ -17765,18 +15017,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625734333209955231",
-        "topLeft": "13144209828909004426",
-        "bottomRight": "15625477228454739968"
-      },
-      "crated": {
-        "topLeft": "13144209828909004426",
-        "full": "9626794262025128863",
-        "bottomRight": "15409200886097903744"
-      }
     }
   },
   {
@@ -17811,18 +15051,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10910652420557020257",
-        "topLeft": "13062890059789126070",
-        "bottomRight": "15191433346717630592"
-      },
-      "crated": {
-        "topLeft": "13062890059789126070",
-        "full": "10757477325388826673",
-        "bottomRight": "15336580271239610496"
-      }
     }
   },
   {
@@ -17856,18 +15084,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14128701226787706807",
-        "topLeft": "10981919631699903338",
-        "bottomRight": "15336328573618500704"
-      },
-      "crated": {
-        "topLeft": "10981919631699903338",
-        "full": "9604558052503505843",
-        "bottomRight": "15408283822533390384"
-      }
     }
   },
   {
@@ -17900,18 +15116,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "16172496146428104035",
-        "topLeft": "14139111021408745790",
-        "bottomRight": "10778857871468814848"
-      },
-      "crated": {
-        "topLeft": "14139111021408745790",
-        "full": "16170244346748390755",
-        "bottomRight": "10805888128407450112"
-      }
     }
   },
   {
@@ -17947,18 +15151,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10381689825954471227",
-        "topLeft": "12846999834945166180",
-        "bottomRight": "15553040576176717840"
-      },
-      "crated": {
-        "topLeft": "12846999834945166180",
-        "full": "10383946058177977651",
-        "bottomRight": "15411153547881873408"
-      }
     }
   },
   {
@@ -18022,18 +15214,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10764534104521260236",
-        "topLeft": "10476864269681599828",
-        "bottomRight": "15335918640669130768"
-      },
-      "crated": {
-        "topLeft": "10476864269681599828",
-        "full": "10764569563771533516",
-        "bottomRight": "15407976236302991360"
-      }
     }
   },
   {
@@ -18064,18 +15244,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10767663268630641364",
-        "topLeft": "13156784079507968619",
-        "bottomRight": "15551537268496842752"
-      },
-      "crated": {
-        "topLeft": "13156784079507968619",
-        "full": "10911778456572279508",
-        "bottomRight": "15553824252556787712"
-      }
     }
   },
   {
@@ -18139,18 +15307,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10404275704879385371",
-        "topLeft": "9893461960177247152",
-        "bottomRight": "15330334806815866880"
-      },
-      "crated": {
-        "topLeft": "9893461960177247152",
-        "full": "10403994504780581661",
-        "bottomRight": "15404642551407312896"
-      }
     }
   },
   {
@@ -18174,18 +15330,6 @@ const catalog = [
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10551209978858738029",
-        "topLeft": "11983456647066200490",
-        "bottomRight": "14757390055151550656"
-      },
-      "crated": {
-        "topLeft": "11983456647066200490",
-        "full": "10756970379980720550",
-        "bottomRight": "15419313573431631872"
-      }
     }
   },
   {
@@ -18220,18 +15364,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10687722708430800402",
-        "topLeft": "12273862776154581636",
-        "bottomRight": "15049423885081518080"
-      },
-      "crated": {
-        "topLeft": "12273862776154581636",
-        "full": "10689974508240293522",
-        "bottomRight": "15337125941600059392"
-      }
     }
   },
   {
@@ -18267,18 +15399,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10469295411894504454",
-        "topLeft": "9277529844110829555",
-        "bottomRight": "15390245589598526096"
-      },
-      "crated": {
-        "topLeft": "9277529844110829555",
-        "full": "10469299808867273863",
-        "bottomRight": "15390210147401915008"
-      }
     }
   },
   {
@@ -18314,18 +15434,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11271209781758480327",
-        "topLeft": "9241714774069604952",
-        "bottomRight": "14467854212413833216"
-      },
-      "crated": {
-        "topLeft": "9241714774069604952",
-        "full": "11268676678229905287",
-        "bottomRight": "15404607333740888064"
-      }
     }
   },
   {
@@ -18361,18 +15469,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11124283133776383623",
-        "topLeft": "10324337997877126342",
-        "bottomRight": "14763963690753650944"
-      },
-      "crated": {
-        "topLeft": "10324337997877126342",
-        "full": "11268399431010766471",
-        "bottomRight": "15411356132903542784"
-      }
     }
   },
   {
@@ -18407,18 +15503,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10843088477756419026",
-        "topLeft": "9976997738400746101",
-        "bottomRight": "15042067752785414276"
-      },
-      "crated": {
-        "topLeft": "9976997738400746101",
-        "full": "10843092910158474192",
-        "bottomRight": "15333746026137780224"
-      }
     }
   },
   {
@@ -18449,18 +15533,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10680971037086415655",
-        "topLeft": "9761709918770130067",
-        "bottomRight": "15407131537560354944"
-      },
-      "crated": {
-        "topLeft": "9761709918770130067",
-        "full": "10700111266783001399",
-        "bottomRight": "15408547708545319040"
-      }
     }
   },
   {
@@ -18495,18 +15567,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13879600790812725744",
-        "topLeft": "12273898099757978987",
-        "bottomRight": "17361641481138401520"
-      },
-      "crated": {
-        "topLeft": "12273898099757978987",
-        "full": "10401695978575862256",
-        "bottomRight": "9651349105705773296"
-      }
     }
   },
   {
@@ -18541,18 +15601,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9553959353185586834",
-        "topLeft": "13359533721530756697",
-        "bottomRight": "15047863913087500320"
-      },
-      "crated": {
-        "topLeft": "13359533721530756697",
-        "full": "10689920891412074130",
-        "bottomRight": "15338269398125248512"
-      }
     }
   },
   {
@@ -18585,18 +15633,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "11054409394024381389",
-        "topLeft": "12345680867225938258",
-        "bottomRight": "16208508763190067200"
-      },
-      "crated": {
-        "topLeft": "12345680867225938258",
-        "full": "11058912718172285387",
-        "bottomRight": "15343879310465302528"
-      }
     }
   },
   {
@@ -18626,18 +15662,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "15046310164345813720",
-        "topLeft": "9259242780252617904",
-        "bottomRight": "14178493708084708352"
-      },
-      "crated": {
-        "topLeft": "9259242780252617904",
-        "full": "13891141258240227992",
-        "bottomRight": "15331494394305970176"
-      }
     }
   },
   {
@@ -18668,18 +15692,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9625663800351580301",
-        "topLeft": "9331142357348829100",
-        "bottomRight": "15553041676762120192"
-      },
-      "crated": {
-        "topLeft": "9331142357348829100",
-        "full": "9637771902649550980",
-        "bottomRight": "15420090380544114688"
-      }
     }
   },
   {
@@ -18709,18 +15721,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10478309002597680506",
-        "topLeft": "9259324442668580254",
-        "bottomRight": "15046570509066048560"
-      },
-      "crated": {
-        "topLeft": "9259324442668580254",
-        "full": "10478256243220988210",
-        "bottomRight": "15419243206298042368"
-      }
     }
   },
   {
@@ -18750,18 +15750,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14726895679902291809",
-        "topLeft": "9748944204901835713",
-        "bottomRight": "15908974686817616389"
-      },
-      "crated": {
-        "topLeft": "9748944204901835713",
-        "full": "10115701161454863153",
-        "bottomRight": "15419243205219713024"
-      }
     }
   },
   {
@@ -18792,18 +15780,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13852068877588484277",
-        "topLeft": "9259331287611639610",
-        "bottomRight": "15047881572117143616"
-      },
-      "crated": {
-        "topLeft": "9259331287611639610",
-        "full": "9527434557837002935",
-        "bottomRight": "15336015124410400768"
-      }
     }
   },
   {
@@ -18834,18 +15810,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10680971037086415655",
-        "topLeft": "9761709918770130067",
-        "bottomRight": "15407131537560354944"
-      },
-      "crated": {
-        "topLeft": "9761709918770130067",
-        "full": "10700111266783001399",
-        "bottomRight": "15408547708545319040"
-      }
     }
   },
   {
@@ -18879,18 +15843,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9237849051193362992",
-        "topLeft": "11412577072856604002",
-        "bottomRight": "15046738011033182304"
-      },
-      "crated": {
-        "topLeft": "11412577072856604002",
-        "full": "10766768074057468850",
-        "bottomRight": "15417079917703077888"
-      }
     }
   },
   {
@@ -18925,18 +15877,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10478590542364151611",
-        "topLeft": "11412559549102114489",
-        "bottomRight": "15046755603758194880"
-      },
-      "crated": {
-        "topLeft": "11412559549102114489",
-        "full": "10469512979739463487",
-        "bottomRight": "15334891698404737216"
-      }
     }
   },
   {
@@ -19001,18 +15941,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9601510305979942325",
-        "topLeft": "0",
-        "bottomRight": "15191433758495748144"
-      },
-      "crated": {
-        "topLeft": "0",
-        "full": "9601510306114652597",
-        "bottomRight": "15334891423526813696"
-      }
     }
   },
   {
@@ -19042,18 +15970,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13852068877588484277",
-        "topLeft": "9259331287611639610",
-        "bottomRight": "15047881572117143616"
-      },
-      "crated": {
-        "topLeft": "9259331287611639610",
-        "full": "9527434557837002935",
-        "bottomRight": "15336015124410400768"
-      }
     }
   },
   {
@@ -19087,18 +16003,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14138276745508638608",
-        "topLeft": "9259260370201039051",
-        "bottomRight": "13889313183832735744"
-      },
-      "crated": {
-        "topLeft": "9259260370201039051",
-        "full": "10689645313409765264",
-        "bottomRight": "14254590738862964736"
-      }
     }
   },
   {
@@ -19132,18 +16036,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9568877281864043361",
-        "topLeft": "11197245413636785817",
-        "bottomRight": "14612723465767228932"
-      },
-      "crated": {
-        "topLeft": "11197245413636785817",
-        "full": "10685699638622145377",
-        "bottomRight": "15409763773765910534"
-      }
     }
   },
   {
@@ -19176,18 +16068,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14802262919765767107",
-        "topLeft": "12274092004459850325",
-        "bottomRight": "17363662310983335936"
-      },
-      "crated": {
-        "topLeft": "12274092004459850325",
-        "full": "10180448218679571395",
-        "bottomRight": "17651905949759184896"
-      }
     }
   },
   {
@@ -19221,18 +16101,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14993098803421305528",
-        "topLeft": "13287756775973678289",
-        "bottomRight": "13893816508575916128"
-      },
-      "crated": {
-        "topLeft": "13287756775973678289",
-        "full": "10685423081382890424",
-        "bottomRight": "15415954017796251840"
-      }
     }
   },
   {
@@ -19263,18 +16131,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13929139504274833088",
-        "topLeft": "11055869591390675102",
-        "bottomRight": "10862762291909370916"
-      },
-      "crated": {
-        "topLeft": "11055869591390675102",
-        "full": "13929420979252067008",
-        "bottomRight": "15330368306498510848"
-      }
     }
   },
   {
@@ -19308,18 +16164,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14174300595001541525",
-        "topLeft": "9474592526716713545",
-        "bottomRight": "15046755605366706208"
-      },
-      "crated": {
-        "topLeft": "9474592526716713545",
-        "full": "9536723430979979669",
-        "bottomRight": "15410326717285269504"
-      }
     }
   },
   {
@@ -19353,18 +16197,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14685732825075901489",
-        "topLeft": "13135128036848609974",
-        "bottomRight": "17937841649908506940"
-      },
-      "crated": {
-        "topLeft": "13135128036848609974",
-        "full": "10362277201049644081",
-        "bottomRight": "15339307593315149855"
-      }
     }
   },
   {
@@ -19398,18 +16230,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "10606655301142287160",
-        "topLeft": "11053691021687484052",
-        "bottomRight": "14468024909973078016"
-      },
-      "crated": {
-        "topLeft": "11053691021687484052",
-        "full": "10915103226438535474",
-        "bottomRight": "14261889020026970112"
-      }
     }
   },
   {
@@ -19442,18 +16262,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13852068877588484277",
-        "topLeft": "9259331287611639610",
-        "bottomRight": "15047881572117143616"
-      },
-      "crated": {
-        "topLeft": "9259331287611639610",
-        "full": "9527434557837002935",
-        "bottomRight": "15336015124410400768"
-      }
     }
   },
   {
@@ -19484,18 +16292,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "9325334308711529100",
-        "topLeft": "10264212235628229995",
-        "bottomRight": "15751951927673410064"
-      },
-      "crated": {
-        "topLeft": "10264212235628229995",
-        "full": "9330946199232084684",
-        "bottomRight": "15549252594877659648"
-      }
     }
   },
   {
@@ -19525,18 +16321,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13886055924388708533",
-        "topLeft": "9402814763224120426",
-        "bottomRight": "15046755672208187488"
-      },
-      "crated": {
-        "topLeft": "9402814763224120426",
-        "full": "10761701275628521909",
-        "bottomRight": "15336017323433656320"
-      }
     }
   },
   {
@@ -19570,18 +16354,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13915121825318635489",
-        "topLeft": "9963427590510434589",
-        "bottomRight": "13889330621870145664"
-      },
-      "crated": {
-        "topLeft": "9963427590510434589",
-        "full": "14220170468797138912",
-        "bottomRight": "14183093705702932608"
-      }
     }
   },
   {
@@ -19611,18 +16383,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13886055924388708533",
-        "topLeft": "9402814763224120426",
-        "bottomRight": "15046755672208187488"
-      },
-      "crated": {
-        "topLeft": "9402814763224120426",
-        "full": "10761701275628521909",
-        "bottomRight": "15336017323433656320"
-      }
     }
   },
   {
@@ -19655,18 +16415,6 @@ const catalog = [
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Structures"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "14658144971098831251",
-        "topLeft": "11843160407827695908",
-        "bottomRight": "17361408190582685891"
-      },
-      "crated": {
-        "topLeft": "11843160407827695908",
-        "full": "10325119196862052547",
-        "bottomRight": "15411435299339829472"
-      }
     }
   },
   {
@@ -19696,18 +16444,6 @@ const catalog = [
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "IconHashes": {
-      "individual": {
-        "full": "13852068877588484277",
-        "topLeft": "9259331287611639610",
-        "bottomRight": "15047881572117143616"
-      },
-      "crated": {
-        "topLeft": "9259331287611639610",
-        "full": "9527434557837002935",
-        "bottomRight": "15336015124410400768"
-      }
     }
   }
 ]

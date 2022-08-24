@@ -555,87 +555,6 @@ function coalesceObject(coreObject) {
   return combinedObject;
 }
 
-const PHASH_CANVAS = createCanvas();
-// Perceptual Hash implementation per:
-// https://content-blockchain.org/research/testing-different-image-hash-functions/
-function pHashImage(image) {
-  const HASH_SIZE = 8;
-  const HASH_FACTOR = 4;
-
-  const width = image.width;
-  const height = image.height;
-
-  const workSize = HASH_SIZE * HASH_FACTOR;
-
-  PHASH_CANVAS.width = HASH_SIZE * HASH_FACTOR;
-  PHASH_CANVAS.height = HASH_SIZE * HASH_FACTOR;
-
-  const context = PHASH_CANVAS.getContext('2d');
-
-  context.filter = 'grayscale(100%)';
-  context.drawImage(image, 0, 0, workSize, workSize);
-
-  const greyPixels = context.getImageData(0, 0, workSize, workSize).data;
-  const rows = [];
-  for (let row = 0; row < workSize; ++row) {
-    const rowPixels = greyPixels.subarray(row * workSize * 4, (row + 1) * workSize * 4);
-    rows.push(discreteCosineTransform(rowPixels, 4));
-  }
-
-  const cols = [];
-  for (let col = 0; col < workSize; ++col) {
-    const colPixels = rows.map(r => r[col]);
-    cols.push(discreteCosineTransform(colPixels));
-  }
-
-  cols.length = HASH_SIZE;
-  const hashPixels = [];
-  let totalValue = 0;
-  for (let row = 0; row < HASH_SIZE; ++row) {
-    for (const col of cols) {
-      totalValue += col[row];
-      hashPixels.push(col[row]);
-    }
-  }
-  const averageValue = totalValue / hashPixels.length;
-  //const medianValue = hashPixels.slice().sort()[Math.floor(hashPixels.length / 2)];
-
-  let pHash = 0n;
-  for (const pixel of hashPixels) {
-    pHash = pHash << 1n;
-    if (pixel > averageValue) {
-      pHash = pHash | 1n;
-    }
-  }
-
-  return pHash;
-}
-
-// DCT-II, orthogonal
-// https://en.wikipedia.org/wiki/Discrete_cosine_transform#DCT-II
-// Use skipFactor to operate on RGBA data. Always returns single-channel data.
-function discreteCosineTransform(vector, skipFactor) {
-  if (!skipFactor) skipFactor = 1;
-  const N = vector.length / skipFactor;
-
-  const result = [];
-  for (let k = 0; k < N; ++k) {
-    let total = 0;
-    for (let n = 0; n < N; ++n) {
-      total += vector[n * skipFactor] * Math.cos(Math.PI / N * (n + 0.5) * k);
-    }
-    total *= Math.sqrt(2 / N);
-
-    if (k == 0) {
-      total *= 1 / Math.sqrt(2);
-    }
-
-    result[k] = total;
-  }
-
-  return result;
-}
-
 async function writePNG(canvas, file) {
   const out = fs.createWriteStream(file);
   const png = canvas.createPNGStream();
@@ -691,49 +610,6 @@ async function writeTrainingPNGs(objectValues, destination) {
     await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
     await writePNG(canvas, `${baseName}-crated/${size}.png`);
   }
-}
-
-async function hashIcon(objectValues) {
-  const size = 32;
-  const cornerSize = size * CORNER_ICON_RATIO;
-  const crateOffset = size - cornerSize;
-
-  const canvas = await drawIcon(objectValues, size);
-
-  const hashes = {
-    individual: {},
-    crated: {},
-  };
-  hashes.individual.full = pHashImage(canvas).toString();
-
-  const cornerCanvas = createCanvas(cornerSize, cornerSize);
-  const corner_context = cornerCanvas.getContext('2d');
-  corner_context.drawImage(canvas,
-      0, 0, cornerSize, cornerSize,
-      0, 0, cornerSize, cornerSize);
-  hashes.individual.topLeft = pHashImage(cornerCanvas).toString();
-  hashes.crated.topLeft = hashes.individual.topLeft;
-
-  corner_context.drawImage(canvas,
-      crateOffset, crateOffset, cornerSize, cornerSize,
-      0, 0, cornerSize, cornerSize);
-  hashes.individual.bottomRight = pHashImage(cornerCanvas).toString();
-
-/*
-  if (objectValues.DisplayName == 'Anti-Tank Sticky Bomb') {
-    await writePNG(CORNER_CANVAS, 'debugicon-bottomRight.png');
-  }
-*/
-
-  await addCrate(canvas);
-  hashes.crated.full = pHashImage(canvas).toString();
-
-  corner_context.drawImage(canvas,
-      crateOffset, crateOffset, cornerSize, cornerSize,
-      0, 0, cornerSize, cornerSize);
-  hashes.crated.bottomRight = pHashImage(cornerCanvas).toString();
-
-  return hashes;
 }
 
 const common = {
@@ -827,15 +703,8 @@ for (const directory of searchDirectories) {
           && objectValues.Icon
           && objectValues.CodeName != 'Lore'
           && (objectValues.TechID || '') != 'ETechID::ETechID_MAX') {
+
         objects.push(objectValues);
-
-        const promise = hashIcon(objectValues);
-        promises.push(promise);
-        promise.then(function(objectValues, hashes) {
-          //process.stderr.write(objectValues.CodeName + '\n');
-          objectValues.IconHashes = hashes;
-        }.bind(null, objectValues));
-
         promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }
     } catch (e) {
