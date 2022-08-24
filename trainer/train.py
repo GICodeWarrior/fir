@@ -23,9 +23,11 @@ import json
 
 
 DATA_DIR = '../catalog/training/'
-RANDOM_SEED = 639936
 IMG_SIZE = (32, 32)
 PREFETCH_SIZE = tf.data.AUTOTUNE
+RANDOM_SEED = 639936
+
+tf.random.set_seed(RANDOM_SEED)
 
 train_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
@@ -46,8 +48,7 @@ val_ds = keras.utils.image_dataset_from_directory(
 class_names = train_ds.class_names
 output_dim = len(class_names)
 
-with open('class_names.js', 'w', encoding='utf-8') as f:
-  f.write('var CLASS_NAMES = ');
+with open('class_names.json', 'w', encoding='utf-8') as f:
   f.write(json.dumps(class_names, indent=2));
   f.write('\n');
 

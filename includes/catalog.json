@@ -1,4 +1,4 @@
-const catalog = [
+[
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/AntiTankMinePickup",
     "CodeName": "TankMine",

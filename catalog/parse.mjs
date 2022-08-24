@@ -718,7 +718,6 @@ for (const directory of searchDirectories) {
 }
 
 process.stderr.write('Processing icons.\n');
-Promise.allSettled(promises).then(function() {
-  process.stdout.write('const catalog = ');
+Promise.all(promises).then(function() {
   process.stdout.write(JSON.stringify(objects, null, 2));
 });

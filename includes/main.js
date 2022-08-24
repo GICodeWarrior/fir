@@ -1,11 +1,30 @@
-'use strict';
+const res = {
+  CATALOG: fetch('./includes/catalog.json').then(r => r.json()),
+  CLASS_NAMES: fetch('./includes/class_names.json').then(r => r.json()),
+  MODEL: tf.loadGraphModel('includes/classifier/model.json'),
+}
+
+const ready = new Promise(function(resolve) {
+  if (document.readyState != 'loading') {
+    resolve();
+  } else {
+    window.addEventListener('DOMContentLoaded', () => resolve());
+  }
+});
+
+await Promise.all([...Object.values(res), ready]).then(function (results) {
+  let index = 0;
+  for (const key of Object.keys(res)) {
+    res[key] = results[index++];
+  }
+});
 
 var imagesProcessed = 0;
 var imagesTotal = 0;
 var itemBundles = [];
 var itemBundleLabels = [];
 
-addEventListener('DOMContentLoaded', function() {
+(function() {
   const input = document.querySelector('form input');
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
@@ -114,7 +133,7 @@ addEventListener('DOMContentLoaded', function() {
           continue;
         }
 
-        const item = catalog.find(e => e.CodeName == rawItem.CodeName);
+        const item = res.CATALOG.find(e => e.CodeName == rawItem.CodeName);
         const perCrate = ((item.ItemDynamicData || {}).QuantityPerCrate || 3)
             + (item.VehiclesPerCrateBonusQuantity || 0);
         const perUnit = rawItem.isCrated ? perCrate : 1;
@@ -157,7 +176,7 @@ addEventListener('DOMContentLoaded', function() {
     link.click();
     document.body.removeChild(link);
   });
-});
+})();
 
 function getProcessImage(scheduler, label) {
   return function() {
@@ -191,7 +210,7 @@ function getProcessImage(scheduler, label) {
     document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
 
     if (imagesProcessed == imagesTotal) {
-      await coalesceAndIdentifyItems(itemBundles);
+      coalesceAndIdentifyItems(itemBundles);
 
       await terminateTesseractScheduler(scheduler);
     }
@@ -461,8 +480,7 @@ async function cropItems(tesseract, canvas) {
   }
 }
 
-const MODEL = tf.loadGraphModel('includes/classifier/model.json');
-async function coalesceAndIdentifyItems(itemBundles) {
+function coalesceAndIdentifyItems(itemBundles) {
   const MAX_HAMMING_DISTANCE = 5;
   const MAX_PERFECT_HAMMING_DISTANCE = 1;
   const MAX_IMAGE_DIFF = 20;
@@ -476,10 +494,10 @@ async function coalesceAndIdentifyItems(itemBundles) {
   for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
     for (const rawItem of itemBundles[bundleIdx]) {
       const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(rawItem.icon.canvas), [32, 32])
-      const prediction = (await MODEL).predict(tfImage.expandDims(0));
+      const prediction = res.MODEL.predict(tfImage.expandDims(0));
       const best = prediction.argMax(1).dataSync()[0];
 
-      const key = CLASS_NAMES[best];
+      const key = res.CLASS_NAMES[best];
       const CodeName = key.replace(/-crated$/, '');
       const isCrated = !!key.match(/-crated$/);
 
@@ -523,7 +541,7 @@ async function coalesceAndIdentifyItems(itemBundles) {
     //}
     cell.appendChild(icon);
 
-    const catalogItem = catalog.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
+    const catalogItem = res.CATALOG.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
     const nameSuffix = item.collection[0].item.isCrated ? ' (crated)' : '';
 
     const name = document.createElement('div');
