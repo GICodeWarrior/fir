@@ -438,10 +438,6 @@ async function cropItems(tesseract, canvas) {
     };
     icon.canvas = cropCanvas(canvas, icon.top, icon.right, icon.bottom, icon.left);
 
-    //document.body.appendChild(icon.canvas);
-    //document.body.appendChild(quantity.canvas);
-    //console.log("icon: ", icon, "quantity: ", quantity);
-
     return {quantity: quantity, icon: icon};
   });
 
@@ -460,8 +456,6 @@ async function cropItems(tesseract, canvas) {
     }
     item.quantity.amount = value;
   }
-
-  //console.log("quantityGap: " + quantityGap + " iconWidth: " + iconWidth);
 
   return items;
 
@@ -535,10 +529,6 @@ function coalesceAndIdentifyItems(itemBundles) {
     for (const element of item.collection) {
       icon.appendChild(element.item.icon.canvas);
     }
-    //icon.appendChild(document.createElement('br'));
-    //for (const rawItem of item.collection) {
-    //  icon.appendChild(rawItem.icon.cropped);
-    //}
     cell.appendChild(icon);
 
     const catalogItem = res.CATALOG.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
@@ -552,93 +542,6 @@ function coalesceAndIdentifyItems(itemBundles) {
   }
 
   window.items = items;
-}
-
-function autoCropImage(image) {
-  const MIN_VALUE_CROP = 128;
-  const MIN_VALUE_COUNT = 3;
-
-  const imageWidth = image.width;
-  const imageHeight = image.height;
-
-  let top = 0;
-  let right = imageWidth - 1;
-  let bottom = imageHeight - 1;
-  let left = 0;
-  const imgContext = image.getContext('2d');
-  const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
-
-  let highCount = 0;
-  for (let offset = 0; offset < imgPixels.length; offset += 4) {
-    if (!(offset / 4 % imageWidth)) highCount = 0;
-    if ((imgPixels[offset] > MIN_VALUE_CROP) ||
-        (imgPixels[offset + 1] > MIN_VALUE_CROP) ||
-        (imgPixels[offset + 2] > MIN_VALUE_CROP)) {
-      if (++highCount >= MIN_VALUE_COUNT) {
-        top = Math.floor((offset - 4) / 4 / imageWidth);
-        break;
-      }
-    }
-  }
-
-  right:
-  for (let col = imageWidth - 1; col >= 0; --col) {
-    highCount = 0;
-    for (let row = 0; row <= imageHeight; ++row) {
-      const offset = (row * imageWidth + col) * 4;
-      if ((imgPixels[offset] > MIN_VALUE_CROP) ||
-          (imgPixels[offset + 1] > MIN_VALUE_CROP) ||
-          (imgPixels[offset + 2] > MIN_VALUE_CROP)) {
-        if (++highCount >= MIN_VALUE_COUNT) {
-          right = col;
-          break right;
-        }
-      }
-    }
-  }
-
-  highCount = 0;
-  for (let offset = imgPixels.length - 4; offset >= 0; offset -= 4) {
-    if (!(offset / 4 % imageWidth)) highCount = 0;
-    if ((imgPixels[offset] > MIN_VALUE_CROP) ||
-        (imgPixels[offset + 1] > MIN_VALUE_CROP) ||
-        (imgPixels[offset + 2] > MIN_VALUE_CROP)) {
-      if (++highCount >= MIN_VALUE_COUNT) {
-        bottom = Math.floor((offset + 4) / 4 / imageWidth);
-        break;
-      }
-    }
-  }
-
-  left:
-  for (let col = 0; col < imageWidth; ++col) {
-    highCount = 0;
-    for (let row = 0; row < imageHeight; ++row) {
-      const offset = (row * imageWidth + col) * 4;
-      if ((imgPixels[offset] > MIN_VALUE_CROP) ||
-          (imgPixels[offset + 1] > MIN_VALUE_CROP) ||
-          (imgPixels[offset + 2] > MIN_VALUE_CROP)) {
-        if (++highCount >= MIN_VALUE_COUNT) {
-          left = col;
-          break left;
-        }
-      }
-    }
-  }
-
-  const cropWidth = right - left;
-  const cropHeight = bottom - top;
-
-  const canvas = document.createElement('canvas');
-  canvas.width = cropWidth;
-  canvas.height = cropHeight;
-  canvas.getContext('2d').drawImage(image,
-    left, top, cropWidth, cropHeight,
-    0, 0, cropWidth, cropHeight);
-  //document.body.appendChild(cropCanvas);
-  //console.log("top: " + top + " right: " + right + " bottom: " + bottom + " left: " + left);
-
-  return canvas;
 }
 
 async function initTesseractScheduler() {
