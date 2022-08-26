@@ -1,5 +1,3 @@
-'use strict';
-
 import fs from 'node:fs';
 import process from 'node:process';
 import events from 'node:events';
