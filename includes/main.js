@@ -1,7 +1,9 @@
+import Screenshot from './screenshot.js'
+
+const fetch = (window && window.fetch) || (await import('node-fetch'));
+
 const res = {
   CATALOG: fetch('./includes/catalog.json').then(r => r.json()),
-  CLASS_NAMES: fetch('./includes/class_names.json').then(r => r.json()),
-  MODEL: tf.loadGraphModel('includes/classifier/model.json'),
 }
 
 const ready = new Promise(function(resolve) {
@@ -19,10 +21,9 @@ await Promise.all([...Object.values(res), ready]).then(function (results) {
   }
 });
 
-var imagesProcessed = 0;
-var imagesTotal = 0;
-var itemBundles = [];
-var itemBundleLabels = [];
+let stockpiles;
+let imagesProcessed = 0;
+let imagesTotal = 0;
 
 (function() {
   const input = document.querySelector('form input');
@@ -39,14 +40,12 @@ var itemBundleLabels = [];
     if (!this.files.length) {
       return;
     }
-
-    const scheduler = initTesseractScheduler();
+    stockpiles = [];
 
     const collage = document.querySelector('div.render');
     collage.innerHTML = '';
 
     document.querySelector('div.report').innerHTML = '';
-    itemBundles = [];
 
     imagesProcessed = 0;
     imagesTotal = this.files.length;
@@ -125,46 +124,39 @@ var itemBundleLabels = [];
       'Total',
       'Description',
     ].join('\t')];
-    for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
-      const stockpile = itemBundleLabels[bundleIdx].textContent;
-      for (const rawItem of itemBundles[bundleIdx]) {
-        const quantity = rawItem.quantity.amount;
-        if (quantity == 0) {
+    for (const stockpile of stockpiles) {
+      for (const element of stockpile.contents) {
+        if (element.quantity == 0) {
           continue;
         }
 
-        const item = res.CATALOG.find(e => e.CodeName == rawItem.CodeName);
-        const perCrate = ((item.ItemDynamicData || {}).QuantityPerCrate || 3)
-            + (item.VehiclesPerCrateBonusQuantity || 0);
-        const perUnit = rawItem.isCrated ? perCrate : 1;
+        const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+        const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
+            + (details.VehiclesPerCrateBonusQuantity || 0);
+        const perUnit = element.isCrated ? perCrate : 1;
 
         items.push([
-          stockpile,
-          quantity,
-          item.DisplayName,
-          rawItem.isCrated,
-          rawItem.isCrated ? perUnit : '',
-          quantity * perUnit,
-          item.Description,
+          stockpile.label.textContent,
+          element.quantity,
+          details.DisplayName,
+          element.isCrated,
+          element.isCrated ? perUnit : '',
+          element.quantity * perUnit,
+          details.Description,
         ].join('\t'));
       }
     }
 
-    // convert a Unicode string to a string where each 16-bit unit occupies only one byte
-    // courtesy of mdn: https://developer.mozilla.org/en-US/docs/Web/API/btoa#unicode_strings
+    const encoder = new TextEncoder();
     function toBinary(string) {
-      const codeUnits = new Uint16Array(string.length);
-      for (let i = 0; i < codeUnits.length; i++) {
-        codeUnits[i] = string.charCodeAt(i);
+      // Expand UTF-8 characters to equivalent bytes
+      let byteString = '';
+      for (const byte of encoder.encode(string)) {
+        byteString += String.fromCharCode(byte);
       }
-      const charCodes = new Uint8Array(codeUnits.buffer);
-      let result = '';
-      for (let i = 0; i < charCodes.byteLength; i++) {
-        result += String.fromCharCode(charCodes[i]);
-      }
-      return result;
+      return byteString;
     }
-    const base64TSV = btoa(toBinary(items.join('\n')));
+    const base64TSV = window.btoa(toBinary(items.join('\n')));
 
     const link = document.createElement('a');
     link.href = `data:text/tab-separated-values;base64,${base64TSV}`;
@@ -184,25 +176,20 @@ function getProcessImage(scheduler, label) {
   };
 
   async function processImage(scheduler, label) {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
+    URL.revokeObjectURL(this.src);
 
+    const canvas = document.createElement('canvas');
     canvas.width = this.width;
     canvas.height = this.height;
+
+    const context = canvas.getContext('2d');
     context.drawImage(this, 0, 0);
 
-    const inventory = cropInventory(canvas);
-    if (inventory) {
-      const items = await cropItems(scheduler, inventory.canvas);
-      itemBundles.push(items);
-      itemBundleLabels.push(label);
-
-      if (items.length) {
-        const bannerHeight = items[0].quantity.bottom - items[0].quantity.top;
-        const invTop = Math.max(inventory.top - bannerHeight, 0);
-        inventory.canvas = cropCanvas(canvas, invTop, inventory.right, inventory.bottom, inventory.left);
-      }
-      this.src = inventory.canvas.toDataURL();
+    const stockpile = await Screenshot.process(canvas);
+    if (stockpile) {
+      this.src = stockpile.box.canvas.toDataURL('image/webp');
+      stockpile.label = label;
+      stockpiles.push(stockpile);
     }
 
     this.style.display = '';
@@ -210,411 +197,61 @@ function getProcessImage(scheduler, label) {
     document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
 
     if (imagesProcessed == imagesTotal) {
-      coalesceAndIdentifyItems(itemBundles);
-
-      await terminateTesseractScheduler(scheduler);
+      outputTotals();
     }
   }
 }
 
-function cropInventory(canvas) {
-  // These tune the cropping of inventory boxes
-  const MIN_INVENTORY_WIDTH = 100;
-  const MIN_INVENTORY_HEIGHT = 25;
-  const MIN_CORNER_LIGHT = 5; // out of 7
-  const MIN_CORNER_DARK = 6; // out of 6
+function outputTotals() {
+  const totals = {};
 
-  const MAX_DARK_CHANNEL_VARIANCE = 16;
-  const MAX_DARK_PIXEL_VALUE = 32;
-
-  const MAX_GREY_CHANNEL_VARIANCE = 5;
-  const MAX_GREY_PIXEL_VARIANCE = 8;
-  const HEADER_GREY_VALUE = 131;
-
-  const MAX_MERGE_VARIANCE = 3;
-
-  const width = canvas.width;
-  const height = canvas.height;
-
-  const context = canvas.getContext('2d');
-  const pixels = context.getImageData(0, 0, width, height).data;
-  let darkStripes = {};
-
-  let darkCount = 0;
-  for (let row = 0; row < height; ++row) {
-    for (let col = 0; col < width; ++col) {
-      const redIndex = calcRedIndex(row, col, width);
-      if (isDark(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
-        ++darkCount;
-      } else if (darkCount >= MIN_INVENTORY_WIDTH) {
-        let left = col - darkCount;
-        darkStripes[left] = darkStripes[left] || [];
-        darkStripes[left].push({
-          row: row,
-          right: col - 1,
-          left: left,
-        });
-
-        darkCount = 0;
-      } else {
-        darkCount = 0;
+  for (const stockpile of stockpiles) {
+    for (const element of stockpile.contents) {
+      let key = element.CodeName;
+      if (element.isCrated) {
+        key += '-crated';
       }
-    }
-  }
 
-  let boxes = Object.values(darkStripes).map(function(stripes) {
-    let rights = {};
-    stripes.forEach(function(stripe) {
-      rights[stripe.right] = (rights[stripe.right] || 0) + 1;
-    });
-    // parseInt since keys are strings
-    let mostRight = parseInt(Object.keys(rights).sort((a, b) => rights[b] - rights[a])[0], 10);
-
-    let top = Number.MAX_SAFE_INTEGER;
-    let bottom = 0;
-    let darkStripes = 0;
-    stripes.forEach(function(stripe) {
-      if ((stripe.right > mostRight - MAX_MERGE_VARIANCE) ||
-          (stripe.right < mostRight + MAX_MERGE_VARIANCE)) {
-        if (stripe.row < top) top = stripe.row;
-        if (stripe.row > bottom) bottom = stripe.row;
-
-        ++darkStripes;
-      }
-    });
-
-    return {
-      top: top,
-      right: mostRight,
-      bottom: bottom,
-      left: stripes[0].left,
-      darkStripes: darkStripes,
-    };
-  });
-  boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
-
-  if (boxes.length) {
-    // Merge overlapping boxes
-    let primaryOffset = 0;
-    while (primaryOffset < boxes.length - 1) {
-      let primary = boxes[primaryOffset];
-      let innerOffset = primaryOffset + 1;
-      while (innerOffset < boxes.length) {
-        let inner = boxes[innerOffset];
-        if ((primary.top <= inner.top) &&
-            (primary.right >= inner.right) &&
-            (primary.bottom >= inner.bottom) &&
-            (primary.left <= inner.left)) {
-          primary.darkStripes += inner.darkStripes;
-          boxes.splice(innerOffset, 1);
-        } else {
-          ++innerOffset;
-        }
-      }
-      ++primaryOffset;
-    }
-
-    // Prefer the box closest to the middle
-    let middle = Math.round(width / 2);
-    boxes.sort((a, b) => Math.abs(a.left - middle) - Math.abs(b.left - middle));
-    let box = boxes[0];
-
-    // Prefer the box with the most dark stripes by volume
-    //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
-    //box = boxes[0];
-
-    box.canvas = cropCanvas(canvas, box.top, box.right, box.bottom, box.left);
-    return box;
-  }
-  return false;
-
-  function isDark(r, g, b) {
-    return checkPixel(r, g, b, MAX_DARK_CHANNEL_VARIANCE, 0, MAX_DARK_PIXEL_VALUE);
-  }
-
-  function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_CHANNEL_VARIANCE, HEADER_GREY_VALUE, MAX_GREY_PIXEL_VARIANCE);
-  }
-
-  function isLight(r, g, b) {
-    return !isDark(r, g, b) && !isGrey(r, g, b);
-  }
-}
-
-async function cropItems(tesseract, canvas) {
-  // These tune the cropping of inventory items
-  const MIN_QUANTITY_WIDTH = 40;
-  const MAX_QUANTITY_WIDTH = 90;
-
-  const MIN_QUANTITY_HEIGHT = 30;
-  const MAX_QUANTITY_HEIGHT = 70;
-
-  const MAX_GREY_CHANNEL_VARIANCE = 16;
-  const MAX_GREY_PIXEL_VARIANCE = 16;
-
-  const width = canvas.width;
-  const height = canvas.height;
-
-  const context = canvas.getContext('2d');
-  const pixels = context.getImageData(0, 0, width, height).data;
-
-  // Find the most common grey which is probably the quantity background
-  const MIN_GREY = 32;
-  const MAX_GREY = 224;
-  let greys = {};
-  for (let offset = 0; offset < pixels.length; offset += 4) {
-    let value = pixels[offset];
-    if ((value >= MIN_GREY) &&
-        (value <= MAX_GREY) &&
-        (pixels[offset + 1] == value) &&
-        (pixels[offset + 2] == value)) {
-      greys[value] = (greys[value] || 0) + 1;
-    }
-  }
-  const QUANTITY_GREY_VALUE = Object.keys(greys).sort((a, b) => greys[b] - greys[a])[0];
-
-  const quantities = [];
-
-  let greyCount = 0;
-  let quantityBottom = null;
-  let quantityGap = null;
-  let iconWidth = null;
-  for (let row = 0; row < height; ++row) {
-    for (let col = 0; col < width; ++col) {
-      // Opportunity: If > N of same pixel counted, skip to next line
-      const redIndex = calcRedIndex(row, col, width);
-      if (isGrey(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
-        ++greyCount;
-      } else if ((greyCount >= MIN_QUANTITY_WIDTH) && (greyCount <= MAX_QUANTITY_WIDTH)) {
-        const quantity = {
-          right: col - 1,
-          top: row,
-          left: col - greyCount,
-        };
-        if (!quantityBottom) {
-          quantityBottom = findQtyBottom(pixels, quantity.top, quantity.left, width, height);
-          quantity.gap = quantity.left;
-        } else {
-          const previous = quantities[quantities.length - 1];
-          quantity.gap = quantity.left - previous.right - 1;
-        }
-        quantity.bottom = quantityBottom;
-        quantity.width = quantity.right - quantity.left + 1;
-        quantity.height = quantity.bottom - quantity.top + 1;
-
-        if ((quantity.height >= MIN_QUANTITY_HEIGHT) && (quantity.height <= MAX_QUANTITY_HEIGHT)) {
-          quantity.canvas = cropCanvas(canvas,
-              quantity.top, quantity.right, quantity.bottom, quantity.left,
-              'invert(100%) contrast(250%)', 5);
-
-          quantity.analysis = (await tesseract).addJob('recognize', quantity.canvas);
-          quantities.push(quantity);
-        } else {
-          quantityBottom = null;
-        }
-
-        greyCount = 0;
-      } else {
-        greyCount = 0;
-      }
-    }
-
-    if (quantityBottom) {
-      row = quantityBottom;
-      quantityBottom = null;
-    }
-  }
-
-  const items = quantities.map(function(quantity) {
-    const iconWidth = quantity.height;
-    const iconRightOffset = Math.ceil((quantity.gap - iconWidth) / 2);
-    const iconLeftOffset = iconRightOffset + iconWidth;
-    const icon = {
-      top: quantity.top,
-      right: quantity.left - iconRightOffset - 1,
-      bottom: quantity.bottom,
-      left: quantity.left - iconLeftOffset,
-      width: iconWidth,
-    };
-    icon.canvas = cropCanvas(canvas, icon.top, icon.right, icon.bottom, icon.left);
-
-    return {quantity: quantity, icon: icon};
-  });
-
-  for (const item of items) {
-    let result = await (item.quantity.analysis);
-    item.quantity.tesseractResult = result;
-
-    let value = result.data.text.trim();
-    if (value.match(/^[1-9][0-9]*k\+$/)) {
-      value = parseInt(value.slice(0, -2), 10) * 1000;
-    } else if (value.match(/^([1-9][0-9]*|[0-9])$/)) {
-      value = parseInt(value, 10);
-    } else {
-      value = 0;
-      console.log('unable to parse quantity: ', item);
-    }
-    item.quantity.amount = value;
-  }
-
-  return items;
-
-  function findQtyBottom(pixels, row, col, width, height) {
-    for (var checkRow = row + 1; checkRow <= height; ++checkRow) {
-      const redIndex = calcRedIndex(checkRow, col, width);
-      if (!isGrey(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
-        break;
-      }
-    }
-    return checkRow - 1;
-  }
-
-  function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_CHANNEL_VARIANCE, QUANTITY_GREY_VALUE, MAX_GREY_PIXEL_VARIANCE);
-  }
-}
-
-function coalesceAndIdentifyItems(itemBundles) {
-  const MAX_HAMMING_DISTANCE = 5;
-  const MAX_PERFECT_HAMMING_DISTANCE = 1;
-  const MAX_IMAGE_DIFF = 20;
-  const MAX_IMAGE_TOP_CORNER_DIFF = 20;
-  const MAX_IMAGE_MIDDLE_DIFF = 20;
-  const MAX_IMAGE_BOTTOM_CORNER_DIFF = 20;
-
-  const report = document.querySelector('div.report');
-
-  const items = {};
-  for (let bundleIdx = 0; bundleIdx < itemBundles.length; ++bundleIdx) {
-    for (const rawItem of itemBundles[bundleIdx]) {
-      const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(rawItem.icon.canvas), [32, 32])
-      const prediction = res.MODEL.predict(tfImage.expandDims(0));
-      const best = prediction.argMax(1).dataSync()[0];
-
-      const key = res.CLASS_NAMES[best];
-      const CodeName = key.replace(/-crated$/, '');
-      const isCrated = !!key.match(/-crated$/);
-
-      items[key] ||= {
-        collection: [],
+      totals[key] = totals[key] || {
+        CodeName: element.CodeName,
+        isCrated: element.isCrated,
         total: 0,
+        collection: [],
       };
-      items[key].total += rawItem.quantity.amount;
-      items[key].collection.push({
-        item: rawItem,
-        score: best[1],
-      });
-      rawItem.CodeName = CodeName;
-      rawItem.isCrated = isCrated;
+      totals[key].total += element.quantity;
+      totals[key].collection.push(element);
     }
   }
 
-  const keyOrder = Object.keys(items).sort(function(a, b) {
-    const countDiff = items[b].collection.length - items[a].collection.length;
+  const keyOrder = Object.keys(totals).sort(function(a, b) {
+    const countDiff = totals[b].collection.length - totals[a].collection.length;
     if (countDiff != 0) {
       return countDiff;
     }
-    return items[b].total - items[a].total;
+    return totals[b].total - totals[a].total;
   });
 
-  let index = 0;
+  const report = document.querySelector('div.report');
   for (const key of keyOrder) {
-    const item = items[key];
+    const type = totals[key];
     const cell = document.createElement('div');
     const quantity = document.createElement('div');
-    quantity.textContent = item.total;
+    quantity.textContent = type.total;
     cell.appendChild(quantity);
 
     const icon = document.createElement('div');
-    for (const element of item.collection) {
-      icon.appendChild(element.item.icon.canvas);
+    for (const element of type.collection) {
+      icon.appendChild(element.iconBox.canvas);
     }
     cell.appendChild(icon);
 
-    const catalogItem = res.CATALOG.find(e=>e.CodeName == key.replace(/-[^-]+$/,''));
-    const nameSuffix = item.collection[0].item.isCrated ? ' (crated)' : '';
+    const catalogItem = res.CATALOG.find(e=>e.CodeName == type.CodeName);
+    const nameSuffix = type.isCrated ? ' (crated)' : '';
 
     const name = document.createElement('div');
-    name.textContent = catalogItem.DisplayName + nameSuffix; // + ` ${item.collection.map(e=>Math.round(e.score * 100, 2))}`;
+    name.textContent = catalogItem.DisplayName + nameSuffix;
     cell.appendChild(name);
 
     report.appendChild(cell);
   }
-
-  window.items = items;
-}
-
-async function initTesseractScheduler() {
-  const WORKER_COUNT = Math.max(Math.round(navigator.hardwareConcurrency / 2) - 1, 1);
-  console.log("Launching " + WORKER_COUNT + " Tesseract OCR workers.");
-
-  const scheduler = Tesseract.createScheduler();
-
-  const workers = [];
-  for (let i = 0; i < WORKER_COUNT; ++i) {
-    const worker = Tesseract.createWorker({
-      //logger: m => console.log(m),
-      langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
-    });
-
-    workers.push(initWorker(scheduler, worker));
-  }
-
-  await Promise.all(workers);
-
-  return scheduler;
-
-  async function initWorker(scheduler, worker) {
-    await worker.load();
-    await worker.loadLanguage('eng');
-    await worker.initialize('eng');
-    await worker.setParameters({
-      tessedit_char_whitelist: '0123456789k+',
-      tessedit_pageseg_mode: 7,  // Single line
-    });
-
-    scheduler.addWorker(worker);
-  }
-}
-
-async function terminateTesseractScheduler(scheduler) {
-  console.log("Terminating Tesseract OCR workers.");
-  return await (await scheduler).terminate();
-}
-
-function cropCanvas(input, top, right, bottom, left, filter, resize) {
-  if (!filter) filter = 'none';
-  if (!resize) resize = 1;
-
-  const croppedWidth = right - left + 1;
-  const croppedHeight = bottom - top + 1;
-
-  const outputWidth = Math.round(croppedWidth * resize);
-  const outputHeight = Math.round(croppedHeight * resize);
-
-  const output = document.createElement('canvas');
-
-  output.width = outputWidth;
-  output.height = outputHeight;
-
-  const outputContext = output.getContext("2d");
-  outputContext.filter = filter;
-  outputContext.drawImage(input,
-      left, top, croppedWidth, croppedHeight,
-      0, 0, outputWidth, outputHeight);
-
-  return output;
-}
-
-function calcRedIndex(row, col, width) {
-  // Assumes RGBA packing
-  return (col * 4) + (row * width * 4);
-}
-
-function checkPixel(r, g, b, channel_variance, pixel_value, pixel_variance) {
-  const avg = (r + g + b) / 3;
-  return (Math.abs(avg - r) < channel_variance) &&
-    (Math.abs(avg - g) < channel_variance) &&
-    (Math.abs(avg - b) < channel_variance) &&
-    (Math.abs(avg - pixel_value) < pixel_variance);
 }
