@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foxhole Inventory Report (Debug)</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.5/tesseract.min.js" integrity="sha512-QMGuBW4cKAKmxjxukfPlQqFL8Tc2yYWTBhg9o8fKx06BGZrNXMmafjtnmXthGasytcaIILHRrg5N5Hw0yOuSjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.19.0/tf.min.js" integrity="sha512-GSI5Dxy0eH1ySvvjN/WYiRXzvUChOfZdTgFS5gPWjKV9X8Ut+DM+vu2qI59hdejb/QRE3G3RhvdfCoQe+AQsdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module" src="includes/debug.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3TZNS69Y1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-C3TZNS69Y1');
+  </script>
+</head>
+<body>
+  <h2>Foxhole Inventory Report (debug)</h2>
+  <form>
+    <label>Select map screenshot: 
+      <input accept="image/*" type="file">
+    </label>
+  </form>
+</body>
+</html>
