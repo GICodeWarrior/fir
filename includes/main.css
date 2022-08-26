@@ -1,7 +1,7 @@
 body:last-child::after {
   display: block;
   content: '';
-  margin-bottom: 200px;
+  margin-bottom: 100vh;
 }
 li { line-height: 1.25; }
 input { display: block; }
@@ -47,9 +47,6 @@ div.report {
 
 div.report > div {
   display: flex;
-}
-
-div.report > div > div {
 }
 
 div.report > div > div:first-child {

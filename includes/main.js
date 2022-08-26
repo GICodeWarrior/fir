@@ -198,6 +198,19 @@ function getProcessImage(scheduler, label) {
 
     if (imagesProcessed == imagesTotal) {
       outputTotals();
+
+      // Timeout gives the UI a chance to reflow
+      setTimeout(function() {
+        const maxHeight = Array.from(document.querySelectorAll('div.render > div'))
+            .map(e => e.getBoundingClientRect().height)
+            .reduce((a, b) => Math.max(a, b), 0);
+
+        const render = document.querySelector('div.render');
+        if (maxHeight > render.clientHeight) {
+          const margins = render.getBoundingClientRect().height - render.clientHeight;
+          render.style.height = `${maxHeight + margins}px`;
+        }
+      }, 1);
     }
   }
 }
