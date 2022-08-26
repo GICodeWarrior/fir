@@ -8,10 +8,6 @@ const res = {
   MODEL: tf.loadGraphModel('./includes/classifier/model.json'),
 }
 
-if (!navigator) {
-  res.OS = import('node:os');
-}
-
 await Promise.all([...Object.values(res)]).then(function (results) {
   let index = 0;
   for (const key of Object.keys(res)) {
@@ -19,7 +15,11 @@ await Promise.all([...Object.values(res)]).then(function (results) {
   }
 });
 
-export async function process(screenshotCanvas) {
+export async function process(screenshotCanvas, options) {
+  if (options && options.ocrConcurrency){
+    OCR.concurrency = options.ocrConcurrency;
+  }
+
   const stockpile = extractStockpile(screenshotCanvas);
   if (!stockpile) {
     return undefined;

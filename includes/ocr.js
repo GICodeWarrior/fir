@@ -1,5 +1,16 @@
 const Tesseract = (window && window.Tesseract) || (await import('tesseract'));
 
+let os = undefined;
+if (!navigator) {
+  os = import('node:os');
+}
+
+const cpuCount = (navigator && navigator.hardwareConcurrency)
+    || (os && os.cpus().length)
+    || 1;
+const DEFAULT_CONCURRENCY = Math.max(Math.round(cpuCount / 2) - 1, 1);
+let concurrency = DEFAULT_CONCURRENCY;
+
 async function recognize(canvas) {
   //console.log('recognize: adding');
   const promise = (await getScheduler()).addJob('recognize', canvas);
@@ -15,6 +26,8 @@ async function recognize(canvas) {
 }
 
 const OCR = {
+  DEFAULT_CONCURRENCY,
+  concurrency,
   recognize,
 };
 export default OCR;
@@ -36,16 +49,12 @@ async function getScheduler() {
 
 async function start() {
   state = 'starting';
-  const cpuCount = (navigator && navigator.hardwareConcurrency)
-      || (res.OS && res.OS.cpus().length)
-      || 1;
-  const workerCount = Math.max(Math.round(cpuCount / 2) - 1, 1);
-  console.log("Launching " + workerCount + " Tesseract OCR workers.");
+  console.log("Launching " + concurrency + " Tesseract OCR workers.");
 
   scheduler = Tesseract.createScheduler();
 
   const workers = [];
-  for (let i = 0; i < workerCount; ++i) {
+  for (let i = 0; i < concurrency; ++i) {
     const worker = Tesseract.createWorker({
       //logger: m => console.log(m),
       langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
