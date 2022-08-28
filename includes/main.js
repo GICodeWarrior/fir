@@ -123,6 +123,7 @@ let imagesTotal = 0;
       'Per Crate',
       'Total',
       'Description',
+      'CodeName',
     ].join('\t')];
     for (const stockpile of stockpiles) {
       for (const element of stockpile.contents) {
@@ -143,6 +144,7 @@ let imagesTotal = 0;
           element.isCrated ? perUnit : '',
           element.quantity * perUnit,
           details.Description,
+          element.CodeName,
         ].join('\t'));
       }
     }
@@ -197,6 +199,7 @@ function getProcessImage(scheduler, label) {
     document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
 
     if (imagesProcessed == imagesTotal) {
+      window.stockpiles = stockpiles;
       outputTotals();
 
       // Timeout gives the UI a chance to reflow
