@@ -1,4 +1,7 @@
-import Screenshot from './screenshot.js'
+import Screenshot from './screenshot.mjs'
+
+const CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
+const MODEL_URL = './includes/classifier/model.json';
 
 document.querySelector('form').addEventListener('submit', function(e) {
   // Prevent a submit that would cause a page refresh
@@ -22,9 +25,10 @@ document.querySelector('form input').addEventListener('change', function() {
     const context = canvas.getContext('2d');
     context.drawImage(this, 0, 0);
 
-    Screenshot.process(canvas).then(function(stockpile) {
-      console.log(stockpile);
+    Screenshot.process(canvas, MODEL_URL, CLASS_NAMES).then(function(stockpile) {
+      //console.log(stockpile);
       if (stockpile) {
+        globalThis.stockpile = stockpile;
         const box = stockpile.box;
         drawOutline(context, box, '#FF00FFAA');
 
@@ -64,6 +68,6 @@ document.querySelector('form input').addEventListener('change', function() {
 function drawOutline(context, box, color) {
   context.beginPath();
   context.strokeStyle = color;
-  context.rect(box.x - 1, box.y - 1, box.width + 2, box.height + 2);
+  context.rect(box.x - 0.5, box.y - 0.5, box.width + 1, box.height + 1);
   context.stroke();
 }

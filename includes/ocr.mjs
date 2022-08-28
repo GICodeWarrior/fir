@@ -1,11 +1,11 @@
-const Tesseract = (window && window.Tesseract) || (await import('tesseract'));
+const Tesseract = (globalThis.window && window.Tesseract) || (await import('tesseract.js')).default;
 
 let os = undefined;
-if (!navigator) {
-  os = import('node:os');
+if (!globalThis.navigator) {
+  os = await import('node:os');
 }
 
-const cpuCount = (navigator && navigator.hardwareConcurrency)
+const cpuCount = (globalThis.navigator && navigator.hardwareConcurrency)
     || (os && os.cpus().length)
     || 1;
 const DEFAULT_CONCURRENCY = Math.max(Math.round(cpuCount / 2) - 1, 1);
@@ -13,7 +13,30 @@ let concurrency = DEFAULT_CONCURRENCY;
 
 async function recognize(canvas) {
   //console.log('recognize: adding');
-  const promise = (await getScheduler()).addJob('recognize', canvas);
+  let image = canvas;
+  if (!globalThis.window) {
+    /*
+    async function streamToBuffer(stream) {
+      const buffers = [];
+      return await new Promise(function (resolve) {
+        stream.on('readable', function() {
+          let buffer;
+          while (buffer = stream.read()) {
+            buffers.push(buffer);
+          }
+        });
+        stream.on('end', function() {
+          resolve(Buffer.concat(buffers));
+        });
+      });
+    }
+
+    image = await streamToBuffer(canvas.createPNGStream());
+    */
+    image = await canvas.toBuffer("png");
+    //console.log(image);
+  }
+  const promise = (await getScheduler()).addJob('recognize', image);
 
   promise.then(function() {
     //console.log('recognize: complete');
@@ -58,6 +81,7 @@ async function start() {
     const worker = Tesseract.createWorker({
       //logger: m => console.log(m),
       langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
+      cacheMethod: 'none',
     });
 
     workers.push(initWorker(scheduler, worker));
@@ -71,8 +95,12 @@ async function start() {
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
     await worker.setParameters({
+      tessedit_ocr_engine_mode: Tesseract.OEM.LSTM_ONLY,
       tessedit_char_whitelist: '0123456789k+',
-      tessedit_pageseg_mode: 7,  // Single line
+      //tessedit_pageseg_mode: 7, // Tesseract.PSM.SINGLE_LINE
+      tessedit_pageseg_mode: Tesseract.PSM.SINGLE_LINE,
+      classify_enable_learning: 0,
+      classify_enable_adaptive_matcher: 0,
     });
 
     scheduler.addWorker(worker);

@@ -1,24 +1,31 @@
-import OCR from './ocr.js'
+import OCR from './ocr.mjs'
 
-const fetch = (window && window.fetch) || (await import('node-fetch'));
-
-const res = {
-  CATALOG: fetch('./includes/catalog.json').then(r => r.json()),
-  CLASS_NAMES: fetch('./includes/class_names.json').then(r => r.json()),
-  MODEL: tf.loadGraphModel('./includes/classifier/model.json'),
-}
-
-await Promise.all([...Object.values(res)]).then(function (results) {
-  let index = 0;
-  for (const key of Object.keys(res)) {
-    res[key] = results[index++];
+const tf = (globalThis.window && window.tf) || (await import('@tensorflow/tfjs-node'));
+const createCanvas = await (async function() {
+  const browser = globalThis.document && (function(width, height) {
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    return canvas;
+  });
+  if (browser) {
+    return browser;
   }
-});
 
-export async function process(screenshotCanvas, options) {
+  const Canvas = (await import('skia-canvas')).Canvas;
+  return function(width, height) {
+    return new Canvas(width, height);
+  };
+})();
+
+class UnableToParseQuantity extends Error {}
+
+let models = {};
+export async function process(screenshotCanvas, modelURL, classNames, options) {
   if (options && options.ocrConcurrency){
     OCR.concurrency = options.ocrConcurrency;
   }
+  models[modelURL] ||= tf.loadGraphModel(modelURL);
 
   const stockpile = extractStockpile(screenshotCanvas);
   if (!stockpile) {
@@ -26,7 +33,7 @@ export async function process(screenshotCanvas, options) {
   }
 
   stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
-  stockpile.contents = await extractContents(stockpile.box.canvas);
+  stockpile.contents = await extractContents(stockpile.box.canvas, models[modelURL], classNames);
 
   if (stockpile.contents && stockpile.contents.length) {
     const existingTop = stockpile.box.y;
@@ -179,7 +186,7 @@ function extractStockpile(canvas) {
   }
 }
 
-async function extractContents(canvas) {
+async function extractContents(canvas, model, classNames) {
   // These tune the cropping of inventory items
   const MIN_QUANTITY_WIDTH = 40;
   const MAX_QUANTITY_WIDTH = 90;
@@ -250,7 +257,19 @@ async function extractContents(canvas) {
             quantityBox,
           };
           element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'invert(100%) contrast(250%)', 5);
-          promises.push(ocrQuantity(element.quantityBox.canvas).then(q => element.quantity = q));
+
+          if ((quantityBox.x == 467) && (quantityBox.y == 750)) {
+            //element.quantityBox.canvas.saveAsSync('debug.png');
+            //document.body.appendChild(element.quantityBox.canvas);
+          }
+
+          promises.push(ocrQuantity(element.quantityBox.canvas).then(q => element.quantity = q).catch(function(e) {
+            if (e instanceof UnableToParseQuantity) {
+              console.log('Unable to parse quantity:', quantityBox);
+            } else {
+              throw e;
+            }
+          }));
 
           const iconWidth = quantityBox.height;
           const iconGap = Math.ceil((quantityGap - iconWidth) / 2);
@@ -262,7 +281,7 @@ async function extractContents(canvas) {
           };
 
           element.iconBox.canvas = cropCanvas(canvas, element.iconBox);
-          Object.assign(element, classifyIcon(element.iconBox.canvas));
+          Object.assign(element, await classifyIcon(element.iconBox.canvas, model, classNames));
 
           contents.push(element);
         }
@@ -307,20 +326,19 @@ async function ocrQuantity(canvas) {
   } else if (value.match(/^([1-9][0-9]*|[0-9])$/)) {
     value = parseInt(value, 10);
   } else {
-    value = 0;
-    console.log('unable to parse quantity...', result);
+    throw new UnableToParseQuantity(value);
   }
 
   return value;
 }
 
 const CRATED_REGEXP = new RegExp('-crated$');
-function classifyIcon(canvas) {
+async function classifyIcon(canvas, model, classNames) {
   const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(canvas), [32, 32])
-  const prediction = res.MODEL.predict(tfImage.expandDims(0));
+  const prediction = (await model).predict(tfImage.expandDims(0));
 
   const best = prediction.argMax(1).dataSync()[0];
-  const key = res.CLASS_NAMES[best];
+  const key = classNames[best];
 
   return {
     CodeName: key.replace(CRATED_REGEXP, ''),
@@ -335,7 +353,7 @@ function cropCanvas(input, box, filter, resize) {
   const outputWidth = Math.round(box.width * resize);
   const outputHeight = Math.round(box.height * resize);
 
-  const output = document.createElement('canvas');
+  const output = createCanvas();
   output.width = outputWidth;
   output.height = outputHeight;
 
