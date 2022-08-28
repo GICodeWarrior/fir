@@ -59,16 +59,11 @@ const Screenshot = {
 export default Screenshot;
 
 function extractStockpile(canvas) {
-  // These tune the cropping of inventory boxes
   const MIN_INVENTORY_WIDTH = 100;
   const MIN_INVENTORY_HEIGHT = 25;
 
-  const MAX_DARK_CHANNEL_VARIANCE = 16;
-  const MAX_DARK_PIXEL_VALUE = 32;
-
-  const MAX_GREY_CHANNEL_VARIANCE = 5;
-  const MAX_GREY_PIXEL_VARIANCE = 8;
-  const HEADER_GREY_VALUE = 131;
+  const MAX_DARK_CHANNEL_SATURATION = 16;
+  const MAX_DARK_PIXEL_LIGHTNESS = 32;
 
   const MAX_MERGE_VARIANCE = 3;
 
@@ -83,7 +78,7 @@ function extractStockpile(canvas) {
     let darkCount = 0;
     for (let col = 0; col < width; ++col) {
       const redIndex = calcRedIndex(row, col, width);
-      if (isDark(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
+      if (isDark(pixels, redIndex)) {
         ++darkCount;
       } else if (darkCount >= MIN_INVENTORY_WIDTH) {
         let left = col - darkCount;
@@ -113,7 +108,7 @@ function extractStockpile(canvas) {
     let top = Number.MAX_SAFE_INTEGER;
     let bottom = 0;
     let darkStripes = 0;
-    stripes.forEach(function(stripe) {
+    for (const stripe of stripes) {
       if ((stripe.right > mostRight - MAX_MERGE_VARIANCE) ||
           (stripe.right < mostRight + MAX_MERGE_VARIANCE)) {
         if (stripe.row < top) top = stripe.row;
@@ -121,7 +116,7 @@ function extractStockpile(canvas) {
 
         ++darkStripes;
       }
-    });
+    }
 
     return {
       top: top,
@@ -131,7 +126,6 @@ function extractStockpile(canvas) {
       darkStripes: darkStripes,
     };
   });
-  boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
 
   if (boxes.length) {
     // Merge overlapping boxes
@@ -153,6 +147,22 @@ function extractStockpile(canvas) {
       }
       ++primaryOffset;
     }
+    boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
+
+    //check left and right sides are mostly dark
+    const MIN_DARK_EDGE_PERCENT = 0.8;
+    boxes = boxes.filter(function(box) {
+      let darkLeft = 0;
+      let darkRight = 0;
+      for (let row = box.top; row <= box.bottom; ++row) {
+        darkLeft += isDark(pixels, calcRedIndex(row, box.left, width)) ? 1 : 0;
+        darkRight += isDark(pixels, calcRedIndex(row, box.right, width)) ? 1 : 0;
+      }
+      const height = box.bottom - box.top + 1;
+
+      return (darkLeft / height >= MIN_DARK_EDGE_PERCENT)
+        && (darkRight / height >= MIN_DARK_EDGE_PERCENT);
+    });
 
     // Prefer the box closest to the middle
     const middle = Math.round(width / 2);
@@ -174,16 +184,10 @@ function extractStockpile(canvas) {
   }
   return undefined;
 
-  function isDark(r, g, b) {
-    return checkPixel(r, g, b, MAX_DARK_CHANNEL_VARIANCE, 0, MAX_DARK_PIXEL_VALUE);
-  }
-
-  function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_CHANNEL_VARIANCE, HEADER_GREY_VALUE, MAX_GREY_PIXEL_VARIANCE);
-  }
-
-  function isLight(r, g, b) {
-    return !isDark(r, g, b) && !isGrey(r, g, b);
+  function isDark(pixels, offset) {
+    return checkPixel(
+      pixels[offset], pixels[offset + 1], pixels[offset + 2],
+      MAX_DARK_CHANNEL_SATURATION, 0, MAX_DARK_PIXEL_LIGHTNESS);
   }
 }
 
@@ -209,7 +213,8 @@ async function extractContents(canvas, model, classNames) {
   const MAX_GREY = 224;
   let greys = {};
   for (let offset = 0; offset < pixels.length; offset += 4) {
-    let value = pixels[offset];
+    //const value = pixels[offset];
+    const value = Math.round((0.299 * pixels[offset]) + (0.587 * pixels[offset + 1]) + (0.114 * pixels[offset + 2]));
     if ((value >= MIN_GREY) &&
         (value <= MAX_GREY) &&
         (pixels[offset + 1] == value) &&
@@ -367,10 +372,19 @@ function calcRedIndex(row, col, width) {
   return (col * 4) + (row * width * 4);
 }
 
-function checkPixel(r, g, b, channel_variance, pixel_value, pixel_variance) {
-  const avg = (r + g + b) / 3;
-  return (Math.abs(avg - r) < channel_variance) &&
-    (Math.abs(avg - g) < channel_variance) &&
-    (Math.abs(avg - b) < channel_variance) &&
-    (Math.abs(avg - pixel_value) < pixel_variance);
+function checkPixel(r, g, b, max_saturation, desired_lightness, lightness_variance) {
+  //const lightness = (r + g + b) / 3;
+  //const lightness = (0.299 * r) + (0.587 * g) + (0.114 * b);
+  /*
+  return (Math.abs(lightness - r) < channel_variance) &&
+    (Math.abs(lightness - g) < channel_variance) &&
+    (Math.abs(lightness - b) < channel_variance) &&
+    (Math.abs(lightness - pixel_value) < pixel_variance);
+  */
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  const lightness = (max + min) / 2;
+  const saturation = max > 0 ? (max - min) / max : 0;
+  return (saturation <= max_saturation) &&
+    (Math.abs(lightness - desired_lightness) < lightness_variance);
 }
