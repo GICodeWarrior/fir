@@ -81,7 +81,7 @@ async function start() {
     const worker = Tesseract.createWorker({
       //logger: m => console.log(m),
       langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
-      cacheMethod: 'none',
+      //cacheMethod: 'none',
     });
 
     workers.push(initWorker(scheduler, worker));
@@ -95,12 +95,11 @@ async function start() {
     await worker.loadLanguage('eng');
     await worker.initialize('eng');
     await worker.setParameters({
-      tessedit_ocr_engine_mode: Tesseract.OEM.LSTM_ONLY,
+      //tessedit_ocr_engine_mode: Tesseract.OEM.LSTM_ONLY,
       tessedit_char_whitelist: '0123456789k+',
-      //tessedit_pageseg_mode: 7, // Tesseract.PSM.SINGLE_LINE
-      tessedit_pageseg_mode: Tesseract.PSM.SINGLE_LINE,
-      classify_enable_learning: 0,
-      classify_enable_adaptive_matcher: 0,
+      tessedit_pageseg_mode: 7, // Tesseract.PSM.SINGLE_LINE
+      //classify_enable_learning: 0,
+      //classify_enable_adaptive_matcher: 0,
     });
 
     scheduler.addWorker(worker);

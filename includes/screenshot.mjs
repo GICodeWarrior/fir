@@ -79,8 +79,8 @@ function extractStockpile(canvas) {
   const pixels = context.getImageData(0, 0, width, height).data;
   let darkStripes = {};
 
-  let darkCount = 0;
   for (let row = 0; row < height; ++row) {
+    let darkCount = 0;
     for (let col = 0; col < width; ++col) {
       const redIndex = calcRedIndex(row, col, width);
       if (isDark(pixels[redIndex], pixels[redIndex+1], pixels[redIndex+2])) {
@@ -103,9 +103,10 @@ function extractStockpile(canvas) {
 
   let boxes = Object.values(darkStripes).map(function(stripes) {
     let rights = {};
-    stripes.forEach(function(stripe) {
-      rights[stripe.right] = (rights[stripe.right] || 0) + 1;
-    });
+    for (const stripe of stripes) {
+      rights[stripe.right] ||= 0
+      rights[stripe.right] += 1;
+    }
     // parseInt since keys are strings
     let mostRight = parseInt(Object.keys(rights).sort((a, b) => rights[b] - rights[a])[0], 10);
 
@@ -154,13 +155,13 @@ function extractStockpile(canvas) {
     }
 
     // Prefer the box closest to the middle
-    let middle = Math.round(width / 2);
+    const middle = Math.round(width / 2);
     boxes.sort((a, b) => Math.abs(a.left - middle) - Math.abs(b.left - middle));
-    let box = boxes[0];
+    const box = boxes[0];
 
     // Prefer the box with the most dark stripes by volume
     //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
-    //box = boxes[0];
+    //const box = boxes[0];
 
     return {
       box: {
@@ -257,11 +258,6 @@ async function extractContents(canvas, model, classNames) {
             quantityBox,
           };
           element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'invert(100%) contrast(250%)', 5);
-
-          if ((quantityBox.x == 467) && (quantityBox.y == 750)) {
-            //element.quantityBox.canvas.saveAsSync('debug.png');
-            //document.body.appendChild(element.quantityBox.canvas);
-          }
 
           promises.push(ocrQuantity(element.quantityBox.canvas).then(q => element.quantity = q).catch(function(e) {
             if (e instanceof UnableToParseQuantity) {

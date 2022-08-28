@@ -200,6 +200,19 @@ function getProcessImage(scheduler, label) {
 
     if (imagesProcessed == imagesTotal) {
       window.stockpiles = stockpiles;
+      window.stockpilesJSON = JSON.stringify(stockpiles.map(function(s) {
+        return {
+          file: s.label.textContent,
+          contents: s.contents.map(function(e) {
+            return {
+              CodeName: e.CodeName,
+              quantity: e.quantity,
+              isCrated: e.isCrated,
+            };
+          }),
+        };
+      }), undefined, 2);
+
       outputTotals();
 
       // Timeout gives the UI a chance to reflow
