@@ -2813,6 +2813,39 @@
     }
   },
   {
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPLorePickup",
+    "CodeName": "Lore",
+    "DisplayName": "Torn Note",
+    "Description": "A torn piece of paper containing a fragment of text.",
+    "Encumbrance": 1,
+    "ItemProfileType": "EItemProfileType::UniqueItem",
+    "Icon": "War/Content/Slate/Images/ResourceClothIcon.0",
+    "ItemDynamicData": {
+      "CostPerCrate": [
+        {
+          "ItemCodeName": "None",
+          "Quantity": 0
+        }
+      ],
+      "QuantityPerCrate": 20,
+      "CrateProductionTime": 600,
+      "SingleRetrieveTime": 10,
+      "CrateRetrieveTime": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfilesData": {
+      "bIsStockpilable": false,
+      "bIsStackable": false,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    }
+  },
+  {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGCPickup",
     "CodeName": "MGC",
     "ChassisName": "Machine Gun",

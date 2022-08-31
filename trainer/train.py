@@ -27,11 +27,12 @@ IMG_SIZE = (32, 32)
 PREFETCH_SIZE = tf.data.AUTOTUNE
 RANDOM_SEED = 639936
 
-tf.random.set_seed(RANDOM_SEED)
+tf.keras.utils.set_random_seed(RANDOM_SEED)
+tf.config.experimental.enable_op_determinism()
 
 train_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
-  validation_split=0.2,
+  validation_split=0.05,
   subset='training',
   seed=RANDOM_SEED,
   image_size=IMG_SIZE
@@ -39,7 +40,7 @@ train_ds = keras.utils.image_dataset_from_directory(
 
 val_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
-  validation_split=0.2,
+  validation_split=0.05,
   subset='validation',
   seed=RANDOM_SEED,
   image_size=IMG_SIZE
@@ -56,14 +57,19 @@ train_ds = train_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 
 model = Sequential([
-  layers.Rescaling(1./255),
+#  layers.RandomBrightness(0.05),
+#  layers.RandomContrast(0.05),
+  layers.Rescaling(1./255, input_shape=IMG_SIZE+(3,)),
   layers.Conv2D(16, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
+  layers.BatchNormalization(),
   layers.Conv2D(32, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
+  layers.BatchNormalization(),
   layers.Conv2D(64, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
-  layers.Dropout(0.2),
+  layers.BatchNormalization(),
+  layers.Dropout(0.05),
   layers.Flatten(),
   layers.Dense(128, activation='relu'),
   layers.Dense(output_dim, name="outputs")
@@ -75,11 +81,11 @@ model.compile(
   metrics=['accuracy']
 )
 
-epochs = 15
-history = model.fit(
+EPOCHS = 27
+model.fit(
   train_ds,
   validation_data=val_ds,
-  epochs=epochs
+  epochs=EPOCHS
 )
 
 model.save('model.h5')

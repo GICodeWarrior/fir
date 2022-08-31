@@ -1,7 +1,7 @@
 {
-  "convertedBy": "TensorFlow.js Converter v3.19.0",
+  "convertedBy": "TensorFlow.js Converter v3.20.0",
   "format": "graph-model",
-  "generatedBy": "2.9.0",
+  "generatedBy": "2.8.2",
   "modelTopology": {
     "library": {},
     "node": [
@@ -268,7 +268,7 @@
                     "size": "128"
                   },
                   {
-                    "size": "538"
+                    "size": "536"
                   }
                 ]
               }
@@ -289,7 +289,7 @@
               "tensorShape": {
                 "dim": [
                   {
-                    "size": "538"
+                    "size": "536"
                   }
                 ]
               }
@@ -325,6 +325,132 @@
         },
         "name": "rescaling_input",
         "op": "Placeholder"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Scaled",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Offset",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Scaled",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Offset",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Scaled",
+        "op": "Const"
       },
       {
         "attr": {
@@ -458,6 +584,32 @@
         "attr": {
           "T": {
             "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/max_pooling2d/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Scaled"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Mul",
+        "op": "Mul"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Mul",
+          "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Offset"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3",
+        "op": "Add"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
           },
           "data_format": {
             "s": "TkhXQw=="
@@ -508,7 +660,7 @@
         },
         "device": "/device:CPU:0",
         "input": [
-          "StatefulPartitionedCall/sequential/max_pooling2d/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3",
           "StatefulPartitionedCall/sequential/conv2d_1/Conv2D/ReadVariableOp",
           "StatefulPartitionedCall/sequential/conv2d_1/BiasAdd/ReadVariableOp"
         ],
@@ -560,6 +712,32 @@
         "attr": {
           "T": {
             "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/max_pooling2d_1/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Scaled"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Mul",
+        "op": "Mul"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Mul",
+          "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3",
+        "op": "Add"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
           },
           "data_format": {
             "s": "TkhXQw=="
@@ -610,7 +788,7 @@
         },
         "device": "/device:CPU:0",
         "input": [
-          "StatefulPartitionedCall/sequential/max_pooling2d_1/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3",
           "StatefulPartitionedCall/sequential/conv2d_2/Conv2D/ReadVariableOp",
           "StatefulPartitionedCall/sequential/conv2d_2/BiasAdd/ReadVariableOp"
         ],
@@ -662,13 +840,39 @@
         "attr": {
           "T": {
             "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/max_pooling2d_2/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Scaled"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Mul",
+        "op": "Mul"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Mul",
+          "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Offset"
+        ],
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3",
+        "op": "Add"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
           },
           "Tshape": {
             "type": "DT_INT32"
           }
         },
         "input": [
-          "StatefulPartitionedCall/sequential/max_pooling2d_2/MaxPool",
+          "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3",
           "StatefulPartitionedCall/sequential/flatten/Const"
         ],
         "name": "StatefulPartitionedCall/sequential/flatten/Reshape",
@@ -757,7 +961,7 @@
       }
     ],
     "versions": {
-      "producer": 1087
+      "producer": 987
     }
   },
   "signature": {
@@ -793,7 +997,7 @@
               "size": "-1"
             },
             {
-              "size": "538"
+              "size": "536"
             }
           ]
         }
@@ -894,14 +1098,56 @@
           "name": "StatefulPartitionedCall/sequential/outputs/MatMul/ReadVariableOp",
           "shape": [
             128,
-            538
+            536
           ]
         },
         {
           "dtype": "float32",
           "name": "StatefulPartitionedCall/sequential/outputs/BiasAdd/ReadVariableOp",
           "shape": [
-            538
+            536
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
+          "shape": [
+            32
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Scaled",
+          "shape": [
+            16
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization/FusedBatchNormV3/Offset",
+          "shape": [
+            16
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Scaled",
+          "shape": [
+            64
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization_2/FusedBatchNormV3/Offset",
+          "shape": [
+            64
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Scaled",
+          "shape": [
+            32
           ]
         }
       ]

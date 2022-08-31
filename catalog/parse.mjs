@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from 'graceful-fs';
 import process from 'node:process';
 import events from 'node:events';
 import { createCanvas, loadImage } from 'canvas';
@@ -564,12 +564,20 @@ async function writePNG(canvas, file) {
 
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
-async function drawIcon(objectValues, size) {
+async function drawIcon(objectValues, size, modName) {
   const canvas = createCanvas(size, size);
   const context = canvas.getContext('2d');
   context.fillRect(0, 0, size, size);
 
-  const icon = await loadImage(objectValues.Icon.replace(/\.[0-9]+$/, '.png'));
+  let iconFile = objectValues.Icon.replace(/\.[0-9]+$/, '.png');
+  if (modName) {
+    iconFile = `mod-files/${modName}/${iconFile}`;
+    if (!fs.existsSync(iconFile)) {
+      return;
+    }
+  }
+
+  const icon = await loadImage(iconFile);
   context.drawImage(icon, 0, 0, size, size);
 
   if (objectValues.SubTypeIcon) {
@@ -596,20 +604,38 @@ async function addCrate(canvas) {
   context.globalAlpha = 1;
 }
 
+async function writeTrainingPNG(objectValues, baseName, size, modName) {
+  const canvas = await drawIcon(objectValues, size, modName);
+  if (!canvas) {
+    return;
+  }
+  modName = modName ? `${modName}-` : '';
+
+  await fs.promises.mkdir(baseName, {recursive: true});
+  await writePNG(canvas, `${baseName}/${modName}${size}.png`);
+
+  await addCrate(canvas);
+  await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
+  await writePNG(canvas, `${baseName}-crated/${modName}${size}.png`);
+}
+
 async function writeTrainingPNGs(objectValues, destination) {
-  const smallestSize = 32;
-  const largestSize = 64;
+  const smallestSize = 28;
+  const largestSize = 72;
   const baseName = `${destination}/${objectValues.CodeName}`;
 
-  for (let size = smallestSize; size <= largestSize; ++size) {
-    const canvas = await drawIcon(objectValues, size);
-    await fs.promises.mkdir(baseName, {recursive: true});
-    await writePNG(canvas, `${baseName}/${size}.png`);
+  const mods = fs.readdirSync('mod-files/');
+  const promises = [];
 
-    await addCrate(canvas);
-    await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
-    await writePNG(canvas, `${baseName}-crated/${size}.png`);
+  for (let size = smallestSize; size <= largestSize; ++size) {
+    promises.push(writeTrainingPNG(objectValues, baseName, size));
+
+    for (const modName of mods) {
+      promises.push(writeTrainingPNG(objectValues, baseName, size, modName));
+    }
   }
+
+  await Promise.all(promises);
 }
 
 const common = {
@@ -701,11 +727,13 @@ for (const directory of searchDirectories) {
           && objectValues.DisplayName
           && objectValues.Description
           && objectValues.Icon
-          && objectValues.CodeName != 'Lore'
           && (objectValues.TechID || '') != 'ETechID::ETechID_MAX') {
-
         objects.push(objectValues);
-        promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
+
+        if (objectValues.CodeName != 'Lore'
+            && (!objectValues.ObjectPath.match(/\/BPDeployed[^/]+$/))) {
+          promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
+        }
       }
     } catch (e) {
       if (e instanceof NonBPError) {

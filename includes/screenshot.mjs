@@ -262,7 +262,7 @@ async function extractContents(canvas, model, classNames) {
           const element = {
             quantityBox,
           };
-          element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'invert(100%) contrast(250%)', 5);
+          element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'invert(100%) contrast(400%)', 5);
 
           promises.push(ocrQuantity(element.quantityBox.canvas).then(q => element.quantity = q).catch(function(e) {
             if (e instanceof UnableToParseQuantity) {

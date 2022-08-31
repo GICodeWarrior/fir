@@ -25,6 +25,7 @@ buildClassifier() {
   pipenv run python train.py
   mv class_names.json ../includes/class_names.json
 
+  rm -r ../includes/classifier/*
   pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../includes/classifier
 
   pipenv run python sort_json.py ../includes/classifier/model.json

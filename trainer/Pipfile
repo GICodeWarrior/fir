@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "*"
+tensorflow-gpu = "~=2.8.0"
 tensorflowjs = "*"
 
 [dev-packages]
