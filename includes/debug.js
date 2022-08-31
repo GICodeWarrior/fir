@@ -66,8 +66,31 @@ document.querySelector('form input').addEventListener('change', function() {
 });
 
 function drawOutline(context, box, color) {
-  context.beginPath();
   context.strokeStyle = color;
-  context.rect(box.x - 0.5, box.y - 0.5, box.width + 1, box.height + 1);
+  context.lineCap = 'square';
+
+  const length = Math.round(box.height / 16);
+
+  // Top
+  strokeLine(context, box.x + 0.5, box.y - 0.5, 0, -length);
+  strokeLine(context, box.x + box.width - 0.5, box.y - 0.5, 0, -length);
+
+  // Bottom
+  strokeLine(context, box.x + 0.5, box.y + box.height + 0.5, 0, length);
+  strokeLine(context, box.x + box.width - 0.5, box.y + box.height + 0.5, 0, length);
+
+  // Left
+  strokeLine(context, box.x - 0.5, box.y + 0.5, -length, 0);
+  strokeLine(context, box.x - 0.5, box.y + box.height - 0.5, -length, 0);
+
+  // Right
+  strokeLine(context, box.x + box.width + 0.5, box.y + 0.5, length, 0);
+  strokeLine(context, box.x + box.width + 0.5, box.y + box.height - 0.5, length, 0);
+}
+
+function strokeLine(context, startX, startY, offsetX, offsetY) {
+  context.beginPath();
+  context.moveTo(startX, startY);
+  context.lineTo(startX + offsetX, startY + offsetY);
   context.stroke();
 }
