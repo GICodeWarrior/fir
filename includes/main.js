@@ -50,6 +50,7 @@ let imagesTotal = 0;
     imagesProcessed = 0;
     imagesTotal = this.files.length;
     document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
+    gtag('event', 'select_content', {content_type: 'open_screenshots', item_id: `ss_count_${imagesTotal}`});
 
     const files = Array.from(this.files).sort(function(a, b) {
       // Consistent ordering based on when each screenshot was captured
@@ -75,6 +76,7 @@ let imagesTotal = 0;
   });
 
   downloadCollage.addEventListener('click', function() {
+    gtag('event', 'select_content', {content_type: 'download', item_id: 'download_collage'});
     const collage = document.querySelector('div.render');
     html2canvas(collage, {
       width: collage.scrollWidth,
@@ -95,6 +97,7 @@ let imagesTotal = 0;
   });
 
   downloadTotals.addEventListener('click', function() {
+    gtag('event', 'select_content', {content_type: 'download', item_id: 'download_totals'});
     const totals = document.querySelector('div.report');
     html2canvas(totals, {
       width: totals.scrollWidth,
@@ -115,6 +118,7 @@ let imagesTotal = 0;
   });
 
   downloadTSV.addEventListener('click', function() {
+    gtag('event', 'select_content', {content_type: 'download', item_id: 'download_tsv'});
     const items = [[
       'Stockpile',
       'Quantity',

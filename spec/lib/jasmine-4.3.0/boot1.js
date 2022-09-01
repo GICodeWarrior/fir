@@ -127,6 +127,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       currentWindowOnload();
     }
     htmlReporter.initialize();
-    env.execute();
+    //env.execute();
   };
 })();
