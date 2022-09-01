@@ -564,28 +564,30 @@ async function writePNG(canvas, file) {
 
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
-async function drawIcon(objectValues, size, modName) {
+async function drawIcon(objectValues, size, cache, modName) {
   const canvas = createCanvas(size, size);
   const context = canvas.getContext('2d');
   context.fillRect(0, 0, size, size);
 
-  let iconFile = objectValues.Icon.replace(/\.[0-9]+$/, '.png');
-  if (modName) {
-    iconFile = `mod-files/${modName}/${iconFile}`;
-    if (!fs.existsSync(iconFile)) {
-      return;
+  if (!cache.icon) {
+    let iconFile = objectValues.Icon.replace(/\.[0-9]+$/, '.png');
+    if (modName) {
+      iconFile = `mod-files/${modName}/${iconFile}`;
+      if (!fs.existsSync(iconFile)) {
+        return;
+      }
     }
-  }
 
-  const icon = await loadImage(iconFile);
-  context.drawImage(icon, 0, 0, size, size);
+    cache.icon = await loadImage(iconFile);
+  }
+  context.drawImage(cache.icon, 0, 0, size, size);
 
   if (objectValues.SubTypeIcon) {
-    const subTypeIcon = await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
+    cache.subTypeIcon ||= await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
     const cornerSize = size * CORNER_ICON_RATIO;
 
     context.globalAlpha = CORNER_ICON_ALPHA;
-    context.drawImage(subTypeIcon, 0, 0, cornerSize, cornerSize);
+    context.drawImage(cache.subTypeIcon, 0, 0, cornerSize, cornerSize);
     context.globalAlpha = 1;
   }
 
@@ -604,8 +606,8 @@ async function addCrate(canvas) {
   context.globalAlpha = 1;
 }
 
-async function writeTrainingPNG(objectValues, baseName, size, modName) {
-  const canvas = await drawIcon(objectValues, size, modName);
+async function writeTrainingPNG(objectValues, baseName, size, cache, modName) {
+  const canvas = await drawIcon(objectValues, size, cache, modName);
   if (!canvas) {
     return;
   }
@@ -624,14 +626,15 @@ async function writeTrainingPNGs(objectValues, destination) {
   const largestSize = 72;
   const baseName = `${destination}/${objectValues.CodeName}`;
 
-  const mods = fs.readdirSync('mod-files/');
+  const mods = fs.readdirSync('mod-files/')
+  mods.push(undefined);
+
   const promises = [];
 
-  for (let size = smallestSize; size <= largestSize; ++size) {
-    promises.push(writeTrainingPNG(objectValues, baseName, size));
-
-    for (const modName of mods) {
-      promises.push(writeTrainingPNG(objectValues, baseName, size, modName));
+  for (const modName of mods) {
+    const cache = {};
+    for (let size = smallestSize; size <= largestSize; ++size) {
+      promises.push(writeTrainingPNG(objectValues, baseName, size, cache, modName));
     }
   }
 
