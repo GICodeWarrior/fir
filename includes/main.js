@@ -25,11 +25,12 @@ let stockpiles;
 let imagesProcessed = 0;
 let imagesTotal = 0;
 
-(function() {
+(async function() {
   const input = document.querySelector('form input');
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
   const downloadTSV = document.querySelector('button.tsv');
+  const appendGoogle = document.querySelector('button.append-google');
 
   document.querySelector('form').addEventListener('submit', function(e) {
     // Prevent a submit that would lose our work
@@ -67,7 +68,7 @@ let imagesTotal = 0;
 
       const image = document.createElement('img');
       image.style.display = 'none';
-      image.addEventListener('load', getProcessImage(scheduler, label), { once: true });
+      image.addEventListener('load', getProcessImage(scheduler, label, file.lastModified), { once: true });
       image.src = URL.createObjectURL(file);
       container.appendChild(image);
 
@@ -174,14 +175,201 @@ let imagesTotal = 0;
     link.click();
     document.body.removeChild(link);
   });
+
+  appendGoogle.addEventListener('click', async function() {
+    gtag('event', 'select_content', {content_type: 'append_google', item_id: 'append_google'});
+
+    const authPromise = new Promise(function(resolve, reject) {
+      tokenClient.callback = (resp) => {
+        if (resp.error !== undefined) {
+          reject(resp);
+        }
+        //console.log('gapi.client access token: ' + JSON.stringify(gapi.client.getToken()));
+        resolve(resp);
+      };
+    });
+    tokenClient.requestAccessToken();
+    await authPromise;
+
+    const pickerData = await new Promise(function(resolve, reject) {
+      const picker = new google.picker.PickerBuilder()
+        .addView(google.picker.ViewId.SPREADSHEETS)
+        .enableFeature(google.picker.Feature.NAV_HIDDEN)
+        .setOAuthToken(gapi.client.getToken().access_token)
+        .setDeveloperKey(gIds().apiKey)
+        .setAppId(gIds().appId)
+        .setCallback(function(data) {
+          if (data[google.picker.Response.ACTION] == google.picker.Action.PICKED) {
+            resolve(data);
+          } else if (data[google.picker.Response.ACTION] == google.picker.Action.CANCEL) {
+            reject();
+          }
+        })
+        .build();
+      picker.setVisible(true);
+    });
+    const spreadsheetId = pickerData[google.picker.Response.DOCUMENTS][0][google.picker.Document.ID];
+    //console.log(pickerData);
+    //console.log(pickerData[google.picker.Response.DOCUMENTS][0][google.picker.Document.ID]);
+
+    const spreadsheetResponse = await gapi.client.sheets.spreadsheets.get({
+      spreadsheetId: spreadsheetId,
+    });
+    //console.log(spreadsheetResponse);
+
+    const sheetName = 'fir';
+    const sheet = spreadsheetResponse.result.sheets.find( s => s.properties.title == sheetName);
+    const columns = [
+      'Export Time',
+      'Screenshot Time',
+      'Stockpile Title',
+      'Stockpile Name',
+      'Structure Type',
+      'CodeName',
+      'Name',
+      'Quantity',
+      'Crated?',
+      'Per Crate',
+      'Total',
+      'Description',
+    ].map( c => stringValue(c) );
+
+    const exportTime = new Date();
+    const rows = [];
+    for (const stockpile of stockpiles) {
+      const stockpileTime = new Date(stockpile.lastModified);
+      for (const element of stockpile.contents) {
+        if (element.quantity == 0) {
+          continue;
+        }
+
+        const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+        const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
+            + (details.VehiclesPerCrateBonusQuantity || 0);
+        const perUnit = element.isCrated ? perCrate : 1;
+
+        rows.push({
+          values: [
+            dateValue(exportTime),
+            dateValue(stockpileTime),
+            stringValue(stockpile.label.textContent),
+            stringValue(''),
+            stringValue(''),
+            stringValue(element.CodeName),
+            stringValue(details.DisplayName),
+            numberValue(element.quantity),
+            { userEnteredValue: { boolValue: element.isCrated } },
+            numberValue(perCrate),
+            numberValue(element.quantity * perUnit),
+            stringValue(details.Description),
+          ],
+        });
+      }
+    }
+    function stringValue(value, other) {
+      return { userEnteredValue: { stringValue: value }, ...other };
+    }
+    function dateValue(date) {
+      // Courtesy of https://stackoverflow.com/a/64814390
+      const SheetDate = {
+        origin: Date.UTC(1899, 11, 30, 0, 0, 0, 0),
+        dayToMs: 24 * 60 * 60 * 1000,
+      };
+      const serial = (date.getTime() - SheetDate.origin) / SheetDate.dayToMs;
+      return numberValue(serial, { userEnteredFormat: { numberFormat: { type: 'DATE_TIME' } } });
+    }
+    function numberValue(value, other) {
+      return { userEnteredValue: { numberValue: value }, ...other };
+    }
+
+    const sheetId = ((sheet || {}).properties || {}).sheetId ||  Math.floor(Math.random() * 1000000000);
+    if (!sheet) {
+      const addSheetResponse = await gapi.client.sheets.spreadsheets.batchUpdate({
+        spreadsheetId: spreadsheetId,
+      }, {
+        requests: [{
+          addSheet: {
+            properties: {
+              sheetId,
+              title: sheetName,
+              index: 0,
+              gridProperties: {
+                frozenRowCount: 1,
+                rowCount: 2,
+                columnCount: columns.length + 1,
+              },
+            },
+          },
+        }, {
+          appendCells: {
+            sheetId: sheetId,
+            fields: '*',
+            rows: [{
+              values: columns,
+            }],
+          },
+        }]
+      });
+      //console.log(addSheetResponse);
+    }
+
+    const appendCellsResponse = await gapi.client.sheets.spreadsheets.batchUpdate({
+      spreadsheetId: spreadsheetId,
+    }, {
+      requests: [{
+        appendCells: {
+          sheetId: sheetId,
+          fields: '*',
+          rows,
+        },
+      }],
+    });
+    //console.log(appendCellsResponse);
+  });
+
+  await Promise.all([
+    new Promise((res, rej) => gapi.load('client', {callback: res, onerror: rej})),
+    new Promise((res, rej) => gapi.load('picker', {callback: res, onerror: rej})),
+  ]);
+  await gapi.client.init({}).then(function() {
+    gapi.client.load('https://sheets.googleapis.com/$discovery/rest?version=v4');
+  });
+
+  const tokenClient = await new Promise((resolve, reject) => {
+    try {
+      resolve(google.accounts.oauth2.initTokenClient({
+          client_id: gIds().clientId,
+          scope: 'https://www.googleapis.com/auth/drive.file',
+          //prompt: 'consent',
+      }));
+    } catch (err) {
+      reject(err);
+    }
+  });
 })();
 
-function getProcessImage(scheduler, label) {
+function gIds() {
+  if (location.host == 'fir.gicode.net') {
+    return {
+      clientId: '432701922574-m5mkt6dp2bp8hbt27fuoo4s7bfhpq3jr.apps.googleusercontent.com',
+      apiKey: 'AIzaSyB1FQ72hY28Ovc1mPbrBBVspj68-BvICOo',
+      appId: '432701922574',
+    };
+  }
+
+  return {
+    clientId: '977197840282-f5c1jf3f4rumgnbv4rdm61l85gs0ue7m.apps.googleusercontent.com',
+    apiKey: 'AIzaSyB0oavB9RY-kegde_YDLTM6H2PHhu5z7t4',
+    appId: '977197840282',
+  };
+}
+
+function getProcessImage(scheduler, label, lastModified) {
   return function() {
-    return processImage.call(this, scheduler, label);
+    return processImage.call(this, scheduler, label, lastModified);
   };
 
-  async function processImage(scheduler, label) {
+  async function processImage(scheduler, label, lastModified) {
     URL.revokeObjectURL(this.src);
 
     const canvas = document.createElement('canvas');
@@ -195,6 +383,7 @@ function getProcessImage(scheduler, label) {
     if (stockpile) {
       this.src = stockpile.box.canvas.toDataURL();
       stockpile.label = label;
+      stockpile.lastModified = lastModified;
       stockpiles.push(stockpile);
     }
 

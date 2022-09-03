@@ -3,7 +3,8 @@
 <head>
   <title>Foxhole Inventory Report</title>
   <meta charset="utf-8" />
-  <meta name="description" content="Processes stockpile screenshots to produce graphical and spreadsheet reports.">
+  <meta name="description" content="Processes stockpile screenshots to produce graphical and spreadsheet reports." />
+  <meta name="referrer" content="same-origin" />
 
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
@@ -12,15 +13,18 @@
   <link rel="modulepreload" href="includes/screenshot.mjs" />
   <link rel="modulepreload" href="includes/ocr.mjs" />
 
-  <link rel="preload" as="fetch" href="includes/catalog.json" />
-  <link rel="preload" as="fetch" href="includes/class_names.json" />
-  <link rel="preload" as="fetch" href="includes/classifier/model.json" />
-  <link rel="preload" as="fetch" href="includes/classifier/group1-shard1of1.bin" />
+  <link rel="preload" as="fetch" crossorigin href="includes/catalog.json" />
+  <link rel="preload" as="fetch" crossorigin href="includes/class_names.json" />
+  <link rel="preload" as="fetch" crossorigin href="includes/classifier/model.json" />
+  <link rel="preload" as="fetch" crossorigin href="includes/classifier/group1-shard1of1.bin" />
   <link rel="preload" as="fetch" crossorigin href="https://tessdata.projectnaptha.com/4.0.0_best/eng.traineddata.gz" />
 
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.5/tesseract.min.js" integrity="sha512-QMGuBW4cKAKmxjxukfPlQqFL8Tc2yYWTBhg9o8fKx06BGZrNXMmafjtnmXthGasytcaIILHRrg5N5Hw0yOuSjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.19.0/tf.min.js" integrity="sha512-GSI5Dxy0eH1ySvvjN/WYiRXzvUChOfZdTgFS5gPWjKV9X8Ut+DM+vu2qI59hdejb/QRE3G3RhvdfCoQe+AQsdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ=="></script>
+  <script defer crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/2.1.5/tesseract.min.js" integrity="sha512-QMGuBW4cKAKmxjxukfPlQqFL8Tc2yYWTBhg9o8fKx06BGZrNXMmafjtnmXthGasytcaIILHRrg5N5Hw0yOuSjw=="></script>
+  <script defer crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.19.0/tf.min.js" integrity="sha512-GSI5Dxy0eH1ySvvjN/WYiRXzvUChOfZdTgFS5gPWjKV9X8Ut+DM+vu2qI59hdejb/QRE3G3RhvdfCoQe+AQsdg=="></script>
+
+  <script defer crossorigin src="https://apis.google.com/js/api.js"></script>
+  <script defer src="https://accounts.google.com/gsi/client"></script>
 
   <script type="module" src="includes/main.js"></script>
 
@@ -51,7 +55,8 @@
     <li>Edit the red titles by clicking on them.</li>
     <li><button class="collage">Download Collage</button>
       <button class="totals">Download Totals</button>
-      <button class="tsv">Download TSV</button></li>
+      <button class="tsv">Download TSV</button>
+      <button class="append-google">Append to Google Spreadsheet (beta)</button></li>
   </ol>
   <div class="render"></div>
   <div class="report"></div>
