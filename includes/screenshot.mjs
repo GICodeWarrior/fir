@@ -36,7 +36,7 @@ export async function process(screenshotCanvas, modelURL, classNames) {
     stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
 
     if (topOffset == headerHeight) {
-      stockpile.header = await extractHeader(stockpile.box.canvas, topOffset);
+      stockpile.header = await extractHeader(stockpile.box.canvas, topOffset, stockpile.contents[0].quantityBox.width);
     } else {
       stockpile.header = {};
       console.log('Unable to parse header (too small).');
@@ -307,7 +307,7 @@ async function extractContents(canvas, model, classNames) {
   }
 }
 
-async function extractHeader(canvas, height) {
+async function extractHeader(canvas, height, quantityWidth) {
   const MAX_GREY_SATURATION = 16;
   const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
@@ -328,6 +328,7 @@ async function extractHeader(canvas, height) {
   const packedWidth = width * 4;
   const scanStart = Math.round(height / 2) * packedWidth;
   const scanEnd = scanStart + packedWidth;
+  const expectTab = scanEnd - (quantityWidth * 4);
   const longestGrey = {
     length: 0,
   };
@@ -351,10 +352,12 @@ async function extractHeader(canvas, height) {
       currentGreyCount = 0;
     }
 
-    const sl = getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
-    if ((sl.saturation < MAX_GREY_SATURATION) && (sl.lightness < darkValueCutoff)) {
-      tabStart = (offset - scanStart) / 4;
-      break;
+    if (offset >= expectTab) {
+      const sl = getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
+      if ((sl.saturation < MAX_GREY_SATURATION) && (sl.lightness < darkValueCutoff)) {
+        tabStart = (offset - scanStart) / 4;
+        break;
+      }
     }
   }
 
