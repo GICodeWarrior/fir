@@ -1,30 +1,15 @@
 import OCR from './ocr.mjs'
 
-const tf = (globalThis.window && window.tf) || (await import('@tensorflow/tfjs-node'));
-const createCanvas = await (async function() {
-  const browser = globalThis.document && (function(width, height) {
-    const canvas = document.createElement('canvas');
-    canvas.width = width;
-    canvas.height = height;
-    return canvas;
-  });
-  if (browser) {
-    return browser;
-  }
-
-  const Canvas = (await import('skia-canvas')).Canvas;
-  return function(width, height) {
-    return new Canvas(width, height);
-  };
-})();
-
 class UnableToParseQuantity extends Error {}
 
+const quantityOCR = new OCR();
+const headerOCR = new OCR({
+  charset: OCR.CHARSETS['any'],
+  concurrency: 1,
+});
+
 let models = {};
-export async function process(screenshotCanvas, modelURL, classNames, options) {
-  if (options && options.ocrConcurrency){
-    OCR.concurrency = options.ocrConcurrency;
-  }
+export async function process(screenshotCanvas, modelURL, classNames) {
   models[modelURL] ||= tf.loadGraphModel(modelURL);
 
   const stockpile = extractStockpile(screenshotCanvas);
@@ -37,7 +22,8 @@ export async function process(screenshotCanvas, modelURL, classNames, options) {
 
   if (stockpile.contents && stockpile.contents.length) {
     const existingTop = stockpile.box.y;
-    stockpile.box.y = Math.max(existingTop - stockpile.contents[0].quantityBox.height, 0);
+    const headerHeight = stockpile.contents[0].quantityBox.height;
+    stockpile.box.y = Math.max(existingTop - headerHeight, 0);
 
     const topOffset = existingTop - stockpile.box.y
     stockpile.box.height += topOffset;
@@ -48,6 +34,13 @@ export async function process(screenshotCanvas, modelURL, classNames, options) {
     }
 
     stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
+
+    if (topOffset == headerHeight) {
+      stockpile.header = await extractHeader(stockpile.box.canvas, topOffset);
+    } else {
+      stockpile.header = {};
+      console.log('Unable to parse header (too small).');
+    }
   }
 
   return stockpile;
@@ -211,14 +204,10 @@ async function extractContents(canvas, model, classNames) {
   // Find the most common grey which is probably the quantity background
   const MIN_GREY = 32;
   const MAX_GREY = 224;
-  let greys = {};
+  const greys = {};
   for (let offset = 0; offset < pixels.length; offset += 4) {
-    //const value = pixels[offset];
-    const value = Math.round((0.299 * pixels[offset]) + (0.587 * pixels[offset + 1]) + (0.114 * pixels[offset + 2]));
-    if ((value >= MIN_GREY) &&
-        (value <= MAX_GREY) &&
-        (pixels[offset + 1] == value) &&
-        (pixels[offset + 2] == value)) {
+    const value = Math.round(getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
+    if ((value >= MIN_GREY) && (value <= MAX_GREY)) {
       greys[value] = (greys[value] || 0) + 1;
     }
   }
@@ -318,8 +307,142 @@ async function extractContents(canvas, model, classNames) {
   }
 }
 
+async function extractHeader(canvas, height) {
+  const MAX_GREY_SATURATION = 16;
+  const MAX_GREY_LIGHTNESS_VARIANCE = 16;
+
+  const width = canvas.width;
+  const context = canvas.getContext('2d');
+  const pixels = context.getImageData(0, 0, width, height).data;
+
+  const histogram = {};
+  for (let offset = 0; offset < pixels.length; offset += 4) {
+    //const value = Math.round((0.299 * pixels[offset]) + (0.587 * pixels[offset + 1]) + (0.114 * pixels[offset + 2]));
+    const value = Math.round(getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
+    histogram[value] ||= 0;
+    histogram[value] += 1;
+  }
+  const greyValue = Object.keys(histogram).sort((a, b) => histogram[b] - histogram[a])[0];
+  const darkValueCutoff = Math.round(greyValue * 2 / 3);
+
+  const packedWidth = width * 4;
+  const scanStart = Math.round(height / 2) * packedWidth;
+  const scanEnd = scanStart + packedWidth;
+  const longestGrey = {
+    length: 0,
+  };
+  let currentGreyCount = 0;
+  let tabStart = undefined;
+  let hasName = true;
+
+  for (let offset = scanStart; offset < scanEnd; offset += 4) {
+    if (isGrey(pixels[offset], pixels[offset+1], pixels[offset+2]) && (offset + 4 < scanEnd)) {
+      currentGreyCount += 1;
+    } else if (currentGreyCount > 0) {
+      if (currentGreyCount > longestGrey.length) {
+        longestGrey.length = currentGreyCount;
+        longestGrey.center = (offset - scanStart) / 4 - Math.round(currentGreyCount / 2);
+
+        if (offset + 4 >= scanEnd) {
+          hasName = false;
+        }
+      }
+
+      currentGreyCount = 0;
+    }
+
+    const sl = getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
+    if ((sl.saturation < MAX_GREY_SATURATION) && (sl.lightness < darkValueCutoff)) {
+      tabStart = (offset - scanStart) / 4;
+      break;
+    }
+  }
+
+  /*
+  console.log('greyValue: ', greyValue);
+  console.log('darkValueCutoff: ', darkValueCutoff);
+  console.log('Header center: ', longestGrey.center);
+  console.log('tabStart: ', tabStart);
+  */
+
+  const result = {
+    typeBox: {
+      x: 0,
+      y: 0,
+      width: longestGrey.center,
+      height: height,
+    },
+  }
+  const promises = [
+    ocrHeader(canvas, result.typeBox).then( t => result.type = t ),
+  ];
+
+  if (hasName) {
+    result.nameBox = {
+      x: longestGrey.center,
+      y: 0,
+      width: (tabStart || width) - longestGrey.center,
+      height: height,
+    };
+    promises.push(ocrHeader(canvas, result.nameBox).then( n => result.name = n ));
+  }
+
+  await Promise.all(promises);
+
+  result.type = result.type.replace(/[^A-Za-z ]/g, '');
+
+  return result;
+
+  function isGrey(r, g, b) {
+    return checkPixel(r, g, b, MAX_GREY_SATURATION, greyValue, MAX_GREY_LIGHTNESS_VARIANCE);
+  }
+}
+
+async function ocrHeader(canvas, box) {
+  const cropAmount = Math.floor(box.height / 6);
+  const cropBox = {
+    x: box.x + cropAmount,
+    y: box.y + cropAmount,
+    width: box.width - (cropAmount * 2),
+    height: box.height - (cropAmount * 2),
+  }
+  canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 5);
+
+  const context = canvas.getContext('2d');
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+  const threshold = Math.round(256 / 3);
+  for (let offset = 0; offset < imageData.data.length; offset += 4) {
+    if ((imageData.data[offset] <= threshold)
+        && (imageData.data[offset + 1] <= threshold)
+        && (imageData.data[offset + 2] <= threshold)) {
+
+      imageData.data[offset] = 0;
+      imageData.data[offset + 1] = 0;
+      imageData.data[offset + 2] = 0;
+    } else {
+      imageData.data[offset] = 255;
+      imageData.data[offset + 1] = 255;
+      imageData.data[offset + 2] = 255;
+    }
+  }
+  context.putImageData(imageData, 0, 0);
+
+  const result = await headerOCR.recognize(canvas);
+
+  //document.body.appendChild(canvas);
+
+  let value = result.data.text.trim();
+  if (!value.length) {
+    //throw new UnableToParseQuantity(value);
+    console.log('empty header text', box);
+  }
+
+  return value;
+}
+
 async function ocrQuantity(canvas) {
-  const result = await OCR.recognize(canvas);
+  const result = await quantityOCR.recognize(canvas);
 
   let value = result.data.text.trim();
   if (value.match(/^[1-9][0-9]*k\+$/)) {
@@ -354,11 +477,11 @@ function cropCanvas(input, box, filter, resize) {
   const outputWidth = Math.round(box.width * resize);
   const outputHeight = Math.round(box.height * resize);
 
-  const output = createCanvas();
+  const output = document.createElement('canvas');
   output.width = outputWidth;
   output.height = outputHeight;
 
-  const outputContext = output.getContext("2d");
+  const outputContext = output.getContext('2d');
   outputContext.filter = filter;
   outputContext.drawImage(input,
       box.x, box.y, box.width, box.height,
@@ -372,19 +495,17 @@ function calcRedIndex(row, col, width) {
   return (col * 4) + (row * width * 4);
 }
 
-function checkPixel(r, g, b, max_saturation, desired_lightness, lightness_variance) {
-  //const lightness = (r + g + b) / 3;
-  //const lightness = (0.299 * r) + (0.587 * g) + (0.114 * b);
-  /*
-  return (Math.abs(lightness - r) < channel_variance) &&
-    (Math.abs(lightness - g) < channel_variance) &&
-    (Math.abs(lightness - b) < channel_variance) &&
-    (Math.abs(lightness - pixel_value) < pixel_variance);
-  */
+function getSL(r, g, b) {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
-  const lightness = (max + min) / 2;
-  const saturation = max > 0 ? (max - min) / max : 0;
-  return (saturation <= max_saturation) &&
-    (Math.abs(lightness - desired_lightness) < lightness_variance);
+  return {
+    saturation: max > 0 ? (max - min) / max : 0,
+    lightness: (max + min) / 2,
+  };
+}
+
+function checkPixel(r, g, b, max_saturation, desired_lightness, lightness_variance) {
+  const sl = getSL(r, g, b);
+  return (sl.saturation <= max_saturation) &&
+    (Math.abs(sl.lightness - desired_lightness) < lightness_variance);
 }

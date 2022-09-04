@@ -44,7 +44,13 @@ document.querySelector('form input').addEventListener('change', function() {
         for (const element of stockpile.contents) {
           drawOutline(stockpileContext, element.iconBox, '#00FFFFAA');
           drawOutline(stockpileContext, element.quantityBox, '#FF00FFAA');
-          //break;
+        }
+
+        if (stockpile.header.typeBox) {
+          drawOutline(stockpileContext, stockpile.header.typeBox, '#FF0000AA');
+        }
+        if (stockpile.header.nameBox) {
+          drawOutline(stockpileContext, stockpile.header.nameBox, '#00FF00AA');
         }
 
         document.body.appendChild(stockpileCanvas);

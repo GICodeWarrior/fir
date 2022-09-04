@@ -121,7 +121,9 @@ let imagesTotal = 0;
   downloadTSV.addEventListener('click', function() {
     gtag('event', 'select_content', {content_type: 'download', item_id: 'download_tsv'});
     const items = [[
-      'Stockpile',
+      'Stockpile Title',
+      'Stockpile Name',
+      'Structure Type',
       'Quantity',
       'Name',
       'Crated?',
@@ -142,7 +144,9 @@ let imagesTotal = 0;
         const perUnit = element.isCrated ? perCrate : 1;
 
         items.push([
-          stockpile.label.textContent,
+          stockpile.label.textContent.trim(),
+          stockpile.header.name || '',
+          stockpile.header.type || '',
           element.quantity,
           details.DisplayName,
           element.isCrated,
@@ -252,9 +256,9 @@ let imagesTotal = 0;
           values: [
             dateValue(exportTime),
             dateValue(stockpileTime),
-            stringValue(stockpile.label.textContent),
-            stringValue(''),
-            stringValue(''),
+            stringValue(stockpile.label.textContent.trim()),
+            stringValue(stockpile.header.name || ''),
+            stringValue(stockpile.header.type || ''),
             stringValue(element.CodeName),
             stringValue(details.DisplayName),
             numberValue(element.quantity),
@@ -395,7 +399,7 @@ function getProcessImage(scheduler, label, lastModified) {
       window.stockpiles = stockpiles;
       window.stockpilesJSON = JSON.stringify(stockpiles.map(function(s) {
         return {
-          file: s.label.textContent,
+          file: s.label.textContent.trim(),
           contents: s.contents.map(function(e) {
             return {
               CodeName: e.CodeName,

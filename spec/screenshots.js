@@ -28,6 +28,26 @@ for (const expectedStockpile of expectedStockpiles) {
       this.actualStockpile = await Screenshot.process(canvas, MODEL_URL, CLASS_NAMES);
     }, JASMINE_TIMEOUT);
 
+    if (expectedStockpile.header.type) {
+      it(`has structure type ${expectedStockpile.header.type}`, function() {
+        expect(this.actualStockpile.header.type).toBe(expectedStockpile.header.type);
+      });
+    } else {
+      it(`has no structure type`, function() {
+        expect(this.actualStockpile.header.type).toBeUndefined();
+      });
+    }
+
+    if (expectedStockpile.header.name) {
+      it(`has stockpile name ${expectedStockpile.header.name}`, function() {
+        expect(this.actualStockpile.header.name).toBe(expectedStockpile.header.name);
+      });
+    } else {
+      it(`has no stockpile name`, function() {
+        expect(this.actualStockpile.header.name).toBeUndefined();
+      });
+    }
+
     for (let index = 0; index < expectedStockpile.contents.length; ++index) {
       const expectedElement = expectedStockpile.contents[index];
       const suffix = expectedElement.isCrated ? ' (crated)' : '';
