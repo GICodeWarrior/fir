@@ -49,8 +49,21 @@ div.report > div {
   display: flex;
 }
 
+div.report > div.column-break {
+  content: '';
+  flex-basis: 100%;
+}
+
+div.report > div > div {
+  align-self: center;
+}
+
 div.report > div > div:first-child {
   text-align: right;
-  width: 8ch;
-  padding: 0 0.5ch;
+  width: 6ch;
+}
+
+div.report > div > canvas {
+  margin: 0.25ch 0.5ch;
+  width: 32px;
 }

@@ -434,6 +434,7 @@ function getProcessImage(scheduler, label, lastModified) {
 
 function outputTotals() {
   const totals = {};
+  const categories = {};
 
   for (const stockpile of stockpiles) {
     for (const element of stockpile.contents) {
@@ -442,17 +443,100 @@ function outputTotals() {
         key += '-crated';
       }
 
-      totals[key] = totals[key] || {
-        CodeName: element.CodeName,
-        isCrated: element.isCrated,
-        total: 0,
-        collection: [],
-      };
+      if (!totals[key]) {
+        const catalogItem = res.CATALOG.find(e=>e.CodeName == element.CodeName);
+        const itemCategory = (catalogItem.ItemCategory || '').replace(/^EItemCategory::/, '');
+        const vehicleCategory = catalogItem.VehicleProfileType ? 'Vehicles' : undefined;
+        const structureCategory = catalogItem.BuildLocationType ? 'Structures' : undefined;
+
+        const category = itemCategory || vehicleCategory || structureCategory;
+        categories[category] ||= [];
+        categories[category].push(key);
+
+        totals[key] = {
+          CodeName: element.CodeName,
+          isCrated: element.isCrated,
+          name: catalogItem.DisplayName,
+          category: category,
+          total: 0,
+          collection: [],
+        };
+      }
       totals[key].total += element.quantity;
       totals[key].collection.push(element);
     }
   }
 
+  const categoryOrder = {
+    SmallArms: 1,
+    HeavyArms: 2,
+    HeavyAmmo: 3,
+    Utility: 4,
+    Medical: 5,
+    Supplies: 6,
+    Uniforms: 7,
+    Vehicles: 8,
+    Structures: 9,
+  };
+  const sortedCategories = Object.keys(categories).sort(function(a, b) {
+    return (categoryOrder[a] || Infinity) - (categoryOrder[b] || Infinity);
+  });
+
+  const report = document.querySelector('div.report');
+  for (const category of sortedCategories) {
+    const keys = categories[category];
+    if (!keys) {
+      continue;
+    }
+    keys.sort(function(a, b) {
+      const crateDiff = totals[b].isCrated - totals[a].isCrated;
+      if (crateDiff != 0) {
+        return crateDiff;
+      }
+      return totals[b].total - totals[a].total;
+    });
+
+    const headerPrinted = {};
+    for (const key of keys) {
+      const type = totals[key];
+      if (!headerPrinted[type.isCrated]) {
+        if (type.isCrated || (!type.isCrated && !headerPrinted[true])) {
+          const columnBreak = document.createElement('div');
+          columnBreak.classList.add('column-break');
+          report.appendChild(columnBreak);
+        }
+
+        const cell = document.createElement('div');
+        const quantity = document.createElement('div');
+        cell.appendChild(quantity);
+
+        const name = document.createElement('h3');
+        const suffix = type.isCrated ? ' (crated)' : '';
+        name.textContent = category.replace(/([A-Z])/g, ' $1').trim() + suffix;
+        cell.appendChild(name);
+        report.appendChild(cell);
+
+        headerPrinted[type.isCrated] = true;
+      }
+
+      const cell = document.createElement('div');
+      const quantity = document.createElement('div');
+      quantity.textContent = type.total;
+      cell.appendChild(quantity);
+
+      const icon = document.createElement('div');
+      cell.appendChild(type.collection[0].iconBox.canvas);
+
+      const nameSuffix = type.isCrated ? ' (crated)' : '';
+      const name = document.createElement('div');
+      name.textContent = type.name;// + nameSuffix;
+      cell.appendChild(name);
+
+      report.appendChild(cell);
+    }
+  }
+
+/*
   const keyOrder = Object.keys(totals).sort(function(a, b) {
     const countDiff = totals[b].collection.length - totals[a].collection.length;
     if (countDiff != 0) {
@@ -461,7 +545,6 @@ function outputTotals() {
     return totals[b].total - totals[a].total;
   });
 
-  const report = document.querySelector('div.report');
   for (const key of keyOrder) {
     const type = totals[key];
     const cell = document.createElement('div');
@@ -475,13 +558,11 @@ function outputTotals() {
     }
     cell.appendChild(icon);
 
-    const catalogItem = res.CATALOG.find(e=>e.CodeName == type.CodeName);
     const nameSuffix = type.isCrated ? ' (crated)' : '';
-
     const name = document.createElement('div');
-    name.textContent = catalogItem.DisplayName + nameSuffix;
+    name.textContent = type.name + nameSuffix;
     cell.appendChild(name);
 
     report.appendChild(cell);
-  }
+  }*/
 }
