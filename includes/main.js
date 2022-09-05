@@ -400,6 +400,10 @@ function getProcessImage(scheduler, label, lastModified) {
       window.stockpilesJSON = JSON.stringify(stockpiles.map(function(s) {
         return {
           file: s.label.textContent.trim(),
+          header: {
+            type: s.header.type || null,
+            name: s.header.name || null,
+          },
           contents: s.contents.map(function(e) {
             return {
               CodeName: e.CodeName,

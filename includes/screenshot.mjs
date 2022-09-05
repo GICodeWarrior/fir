@@ -192,8 +192,8 @@ async function extractContents(canvas, model, classNames) {
   const MIN_QUANTITY_HEIGHT = 30;
   const MAX_QUANTITY_HEIGHT = 70;
 
-  const MAX_GREY_CHANNEL_VARIANCE = 16;
-  const MAX_GREY_PIXEL_VARIANCE = 16;
+  const MAX_GREY_SATURATION = 16;
+  const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
   const width = canvas.width;
   const height = canvas.height;
@@ -251,9 +251,9 @@ async function extractContents(canvas, model, classNames) {
           const element = {
             quantityBox,
           };
-          element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'invert(100%) contrast(400%)', 5);
+          //element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'grayscale(100%) invert(100%)', 5);
 
-          promises.push(ocrQuantity(element.quantityBox.canvas).then(q => element.quantity = q).catch(function(e) {
+          promises.push(ocrQuantity(canvas, quantityBox, (265 - QUANTITY_GREY_VALUE) * 2/3).then(q => element.quantity = q).catch(function(e) {
             if (e instanceof UnableToParseQuantity) {
               console.log('Unable to parse quantity:', quantityBox);
             } else {
@@ -303,7 +303,7 @@ async function extractContents(canvas, model, classNames) {
   }
 
   function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_CHANNEL_VARIANCE, QUANTITY_GREY_VALUE, MAX_GREY_PIXEL_VARIANCE);
+    return checkPixel(r, g, b, MAX_GREY_SATURATION, QUANTITY_GREY_VALUE, MAX_GREY_LIGHTNESS_VARIANCE);
   }
 }
 
@@ -411,28 +411,10 @@ async function ocrHeader(canvas, box) {
   }
   canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 5);
 
-  const context = canvas.getContext('2d');
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-
   const threshold = Math.round(256 / 3);
-  for (let offset = 0; offset < imageData.data.length; offset += 4) {
-    if ((imageData.data[offset] <= threshold)
-        && (imageData.data[offset + 1] <= threshold)
-        && (imageData.data[offset + 2] <= threshold)) {
-
-      imageData.data[offset] = 0;
-      imageData.data[offset + 1] = 0;
-      imageData.data[offset + 2] = 0;
-    } else {
-      imageData.data[offset] = 255;
-      imageData.data[offset + 1] = 255;
-      imageData.data[offset + 2] = 255;
-    }
-  }
-  context.putImageData(imageData, 0, 0);
+  thresholdCanvas(canvas, threshold);
 
   const result = await headerOCR.recognize(canvas);
-
   //document.body.appendChild(canvas);
 
   let value = result.data.text.trim();
@@ -444,7 +426,22 @@ async function ocrHeader(canvas, box) {
   return value;
 }
 
-async function ocrQuantity(canvas) {
+async function ocrQuantity(canvas, box, threshold) {
+  /*const cropAmount = Math.floor(box.height / 4);
+  const cropBox = {
+    x: box.x,
+    y: box.y + cropAmount,
+    width: box.width,
+    height: box.height - (cropAmount * 2),
+  }*/
+  //const desiredHeight = 75;
+  //canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', desiredHeight / (box.height * 12/32));
+  canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', 5);
+
+  thresholdCanvas(canvas, threshold);
+  //canvas = autoCropCanvas(canvas);
+  //document.body.appendChild(canvas);
+
   const result = await quantityOCR.recognize(canvas);
 
   let value = result.data.text.trim();
@@ -473,6 +470,27 @@ async function classifyIcon(canvas, model, classNames) {
   };
 }
 
+function thresholdCanvas(canvas, threshold) {
+  const context = canvas.getContext('2d');
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+  for (let offset = 0; offset < imageData.data.length; offset += 4) {
+    let value;
+    if ((imageData.data[offset] <= threshold)
+        && (imageData.data[offset + 1] <= threshold)
+        && (imageData.data[offset + 2] <= threshold)) {
+      value = 0;
+    } else {
+      value = 255;
+    }
+
+    imageData.data[offset] = value;
+    imageData.data[offset + 1] = value;
+    imageData.data[offset + 2] = value;
+  }
+  context.putImageData(imageData, 0, 0);
+}
+
 function cropCanvas(input, box, filter, resize) {
   if (!filter) filter = 'none';
   if (!resize) resize = 1;
@@ -491,6 +509,80 @@ function cropCanvas(input, box, filter, resize) {
       0, 0, outputWidth, outputHeight);
 
   return output;
+}
+
+function autoCropCanvas(image) {
+  const MIN_VALUE_CROP = 128;
+
+  const imageWidth = image.width;
+  const imageHeight = image.height;
+
+  let top = 0;
+  let right = imageWidth - 1;
+  let bottom = imageHeight - 1;
+  let left = 0;
+  const imgContext = image.getContext('2d');
+  const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
+
+  for (let offset = 0; offset < imgPixels.length; offset += 4) {
+    if ((imgPixels[offset] < MIN_VALUE_CROP) ||
+        (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
+        (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
+      top = Math.floor((offset - 4) / 4 / imageWidth);
+      break;
+    }
+  }
+
+  right:
+  for (let col = imageWidth - 1; col >= 0; --col) {
+    for (let row = 0; row <= imageHeight; ++row) {
+      const offset = (row * imageWidth + col) * 4;
+      if ((imgPixels[offset] < MIN_VALUE_CROP) ||
+          (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
+          (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
+        right = col;
+        break right;
+      }
+    }
+  }
+
+  for (let offset = imgPixels.length - 4; offset >= 0; offset -= 4) {
+    if ((imgPixels[offset] < MIN_VALUE_CROP) ||
+        (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
+        (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
+      bottom = Math.floor((offset + 4) / 4 / imageWidth);
+      break;
+    }
+  }
+
+  left:
+  for (let col = 0; col < imageWidth; ++col) {
+    for (let row = 0; row < imageHeight; ++row) {
+      const offset = (row * imageWidth + col) * 4;
+      if ((imgPixels[offset] < MIN_VALUE_CROP) ||
+          (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
+          (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
+        left = col;
+        break left;
+      }
+    }
+  }
+
+  const cropWidth = right - left + 6;
+  const cropHeight = bottom - top + 6;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = cropWidth;
+  canvas.height = cropHeight;
+  const context = canvas.getContext('2d');
+  //context.filter = 'blur(2px)';
+  context.drawImage(image,
+    left - 3, top - 3, cropWidth, cropHeight,
+    0, 0, cropWidth, cropHeight);
+  //document.body.appendChild(cropCanvas);
+  //console.log("top: " + top + " right: " + right + " bottom: " + bottom + " left: " + left);
+
+  return canvas;
 }
 
 function calcRedIndex(row, col, width) {
