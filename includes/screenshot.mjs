@@ -19,6 +19,7 @@ export async function process(screenshotCanvas, modelURL, classNames) {
 
   stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
   stockpile.contents = await extractContents(stockpile.box.canvas, models[modelURL], classNames);
+  stockpile.header = {};
 
   if (stockpile.contents && stockpile.contents.length) {
     const existingTop = stockpile.box.y;
@@ -38,7 +39,6 @@ export async function process(screenshotCanvas, modelURL, classNames) {
     if (topOffset == headerHeight) {
       stockpile.header = await extractHeader(stockpile.box.canvas, topOffset, stockpile.contents[0].quantityBox.width);
     } else {
-      stockpile.header = {};
       console.log('Unable to parse header (too small).');
     }
   }
@@ -186,10 +186,10 @@ function extractStockpile(canvas) {
 
 async function extractContents(canvas, model, classNames) {
   // These tune the cropping of inventory items
-  const MIN_QUANTITY_WIDTH = 40;
+  const MIN_QUANTITY_WIDTH = 30;
   const MAX_QUANTITY_WIDTH = 90;
 
-  const MIN_QUANTITY_HEIGHT = 30;
+  const MIN_QUANTITY_HEIGHT = 25;
   const MAX_QUANTITY_HEIGHT = 70;
 
   const MAX_GREY_SATURATION = 16;
