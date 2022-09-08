@@ -1,8 +1,10 @@
 import Screenshot from '../includes/screenshot.mjs';
 
 const JASMINE_TIMEOUT = 60000;
-const CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
-const MODEL_URL = './includes/classifier/model.json';
+const ICON_MODEL_URL = './includes/classifier/model.json';
+const ICON_CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
+const QUANTITY_MODEL_URL = './includes/quantities/model.json';
+const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 
 const expectedStockpiles = await fetch('./spec/data/stockpiles.json').then(r => r.json());
 
@@ -25,7 +27,7 @@ for (const expectedStockpile of expectedStockpiles) {
         });
       });
 
-      this.actualStockpile = await Screenshot.process(canvas, MODEL_URL, CLASS_NAMES);
+      this.actualStockpile = await Screenshot.process(canvas, ICON_MODEL_URL, ICON_CLASS_NAMES, QUANTITY_MODEL_URL, QUANTITY_CLASS_NAMES);
     }, JASMINE_TIMEOUT);
 
     if (expectedStockpile.header.type) {

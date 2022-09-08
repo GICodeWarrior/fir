@@ -1,7 +1,9 @@
 import Screenshot from './screenshot.mjs'
 
-const CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
-const MODEL_URL = './includes/classifier/model.json';
+const ICON_CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
+const ICON_MODEL_URL = './includes/classifier/model.json';
+const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
+const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 
 document.querySelector('form').addEventListener('submit', function(e) {
   // Prevent a submit that would cause a page refresh
@@ -25,7 +27,7 @@ document.querySelector('form input').addEventListener('change', function() {
     const context = canvas.getContext('2d');
     context.drawImage(this, 0, 0);
 
-    Screenshot.process(canvas, MODEL_URL, CLASS_NAMES).then(function(stockpile) {
+    Screenshot.process(canvas, ICON_MODEL_URL, ICON_CLASS_NAMES, QUANTITY_MODEL_URL, QUANTITY_CLASS_NAMES).then(function(stockpile) {
       //console.log(stockpile);
       if (stockpile) {
         globalThis.stockpile = stockpile;

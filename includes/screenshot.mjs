@@ -5,12 +5,14 @@ class UnableToParseQuantity extends Error {}
 const quantityOCR = new OCR();
 const headerOCR = new OCR({
   charset: OCR.CHARSETS['any'],
-  concurrency: 1,
+  concurrency: 2,
+  stop_delay: 5000,
 });
 
 let models = {};
-export async function process(screenshotCanvas, modelURL, classNames) {
-  models[modelURL] ||= tf.loadGraphModel(modelURL);
+export async function process(screenshotCanvas, iconModelURL, iconClassNames, quantityModelURL, quantityClassNames) {
+  models[iconModelURL] ||= tf.loadGraphModel(iconModelURL);
+  models[quantityModelURL] ||= tf.loadGraphModel(quantityModelURL);
 
   const stockpile = extractStockpile(screenshotCanvas);
   if (!stockpile) {
@@ -18,7 +20,7 @@ export async function process(screenshotCanvas, modelURL, classNames) {
   }
 
   stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
-  stockpile.contents = await extractContents(stockpile.box.canvas, models[modelURL], classNames);
+  stockpile.contents = await extractContents(stockpile.box.canvas, models[iconModelURL], iconClassNames, models[quantityModelURL], quantityClassNames);
   stockpile.header = {};
 
   if (stockpile.contents && stockpile.contents.length) {
@@ -28,7 +30,7 @@ export async function process(screenshotCanvas, modelURL, classNames) {
 
     const topOffset = existingTop - stockpile.box.y
     stockpile.box.height += topOffset;
-    
+
     for (const element of stockpile.contents) {
       element.iconBox.y += topOffset;
       element.quantityBox.y += topOffset;
@@ -184,7 +186,7 @@ function extractStockpile(canvas) {
   }
 }
 
-async function extractContents(canvas, model, classNames) {
+async function extractContents(canvas, iconModel, iconClassNames, quantityModel, quantityClassNames) {
   // These tune the cropping of inventory items
   const MIN_QUANTITY_WIDTH = 30;
   const MAX_QUANTITY_WIDTH = 90;
@@ -253,7 +255,8 @@ async function extractContents(canvas, model, classNames) {
           };
           //element.quantityBox.canvas = cropCanvas(canvas, quantityBox, 'grayscale(100%) invert(100%)', 5);
 
-          promises.push(ocrQuantity(canvas, quantityBox, (265 - QUANTITY_GREY_VALUE) * 2/3).then(q => element.quantity = q).catch(function(e) {
+          //promises.push(ocrQuantity(canvas, quantityBox, (265 - QUANTITY_GREY_VALUE) * 2/3).then(q => element.quantity = q).catch(function(e) {
+          promises.push(ocrQuantity(canvas, quantityBox, quantityModel, quantityClassNames, (265 - QUANTITY_GREY_VALUE) * 2/3).then(q => element.quantity = q).catch(function(e) {
             if (e instanceof UnableToParseQuantity) {
               console.log('Unable to parse quantity:', quantityBox);
             } else {
@@ -271,7 +274,7 @@ async function extractContents(canvas, model, classNames) {
           };
 
           element.iconBox.canvas = cropCanvas(canvas, element.iconBox);
-          Object.assign(element, await classifyIcon(element.iconBox.canvas, model, classNames));
+          Object.assign(element, await classifyIcon(element.iconBox.canvas, iconModel, iconClassNames));
 
           contents.push(element);
         }
@@ -323,7 +326,9 @@ async function extractHeader(canvas, height, quantityWidth) {
     histogram[value] += 1;
   }
   const greyValue = Object.keys(histogram).sort((a, b) => histogram[b] - histogram[a])[0];
-  const darkValueCutoff = Math.round(greyValue * 2 / 3);
+  //const darkValueCutoff = Math.round(greyValue * 2 / 3);
+  const darkValueCutoff = greyValue - MAX_GREY_LIGHTNESS_VARIANCE;
+  //console.log(`grey: ${greyValue}, dark: ${darkValueCutoff}`)
 
   const packedWidth = width * 4;
   const scanStart = Math.round(height / 2) * packedWidth;
@@ -426,27 +431,41 @@ async function ocrHeader(canvas, box) {
   return value;
 }
 
-async function ocrQuantity(canvas, box, threshold) {
-  /*const cropAmount = Math.floor(box.height / 4);
-  const cropBox = {
-    x: box.x,
-    y: box.y + cropAmount,
-    width: box.width,
-    height: box.height - (cropAmount * 2),
-  }*/
-  //const desiredHeight = 75;
-  //canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', desiredHeight / (box.height * 12/32));
+
+async function ocrQuantity(canvas, box, model, classNames, threshold) {
   canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', 5);
-
   thresholdCanvas(canvas, threshold);
-  //canvas = autoCropCanvas(canvas);
-  //document.body.appendChild(canvas);
+  canvas = autoCropCanvas(canvas);
 
+  //canvas = cropCanvas(canvas, box, 'grayscale(100%)', 5);
+  //thresholdCanvas(canvas, 256-threshold);
+  /*
   const result = await quantityOCR.recognize(canvas);
 
   let value = result.data.text.trim();
+  */
+  //canvas = cropCanvas(canvas, box);
+  //document.body.appendChild(canvas);
+
+  //const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(canvas, 1), [32, 32]);
+
+  const resized = document.createElement('canvas');
+  resized.width = 32;
+  resized.height = 32;
+
+  const context = resized.getContext('2d');
+  context.drawImage(canvas, 0, 0, 32, 32);
+
+  const tfImage = tf.browser.fromPixels(resized, 1).toFloat();
+  const prediction = (await model).predict(tfImage.expandDims(0));
+
+  const best = (await prediction.argMax(1).data())[0];
+  let value = classNames[best];
+
   if (value.match(/^[1-9][0-9]*k\+$/)) {
     value = parseInt(value.slice(0, -2), 10) * 1000;
+  } else if (value.match(/^[0-9]+x$/)) {
+    value = parseInt(value.slice(0, -1), 10);
   } else if (value.match(/^([1-9][0-9]*|[0-9])$/)) {
     value = parseInt(value, 10);
   } else {
@@ -458,10 +477,10 @@ async function ocrQuantity(canvas, box, threshold) {
 
 const CRATED_REGEXP = new RegExp('-crated$');
 async function classifyIcon(canvas, model, classNames) {
-  const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(canvas), [32, 32])
+  const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(canvas), [32, 32]);
   const prediction = (await model).predict(tfImage.expandDims(0));
 
-  const best = prediction.argMax(1).dataSync()[0];
+  const best = (await prediction.argMax(1).data())[0];
   const key = classNames[best];
 
   return {
@@ -480,8 +499,10 @@ function thresholdCanvas(canvas, threshold) {
         && (imageData.data[offset + 1] <= threshold)
         && (imageData.data[offset + 2] <= threshold)) {
       value = 0;
+      //value = 68;
     } else {
       value = 255;
+      //value = imageData.data[offset];
     }
 
     imageData.data[offset] = value;
@@ -568,8 +589,8 @@ function autoCropCanvas(image) {
     }
   }
 
-  const cropWidth = right - left + 6;
-  const cropHeight = bottom - top + 6;
+  const cropWidth = right - left + 1;
+  const cropHeight = bottom - top + 1;
 
   const canvas = document.createElement('canvas');
   canvas.width = cropWidth;
@@ -577,7 +598,7 @@ function autoCropCanvas(image) {
   const context = canvas.getContext('2d');
   //context.filter = 'blur(2px)';
   context.drawImage(image,
-    left - 3, top - 3, cropWidth, cropHeight,
+    left, top, cropWidth, cropHeight,
     0, 0, cropWidth, cropHeight);
   //document.body.appendChild(cropCanvas);
   //console.log("top: " + top + " right: " + right + " bottom: " + bottom + " left: " + left);

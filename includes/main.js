@@ -2,7 +2,8 @@ import Screenshot from './screenshot.mjs'
 
 const res = {
   CATALOG: fetch('./includes/catalog.json').then(r => r.json()),
-  CLASS_NAMES: fetch('./includes/class_names.json').then(r => r.json()),
+  ICON_CLASS_NAMES: fetch('./includes/class_names.json').then(r => r.json()),
+  QUANTITY_CLASS_NAMES: fetch('./includes/quantities/class_names.json').then(r => r.json()),
 }
 
 const ready = new Promise(function(resolve) {
@@ -20,7 +21,8 @@ await Promise.all([...Object.values(res), ready]).then(function (results) {
   }
 });
 
-const MODEL_URL = './includes/classifier/model.json';
+const ICON_MODEL_URL = './includes/classifier/model.json';
+const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 let stockpiles;
 let imagesProcessed = 0;
 let imagesTotal = 0;
@@ -383,7 +385,7 @@ function getProcessImage(scheduler, label, lastModified) {
     const context = canvas.getContext('2d');
     context.drawImage(this, 0, 0);
 
-    const stockpile = await Screenshot.process(canvas, MODEL_URL, res.CLASS_NAMES);
+    const stockpile = await Screenshot.process(canvas, ICON_MODEL_URL, res.ICON_CLASS_NAMES, QUANTITY_MODEL_URL, res.QUANTITY_CLASS_NAMES);
     if (stockpile) {
       this.src = stockpile.box.canvas.toDataURL();
       stockpile.label = label;

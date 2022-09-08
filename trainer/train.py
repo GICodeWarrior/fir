@@ -20,10 +20,17 @@ from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
 import json
+import sys
 
 
-DATA_DIR = '../catalog/training/'
+EPOCHS = int(sys.argv[1])
+COLOR_MODE = sys.argv[2]
+DATA_DIR = sys.argv[3]
+
 IMG_SIZE = (32, 32)
+VALIDATION_SPLIT=0.05
+DROPOUT=0.05
+
 PREFETCH_SIZE = tf.data.AUTOTUNE
 RANDOM_SEED = 639936
 
@@ -32,17 +39,19 @@ tf.config.experimental.enable_op_determinism()
 
 train_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
-  validation_split=0.05,
+  validation_split=VALIDATION_SPLIT,
   subset='training',
   seed=RANDOM_SEED,
+  color_mode=COLOR_MODE,
   image_size=IMG_SIZE
 )
 
 val_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
-  validation_split=0.05,
+  validation_split=VALIDATION_SPLIT,
   subset='validation',
   seed=RANDOM_SEED,
+  color_mode=COLOR_MODE,
   image_size=IMG_SIZE
 )
 
@@ -59,7 +68,7 @@ val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 model = Sequential([
 #  layers.RandomBrightness(0.05),
 #  layers.RandomContrast(0.05),
-  layers.Rescaling(1./255, input_shape=IMG_SIZE+(3,)),
+  layers.Rescaling(1./255),
   layers.Conv2D(16, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
   layers.BatchNormalization(),
@@ -69,10 +78,10 @@ model = Sequential([
   layers.Conv2D(64, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
   layers.BatchNormalization(),
-  layers.Dropout(0.05),
+  layers.Dropout(DROPOUT),
   layers.Flatten(),
   layers.Dense(128, activation='relu'),
-  layers.Dense(output_dim, name="outputs")
+  layers.Dense(output_dim, name='outputs')
 ])
 
 model.compile(
@@ -81,7 +90,6 @@ model.compile(
   metrics=['accuracy']
 )
 
-EPOCHS = 27
 model.fit(
   train_ds,
   validation_data=val_ds,

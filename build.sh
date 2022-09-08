@@ -22,7 +22,7 @@ buildClassifier() {
   cd trainer
   pipenv install
 
-  pipenv run python train.py
+  pipenv run python train.py 27 rgb ../catalog/training/
   mv class_names.json ../includes/class_names.json
 
   rm -r ../includes/classifier/*
