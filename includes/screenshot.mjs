@@ -65,7 +65,7 @@ function extractStockpile(canvas) {
   const width = canvas.width;
   const height = canvas.height;
 
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext('2d', { alpha: false });
   const pixels = context.getImageData(0, 0, width, height).data;
   let darkStripes = {};
 
@@ -200,7 +200,7 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   const width = canvas.width;
   const height = canvas.height;
 
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext('2d', { alpha: false });
   const pixels = context.getImageData(0, 0, width, height).data;
 
   // Find the most common grey which is probably the quantity background
@@ -272,9 +272,9 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
             width: iconWidth,
             height: iconWidth,
           };
-
           element.iconBox.canvas = cropCanvas(canvas, element.iconBox);
-          Object.assign(element, await classifyIcon(element.iconBox.canvas, iconModel, iconClassNames));
+
+          promises.push(classifyIcon(element.iconBox.canvas, iconModel, iconClassNames).then( o => Object.assign(element, o) ));
 
           contents.push(element);
         }
@@ -315,7 +315,7 @@ async function extractHeader(canvas, height, quantityWidth) {
   const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
   const width = canvas.width;
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext('2d', { alpha: false });
   const pixels = context.getImageData(0, 0, width, height).data;
 
   const histogram = {};
@@ -435,28 +435,11 @@ async function ocrHeader(canvas, box) {
 async function ocrQuantity(canvas, box, model, classNames, threshold) {
   canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', 5);
   thresholdCanvas(canvas, threshold);
-  canvas = autoCropCanvas(canvas);
-
-  //canvas = cropCanvas(canvas, box, 'grayscale(100%)', 5);
-  //thresholdCanvas(canvas, 256-threshold);
-  /*
-  const result = await quantityOCR.recognize(canvas);
-
-  let value = result.data.text.trim();
-  */
-  //canvas = cropCanvas(canvas, box);
   //document.body.appendChild(canvas);
 
-  //const tfImage = tf.image.resizeBilinear(tf.browser.fromPixels(canvas, 1), [32, 32]);
+  canvas = autoCropCanvas(canvas, 32, 32);
 
-  const resized = document.createElement('canvas');
-  resized.width = 32;
-  resized.height = 32;
-
-  const context = resized.getContext('2d');
-  context.drawImage(canvas, 0, 0, 32, 32);
-
-  const tfImage = tf.browser.fromPixels(resized, 1).toFloat();
+  const tfImage = tf.browser.fromPixels(canvas, 1).toFloat();
   const prediction = (await model).predict(tfImage.expandDims(0));
 
   const best = (await prediction.argMax(1).data())[0];
@@ -490,20 +473,12 @@ async function classifyIcon(canvas, model, classNames) {
 }
 
 function thresholdCanvas(canvas, threshold) {
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext('2d', { alpha: false });
   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const length = imageData.data.length;
 
-  for (let offset = 0; offset < imageData.data.length; offset += 4) {
-    let value;
-    if ((imageData.data[offset] <= threshold)
-        && (imageData.data[offset + 1] <= threshold)
-        && (imageData.data[offset + 2] <= threshold)) {
-      value = 0;
-      //value = 68;
-    } else {
-      value = 255;
-      //value = imageData.data[offset];
-    }
+  for (let offset = 0; offset < length; offset += 4) {
+    const value = !(imageData.data[offset] <= threshold) * 255;
 
     imageData.data[offset] = value;
     imageData.data[offset + 1] = value;
@@ -523,7 +498,7 @@ function cropCanvas(input, box, filter, resize) {
   output.width = outputWidth;
   output.height = outputHeight;
 
-  const outputContext = output.getContext('2d');
+  const outputContext = output.getContext('2d', { alpha: false });
   outputContext.filter = filter;
   outputContext.drawImage(input,
       box.x, box.y, box.width, box.height,
@@ -532,7 +507,7 @@ function cropCanvas(input, box, filter, resize) {
   return output;
 }
 
-function autoCropCanvas(image) {
+function autoCropCanvas(image, outputWidth, outputHeight) {
   const MIN_VALUE_CROP = 128;
 
   const imageWidth = image.width;
@@ -542,7 +517,7 @@ function autoCropCanvas(image) {
   let right = imageWidth - 1;
   let bottom = imageHeight - 1;
   let left = 0;
-  const imgContext = image.getContext('2d');
+  const imgContext = image.getContext('2d', { alpha: false });
   const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
 
   for (let offset = 0; offset < imgPixels.length; offset += 4) {
@@ -593,13 +568,13 @@ function autoCropCanvas(image) {
   const cropHeight = bottom - top + 1;
 
   const canvas = document.createElement('canvas');
-  canvas.width = cropWidth;
-  canvas.height = cropHeight;
-  const context = canvas.getContext('2d');
+  canvas.width = outputWidth;
+  canvas.height = outputHeight;
+  const context = canvas.getContext('2d', { alpha: false });
   //context.filter = 'blur(2px)';
   context.drawImage(image,
     left, top, cropWidth, cropHeight,
-    0, 0, cropWidth, cropHeight);
+    0, 0, outputWidth, outputHeight);
   //document.body.appendChild(cropCanvas);
   //console.log("top: " + top + " right: " + right + " bottom: " + bottom + " left: " + left);
 
