@@ -23,7 +23,7 @@ await Promise.all([...Object.values(res), ready]).then(function (results) {
 
 const ICON_MODEL_URL = './includes/classifier/model.json';
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
-let stockpiles;
+let stockpiles = [];
 let imagesProcessed = 0;
 let imagesTotal = 0;
 
@@ -39,43 +39,30 @@ let imagesTotal = 0;
     e.preventDefault();
   });
 
+  window.addEventListener('paste', function(event) {
+    const files = event.clipboardData.files || [];
+    const images = Array.prototype.filter.call(files, f => f.type.startsWith('image/'));
+    gtag('event', 'select_content', {content_type: 'paste_screenshots', item_id: `ss_count_${images.length}`});
+    addImages(images);
+  });
+
   input.addEventListener('change', function() {
     if (!this.files.length) {
       return;
     }
     stockpiles = [];
-
-    const collage = document.querySelector('div.render');
-    collage.innerHTML = '';
-
-    document.querySelector('div.report').innerHTML = '';
-
     imagesProcessed = 0;
-    imagesTotal = this.files.length;
-    document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
-    gtag('event', 'select_content', {content_type: 'open_screenshots', item_id: `ss_count_${imagesTotal}`});
+    imagesTotal = 0;
+
+    document.querySelector('div.render').innerHTML = '';
 
     const files = Array.from(this.files).sort(function(a, b) {
       // Consistent ordering based on when each screenshot was captured
       return a.lastModified - b.lastModified;
     });
 
-    files.forEach(function(file) {
-      const container = document.createElement('div');
-      const label = document.createElement('span');
-      label.textContent = file.name;
-      label.contentEditable = true;
-      label.spellcheck = false;
-      container.appendChild(label);
-
-      const image = document.createElement('img');
-      image.style.display = 'none';
-      image.addEventListener('load', getProcessImage(label, file.lastModified), { once: true });
-      image.src = URL.createObjectURL(file);
-      container.appendChild(image);
-
-      collage.appendChild(container);
-    });
+    gtag('event', 'select_content', {content_type: 'open_screenshots', item_id: `ss_count_${files.length}`});
+    addImages(files);
   });
 
   downloadCollage.addEventListener('click', function() {
@@ -354,6 +341,30 @@ let imagesTotal = 0;
   });
 })();
 
+function addImages(files) {
+  imagesTotal += files.length;
+
+  const collage = document.querySelector('div.render');
+  document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
+
+  files.forEach(function(file) {
+    const container = document.createElement('div');
+    const label = document.createElement('span');
+    label.textContent = file.name;
+    label.contentEditable = true;
+    label.spellcheck = false;
+    container.appendChild(label);
+
+    const image = document.createElement('img');
+    image.style.display = 'none';
+    image.addEventListener('load', getProcessImage(label, file.lastModified), { once: true });
+    image.src = URL.createObjectURL(file);
+    container.appendChild(image);
+
+    collage.appendChild(container);
+  });
+}
+
 function gIds() {
   if (location.host == 'fir.gicode.net') {
     return {
@@ -485,6 +496,7 @@ function outputTotals() {
   });
 
   const report = document.querySelector('div.report');
+  report.innerHTML = '';
   for (const category of sortedCategories) {
     const keys = categories[category];
     if (!keys) {
@@ -526,45 +538,13 @@ function outputTotals() {
       quantity.textContent = type.total;
       cell.appendChild(quantity);
 
-      const icon = document.createElement('div');
       cell.appendChild(type.collection[0].iconBox.canvas);
 
-      const nameSuffix = type.isCrated ? ' (crated)' : '';
       const name = document.createElement('div');
-      name.textContent = type.name;// + nameSuffix;
+      name.textContent = type.name;
       cell.appendChild(name);
 
       report.appendChild(cell);
     }
   }
-
-/*
-  const keyOrder = Object.keys(totals).sort(function(a, b) {
-    const countDiff = totals[b].collection.length - totals[a].collection.length;
-    if (countDiff != 0) {
-      return countDiff;
-    }
-    return totals[b].total - totals[a].total;
-  });
-
-  for (const key of keyOrder) {
-    const type = totals[key];
-    const cell = document.createElement('div');
-    const quantity = document.createElement('div');
-    quantity.textContent = type.total;
-    cell.appendChild(quantity);
-
-    const icon = document.createElement('div');
-    for (const element of type.collection) {
-      icon.appendChild(element.iconBox.canvas);
-    }
-    cell.appendChild(icon);
-
-    const nameSuffix = type.isCrated ? ' (crated)' : '';
-    const name = document.createElement('div');
-    name.textContent = type.name + nameSuffix;
-    cell.appendChild(name);
-
-    report.appendChild(cell);
-  }*/
 }
