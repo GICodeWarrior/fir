@@ -70,7 +70,7 @@ let imagesTotal = 0;
 
       const image = document.createElement('img');
       image.style.display = 'none';
-      image.addEventListener('load', getProcessImage(scheduler, label, file.lastModified), { once: true });
+      image.addEventListener('load', getProcessImage(label, file.lastModified), { once: true });
       image.src = URL.createObjectURL(file);
       container.appendChild(image);
 
@@ -370,12 +370,12 @@ function gIds() {
   };
 }
 
-function getProcessImage(scheduler, label, lastModified) {
+function getProcessImage(label, lastModified) {
   return function() {
-    return processImage.call(this, scheduler, label, lastModified);
+    return processImage.call(this, label, lastModified);
   };
 
-  async function processImage(scheduler, label, lastModified) {
+  async function processImage(label, lastModified) {
     URL.revokeObjectURL(this.src);
 
     const canvas = document.createElement('canvas');

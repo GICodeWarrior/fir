@@ -25,6 +25,8 @@ buildClassifier() {
   pipenv run python train.py 27 rgb ../catalog/training/
   mv class_names.json ../includes/class_names.json
 
+  #pipenv run python train.py 16 grayscale quantity_training
+
   rm -r ../includes/classifier/*
   pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../includes/classifier
 
