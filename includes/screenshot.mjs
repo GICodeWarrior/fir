@@ -38,7 +38,7 @@ export async function process(screenshotCanvas, iconModelURL, iconClassNames, qu
 
     stockpile.box.canvas = cropCanvas(screenshotCanvas, stockpile.box);
 
-    if (topOffset == headerHeight) {
+    if (topOffset > headerHeight * 9 / 10) {
       stockpile.header = await extractHeader(stockpile.box.canvas, topOffset, stockpile.contents[0].quantityBox.width);
     } else {
       console.log('Unable to parse header (too small).');
@@ -73,9 +73,10 @@ function extractStockpile(canvas) {
     let darkCount = 0;
     for (let col = 0; col < width; ++col) {
       const redIndex = calcRedIndex(row, col, width);
-      if (isDark(pixels, redIndex)) {
+      if (isDark(pixels, redIndex) && (col + 1 != width)) {
         ++darkCount;
       } else if (darkCount >= MIN_INVENTORY_WIDTH) {
+        darkCount += col + 1 == width ? 1 : 0;
         let left = col - darkCount;
         darkStripes[left] = darkStripes[left] || [];
         darkStripes[left].push({
@@ -438,7 +439,7 @@ async function ocrHeader(canvas, box) {
   const cropBox = {
     x: box.x + cropAmount,
     y: box.y + cropAmount,
-    width: box.width - (cropAmount * 2),
+    width: box.width - cropAmount,
     height: box.height - (cropAmount * 2),
   }
   canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 5);
