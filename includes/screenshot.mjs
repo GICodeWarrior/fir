@@ -443,7 +443,7 @@ async function ocrHeader(canvas, box) {
   }
   canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 5);
 
-  const threshold = Math.round(256 / 3);
+  const threshold = Math.round(256 * 3 / 10);
   thresholdCanvas(canvas, threshold);
 
   const result = await headerOCR.recognize(canvas);
@@ -457,7 +457,6 @@ async function ocrHeader(canvas, box) {
 
   return value;
 }
-
 
 async function ocrQuantity(canvas, box, model, classNames, threshold) {
   canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', 5);
