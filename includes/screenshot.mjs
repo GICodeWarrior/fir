@@ -91,37 +91,46 @@ function extractStockpile(canvas) {
     }
   }
 
-  let boxes = Object.values(darkStripes).map(function(stripes) {
+  let boxes = [];
+  for (let left of Object.keys(darkStripes)) {
+    // parseInt since keys are strings
+    left = parseInt(left, 10);
+    let stripes = [];
+    for (let leftOffset = left - MAX_MERGE_VARIANCE + 1; leftOffset < left + MAX_MERGE_VARIANCE; ++leftOffset) {
+      stripes = stripes.concat(darkStripes[leftOffset] || []);
+    }
+
     let rights = {};
     for (const stripe of stripes) {
       rights[stripe.right] ||= 0
       rights[stripe.right] += 1;
     }
-    // parseInt since keys are strings
+    // keys are strings
     let mostRight = parseInt(Object.keys(rights).sort((a, b) => rights[b] - rights[a])[0], 10);
 
     let top = Number.MAX_SAFE_INTEGER;
     let bottom = 0;
-    let darkStripes = 0;
+    let stripesCount = 0;
     for (const stripe of stripes) {
       if ((stripe.right > mostRight - MAX_MERGE_VARIANCE) ||
           (stripe.right < mostRight + MAX_MERGE_VARIANCE)) {
         if (stripe.row < top) top = stripe.row;
         if (stripe.row > bottom) bottom = stripe.row;
 
-        ++darkStripes;
+        ++stripesCount;
       }
     }
 
-    return {
+    boxes.push({
       top: top,
       right: mostRight,
       bottom: bottom,
-      left: stripes[0].left,
-      darkStripes: darkStripes,
-    };
-  });
+      left: left,
+      darkStripes: stripesCount,
+    });
+  }
 
+  boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
   if (boxes.length) {
     // Merge overlapping boxes
     let primaryOffset = 0;
@@ -130,10 +139,10 @@ function extractStockpile(canvas) {
       let innerOffset = primaryOffset + 1;
       while (innerOffset < boxes.length) {
         let inner = boxes[innerOffset];
-        if ((primary.top <= inner.top) &&
-            (primary.right >= inner.right) &&
-            (primary.bottom >= inner.bottom) &&
-            (primary.left <= inner.left)) {
+        if ((primary.top - MAX_MERGE_VARIANCE <= inner.top) &&
+            (primary.right + MAX_MERGE_VARIANCE >= inner.right) &&
+            (primary.bottom + MAX_MERGE_VARIANCE >= inner.bottom) &&
+            (primary.left - MAX_MERGE_VARIANCE <= inner.left)) {
           primary.darkStripes += inner.darkStripes;
           boxes.splice(innerOffset, 1);
         } else {
@@ -147,16 +156,34 @@ function extractStockpile(canvas) {
     //check left and right sides are mostly dark
     const MIN_DARK_EDGE_PERCENT = 0.8;
     boxes = boxes.filter(function(box) {
-      let darkLeft = 0;
-      let darkRight = 0;
+      let darkLeft = {};
+      let darkRight = {};
       for (let row = box.top; row <= box.bottom; ++row) {
-        darkLeft += isDark(pixels, calcRedIndex(row, box.left, width)) ? 1 : 0;
-        darkRight += isDark(pixels, calcRedIndex(row, box.right, width)) ? 1 : 0;
+        for (let offset = 0; offset < MAX_MERGE_VARIANCE; ++offset) {
+          const left = box.left + offset;
+          const right = box.right - offset;
+          darkLeft[left] = (darkLeft[left] || 0) + (isDark(pixels, calcRedIndex(row, left, width)) ? 1 : 0);
+          darkRight[right] = (darkRight[right] || 0) + (isDark(pixels, calcRedIndex(row, right, width)) ? 1 : 0);
+        }
       }
       const height = box.bottom - box.top + 1;
 
-      return (darkLeft / height >= MIN_DARK_EDGE_PERCENT)
-        && (darkRight / height >= MIN_DARK_EDGE_PERCENT);
+      box.left = null;
+      for (const [left, count] of Object.entries(darkLeft)) {
+        if (count / height >= MIN_DARK_EDGE_PERCENT) {
+          box.left = left;
+          break;
+        }
+      }
+
+      box.right = null;
+      for (const [right, count] of Object.entries(darkRight)) {
+        if (count / height >= MIN_DARK_EDGE_PERCENT) {
+          box.right = right
+        }
+      }
+
+      return box.left && box.right;
     });
 
     // Prefer the box closest to the middle
