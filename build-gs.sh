@@ -58,3 +58,5 @@ cat ./gs-build/bundle.js >> ./gs-build/fir-sidebar.html
 rm ./gs-build/bundle.js
 
 awk 'x==1 {print $1} /<!-- insert js blob here -->/ {x=1}' gs-sidebar.html >> ./gs-build/fir-sidebar.html
+
+cp ./gs-sidebar.gs ./gs-build/fir-sidebar-gs.gs

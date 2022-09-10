@@ -2,3 +2,4 @@ catalog/node_modules
 catalog/training
 trainer/model.h5
 spec/data
+gs-build/

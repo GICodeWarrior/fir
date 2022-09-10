@@ -6,7 +6,7 @@ console.error("hello");
 const res_prefix = "https://github.com/GICodeWarrior/fir/raw/main/";
 
 // https://stackoverflow.com/questions/38658654/how-to-convert-a-base64-string-into-a-file
-function base64ToFile(str) {
+function base64ToFile(str) { // TODO delete dead code
   var b64 = str;
   // extract content type and base64 payload from original string
   //var pos = str.indexOf(';base64,');
@@ -97,6 +97,7 @@ let imagesTotal = 0;
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
   const downloadTSV = document.querySelector('button.tsv');
+  const insertGoogle = document.querySelector('button.insert-google');
   //const appendGoogle = document.querySelector('button.append-google');
 
   document.querySelector('form').addEventListener('submit', function(e) {
@@ -232,6 +233,50 @@ let imagesTotal = 0;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  });
+
+
+  const _alert = (msg) => {
+    google.script.run.fhAlert(msg);
+  }
+
+  insertGoogle.addEventListener('click', function() {
+    //gtag('event', 'select_content', {content_type: 'insert_google', item_id: 'insert_google'});
+    function insert(findings, stockpileColumn) {
+      // insert
+      google.script.run
+      .withSuccessHandler((ret) => {
+        console.log(ret);
+        //document.getElementById("run-spinner").setAttribute("style", "display: none;")
+        //disableStockpileInput(false);
+        //document.getElementById('run').removeAttribute("disabled");
+      })
+      .withFailureHandler((error) => {
+        console.error(error);
+        _alert(error);
+        //document.getElementById("run-spinner").setAttribute("style", "display: none;")
+        //disableStockpileInput(false);
+        //document.getElementById('run').removeAttribute("disabled");
+      })
+      .fhInsert(findings, stockpileColumn);
+    }
+
+    let ret = google.script.run
+    .withSuccessHandler((piles) => {
+      console.log(piles);
+      //document.getElementById("stockpile-spinner").setAttribute("style", "display: none;")
+      //let regionpiles = piles.reduce(function (r, a) {
+          //r[a.regionname] = r[a.regionname] || [];
+          //r[a.regionname].push(a);
+          //return r;
+      //}, Object.create(null));
+    })
+    .withFailureHandler((error) => {
+      console.error(error);
+      _alert(error);
+    })
+    .fhColumnMap();
+    console.warn(ret);
   });
 
   //appendGoogle.addEventListener('click', async function() {
