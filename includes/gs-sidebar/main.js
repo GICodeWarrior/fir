@@ -261,9 +261,38 @@ let imagesTotal = 0;
       .fhInsert(findings, stockpileColumn);
     }
 
+    function contents2Findings(contents) {
+      let findings = [1];
+      for (const item of res.CATALOG) {
+        let content = contents.find((i) => i.CodeName == item.CodeName);
+        let count = 0;
+        if (typeof content !== 'undefined') {
+          count = content.quantity;
+        }
+        let finding = {
+          "name": item.DisplayName,
+          "count": count,
+        };
+        findings.push(finding);
+      }
+      console.log(findings);
+      return {
+        "items": findings,
+      };
+    }
+
     let ret = google.script.run
     .withSuccessHandler((piles) => {
       console.log(piles);
+      for (const stockpile of stockpiles) {
+        let pile = piles.find((pile) => pile.stockpile == stockpile.header.name);
+        if (typeof pile === 'undefined') {
+          continue;
+        } else {
+          let findings = contents2Findings(stockpile.contents);
+          insert(findings, pile.column);
+        }
+      }
       //document.getElementById("stockpile-spinner").setAttribute("style", "display: none;")
       //let regionpiles = piles.reduce(function (r, a) {
           //r[a.regionname] = r[a.regionname] || [];
