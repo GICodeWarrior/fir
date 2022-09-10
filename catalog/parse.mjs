@@ -730,13 +730,11 @@ for (const directory of searchDirectories) {
           && objectValues.DisplayName
           && objectValues.Description
           && objectValues.Icon
-          && (objectValues.TechID || '') != 'ETechID::ETechID_MAX') {
+          && ((objectValues.TechID || '') != 'ETechID::ETechID_MAX')
+          && (objectValues.ItemCategory || objectValues.VehicleProfileType || objectValues.BuildLocationType)
+          && (!(objectValues.BuildLocationType || '').match(/^EBuildLocationType::(TestShard|Anywhere)$/))) {
         objects.push(objectValues);
-
-        if (objectValues.CodeName != 'Lore'
-            && (!objectValues.ObjectPath.match(/\/BPDeployed[^/]+$/))) {
-          promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
-        }
+        promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }
     } catch (e) {
       if (e instanceof NonBPError) {
