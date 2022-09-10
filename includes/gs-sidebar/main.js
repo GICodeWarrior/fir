@@ -1,36 +1,5 @@
 import Screenshot from '../screenshot.mjs'
 
-console.error("hello");
-
-//const res_prefix = "https://github.com/GICodeWarrior/fir/blob/32ee3e1fd0c89d7dbb89e3bda24d9845b3a5799e/";
-const res_prefix = "https://github.com/GICodeWarrior/fir/raw/main/";
-
-// https://stackoverflow.com/questions/38658654/how-to-convert-a-base64-string-into-a-file
-function base64ToFile(str) { // TODO delete dead code
-  var b64 = str;
-  // extract content type and base64 payload from original string
-  //var pos = str.indexOf(';base64,');
-  //var type = str.substring(5, pos);
-  //var b64 = str.substr(pos + 8);
-
-  // decode base64
-  var imageContent = atob(b64);
-
-  // create an ArrayBuffer and a view (as unsigned 8-bit)
-  var buffer = new ArrayBuffer(imageContent.length);
-  var view = new Uint8Array(buffer);
-
-  // fill the view, using the decoded base64
-  for(var n = 0; n < imageContent.length; n++) {
-    view[n] = imageContent.charCodeAt(n);
-  }
-
-  // convert ArrayBuffer to Blob
-  var blob = new File([buffer], "myfilename"); // TODO , { type: type });
-
-  return blob;
-}
-
 const b64ToFile = (b64Data, contentType='', sliceSize=512) => {
   const byteCharacters = atob(b64Data);
   const byteArrays = [];
@@ -57,20 +26,17 @@ const res = {
   QUANTITY_CLASS_NAMES: JSON.parse(JSON_QUANTITIES_CLASS_NAMES),
 }
 
-//const ICON_MODEL_URL = './includes/classifier/model.json';
-//const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 // bin model url is relative to ICON_MODEL_URL
-const ICON_BINARY_MODEL_URL = URL.createObjectURL(b64ToFile(BASE64_CLASSIFIER_BINARY_MODEL)).split("/").at(-1); // TODO release
+const ICON_BINARY_MODEL_URL = URL.createObjectURL(b64ToFile(BASE64_CLASSIFIER_BINARY_MODEL)).split("/").at(-1);
 console.log(ICON_BINARY_MODEL_URL);
 const ICON_MODEL_JSON = JSON_CLASSIFIER_MODEL.replace("group1-shard1of1.bin", ICON_BINARY_MODEL_URL);
-const ICON_MODEL_URL = URL.createObjectURL(new File([ICON_MODEL_JSON], "model.json")); // TODO release
+const ICON_MODEL_URL = URL.createObjectURL(new File([ICON_MODEL_JSON], "model.json"));
 console.log(ICON_MODEL_URL);
 
-//const QUANTITY_MODEL_URL = URL.createObjectURL(base64ToFile(BASE64_QUANTITIES_MODEL)); // TODO release
-const QUANTITY_BINARY_MODEL_URL = URL.createObjectURL(b64ToFile(BASE64_QUANTITY_BINARY_MODEL)).split("/").at(-1); // TODO release
+const QUANTITY_BINARY_MODEL_URL = URL.createObjectURL(b64ToFile(BASE64_QUANTITY_BINARY_MODEL)).split("/").at(-1);
 console.log(QUANTITY_BINARY_MODEL_URL);
 const QUANTITY_MODEL_JSON = JSON_QUANTITIES_MODEL.replace("group1-shard1of1.bin", QUANTITY_BINARY_MODEL_URL);
-const QUANTITY_MODEL_URL = URL.createObjectURL(new File([QUANTITY_MODEL_JSON], "model.json")); // TODO release
+const QUANTITY_MODEL_URL = URL.createObjectURL(new File([QUANTITY_MODEL_JSON], "model.json"));
 console.log(QUANTITY_MODEL_URL);
 
 const ready = new Promise(function(resolve) {
@@ -235,28 +201,22 @@ let imagesTotal = 0;
     document.body.removeChild(link);
   });
 
-
-  const _alert = (msg) => {
-    google.script.run.fhAlert(msg);
-  }
-
   insertGoogle.addEventListener('click', function() {
     //gtag('event', 'select_content', {content_type: 'insert_google', item_id: 'insert_google'});
+
+    function _alert(msg) {
+      google.script.run.fhAlert(msg);
+    }
+
     function insert(findings, stockpileColumn) {
       // insert
       google.script.run
       .withSuccessHandler((ret) => {
         console.log(ret);
-        //document.getElementById("run-spinner").setAttribute("style", "display: none;")
-        //disableStockpileInput(false);
-        //document.getElementById('run').removeAttribute("disabled");
       })
       .withFailureHandler((error) => {
         console.error(error);
         _alert(error);
-        //document.getElementById("run-spinner").setAttribute("style", "display: none;")
-        //disableStockpileInput(false);
-        //document.getElementById('run').removeAttribute("disabled");
       })
       .fhInsert(findings, stockpileColumn);
     }
@@ -275,11 +235,19 @@ let imagesTotal = 0;
         };
         findings.push(finding);
       }
-      console.log(findings);
+      //console.log(findings);
       return {
         "items": findings,
       };
     }
+
+    function resetButton() {
+      insertGoogle.textContent = "Insert into Spreadsheet";
+      insertGoogle.removeAttribute("disabled");
+    }
+
+    insertGoogle.textContent = "Inserting ...";
+    insertGoogle.setAttribute("disabled", "disabled");
 
     let ret = google.script.run
     .withSuccessHandler((piles) => {
@@ -293,16 +261,12 @@ let imagesTotal = 0;
           insert(findings, pile.column);
         }
       }
-      //document.getElementById("stockpile-spinner").setAttribute("style", "display: none;")
-      //let regionpiles = piles.reduce(function (r, a) {
-          //r[a.regionname] = r[a.regionname] || [];
-          //r[a.regionname].push(a);
-          //return r;
-      //}, Object.create(null));
+      resetButton(); // i'm too lazy to await all the insert() success and error handlers
     })
     .withFailureHandler((error) => {
       console.error(error);
       _alert(error);
+      resetButton();
     })
     .fhColumnMap();
     console.warn(ret);
