@@ -347,6 +347,87 @@ export async function addAppendGoogleListener(appendGoogle) {
   });
 }
 
+export function addInsertGoogleListener(insertGoogle) {
+  insertGoogle.addEventListener('click', function() {
+    //gtag('event', 'select_content', {content_type: 'insert_google', item_id: 'insert_google'});
+
+    function _alert(msg) {
+      google.script.run.fhAlert(msg);
+    }
+
+    function insert(findings, stockpileColumn) {
+      // insert
+      google.script.run
+      .withSuccessHandler((ret) => {
+        console.log(ret);
+      })
+      .withFailureHandler((error) => {
+        console.error(error);
+        _alert(error);
+      })
+      .fhInsert(findings, stockpileColumn);
+    }
+
+    function contents2Findings(contents) {
+      let findings = [1];
+      for (const item of res.CATALOG) {
+        let content = contents.find((i) => i.CodeName == item.CodeName);
+        let count = 0;
+        if (typeof content !== 'undefined') {
+          count = content.quantity;
+        }
+        let name = item.DisplayName;
+        if (typeof item.ShippableInfo !== 'undefined') {
+          if (contents.isCrated) {
+            name += " (crated)";
+          } else {
+            name += " (uncrated)";
+          }
+        }
+        let finding = {
+          "name": name,
+          "count": count,
+        };
+        findings.push(finding);
+      }
+      //console.log(findings);
+      return {
+        "items": findings,
+      };
+    }
+
+    function resetButton() {
+      insertGoogle.textContent = "Insert into Spreadsheet";
+      insertGoogle.removeAttribute("disabled");
+    }
+
+    insertGoogle.textContent = "Inserting ...";
+    insertGoogle.setAttribute("disabled", "disabled");
+
+    let ret = google.script.run
+    .withSuccessHandler((piles) => {
+      console.log(piles);
+      for (const stockpile of stockpiles) {
+        let pile = piles.find((pile) => pile.stockpile == stockpile.header.name);
+        if (typeof pile === 'undefined') {
+          continue;
+        } else {
+          let findings = contents2Findings(stockpile.contents);
+          insert(findings, pile.column);
+        }
+      }
+      resetButton(); // i'm too lazy to await all the insert() success and error handlers
+    })
+    .withFailureHandler((error) => {
+      console.error(error);
+      _alert(error);
+      resetButton();
+    })
+    .fhColumnMap();
+    console.warn(ret);
+  });
+}
+
 function addImages(files) {
   imagesTotal += files.length;
 
