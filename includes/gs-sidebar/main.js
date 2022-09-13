@@ -229,8 +229,16 @@ let imagesTotal = 0;
         if (typeof content !== 'undefined') {
           count = content.quantity;
         }
+        let name = item.DisplayName;
+        if (typeof item.ShippableInfo !== 'undefined') {
+          if (contents.isCrated) {
+            name += " (crated)";
+          } else {
+            name += " (uncrated)";
+          }
+        }
         let finding = {
-          "name": item.DisplayName,
+          "name": name,
           "count": count,
         };
         findings.push(finding);
