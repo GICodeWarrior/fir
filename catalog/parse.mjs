@@ -386,7 +386,7 @@ function coalesceObject(coreObject) {
   common.itemProfiles.bundleValues(
     ['Properties', 'ItemProfileTable', combinedObject.ItemProfileType],
     profileProperties,
-    v => combinedObject.ItemProfilesData = v
+    v => combinedObject.ItemProfileData = v
   );
 
   const vehicleDynamicProperties = [
@@ -492,7 +492,7 @@ function coalesceObject(coreObject) {
     ['bUsesImpactsMaterial'],
   ];
   common.structureProfileList.bundleValues(
-    ['Properties', 'VehicleMovementProfileMap', combinedObject.ProfileType],
+    ['Properties', 'StructureProfileMap', combinedObject.ProfileType],
     structureProfileProperties,
     v => combinedObject.ProfileData = v
   );

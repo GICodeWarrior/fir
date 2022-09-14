@@ -53,7 +53,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -119,7 +119,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -165,7 +165,7 @@
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -209,7 +209,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -241,7 +241,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -276,7 +276,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -332,7 +332,7 @@
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -420,7 +420,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -506,7 +506,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -593,7 +593,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -673,7 +673,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -733,7 +733,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -820,7 +820,7 @@
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -875,7 +875,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -943,7 +943,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1043,7 +1043,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1144,7 +1144,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1213,7 +1213,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1314,7 +1314,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1394,7 +1394,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1496,7 +1496,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1536,7 +1536,7 @@
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -1574,7 +1574,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1612,7 +1612,7 @@
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1705,7 +1705,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -1744,7 +1744,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -1779,7 +1779,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -1808,7 +1808,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -1842,7 +1842,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -1883,7 +1883,7 @@
       "CrateRetrieveTime": 25,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": false,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -1918,7 +1918,7 @@
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -1958,7 +1958,7 @@
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2026,7 +2026,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2064,7 +2064,7 @@
       "CrateRetrieveTime": 7.5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -2100,7 +2100,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2147,7 +2147,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2225,7 +2225,7 @@
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2309,7 +2309,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2348,7 +2348,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -2420,7 +2420,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2477,7 +2477,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2510,7 +2510,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -2544,7 +2544,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -2627,7 +2627,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2675,7 +2675,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2764,7 +2764,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2850,7 +2850,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2905,7 +2905,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -2960,7 +2960,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3048,7 +3048,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3113,7 +3113,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3175,7 +3175,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3239,7 +3239,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3305,7 +3305,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3375,7 +3375,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3419,7 +3419,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3475,7 +3475,7 @@
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -3515,7 +3515,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -3550,7 +3550,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -3606,7 +3606,7 @@
       "CrateRetrieveTime": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -3693,7 +3693,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3753,7 +3753,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -3845,7 +3845,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3910,7 +3910,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -3983,7 +3983,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4081,7 +4081,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4119,7 +4119,7 @@
       "CrateRetrieveTime": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -4175,7 +4175,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -4221,7 +4221,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4307,7 +4307,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4395,7 +4395,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4456,7 +4456,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -4491,7 +4491,7 @@
       "CrateRetrieveTime": 6,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": false,
@@ -4533,7 +4533,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4578,7 +4578,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4611,7 +4611,7 @@
       "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -4647,7 +4647,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -4718,7 +4718,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4779,7 +4779,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4821,7 +4821,7 @@
       "CrateRetrieveTime": 7,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4860,7 +4860,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -4899,7 +4899,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -4977,7 +4977,7 @@
       "CrateRetrieveTime": 12,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5066,7 +5066,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5141,7 +5141,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5230,7 +5230,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5290,7 +5290,7 @@
       "CrateRetrieveTime": 14,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5364,7 +5364,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5452,7 +5452,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5539,7 +5539,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5622,7 +5622,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5662,7 +5662,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5700,7 +5700,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5785,7 +5785,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5878,7 +5878,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -5972,7 +5972,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6066,7 +6066,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6159,7 +6159,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6253,7 +6253,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6347,7 +6347,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6387,7 +6387,7 @@
       "CrateRetrieveTime": 600,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": false,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -6456,7 +6456,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6541,7 +6541,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6586,7 +6586,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6673,7 +6673,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6743,7 +6743,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6835,7 +6835,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6927,7 +6927,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -6966,7 +6966,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -7042,7 +7042,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7102,7 +7102,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
       "bIsCratable": true,
@@ -7189,7 +7189,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7250,7 +7250,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": false,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -7291,7 +7291,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": false,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -7334,7 +7334,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7374,7 +7374,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7413,7 +7413,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -7449,7 +7449,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -7485,7 +7485,7 @@
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": false,
@@ -7546,7 +7546,7 @@
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7594,7 +7594,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7642,7 +7642,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7690,7 +7690,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7738,7 +7738,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7786,7 +7786,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7834,7 +7834,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7882,7 +7882,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7930,7 +7930,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -7978,7 +7978,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8026,7 +8026,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8074,7 +8074,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8122,7 +8122,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8170,7 +8170,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8218,7 +8218,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8266,7 +8266,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8312,7 +8312,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8354,7 +8354,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8398,7 +8398,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
@@ -8446,7 +8446,7 @@
       "CrateRetrieveTime": 16,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
-    "ItemProfilesData": {
+    "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
       "bIsCratable": true,
