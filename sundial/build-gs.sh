@@ -53,6 +53,7 @@ echo "\`;" >> ./gs-build/fir-sidebar.html
 #echo "\`;" >> ./gs-build/fir-sidebar.html
 
 # bundle js
+npm install
 node_modules/.bin/rollup gs-sidebar/main.js --file ./gs-build/bundle.js --format es
 cat ./gs-build/bundle.js >> ./gs-build/fir-sidebar.html
 rm ./gs-build/bundle.js
