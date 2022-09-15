@@ -346,135 +346,6 @@ export async function addAppendGoogleListener(appendGoogle) {
   });
 }
 
-export function addInsertGoogleListener(insertGoogle) {
-  insertGoogle.addEventListener('click', function() {
-    //gtag('event', 'select_content', {content_type: 'insert_google', item_id: 'insert_google'});
-
-    function _alert(msg) {
-      google.script.run.fhAlert(msg);
-    }
-
-    function insert(findings, stockpileColumn) {
-      // insert
-      google.script.run
-      .withSuccessHandler((ret) => {
-        console.log(ret);
-      })
-      .withFailureHandler((error) => {
-        console.error(error);
-        _alert(error);
-      })
-      .fhInsert(findings, stockpileColumn);
-    }
-
-    function contents2Findings(contents) {
-      let nameMap = {
-        ".44mm": ".44",
-        "No.1 “The Liar” Submachinegun": "No.1 \"The Liar\" Submachinegun",
-        "9mm": "9mm SMG",
-        "20 Neville Anti-Tank Rifle": "135 Neville Anti-Tank Rifle",
-        "ARC/RPG": "A.T.R.P.G. Indirect Shell",
-        "Flare Mortar Shell": "Mortar Flare Shell",
-        "Shrapnel Mortar Shell": "Mortar Shrapnel Shell",
-        "RPG": "R.P.G Shell",
-        "68mm": "68mm AT",
-        "Specialist’s Overcoat": "Specialist's Overcoat",
-        "Gunner’s Breastplate": "Gunner's Breastplate",
-        "Physician’s Jacket": "Physician's Jacket",
-        "Officer’s Regalia": "Officer's Regalia",
-        "Outrider’s Mantle": "Outrider's Mantle",
-        "Dunne Caravaner 2f": "Dunne Caravaner 2F",
-        "O’Brien V.101 Freeman": "O'Brien v.101 Freeman",
-        "O’Brien V.121 Highlander": "O'Brien v.121 Highlander",
-        "O’Brien V.110": "O'Brien v.110",
-        "O’Brien V.113 Gravekeeper": "O’Brien v.113 Gravekeeper",
-        "Swallowtail 988/127-2 ": "Swallowtail 988/127-2",
-        "Devitt Ironhide Mk. IV ": "Devitt Ironhide Mk. IV",
-        "BMS - Universal Assembly Rig": "BMS - Universal Assemly Rig",
-      }; // Bonesaws?
-      function mapName(catalogItem) {
-        if (catalogItem.CodeName === "ATRPGTW") {
-          return "Mounted Bonesaw MK.3";
-        }
-        if (catalogItem.CodeName === "ATRPGW") {
-          return "Bonesaw MK.3";
-        }
-        if (!nameMap.hasOwnProperty(catalogItem.DisplayName)) {
-          return catalogItem.DisplayName;
-        } else {
-          return nameMap[catalogItem.DisplayName];
-        }
-      }
-
-      let findings = [];
-      for (const item of res.CATALOG) {
-        let content2 = contents.filter((i) => i.CodeName == item.CodeName);
-        let nextShippable = "unknown";
-        for (let i = 0; i<2; i++) {
-          // for shippables, there may be two entries: crated and uncrated
-          let content = content2[i];
-          let count = 0;
-          if (typeof content !== 'undefined') {
-            count = content.quantity;
-          }
-          let name = mapName(item);
-          if (typeof item.ShippableInfo !== 'undefined'
-          || typeof item.VehicleProfileType !== 'undefined') {
-            if (nextShippable == "crated" || (typeof content !== 'undefined' && content.isCrated)) {
-              name += " (crated)";
-              nextShippable = "uncrated";
-            } else {
-              name += " (uncrated)";
-              nextShippable = "crated";
-            }
-          } else {
-            i++;
-          }
-          let finding = {
-            "name": name,
-            "count": count,
-          };
-          findings.push(finding);
-        }
-      }
-      //console.log(findings);
-      return {
-        "items": findings,
-      };
-    }
-
-    function resetButton() {
-      insertGoogle.textContent = "Insert into Spreadsheet";
-      insertGoogle.removeAttribute("disabled");
-    }
-
-    insertGoogle.textContent = "Inserting ...";
-    insertGoogle.setAttribute("disabled", "disabled");
-
-    let ret = google.script.run
-    .withSuccessHandler((piles) => {
-      console.log(piles);
-      for (const stockpile of stockpiles) {
-        let pile = piles.find((pile) => pile.stockpile == stockpile.header.name);
-        if (typeof pile === 'undefined') {
-          continue;
-        } else {
-          let findings = contents2Findings(stockpile.contents);
-          insert(findings, pile.column);
-        }
-      }
-      resetButton(); // i'm too lazy to await all the insert() success and error handlers
-    })
-    .withFailureHandler((error) => {
-      console.error(error);
-      _alert(error);
-      resetButton();
-    })
-    .fhColumnMap();
-    console.warn(ret);
-  });
-}
-
 function addImages(files) {
   imagesTotal += files.length;
 
@@ -681,4 +552,8 @@ function outputTotals() {
       report.appendChild(cell);
     }
   }
+}
+
+export function getStockpiles() {
+  return stockpiles;
 }
