@@ -52,9 +52,20 @@ echo "\`;" >> ./gs-build/fir-sidebar.html
 #base64 ../includes/quantities/model.json >> ./gs-build/fir-sidebar.html
 #echo "\`;" >> ./gs-build/fir-sidebar.html
 
+# check that rollup is installed or request installation
+if type "rollup" 2&> /dev/null; then
+  ROLLUP="rollup"
+fi
+if [ -e "node_modules/.bin/rollup" ]; then
+  ROLLUP="node_modules/.bin/rollup"
+fi
+if [ -z $ROLLUP ]; then
+  echo 'Please install rollup e.g. with `npm install`.'
+  exit 1
+fi
+
 # bundle js
-npm install
-node_modules/.bin/rollup gs-sidebar/main.js --file ./gs-build/bundle.js --format es
+$ROLLUP gs-sidebar/main.js --file ./gs-build/bundle.js --format es
 cat ./gs-build/bundle.js >> ./gs-build/fir-sidebar.html
 rm ./gs-build/bundle.js
 
