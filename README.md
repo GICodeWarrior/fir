@@ -8,15 +8,13 @@ This tool prepares [Foxhole](https://www.foxholegame.com/about-foxhole) stockpil
 4. Edit the titles for each inventory in the report by clicking on them.
 5. Download the result as a PNG, text report, TSV, or append to a google spreadsheet.
 
-
 ## Status
 
-Under development. However, it is already being used "in production" within clan(s) for evaluation. 
+Under development. However, it is already being used "in production" within regiment(s) for evaluation. 
 
 ## Development
 
 Standalone website:
-
 ```
 cd fir
 python3 -m http.server
