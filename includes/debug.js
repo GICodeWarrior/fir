@@ -1,7 +1,7 @@
 import Screenshot from './screenshot.mjs'
 
-const ICON_CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
-const ICON_MODEL_URL = './includes/classifier/model.json';
+const ICON_CLASS_NAMES = await fetch('./includes/classifier_devbranch/class_names.json').then(r => r.json());
+const ICON_MODEL_URL = './includes/classifier_devbranch/model.json';
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 

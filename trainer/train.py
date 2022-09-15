@@ -25,11 +25,11 @@ import sys
 
 EPOCHS = int(sys.argv[1])
 COLOR_MODE = sys.argv[2]
-DATA_DIR = sys.argv[3]
+DROPOUT=float(sys.argv[3])
+VALIDATION_SPLIT=float(sys.argv[4])
+DATA_DIR = sys.argv[5]
 
 IMG_SIZE = (32, 32)
-VALIDATION_SPLIT=0.05
-DROPOUT=0.05
 
 PREFETCH_SIZE = tf.data.AUTOTUNE
 RANDOM_SEED = 639936

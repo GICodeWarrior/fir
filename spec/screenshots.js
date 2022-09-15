@@ -1,12 +1,28 @@
 import Screenshot from '../includes/screenshot.mjs';
 
+const BRANCH=location.search.replace(/^\?/, '');
+
 const JASMINE_TIMEOUT = 60000;
-const ICON_MODEL_URL = './includes/classifier/model.json';
-const ICON_CLASS_NAMES = await fetch('./includes/class_names.json').then(r => r.json());
+const ICON_MODEL_URL = `./includes/classifier${BRANCH}/model.json`;
+const ICON_CLASS_NAMES = await fetch(`./includes/classifier${BRANCH}/class_names.json`).then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 
 const expectedStockpiles = await fetch('./spec/data/stockpiles.json').then(r => r.json());
+
+const branchMapping = {
+  '': {},
+  '_devbranch': {
+    SmallShippingContainer: null,
+    MetalBeamPlatform: null,
+    SandbagPlatform: null,
+    BarbedWirePlatform: null,
+    FieldATDamageC: 'FieldCannonDamageC',
+    FieldCannonDamageW: 'FieldATDamageW',
+    EmplacedMachineGun: 'EmplacedInfantryW',
+    EmplacedAT: 'EmplacedATW',
+  }
+}
 
 for (const expectedStockpile of expectedStockpiles) {
   describe(`Screenshot ${expectedStockpile.file}`, function() {
@@ -52,6 +68,13 @@ for (const expectedStockpile of expectedStockpiles) {
 
     for (let index = 0; index < expectedStockpile.contents.length; ++index) {
       const expectedElement = expectedStockpile.contents[index];
+      if (Object.hasOwn(branchMapping[BRANCH], expectedElement.CodeName)) {
+        expectedElement.CodeName = branchMapping[BRANCH][expectedElement.CodeName];
+        if (expectedElement.CodeName === null) {
+          continue;
+        }
+      }
+
       const suffix = expectedElement.isCrated ? ' (crated)' : '';
       it(`contains ${expectedElement.quantity} ${expectedElement.CodeName}${suffix}`, function() {
         const actualElement = this.actualStockpile.contents[index] || {};

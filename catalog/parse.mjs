@@ -391,7 +391,6 @@ function coalesceObject(coreObject) {
 
   const vehicleDynamicProperties = [
     ['ResourceRequirements'],
-    ['ResourceRequirements'],
     ['MaxHealth'],
     ['MinorDamagePercent'],
     ['MajorDamagePercent'],
@@ -423,6 +422,7 @@ function coalesceObject(coreObject) {
     vehicleDynamicValues.ObjectPath = common.vehicleDynamicData.getPath();
     combinedObject.VehicleDynamicData = vehicleDynamicValues;
 
+    /*
     const resources = [];
     for (const entry of Object.entries(vehicleDynamicValues.ResourceRequirements)) {
       if (entry[1] == 0) {
@@ -436,6 +436,7 @@ function coalesceObject(coreObject) {
       });
     }
     vehicleDynamicValues.ResourceRequirements = resources;
+    */
   }
 
   const vehicleProfileProperties = [
@@ -518,6 +519,7 @@ function coalesceObject(coreObject) {
     structureDynamicValues.ObjectPath = common.structureDynamicData.getPath();
     combinedObject.StructureDynamicData = structureDynamicValues;
 
+    /*
     const resources = [];
     for (const entry of Object.entries(structureDynamicValues.ResourceRequirements)) {
       if (entry[1] == 0) {
@@ -531,6 +533,7 @@ function coalesceObject(coreObject) {
       });
     }
     structureDynamicValues.ResourceRequirements = resources;
+    */
   }
 
   const productionCategories = {};
@@ -668,12 +671,14 @@ const common = {
 
 const searchDirectories = [
   'War/Content/Blueprints/ItemPickups/',
+  'War/Content/Blueprints/ItemPickups/Facilities/',
   'War/Content/Blueprints/ItemPickups/LargeResources/',
   'War/Content/Blueprints/ItemPickups/TankAmmo/',
   'War/Content/Blueprints/ItemPickups/Uniforms/',
   'War/Content/Blueprints/Vehicles/',
   'War/Content/Blueprints/Vehicles/ArmoredCar/',
   'War/Content/Blueprints/Vehicles/BattleTanks/',
+  'War/Content/Blueprints/Vehicles/Cranes/',
   'War/Content/Blueprints/Vehicles/DestroyerTank/',
   'War/Content/Blueprints/Vehicles/FieldWeapons/',
   'War/Content/Blueprints/Vehicles/Gunboats/',
@@ -685,8 +690,10 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/MediumTank/',
   'War/Content/Blueprints/Vehicles/MortarTank/',
   'War/Content/Blueprints/Vehicles/Motorcycle/',
+  'War/Content/Blueprints/Vehicles/Rail/',
   'War/Content/Blueprints/Vehicles/ScoutTank/',
   'War/Content/Blueprints/Vehicles/ScoutVehicle/',
+  'War/Content/Blueprints/Vehicles/SuperTank/',
   'War/Content/Blueprints/Vehicles/Tankette/',
   'War/Content/Blueprints/Vehicles/Truck/',
   'War/Content/Blueprints/Structures/',
@@ -731,8 +738,10 @@ for (const directory of searchDirectories) {
           && objectValues.Description
           && objectValues.Icon
           && ((objectValues.TechID || '') != 'ETechID::ETechID_MAX')
-          && (objectValues.ItemCategory || objectValues.VehicleProfileType || objectValues.BuildLocationType)
-          && (!(objectValues.BuildLocationType || '').match(/^EBuildLocationType::(TestShard|Anywhere)$/))) {
+          && (objectValues.ItemCategory
+              || objectValues.VehicleProfileType
+              || (objectValues.BuildLocationType == 'EBuildLocationType::ConstructionYard'))
+          && objectValues.CodeName != 'FieldMultiW') {
         objects.push(objectValues);
         promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }
