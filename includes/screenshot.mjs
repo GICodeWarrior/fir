@@ -57,7 +57,7 @@ function extractStockpile(canvas) {
   const MIN_INVENTORY_WIDTH = 100;
   const MIN_INVENTORY_HEIGHT = 25;
 
-  const MAX_DARK_CHANNEL_CHROMA = 8;
+  const MAX_DARK_CHANNEL_CHROMA = 24;
   const MAX_DARK_PIXEL_LIGHTNESS = 32;
 
   const MAX_MERGE_VARIANCE = 3;
@@ -135,10 +135,31 @@ function extractStockpile(canvas) {
   if (!boxes.length) {
     return undefined;
   }
+
+  let primaryOffset = 0;
+  while (primaryOffset < boxes.length - 1) {
+    let primary = boxes[primaryOffset];
+    let innerOffset = primaryOffset + 1;
+    while (innerOffset < boxes.length) {
+      // if above / below, try merge
+      let inner = boxes[innerOffset];
+      if ((primary.top - MAX_MERGE_VARIANCE <= inner.top) &&
+          (primary.right + MAX_MERGE_VARIANCE >= inner.right) &&
+          (primary.bottom + MAX_MERGE_VARIANCE >= inner.bottom) &&
+          (primary.left - MAX_MERGE_VARIANCE <= inner.left)) {
+        primary.darkStripes += inner.darkStripes;
+        boxes.splice(innerOffset, 1);
+      } else {
+        ++innerOffset;
+      }
+    }
+    ++primaryOffset;
+  }
+
   boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
 
   // Merge overlapping boxes
-  let primaryOffset = 0;
+  primaryOffset = 0;
   while (primaryOffset < boxes.length - 1) {
     let primary = boxes[primaryOffset];
     let innerOffset = primaryOffset + 1;
@@ -161,36 +182,7 @@ function extractStockpile(canvas) {
 
   //check left and right sides are mostly dark
   const MIN_DARK_EDGE_PERCENT = 0.8;
-  boxes = boxes.filter(function(box) {
-    let darkLeft = {};
-    let darkRight = {};
-    for (let row = box.top; row <= box.bottom; ++row) {
-      for (let offset = 0; offset < MAX_MERGE_VARIANCE; ++offset) {
-        const left = box.left + offset;
-        const right = box.right - offset;
-        darkLeft[left] = (darkLeft[left] || 0) + (isDark(pixels, calcRedIndex(row, left, width)) ? 1 : 0);
-        darkRight[right] = (darkRight[right] || 0) + (isDark(pixels, calcRedIndex(row, right, width)) ? 1 : 0);
-      }
-    }
-    const height = box.bottom - box.top + 1;
-
-    box.left = null;
-    for (const [left, count] of Object.entries(darkLeft)) {
-      if (count / height >= MIN_DARK_EDGE_PERCENT) {
-        box.left = parseInt(left, 10);
-        break;
-      }
-    }
-
-    box.right = null;
-    for (const [right, count] of Object.entries(darkRight)) {
-      if (count / height >= MIN_DARK_EDGE_PERCENT) {
-        box.right = parseInt(right, 10);
-      }
-    }
-
-    return box.left !== null && box.right !== null;
-  });
+  boxes = boxes.filter(fitDarkSides.bind(null, width));
   //console.log(JSON.parse(JSON.stringify(boxes)));
 
   // Prefer the box closest to the middle
@@ -219,6 +211,43 @@ function extractStockpile(canvas) {
     return checkPixel(
       pixels[offset], pixels[offset + 1], pixels[offset + 2],
       MAX_DARK_CHANNEL_CHROMA, 0, MAX_DARK_PIXEL_LIGHTNESS);
+  }
+
+  function fitDarkSides(width, box) {
+    const darkLeft = {};
+    const darkRight = {};
+    for (let row = box.top; row <= box.bottom; ++row) {
+      for (let offset = -MAX_MERGE_VARIANCE; offset < MAX_MERGE_VARIANCE; ++offset) {
+        const left = box.left + offset;
+        const right = box.right + offset;
+
+        if (left >= 0) {
+          darkLeft[left] = (darkLeft[left] || 0) + (isDark(pixels, calcRedIndex(row, left, width)) ? 1 : 0);
+        }
+
+        if (right < width) {
+          darkRight[right] = (darkRight[right] || 0) + (isDark(pixels, calcRedIndex(row, right, width)) ? 1 : 0);
+        }
+      }
+    }
+    const height = box.bottom - box.top + 1;
+
+    box.left = null;
+    for (const [left, count] of Object.entries(darkLeft)) {
+      if (count / height >= MIN_DARK_EDGE_PERCENT) {
+        box.left = parseInt(left, 10);
+        break;
+      }
+    }
+
+    box.right = null;
+    for (const [right, count] of Object.entries(darkRight)) {
+      if (count / height >= MIN_DARK_EDGE_PERCENT) {
+        box.right = parseInt(right, 10);
+      }
+    }
+
+    return box.left !== null && box.right !== null;
   }
 }
 
