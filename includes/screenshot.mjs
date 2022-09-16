@@ -61,6 +61,7 @@ function extractStockpile(canvas) {
   const MAX_DARK_PIXEL_LIGHTNESS = 32;
 
   const MAX_MERGE_VARIANCE = 3;
+  const MIN_DARK_EDGE_PERCENT = 0.8;
 
   const width = canvas.width;
   const height = canvas.height;
@@ -136,30 +137,32 @@ function extractStockpile(canvas) {
     return undefined;
   }
 
-  let primaryOffset = 0;
-  while (primaryOffset < boxes.length - 1) {
-    let primary = boxes[primaryOffset];
-    let innerOffset = primaryOffset + 1;
-    while (innerOffset < boxes.length) {
-      // if above / below, try merge
-      let inner = boxes[innerOffset];
-      if ((primary.top - MAX_MERGE_VARIANCE <= inner.top) &&
-          (primary.right + MAX_MERGE_VARIANCE >= inner.right) &&
-          (primary.bottom + MAX_MERGE_VARIANCE >= inner.bottom) &&
-          (primary.left - MAX_MERGE_VARIANCE <= inner.left)) {
-        primary.darkStripes += inner.darkStripes;
-        boxes.splice(innerOffset, 1);
-      } else {
-        ++innerOffset;
+  for (const outer of boxes) {
+    for (const inner of boxes) {
+      if ((outer === inner)
+          || (inner.left > outer.left)
+          || (inner.right < outer.right)) {
+        continue;
+      }
+
+      if (inner.top < outer.top) {
+        const trial = {};
+        Object.assign(trial, outer);
+        trial.top = inner.top;
+
+        if (fitDarkSides(width, trial)) {
+          //console.log(inner, outer, trial);
+          Object.assign(outer, trial);
+        }
       }
     }
-    ++primaryOffset;
   }
+  //console.log(JSON.parse(JSON.stringify(boxes)));
 
   boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
 
   // Merge overlapping boxes
-  primaryOffset = 0;
+  let primaryOffset = 0;
   while (primaryOffset < boxes.length - 1) {
     let primary = boxes[primaryOffset];
     let innerOffset = primaryOffset + 1;
@@ -181,7 +184,6 @@ function extractStockpile(canvas) {
   //console.log(JSON.parse(JSON.stringify(boxes)));
 
   //check left and right sides are mostly dark
-  const MIN_DARK_EDGE_PERCENT = 0.8;
   boxes = boxes.filter(fitDarkSides.bind(null, width));
   //console.log(JSON.parse(JSON.stringify(boxes)));
 
