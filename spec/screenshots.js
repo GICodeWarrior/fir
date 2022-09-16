@@ -46,6 +46,14 @@ for (const expectedStockpile of expectedStockpiles) {
       this.actualStockpile = await Screenshot.process(canvas, ICON_MODEL_URL, ICON_CLASS_NAMES, QUANTITY_MODEL_URL, QUANTITY_CLASS_NAMES);
     }, JASMINE_TIMEOUT);
 
+    const box = expectedStockpile.box;
+    it(`has stockpile box x:${box.x}, y:${box.y}, width:${box.width}, height:${box.height}`, function() {
+      expect(this.actualStockpile.box.x).toBe(expectedStockpile.box.x);
+      expect(this.actualStockpile.box.y).toBe(expectedStockpile.box.y);
+      expect(this.actualStockpile.box.width).toBe(expectedStockpile.box.width);
+      expect(this.actualStockpile.box.height).toBe(expectedStockpile.box.height);
+    });
+
     if (expectedStockpile.header.type) {
       it(`has structure type ${expectedStockpile.header.type}`, function() {
         expect(this.actualStockpile.header.type).toBe(expectedStockpile.header.type);

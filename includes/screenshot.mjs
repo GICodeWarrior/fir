@@ -177,7 +177,7 @@ function extractStockpile(canvas) {
     box.left = null;
     for (const [left, count] of Object.entries(darkLeft)) {
       if (count / height >= MIN_DARK_EDGE_PERCENT) {
-        box.left = left;
+        box.left = parseInt(left, 10);
         break;
       }
     }
@@ -185,11 +185,11 @@ function extractStockpile(canvas) {
     box.right = null;
     for (const [right, count] of Object.entries(darkRight)) {
       if (count / height >= MIN_DARK_EDGE_PERCENT) {
-        box.right = right
+        box.right = parseInt(right, 10);
       }
     }
 
-    return box.left && box.right;
+    return box.left !== null && box.right !== null;
   });
   //console.log(JSON.parse(JSON.stringify(boxes)));
 

@@ -418,6 +418,12 @@ function getProcessImage(label, lastModified) {
       window.stockpilesJSON = JSON.stringify(stockpiles.map(function(s) {
         return {
           file: s.label.textContent.trim(),
+          box: {
+            x: s.box.x,
+            y: s.box.y,
+            width: s.box.width,
+            height: s.box.height,
+          },
           header: {
             type: s.header.type || null,
             name: s.header.name || null,
