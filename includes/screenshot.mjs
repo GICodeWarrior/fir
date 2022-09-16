@@ -132,87 +132,88 @@ function extractStockpile(canvas) {
   }
   //console.log(JSON.parse(JSON.stringify(boxes)));
 
-  boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
-  if (boxes.length) {
-    // Merge overlapping boxes
-    let primaryOffset = 0;
-    while (primaryOffset < boxes.length - 1) {
-      let primary = boxes[primaryOffset];
-      let innerOffset = primaryOffset + 1;
-      while (innerOffset < boxes.length) {
-        let inner = boxes[innerOffset];
-        if ((primary.top - MAX_MERGE_VARIANCE <= inner.top) &&
-            (primary.right + MAX_MERGE_VARIANCE >= inner.right) &&
-            (primary.bottom + MAX_MERGE_VARIANCE >= inner.bottom) &&
-            (primary.left - MAX_MERGE_VARIANCE <= inner.left)) {
-          primary.darkStripes += inner.darkStripes;
-          boxes.splice(innerOffset, 1);
-        } else {
-          ++innerOffset;
-        }
-      }
-      ++primaryOffset;
-    }
-    boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
-    //console.log(JSON.parse(JSON.stringify(boxes)));
-
-    //check left and right sides are mostly dark
-    const MIN_DARK_EDGE_PERCENT = 0.8;
-    boxes = boxes.filter(function(box) {
-      let darkLeft = {};
-      let darkRight = {};
-      for (let row = box.top; row <= box.bottom; ++row) {
-        for (let offset = 0; offset < MAX_MERGE_VARIANCE; ++offset) {
-          const left = box.left + offset;
-          const right = box.right - offset;
-          darkLeft[left] = (darkLeft[left] || 0) + (isDark(pixels, calcRedIndex(row, left, width)) ? 1 : 0);
-          darkRight[right] = (darkRight[right] || 0) + (isDark(pixels, calcRedIndex(row, right, width)) ? 1 : 0);
-        }
-      }
-      const height = box.bottom - box.top + 1;
-
-      box.left = null;
-      for (const [left, count] of Object.entries(darkLeft)) {
-        if (count / height >= MIN_DARK_EDGE_PERCENT) {
-          box.left = left;
-          break;
-        }
-      }
-
-      box.right = null;
-      for (const [right, count] of Object.entries(darkRight)) {
-        if (count / height >= MIN_DARK_EDGE_PERCENT) {
-          box.right = right
-        }
-      }
-
-      return box.left && box.right;
-    });
-    //console.log(JSON.parse(JSON.stringify(boxes)));
-
-    // Prefer the box closest to the middle
-    const middle = Math.round(width / 2);
-    boxes.sort((a, b) => Math.abs(a.left - middle) - Math.abs(b.left - middle));
-    const box = boxes[0];
-
-    // Prefer the box with the most dark stripes by volume
-    //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
-    //const box = boxes[0];
-
-    if (!box) {
-      return undefined;
-    }
-
-    return {
-      box: {
-        x: box.left,
-        y: box.top,
-        width: box.right - box.left + 1,
-        height: box.bottom - box.top + 1,
-      }
-    };
+  if (!boxes.length) {
+    return undefined;
   }
-  return undefined;
+  boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
+
+  // Merge overlapping boxes
+  let primaryOffset = 0;
+  while (primaryOffset < boxes.length - 1) {
+    let primary = boxes[primaryOffset];
+    let innerOffset = primaryOffset + 1;
+    while (innerOffset < boxes.length) {
+      let inner = boxes[innerOffset];
+      if ((primary.top - MAX_MERGE_VARIANCE <= inner.top) &&
+          (primary.right + MAX_MERGE_VARIANCE >= inner.right) &&
+          (primary.bottom + MAX_MERGE_VARIANCE >= inner.bottom) &&
+          (primary.left - MAX_MERGE_VARIANCE <= inner.left)) {
+        primary.darkStripes += inner.darkStripes;
+        boxes.splice(innerOffset, 1);
+      } else {
+        ++innerOffset;
+      }
+    }
+    ++primaryOffset;
+  }
+  boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
+  //console.log(JSON.parse(JSON.stringify(boxes)));
+
+  //check left and right sides are mostly dark
+  const MIN_DARK_EDGE_PERCENT = 0.8;
+  boxes = boxes.filter(function(box) {
+    let darkLeft = {};
+    let darkRight = {};
+    for (let row = box.top; row <= box.bottom; ++row) {
+      for (let offset = 0; offset < MAX_MERGE_VARIANCE; ++offset) {
+        const left = box.left + offset;
+        const right = box.right - offset;
+        darkLeft[left] = (darkLeft[left] || 0) + (isDark(pixels, calcRedIndex(row, left, width)) ? 1 : 0);
+        darkRight[right] = (darkRight[right] || 0) + (isDark(pixels, calcRedIndex(row, right, width)) ? 1 : 0);
+      }
+    }
+    const height = box.bottom - box.top + 1;
+
+    box.left = null;
+    for (const [left, count] of Object.entries(darkLeft)) {
+      if (count / height >= MIN_DARK_EDGE_PERCENT) {
+        box.left = left;
+        break;
+      }
+    }
+
+    box.right = null;
+    for (const [right, count] of Object.entries(darkRight)) {
+      if (count / height >= MIN_DARK_EDGE_PERCENT) {
+        box.right = right
+      }
+    }
+
+    return box.left && box.right;
+  });
+  //console.log(JSON.parse(JSON.stringify(boxes)));
+
+  // Prefer the box closest to the middle
+  const middle = Math.round(width / 2);
+  boxes.sort((a, b) => Math.abs(a.left - middle) - Math.abs(b.left - middle));
+  const box = boxes[0];
+
+  // Prefer the box with the most dark stripes by volume
+  //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
+  //const box = boxes[0];
+
+  if (!box) {
+    return undefined;
+  }
+
+  return {
+    box: {
+      x: box.left,
+      y: box.top,
+      width: box.right - box.left + 1,
+      height: box.bottom - box.top + 1,
+    }
+  };
 
   function isDark(pixels, offset) {
     return checkPixel(
