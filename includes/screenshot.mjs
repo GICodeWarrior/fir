@@ -57,7 +57,7 @@ function extractStockpile(canvas) {
   const MIN_INVENTORY_WIDTH = 100;
   const MIN_INVENTORY_HEIGHT = 25;
 
-  const MAX_DARK_CHANNEL_SATURATION = 16;
+  const MAX_DARK_CHANNEL_CHROMA = 8;
   const MAX_DARK_PIXEL_LIGHTNESS = 32;
 
   const MAX_MERGE_VARIANCE = 3;
@@ -130,6 +130,7 @@ function extractStockpile(canvas) {
       darkStripes: stripesCount,
     });
   }
+  //console.log(JSON.parse(JSON.stringify(boxes)));
 
   boxes.sort((a, b) => (b.right - b.left + 1) * (b.bottom - b.top + 1) - (a.right - a.left + 1) * (a.bottom - a.top + 1));
   if (boxes.length) {
@@ -153,6 +154,7 @@ function extractStockpile(canvas) {
       ++primaryOffset;
     }
     boxes = boxes.filter(b => b.bottom - b.top >= MIN_INVENTORY_HEIGHT);
+    //console.log(JSON.parse(JSON.stringify(boxes)));
 
     //check left and right sides are mostly dark
     const MIN_DARK_EDGE_PERCENT = 0.8;
@@ -186,6 +188,7 @@ function extractStockpile(canvas) {
 
       return box.left && box.right;
     });
+    //console.log(JSON.parse(JSON.stringify(boxes)));
 
     // Prefer the box closest to the middle
     const middle = Math.round(width / 2);
@@ -195,6 +198,10 @@ function extractStockpile(canvas) {
     // Prefer the box with the most dark stripes by volume
     //boxes.sort((a, b) => (b.darkStripes / (b.bottom - b.top)) - (a.darkStripes / (a.bottom - a.top)));
     //const box = boxes[0];
+
+    if (!box) {
+      return undefined;
+    }
 
     return {
       box: {
@@ -210,7 +217,7 @@ function extractStockpile(canvas) {
   function isDark(pixels, offset) {
     return checkPixel(
       pixels[offset], pixels[offset + 1], pixels[offset + 2],
-      MAX_DARK_CHANNEL_SATURATION, 0, MAX_DARK_PIXEL_LIGHTNESS);
+      MAX_DARK_CHANNEL_CHROMA, 0, MAX_DARK_PIXEL_LIGHTNESS);
   }
 }
 
@@ -222,7 +229,7 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   const MIN_QUANTITY_HEIGHT = 25;
   const MAX_QUANTITY_HEIGHT = 70;
 
-  const MAX_GREY_SATURATION = 16;
+  const MAX_GREY_CHROMA = 16;
   const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
   const width = canvas.width;
@@ -236,7 +243,7 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   const MAX_GREY = 224;
   const greys = {};
   for (let offset = 0; offset < pixels.length; offset += 4) {
-    const value = Math.round(getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
+    const value = Math.round(getCL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
     if ((value >= MIN_GREY) && (value <= MAX_GREY)) {
       greys[value] = (greys[value] || 0) + 1;
     }
@@ -334,12 +341,12 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   }
 
   function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_SATURATION, QUANTITY_GREY_VALUE, MAX_GREY_LIGHTNESS_VARIANCE);
+    return checkPixel(r, g, b, MAX_GREY_CHROMA, QUANTITY_GREY_VALUE, MAX_GREY_LIGHTNESS_VARIANCE);
   }
 }
 
 async function extractHeader(canvas, height, quantityWidth) {
-  const MAX_GREY_SATURATION = 16;
+  const MAX_GREY_CHROMA = 16;
   const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
   const width = canvas.width;
@@ -349,7 +356,7 @@ async function extractHeader(canvas, height, quantityWidth) {
   const histogram = {};
   for (let offset = 0; offset < pixels.length; offset += 4) {
     //const value = Math.round((0.299 * pixels[offset]) + (0.587 * pixels[offset + 1]) + (0.114 * pixels[offset + 2]));
-    const value = Math.round(getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
+    const value = Math.round(getCL(pixels[offset], pixels[offset + 1], pixels[offset + 2]).lightness);
     histogram[value] ||= 0;
     histogram[value] += 1;
   }
@@ -386,8 +393,8 @@ async function extractHeader(canvas, height, quantityWidth) {
     }
 
     if (offset >= expectTab) {
-      const sl = getSL(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
-      if ((sl.saturation < MAX_GREY_SATURATION) && (sl.lightness < darkValueCutoff)) {
+      const sl = getCL(pixels[offset], pixels[offset + 1], pixels[offset + 2]);
+      if ((sl.chroma < MAX_GREY_CHROMA) && (sl.lightness < darkValueCutoff)) {
         tabStart = (offset - scanStart) / 4;
         break;
       }
@@ -430,7 +437,7 @@ async function extractHeader(canvas, height, quantityWidth) {
   return result;
 
   function isGrey(r, g, b) {
-    return checkPixel(r, g, b, MAX_GREY_SATURATION, greyValue, MAX_GREY_LIGHTNESS_VARIANCE);
+    return checkPixel(r, g, b, MAX_GREY_CHROMA, greyValue, MAX_GREY_LIGHTNESS_VARIANCE);
   }
 }
 
@@ -613,17 +620,17 @@ function calcRedIndex(row, col, width) {
   return (col * 4) + (row * width * 4);
 }
 
-function getSL(r, g, b) {
+function getCL(r, g, b) {
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   return {
-    saturation: max > 0 ? (max - min) / max : 0,
+    chroma: max - min,
     lightness: (max + min) / 2,
   };
 }
 
-function checkPixel(r, g, b, max_saturation, desired_lightness, lightness_variance) {
-  const sl = getSL(r, g, b);
-  return (sl.saturation <= max_saturation) &&
-    (Math.abs(sl.lightness - desired_lightness) < lightness_variance);
+function checkPixel(r, g, b, max_chroma, desired_lightness, lightness_variance) {
+  const cl = getCL(r, g, b);
+  return (cl.chroma <= max_chroma) &&
+    (Math.abs(cl.lightness - desired_lightness) < lightness_variance);
 }
