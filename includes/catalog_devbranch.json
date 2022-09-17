@@ -1951,7 +1951,7 @@
           "Quantity": 0
         }
       ],
-      "QuantityPerCrate": 2,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 5,
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 5,
@@ -1964,7 +1964,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -2216,7 +2216,7 @@
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameBackpackWPickup",
     "CodeName": "FlameBackpackW",
     "ChassisName": "Willow's Bane Ammo",
-    "DisplayName": "Willow’s Bane Ammo",
+    "DisplayName": "Flamethrower Ammo",
     "Description": "Ammo for Willow’s Bane Model 845",
     "Encumbrance": 300,
     "EquipmentSlot": "EEquipmentSlot::Utility",
@@ -3916,7 +3916,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -8445,7 +8445,7 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 2,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 15,
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 3,
@@ -8458,7 +8458,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -8486,7 +8486,7 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 2,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 15,
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 3,
@@ -8499,7 +8499,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -8565,7 +8565,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -8681,7 +8681,7 @@
       "bIsStockpiledWithAmmo": true,
       "bUsableInVehicle": false,
       "StackTransferLimit": 2,
-      "RetrieveQuantity": 2,
+      "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     }
@@ -11127,7 +11127,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 195,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 15,
+      "ItemHolderCapacity": 11,
       "FuelCapacity": 300,
       "FuelConsumptionPerSecond": 0.7,
       "SwimmingFuelConsumptionModifier": 1,
@@ -11193,7 +11193,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 210,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 15,
+      "ItemHolderCapacity": 11,
       "FuelCapacity": 300,
       "FuelConsumptionPerSecond": 0.75,
       "SwimmingFuelConsumptionModifier": 1,
@@ -11787,7 +11787,7 @@
     "CodeName": "FieldCannonLargeW",
     "ChassisName": "Field Gun",
     "DisplayName": "Balfour Stockade 75mm",
-    "Description": "This Robust field cannon not only allows infantry to fire heavy 75mm shells with ease, but it provides state-of-the-art curved blast shielding for maximum protection from crossfire.",
+    "Description": "This robust field cannon not only allows infantry to fire heavy 75mm shells with ease, but it provides state-of-the-art curved blast shielding for maximum protection from crossfire.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFacilityTier3",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldCannonHeavyWIcon.0",
@@ -12116,6 +12116,70 @@
     },
     "ProductionCategories": {
       "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldMultiW",
+    "CodeName": "FieldMultiW",
+    "ChassisName": "Field Launcher",
+    "DisplayName": "Rycker 4/3-F Wasp Nest",
+    "Description": "Lyle Rycker first built a prototype of the Wasp Nest as a test for his rack mounted rocket batteries that would eventually find their way onto armoured vehicles. Capable of firing twelve compact rockets in quick succession, the Wasp Nest became a quick favourite of the Warden infantry testing it, so an official design was requisitioned.",
+    "FactionVariant": "EFactionId::Wardens",
+    "TechID": "ETechID::UnlockFacilityTier2",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/FieldMultiWItemIcon.0",
+    "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
+    "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
+    "ArmourType": "EArmourType::Tier1Tank",
+    "ShippableInfo": "EShippableType::Normal",
+    "DepthCuttoffForSwimDamage": 235,
+    "VehicleDynamicData": {
+      "MaxHealth": 1000,
+      "MinorDamagePercent": 0.7,
+      "MajorDamagePercent": 0.9,
+      "RepairCost": 100,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 1,
+      "FuelCapacity": 100,
+      "FuelConsumptionPerSecond": 0,
+      "SwimmingFuelConsumptionModifier": 1,
+      "DefaultSurfaceMovementRate": 0.6,
+      "OffroadSnowPenalty": 1,
+      "ReverseSpeedModifier": 0.5,
+      "RotationRate": 0.25,
+      "RotationSpeedCuttoff": -1,
+      "SpeedSqrThreshold": 600,
+      "EngineForce": 3200,
+      "MassOverride": 0,
+      "TankArmour": 0,
+      "MinTankArmourPercent": 0,
+      "TankArmourMinPenetrationChance": 0,
+      "VehicleSubsystemDisableChances": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": false,
+      "bCanUseStructures": false,
+      "RamDamageDealtFlags": 0,
+      "bUsesGas": false,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 17.5,
+      "bEnableStealth": true,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 750,
+      "BrakeForce": 2000,
+      "HandbrakeForce": 0,
+      "AirResistance": 30,
+      "RollingResistance": 1000,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
     }
   },
   {
@@ -12680,9 +12744,9 @@
   {
     "ObjectPath": "War/Content/Blueprints/Vehicles/Halftrack/HalftrackMultiW",
     "CodeName": "HalftrackMultiW",
-    "ChassisName": "Halftrack",
+    "ChassisName": "Half-Track",
     "DisplayName": "Niska-Rycker Mk. IX Skycaller",
-    "Description": "A first of its kind, the Skycaller is a variation of the Niska Motor Carriage with a Rycker designed rocket battery fitted in the rear bed. This unique armoured vehicle quickly fires rockets long distances with ease, and can be rearmed and relocated at the drop of a hat. The Skycaller is the deadly result of combined Nevish and Caoivish engineering.",
+    "Description": "A first of its kind, the Skycaller is a variation of the Niska Motor Carriage with a Rycker designed rocket battery fitted in the rear bed. This unique armoured vehicle quickly fires rockets over long distances with ease, and can be rearmed and relocated at the drop of a hat. The Skycaller is the deadly result of combined Nevish and Caoivish engineering.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockHalfTrackMulti",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HalftrackMultiWIcon.0",
@@ -12981,10 +13045,10 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/LightTank/BPLightTankC",
     "CodeName": "LightTankC",
     "ChassisName": "Light Tank",
+    "DisplayName": "H-5 \"Hatchet\"",
     "Description": "A highly maneuverable lightweight tank. Designed for urban environments, the “Hatchet” is fitted with a 40mm cannon.",
     "FuelTank": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
-    "DisplayName": "H5 \"Hatchet\"",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockLightTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankColVehicleIcon.0",
@@ -14745,7 +14809,7 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/MediumTank/BPMediumTankLargeC",
     "CodeName": "MediumTankLargeC",
     "DisplayName": "85V-g \"Talos\"",
-    "Description": "The Talos is a Velian modification to the 85-series, fitted with an oversized 75mm cannon. Knowing that such a heavy cannon would likely not be suitable, the engineers built it to disperse weight in such a manner that the 85-series chassis could bear it.",
+    "Description": "The \"Talos\" is a Velian modification to the 85-series, fitted with an oversized 75mm cannon. Knowing that such a heavy cannon would likely not be suitable, the engineers built it to disperse weight in such a manner that the 85-series chassis could bear it.",
     "TechID": "ETechID::UnlockFacilityTier3",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTankLargeCIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
@@ -15359,7 +15423,7 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.25,
@@ -15667,7 +15731,7 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.25,
@@ -15730,7 +15794,7 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
       "MaxHealth": 3250,
       "MinorDamagePercent": 0.25,
@@ -15792,7 +15856,7 @@
     "VehicleProfileType": "EVehicleProfileType::Rail",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
       "MaxHealth": 2500,
       "MinorDamagePercent": 0.25,
@@ -15911,12 +15975,12 @@
     "ChassisName": "Infantry Car",
     "DisplayName": "BMS Holdout",
     "Description": "An armoured train car with two mounted machinegun positions for transporting infantry safely over long distances.",
-    "TechID": "ETechID::UnlockFacilityTier3",
+    "TechID": "ETechID::UnlockTrainEngine",
     "Icon": "War/Content/Textures/UI/VehicleIcons/InfantryCarVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
       "MaxHealth": 3250,
       "MinorDamagePercent": 0.25,
@@ -16513,7 +16577,7 @@
       "MajorDamagePercent": 0.75,
       "RepairCost": 235,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 1,
+      "ItemHolderCapacity": 20,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 1,
       "SwimmingFuelConsumptionModifier": 1,
@@ -16566,7 +16630,7 @@
     "TechID": "ETechID::UnlockSuperTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/SuperTankWVehicleIcon.0",
     "ShippableInfo": "EShippableType::None",
-    "FuelTank": 250,
+    "FuelTank": 600,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
@@ -16579,7 +16643,7 @@
       "MajorDamagePercent": 0.75,
       "RepairCost": 235,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
+      "ItemHolderCapacity": 22,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 1,
       "SwimmingFuelConsumptionModifier": 1,

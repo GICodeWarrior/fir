@@ -567,7 +567,7 @@ async function writePNG(canvas, file) {
 
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
-async function drawIcon(objectValues, size, cache, modName) {
+async function drawIcon(objectValues, size, smear, cache, modName) {
   const canvas = createCanvas(size, size);
   const context = canvas.getContext('2d');
   context.fillRect(0, 0, size, size);
@@ -583,14 +583,15 @@ async function drawIcon(objectValues, size, cache, modName) {
 
     cache.icon = await loadImage(iconFile);
   }
-  context.drawImage(cache.icon, 0, 0, size, size);
+  context.drawImage(cache.icon, 0, 0, size + smear, size);
 
   if (objectValues.SubTypeIcon) {
     cache.subTypeIcon ||= await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
-    const cornerSize = size * CORNER_ICON_RATIO;
+    const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
+    const cornerHeight = size * CORNER_ICON_RATIO;
 
     context.globalAlpha = CORNER_ICON_ALPHA;
-    context.drawImage(cache.subTypeIcon, 0, 0, cornerSize, cornerSize);
+    context.drawImage(cache.subTypeIcon, 0, 0, cornerWidth, cornerHeight);
     context.globalAlpha = 1;
   }
 
@@ -598,35 +599,39 @@ async function drawIcon(objectValues, size, cache, modName) {
 }
 
 const CRATE_ICON = loadImage('War/Content/Textures/UI/Menus/IconFilterCrates.png');
-async function addCrate(canvas) {
+async function addCrate(canvas, smear) {
   const size = canvas.width;
-  const cornerSize = size * CORNER_ICON_RATIO;
-  const crateOffset = size - cornerSize;
+
+  const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
+  const cornerHeight = size * CORNER_ICON_RATIO;
+
+  const crateOffsetX = (size + smear) - cornerWidth;
+  const crateOffsetY = size - cornerHeight;
 
   const context = canvas.getContext('2d');
   context.globalAlpha = CORNER_ICON_ALPHA;
-  context.drawImage(await CRATE_ICON, crateOffset, crateOffset, cornerSize, cornerSize);
+  context.drawImage(await CRATE_ICON, crateOffsetX, crateOffsetY, cornerWidth, cornerHeight);
   context.globalAlpha = 1;
 }
 
-async function writeTrainingPNG(objectValues, baseName, size, cache, modName) {
-  const canvas = await drawIcon(objectValues, size, cache, modName);
+async function writeTrainingPNG(objectValues, baseName, size, smear, cache, modName) {
+  const canvas = await drawIcon(objectValues, size, smear, cache, modName);
   if (!canvas) {
     return;
   }
   modName = modName ? `${modName}-` : '';
 
   await fs.promises.mkdir(baseName, {recursive: true});
-  await writePNG(canvas, `${baseName}/${modName}${size}.png`);
+  await writePNG(canvas, `${baseName}/${modName}${size}-${smear}.png`);
 
-  await addCrate(canvas);
+  await addCrate(canvas, smear);
   await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
-  await writePNG(canvas, `${baseName}-crated/${modName}${size}.png`);
+  await writePNG(canvas, `${baseName}-crated/${modName}${size}-${smear}.png`);
 }
 
 async function writeTrainingPNGs(objectValues, destination) {
-  const smallestSize = 28;
-  const largestSize = 72;
+  const smallestSize = 25; // 26-27 at 1600x900
+  const largestSize = 72; // 64 at 4k
   const baseName = `${destination}/${objectValues.CodeName}`;
 
   const mods = fs.readdirSync('mod-files/')
@@ -637,7 +642,8 @@ async function writeTrainingPNGs(objectValues, destination) {
   for (const modName of mods) {
     const cache = {};
     for (let size = smallestSize; size <= largestSize; ++size) {
-      promises.push(writeTrainingPNG(objectValues, baseName, size, cache, modName));
+      promises.push(writeTrainingPNG(objectValues, baseName, size, 0, cache, modName));
+      promises.push(writeTrainingPNG(objectValues, baseName, size, 1, cache, modName));
     }
   }
 
@@ -740,8 +746,7 @@ for (const directory of searchDirectories) {
           && ((objectValues.TechID || '') != 'ETechID::ETechID_MAX')
           && (objectValues.ItemCategory
               || objectValues.VehicleProfileType
-              || (objectValues.BuildLocationType == 'EBuildLocationType::ConstructionYard'))
-          && objectValues.CodeName != 'FieldMultiW') {
+              || (objectValues.BuildLocationType == 'EBuildLocationType::ConstructionYard'))) {
         objects.push(objectValues);
         promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }

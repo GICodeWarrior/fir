@@ -23,7 +23,7 @@ buildClassifier() {
   cd trainer
   pipenv install
 
-  pipenv run python train.py 59 rgb 0.5 0.005 ../catalog/training/
+  pipenv run python train.py 10 rgb 0.05 0.01 ../catalog/training/
 
   rm -r ../includes/classifier"${branch}" || true
   mkdir -p ../includes/classifier"${branch}"

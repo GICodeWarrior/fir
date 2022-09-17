@@ -223,52 +223,7 @@
                     "size": "1024"
                   },
                   {
-                    "size": "128"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "name": "StatefulPartitionedCall/sequential/dense/MatMul/ReadVariableOp",
-        "op": "Const"
-      },
-      {
-        "attr": {
-          "dtype": {
-            "type": "DT_FLOAT"
-          },
-          "value": {
-            "tensor": {
-              "dtype": "DT_FLOAT",
-              "tensorShape": {
-                "dim": [
-                  {
-                    "size": "128"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "name": "StatefulPartitionedCall/sequential/dense/BiasAdd/ReadVariableOp",
-        "op": "Const"
-      },
-      {
-        "attr": {
-          "dtype": {
-            "type": "DT_FLOAT"
-          },
-          "value": {
-            "tensor": {
-              "dtype": "DT_FLOAT",
-              "tensorShape": {
-                "dim": [
-                  {
-                    "size": "128"
-                  },
-                  {
-                    "size": "578"
+                    "size": "580"
                   }
                 ]
               }
@@ -289,7 +244,7 @@
               "tensorShape": {
                 "dim": [
                   {
-                    "size": "578"
+                    "size": "580"
                   }
                 ]
               }
@@ -325,27 +280,6 @@
         },
         "name": "rescaling_input",
         "op": "Placeholder"
-      },
-      {
-        "attr": {
-          "dtype": {
-            "type": "DT_FLOAT"
-          },
-          "value": {
-            "tensor": {
-              "dtype": "DT_FLOAT",
-              "tensorShape": {
-                "dim": [
-                  {
-                    "size": "32"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
-        "op": "Const"
       },
       {
         "attr": {
@@ -450,6 +384,27 @@
           }
         },
         "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Scaled",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
         "op": "Const"
       },
       {
@@ -889,41 +844,6 @@
           "fused_ops": {
             "list": {
               "s": [
-                "Qmlhc0FkZA==",
-                "UmVsdQ=="
-              ]
-            }
-          },
-          "num_args": {
-            "i": "1"
-          },
-          "transpose_a": {
-            "b": false
-          },
-          "transpose_b": {
-            "b": false
-          }
-        },
-        "device": "/device:CPU:0",
-        "input": [
-          "StatefulPartitionedCall/sequential/flatten/Reshape",
-          "StatefulPartitionedCall/sequential/dense/MatMul/ReadVariableOp",
-          "StatefulPartitionedCall/sequential/dense/BiasAdd/ReadVariableOp"
-        ],
-        "name": "StatefulPartitionedCall/sequential/dense/Relu",
-        "op": "_FusedMatMul"
-      },
-      {
-        "attr": {
-          "T": {
-            "type": "DT_FLOAT"
-          },
-          "epsilon": {
-            "f": 0.0
-          },
-          "fused_ops": {
-            "list": {
-              "s": [
                 "Qmlhc0FkZA=="
               ]
             }
@@ -940,7 +860,7 @@
         },
         "device": "/device:CPU:0",
         "input": [
-          "StatefulPartitionedCall/sequential/dense/Relu",
+          "StatefulPartitionedCall/sequential/flatten/Reshape",
           "StatefulPartitionedCall/sequential/outputs/MatMul/ReadVariableOp",
           "StatefulPartitionedCall/sequential/outputs/BiasAdd/ReadVariableOp"
         ],
@@ -997,7 +917,7 @@
               "size": "-1"
             },
             {
-              "size": "578"
+              "size": "580"
             }
           ]
         }
@@ -1080,39 +1000,17 @@
         },
         {
           "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential/dense/MatMul/ReadVariableOp",
-          "shape": [
-            1024,
-            128
-          ]
-        },
-        {
-          "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential/dense/BiasAdd/ReadVariableOp",
-          "shape": [
-            128
-          ]
-        },
-        {
-          "dtype": "float32",
           "name": "StatefulPartitionedCall/sequential/outputs/MatMul/ReadVariableOp",
           "shape": [
-            128,
-            578
+            1024,
+            580
           ]
         },
         {
           "dtype": "float32",
           "name": "StatefulPartitionedCall/sequential/outputs/BiasAdd/ReadVariableOp",
           "shape": [
-            578
-          ]
-        },
-        {
-          "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
-          "shape": [
-            32
+            580
           ]
         },
         {
@@ -1146,6 +1044,13 @@
         {
           "dtype": "float32",
           "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Scaled",
+          "shape": [
+            32
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential/batch_normalization_1/FusedBatchNormV3/Offset",
           "shape": [
             32
           ]

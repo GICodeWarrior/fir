@@ -80,7 +80,7 @@ model = Sequential([
   layers.BatchNormalization(),
   layers.Dropout(DROPOUT),
   layers.Flatten(),
-  layers.Dense(128, activation='relu'),
+#  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
   layers.Dense(output_dim, name='outputs')
 ])
 
