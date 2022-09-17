@@ -237,7 +237,7 @@ export async function addAppendGoogleListener(appendGoogle) {
     for (const stockpile of stockpiles) {
       const stockpileTime = new Date(stockpile.lastModified);
       //const stockpileID = Math.random().toString(36).replace(/^0\./, '');
-      const stockpileID = Math.floor(Math.random() * 10000000000000000);
+      const stockpileID = Math.floor(Math.random() * 1000000000000000);
       for (const element of stockpile.contents) {
         if (element.quantity == 0) {
           continue;
@@ -259,7 +259,7 @@ export async function addAppendGoogleListener(appendGoogle) {
             stringValue(details.DisplayName),
             numberValue(element.quantity),
             { userEnteredValue: { boolValue: element.isCrated } },
-            stringValue(stockpileID),
+            numberValue(stockpileID),
           ],
         });
       }
