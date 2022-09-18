@@ -23,6 +23,8 @@ buildClassifier() {
   cd trainer
   pipenv install
 
+  [ -e /usr/lib/wsl/lib/libcuda.so ] && export LD_LIBRARY_PATH=/usr/lib/wsl/lib
+
   pipenv run python train.py 10 rgb 0.05 0.01 ../catalog/training/
 
   rm -r ../includes/classifier"${branch}" || true
