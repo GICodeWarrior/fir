@@ -244,9 +244,6 @@ export async function addAppendGoogleListener(appendGoogle) {
         }
 
         const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
-        const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
-            + (details.VehiclesPerCrateBonusQuantity || 0);
-        const perUnit = element.isCrated ? perCrate : 1;
 
         rows.push({
           values: [
@@ -280,8 +277,13 @@ export async function addAppendGoogleListener(appendGoogle) {
       return { userEnteredValue: { numberValue: value }, ...other };
     }
 
-    const sheetId = ((sheet || {}).properties || {}).sheetId ||  Math.floor(Math.random() * 1000000000);
-    if (!sheet) {
+    let sheetId;
+    if (sheet) {
+      sheetId = sheet.properties.sheetId;
+    }
+    else {
+      sheetId = Math.floor(Math.random() * 1000000000);
+
       const addSheetResponse = await gapi.client.sheets.spreadsheets.batchUpdate({
         spreadsheetId: spreadsheetId,
       }, {
@@ -469,6 +471,11 @@ function outputTotals() {
 
       if (!totals[key]) {
         const catalogItem = res.CATALOG.find(e=>e.CodeName == element.CodeName);
+        if (!catalogItem) {
+          console.log(`${element.CodeName} missing from catalog`);
+          continue;
+        }
+
         const itemCategory = (catalogItem.ItemCategory || '').replace(/^EItemCategory::/, '');
         const vehicleCategory = catalogItem.VehicleProfileType ? 'Vehicles' : undefined;
         const structureCategory = catalogItem.BuildLocationType ? 'Structures' : undefined;
