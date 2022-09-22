@@ -195,7 +195,7 @@ function numberValue(value, other) {
   return { userEnteredValue: { numberValue: value }, ...other };
 }
 
-export function getAppendGoogleRows() {
+export function getAppendGoogleRows(format="gapi") {
   const exportTime = new Date();
   const rows = [];
   stockpiles.sort( (a, b) => a.lastModified - b.lastModified );
@@ -210,20 +210,37 @@ export function getAppendGoogleRows() {
 
       const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
 
-      rows.push({
-        values: [
-          dateValue(exportTime),
-          dateValue(stockpileTime),
-          stringValue(stockpile.header.type || ''),
-          stringValue(stockpile.header.name || ''),
-          stringValue(stockpile.label.textContent.trim()),
-          stringValue(element.CodeName),
-          stringValue(details.DisplayName),
-          numberValue(element.quantity),
-          { userEnteredValue: { boolValue: element.isCrated } },
-          numberValue(stockpileID),
-        ],
-      });
+      if (format == "gapi") {
+        rows.push({
+          values: [
+            dateValue(exportTime),
+            dateValue(stockpileTime),
+            stringValue(stockpile.header.type || ''),
+            stringValue(stockpile.header.name || ''),
+            stringValue(stockpile.label.textContent.trim()),
+            stringValue(element.CodeName),
+            stringValue(details.DisplayName),
+            numberValue(element.quantity),
+            { userEnteredValue: { boolValue: element.isCrated } },
+            numberValue(stockpileID),
+          ],
+        });
+      } else if (format == "google-script") {
+        rows.push([
+          exportTime.toString(),
+          stockpileTime.toString(),
+          stockpile.header.type || '',
+          stockpile.header.name || '',
+          stockpile.label.textContent.trim(),
+          element.CodeName,
+          details.DisplayName,
+          element.quantity,
+          element.isCrated,
+          stockpileID,
+        ]);
+      } else {
+        console.error("Unexpected format");
+      }
     }
   }
   return rows;
