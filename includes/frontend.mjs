@@ -177,6 +177,58 @@ export function addDownloadTSVListener(downloadTSV) {
   });
 }
 
+function stringValue(value, other) {
+  return { userEnteredValue: { stringValue: value }, ...other };
+}
+
+function dateValue(date) {
+  // Courtesy of https://stackoverflow.com/a/64814390
+  const SheetDate = {
+    origin: Date.UTC(1899, 11, 30, 0, 0, 0, 0),
+    dayToMs: 24 * 60 * 60 * 1000,
+  };
+  const serial = (date.getTime() - SheetDate.origin) / SheetDate.dayToMs;
+  return numberValue(serial, { userEnteredFormat: { numberFormat: { type: 'DATE_TIME' } } });
+}
+
+function numberValue(value, other) {
+  return { userEnteredValue: { numberValue: value }, ...other };
+}
+
+export function getAppendGoogleRows() {
+  const exportTime = new Date();
+  const rows = [];
+  stockpiles.sort( (a, b) => a.lastModified - b.lastModified );
+  for (const stockpile of stockpiles) {
+    const stockpileTime = new Date(stockpile.lastModified);
+    //const stockpileID = Math.random().toString(36).replace(/^0\./, '');
+    const stockpileID = Math.floor(Math.random() * 1000000000000000);
+    for (const element of stockpile.contents) {
+      if (element.quantity == 0) {
+        continue;
+      }
+
+      const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+
+      rows.push({
+        values: [
+          dateValue(exportTime),
+          dateValue(stockpileTime),
+          stringValue(stockpile.header.type || ''),
+          stringValue(stockpile.header.name || ''),
+          stringValue(stockpile.label.textContent.trim()),
+          stringValue(element.CodeName),
+          stringValue(details.DisplayName),
+          numberValue(element.quantity),
+          { userEnteredValue: { boolValue: element.isCrated } },
+          numberValue(stockpileID),
+        ],
+      });
+    }
+  }
+  return rows;
+}
+
 export async function addAppendGoogleListener(appendGoogle) {
   appendGoogle.addEventListener('click', async function() {
     gtag('event', 'select_content', {content_type: 'append_google', item_id: 'append_google'});
@@ -234,51 +286,7 @@ export async function addAppendGoogleListener(appendGoogle) {
       'ID',
     ].map( c => stringValue(c) );
 
-    const exportTime = new Date();
-    const rows = [];
-    stockpiles.sort( (a, b) => a.lastModified - b.lastModified );
-    for (const stockpile of stockpiles) {
-      const stockpileTime = new Date(stockpile.lastModified);
-      //const stockpileID = Math.random().toString(36).replace(/^0\./, '');
-      const stockpileID = Math.floor(Math.random() * 1000000000000000);
-      for (const element of stockpile.contents) {
-        if (element.quantity == 0) {
-          continue;
-        }
-
-        const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
-
-        rows.push({
-          values: [
-            dateValue(exportTime),
-            dateValue(stockpileTime),
-            stringValue(stockpile.header.type || ''),
-            stringValue(stockpile.header.name || ''),
-            stringValue(stockpile.label.textContent.trim()),
-            stringValue(element.CodeName),
-            stringValue(details.DisplayName),
-            numberValue(element.quantity),
-            { userEnteredValue: { boolValue: element.isCrated } },
-            numberValue(stockpileID),
-          ],
-        });
-      }
-    }
-    function stringValue(value, other) {
-      return { userEnteredValue: { stringValue: value }, ...other };
-    }
-    function dateValue(date) {
-      // Courtesy of https://stackoverflow.com/a/64814390
-      const SheetDate = {
-        origin: Date.UTC(1899, 11, 30, 0, 0, 0, 0),
-        dayToMs: 24 * 60 * 60 * 1000,
-      };
-      const serial = (date.getTime() - SheetDate.origin) / SheetDate.dayToMs;
-      return numberValue(serial, { userEnteredFormat: { numberFormat: { type: 'DATE_TIME' } } });
-    }
-    function numberValue(value, other) {
-      return { userEnteredValue: { numberValue: value }, ...other };
-    }
+    let rows = getAppendGoogleRows();
 
     let sheetId;
     if (sheet) {
