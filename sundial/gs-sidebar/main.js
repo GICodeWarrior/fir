@@ -46,21 +46,46 @@ await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
   const downloadTSV = document.querySelector('button.tsv');
-  const insertGoogle = document.querySelector('button.insert-google');
+  const insertGoogle = document.querySelector('button.insert-gs');
+  const appendGoogle = document.querySelector('button.append-gs');
 
   front.registerDefaultListeners();
   front.addInputListener(input);
   front.addDownloadCollageListener(downloadCollage);
   front.addDownloadTotalsListener(downloadTotals);
   front.addDownloadTSVListener(downloadTSV);
-  addInsertGoogleListener(insertGoogle);
+  if (insertGoogle !== null) {
+    addInsertGSListener(insertGoogle);
+  }
+  if (appendGoogle !== null) {
+    addAppendGSListener(appendGoogle);
+  }
 })();
 
-function addInsertGoogleListener(insertGoogle) {
-  insertGoogle.addEventListener('click', function() {
-    function _alert(msg) {
-      google.script.run.fhAlert(msg);
+function _alert(msg) {
+  google.script.run.fhAlert(msg);
+}
+
+function addAppendGSListener(appendGoogle) {
+  appendGoogle.addEventListener('click', function() {
+    function append(rows) {
+      google.script.run
+      .withSuccessHandler((ret) => {
+        console.log(ret);
+      })
+      .withFailureHandler((error) => {
+        console.error(error);
+        _alert(error);
+      })
+      .firAppend(rows, [0, 1]); // rows and which cols have to be converted to Date
     }
+
+    append(front.getAppendGoogleRows("google-script"));
+  });
+}
+
+function addInsertGSListener(insertGoogle) {
+  insertGoogle.addEventListener('click', function() {
 
     function insert(findings, stockpileColumn) {
       // insert

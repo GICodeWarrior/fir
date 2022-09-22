@@ -138,3 +138,19 @@ function fhInsert(s, column) {
     sheet.getRange(row, column).setValue(new Date()).setNumberFormat("hh:mm");
   }
 }
+
+function firAppend(rows, date_cols) {
+  let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = spreadsheet.getSheets().find((s) => {
+    return s.getName() === 'fir';
+  });
+  for(const row of rows) {
+    const row_ = row.map(function(field, idx) {
+      if (date_cols.includes(idx)) {
+        return new Date(field);
+      }
+      return field;
+    })
+    sheet.appendRow(row_);
+  }
+}
