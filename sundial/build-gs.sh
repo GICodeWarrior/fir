@@ -19,7 +19,7 @@ cat ../includes/catalog.json | sed 's/\\/\\\\/g' >> ./gs-build/fir-sidebar.html
 echo "\`;" >> ./gs-build/fir-sidebar.html
 
 echo "const JSON_CLASS_NAMES = \`" >> ./gs-build/fir-sidebar.html
-cat ../includes/class_names.json | sed 's/\\/\\\\/g' >> ./gs-build/fir-sidebar.html
+cat ../includes/classifier/class_names.json | sed 's/\\/\\\\/g' >> ./gs-build/fir-sidebar.html
 echo "\`;" >> ./gs-build/fir-sidebar.html
 
 echo "const JSON_QUANTITIES_CLASS_NAMES = \`" >> ./gs-build/fir-sidebar.html
