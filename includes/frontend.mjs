@@ -132,6 +132,9 @@ export function addDownloadTSVListener(downloadTSV) {
         }
 
         const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+        if (typeof details == 'undefined') {
+          continue;
+        }
         const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
             + (details.VehiclesPerCrateBonusQuantity || 0);
         const perUnit = element.isCrated ? perCrate : 1;
