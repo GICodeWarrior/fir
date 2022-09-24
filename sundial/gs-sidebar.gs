@@ -144,6 +144,7 @@ function firAppend(rows, date_cols) {
   let sheet = spreadsheet.getSheets().find((s) => {
     return s.getName() === 'fir';
   });
+  let appendable = [];
   for(const row of rows) {
     const row_ = row.map(function(field, idx) {
       if (date_cols.includes(idx)) {
@@ -151,6 +152,63 @@ function firAppend(rows, date_cols) {
       }
       return field;
     })
-    sheet.appendRow(row_);
+    appendable.push(row_);
   }
+  appendRows(sheet, appendable);
+}
+
+// Tombstone: set a stockpile to 0 to make it disappear in future history.
+// Implemented next to firAppend, since both have to adhere to the same append format. 
+// Note however, that deactivateStockpile() is purpose-built the be called from and with a button from our/my stockpiles sheet.
+function deactivateStockpile() {
+  let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  let stockpiles = spreadsheet.getSheets().find((s) => {
+    return s.getName() === 'Stockpiles';
+  });
+  let fir = spreadsheet.getSheets().find((s) => {
+    return s.getName() === 'fir';
+  });
+  let fig = spreadsheet.getSheets().find((s) => {
+    return s.getName() === 'fig';
+  });
+
+  // get stockpile row
+  let stockpileId = stockpiles.getRange("F1").getValue();
+  let stockpileIds = stockpiles.getRange("B6:B20");
+  let stockpileRow = stockpileIds.getValues().findIndex(function(value) { return value[0] == stockpileId; });
+  if (stockpileRow == -1) {
+    console.log("error: no stockpile with this id found");
+    spreadsheet.toast('No stockpile with this id found. ', 'Error');
+    return;
+  }
+  stockpileRow += stockpileIds.getRow();
+
+  // collect data
+  let date = new Date();
+  let screenshotId = parseInt(Math.random() * 1000000000000000);
+  let structureType = stockpiles.getRange(stockpileRow, spreadsheet.getRange("E1").getColumn()).getValue();
+  let stockpileName = stockpiles.getRange(stockpileRow, spreadsheet.getRange("G1").getColumn()).getValue();
+  let stockpileTitle = stockpiles.getRange(stockpileRow, spreadsheet.getRange("H1").getColumn()).getValue();
+  
+  let rows = [];
+  for (const item of fig.getRange("A:B").getValues()) {
+    let codeName = item[0];
+    let name = item[1];
+    if (codeName == "" || name == "") {
+      continue;
+    }
+    rows.push([date, date, structureType, stockpileName, stockpileTitle, codeName, name, 0, false, screenshotId]);
+    rows.push([date, date, structureType, stockpileName, stockpileTitle, codeName, name, 0, true, screenshotId]);
+  }
+
+  // append rows
+  appendRows(fir, rows);
+
+  // succeeded. Set inactive flag. 
+  stockpiles.getRange(stockpileRow, spreadsheet.getRange("C1").getColumn()).setValue(true);
+}
+
+function appendRows(sheet, rows) {
+  var lastRow = sheet.getLastRow();
+  sheet.getRange(lastRow + 1,1,rows.length, rows[0].length).setValues(rows);
 }
