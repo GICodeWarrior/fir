@@ -21,3 +21,9 @@ python3 -m http.server
 ```
 
 To build the google spreadsheet sidebar, run `./sundial/gs-build.sh` and find the files to be added to Google Apps Script in `./sundial/gs-build`.
+
+## License
+
+All original source code and contributions available under MIT License.
+
+Catalog details and icons processed from the game Foxhole (created by [Siege Camp](https://www.siegecamp.com/)) are made available only under Fair Use.
