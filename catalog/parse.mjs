@@ -412,6 +412,7 @@ function coalesceObject(coreObject) {
     ['MinTankArmourPercent'],
     ['TankArmourMinPenetrationChance'],
     ['VehicleSubsystemDisableChances'],
+    ['bHasTierUpgrades'],
   ];
 
   const vehicleDynamicValues = common.vehicleDynamicData.extractValues(
