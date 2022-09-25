@@ -39,7 +39,7 @@ div.report {
   color: #CCC;
   font-size: 25px;
   background-color: #444;
-  padding: 25px 0;
+  padding: 2em 2ch;
 
   overflow-x: auto;
   resize: vertical;
