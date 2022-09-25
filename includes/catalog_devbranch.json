@@ -1901,7 +1901,7 @@
     "Description": "Unprocessed oil that can be refined into valuable fuel.",
     "Encumbrance": 325,
     "ItemCategory": "EItemCategory::Supplies",
-    "ItemProfileType": "EItemProfileType::UnstackableRawResource",
+    "ItemProfileType": "EItemProfileType::UniqueItem",
     "Icon": "War/Content/Textures/UI/ItemIcons/CrudeOilIcon.0",
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -1918,12 +1918,12 @@
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
     "ItemProfileData": {
-      "bIsStockpilable": true,
+      "bIsStockpilable": false,
       "bIsStackable": false,
       "bIsCratable": false,
       "bIsStockpiledWithAmmo": false,
       "bUsableInVehicle": false,
-      "StackTransferLimit": 5,
+      "StackTransferLimit": 1,
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
@@ -2076,6 +2076,41 @@
     }
   },
   {
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFacilityComponents1Pickup",
+    "CodeName": "FacilityComponents1",
+    "DisplayName": "Damaged Components",
+    "Description": "Damaged Components that can be salvaged into Components.",
+    "Encumbrance": 15,
+    "ItemCategory": "EItemCategory::Supplies",
+    "ItemProfileType": "EItemProfileType::RawResource",
+    "ItemFlagsMask": 2049,
+    "Icon": "War/Content/Textures/UI/ItemIcons/ComponentsDamagedIcon.0",
+    "ItemDynamicData": {
+      "CostPerCrate": [
+        {
+          "ItemCodeName": "Components",
+          "Quantity": 70
+        }
+      ],
+      "QuantityPerCrate": 100,
+      "CrateProductionTime": 200,
+      "SingleRetrieveTime": 6,
+      "CrateRetrieveTime": 6,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfileData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsCratable": false,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 4,
+      "RetrieveQuantity": 100,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    }
+  },
+  {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameAmmo",
     "CodeName": "FlameAmmo",
     "DisplayName": "Flame Ammo",
@@ -2215,8 +2250,8 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameBackpackWPickup",
     "CodeName": "FlameBackpackW",
-    "ChassisName": "Willow's Bane Ammo",
-    "DisplayName": "Flamethrower Ammo",
+    "ChassisName": "Flamethrower Ammo",
+    "DisplayName": "Willow's Bane Ammo",
     "Description": "Ammo for Willow’s Bane Model 845",
     "Encumbrance": 300,
     "EquipmentSlot": "EEquipmentSlot::Utility",
@@ -2346,8 +2381,9 @@
           "DisplayName": "Refined Materials"
         },
         {
-          "ItemCodeName": "cloth",
-          "Quantity": 185
+          "ItemCodeName": "Cloth",
+          "Quantity": 185,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 10,
@@ -2438,8 +2474,9 @@
           "DisplayName": "Refined Materials"
         },
         {
-          "ItemCodeName": "cloth",
-          "Quantity": 165
+          "ItemCodeName": "Cloth",
+          "Quantity": 165,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 10,
@@ -8036,19 +8073,6 @@
     "ItemCategory": "EItemCategory::Supplies",
     "ItemProfileType": "EItemProfileType::RawResource",
     "Icon": "War/Content/Textures/UI/ItemIcons/CoalIcon.0",
-    "ItemDynamicData": {
-      "CostPerCrate": [
-        {
-          "ItemCodeName": "Coal",
-          "Quantity": 100
-        }
-      ],
-      "QuantityPerCrate": 100,
-      "CrateProductionTime": 15,
-      "SingleRetrieveTime": 1.5,
-      "CrateRetrieveTime": 10,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
-    },
     "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": true,
@@ -8133,6 +8157,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials2Pickup",
     "CodeName": "FacilityMaterials2",
+    "ChassisName": "Large Material",
     "DisplayName": "Processed Construction Materials",
     "Description": "Higher quality construction materials.",
     "Encumbrance": 300,
@@ -8174,6 +8199,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials3Pickup",
     "CodeName": "FacilityMaterials3",
+    "ChassisName": "Large Material",
     "DisplayName": "Steel Construction Materials",
     "Description": "A high end alloy that's used in a variety of advanced applications at Facilities.",
     "Encumbrance": 300,
@@ -8215,6 +8241,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials4Pickup",
     "CodeName": "FacilityMaterials4",
+    "ChassisName": "Large Material",
     "DisplayName": "Assembly Materials I",
     "Description": "Coal based materials used to assemble advanced vehicles and equipment.",
     "Encumbrance": 300,
@@ -8257,6 +8284,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials5Pickup",
     "CodeName": "FacilityMaterials5",
+    "ChassisName": "Large Material",
     "DisplayName": "Assembly Materials II",
     "Description": "Petrol based materials used to assemble advanced vehicles and equipment.",
     "Encumbrance": 300,
@@ -8299,6 +8327,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials6Pickup",
     "CodeName": "FacilityMaterials6",
+    "ChassisName": "Large Material",
     "DisplayName": "Assembly Materials III",
     "Description": "Sulfur based materials used to assemble advanced vehicles and equipment.",
     "Encumbrance": 300,
@@ -8341,6 +8370,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials7Pickup",
     "CodeName": "FacilityMaterials7",
+    "ChassisName": "Large Material",
     "DisplayName": "Assembly Materials IV",
     "Description": "Heavy Oil based materials used to assemble advanced vehicles and equipment.",
     "Encumbrance": 300,
@@ -8383,8 +8413,9 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials8Pickup",
     "CodeName": "FacilityMaterials8",
+    "ChassisName": "Large Material",
     "DisplayName": "Assembly Materials V",
-    "Description": "Enriched Oil based materials used to assemble advanced vehicles and equipment.",
+    "Description": "Engineered materials used to assemble advanced vehicles and equipment.",
     "Encumbrance": 300,
     "EquipmentSlot": "EEquipmentSlot::Large",
     "ItemCategory": "EItemCategory::Supplies",
@@ -8514,7 +8545,7 @@
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 500,
     "StructureDynamicData": {
-      "MaxHealth": 500,
+      "MaxHealth": 1000,
       "DecayStartHours": 24,
       "DecayDurationHours": 12,
       "RepairCost": 50,
@@ -8534,7 +8565,7 @@
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPOilPickup",
     "CodeName": "Oil",
     "DisplayName": "Oil",
-    "Description": "Coal that can be refined into various type of fuel at Facilities.",
+    "Description": "Raw viscous liquid that can refined into fuel at Facilities.",
     "Encumbrance": 325,
     "EquipmentSlot": "EEquipmentSlot::Tertiary",
     "ItemCategory": "EItemCategory::Supplies",
@@ -8552,7 +8583,7 @@
           "Quantity": 2
         }
       ],
-      "QuantityPerCrate": 2,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 15,
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 3,
@@ -8589,8 +8620,9 @@
     "ItemDynamicData": {
       "CostPerCrate": [
         {
-          "ItemCodeName": "PipeMaterials",
-          "Quantity": 2
+          "ItemCodeName": "Cloth",
+          "Quantity": 50,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 2,
@@ -8668,7 +8700,7 @@
           "Quantity": 2
         }
       ],
-      "QuantityPerCrate": 2,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 15,
       "SingleRetrieveTime": 1.5,
       "CrateRetrieveTime": 3,
@@ -8706,8 +8738,9 @@
     "ItemDynamicData": {
       "CostPerCrate": [
         {
-          "ItemCodeName": "cloth",
-          "Quantity": 15
+          "ItemCodeName": "Cloth",
+          "Quantity": 15,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 5,
@@ -8748,8 +8781,9 @@
     "ItemDynamicData": {
       "CostPerCrate": [
         {
-          "ItemCodeName": "cloth",
-          "Quantity": 25
+          "ItemCodeName": "Cloth",
+          "Quantity": 25,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 5,
@@ -8793,8 +8827,9 @@
     "ItemDynamicData": {
       "CostPerCrate": [
         {
-          "ItemCodeName": "cloth",
-          "Quantity": 15
+          "ItemCodeName": "Cloth",
+          "Quantity": 15,
+          "DisplayName": "Basic Materials"
         }
       ],
       "QuantityPerCrate": 5,
@@ -8871,7 +8906,7 @@
       ],
       "QuantityPerCrate": 5,
       "CrateProductionTime": 125,
-      "SingleRetrieveTime": 7.5,
+      "SingleRetrieveTime": 12,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
@@ -8940,7 +8975,7 @@
       ],
       "QuantityPerCrate": 5,
       "CrateProductionTime": 125,
-      "SingleRetrieveTime": 7.5,
+      "SingleRetrieveTime": 12,
       "CrateRetrieveTime": 20,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
@@ -11128,11 +11163,11 @@
     "CodeName": "BattleTankC",
     "ChassisName": "Battle Tank",
     "Description": "A heavy-duty Battle Tank with thick armour plating and destructive firepower. The Lance is fitted with a 75mm turret and a front-facing 12.7mm anti-infantry machine gun. The heavy armour limits top speed, but in exchange it can take a lot of punishment.",
+    "TechID": "ETechID::UnlockFacilityTier3",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "DisplayName": "Lance-36",
     "FactionVariant": "EFactionId::Colonials",
-    "TechID": "ETechID::UnlockBattleTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTank.0",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -11145,9 +11180,9 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 195,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 11,
-      "FuelCapacity": 300,
-      "FuelConsumptionPerSecond": 0.7,
+      "ItemHolderCapacity": 16,
+      "FuelCapacity": 600,
+      "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.7,
       "OffroadSnowPenalty": 1,
@@ -11196,11 +11231,11 @@
     "ChassisName": "Battle Tank",
     "DisplayName": "Flood Mk. I",
     "Description": "A heavy-duty Battle Tank with thick armour plating and destructive firepower. The Flood is fitted with a 75mm turret and a front-facing 12.7mm anti-infantry machine gun. The heavy armour limits top speed, but in exchange it can take a lot of punishment.",
+    "TechID": "ETechID::UnlockFacilityTier3",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankWar.0",
-    "TechID": "ETechID::UnlockBattleTank",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Large",
@@ -11212,9 +11247,9 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 210,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 11,
-      "FuelCapacity": 300,
-      "FuelConsumptionPerSecond": 0.75,
+      "ItemHolderCapacity": 16,
+      "FuelCapacity": 600,
+      "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.7,
       "OffroadSnowPenalty": 1,
@@ -11268,7 +11303,7 @@
     "VehicleProfileType": "EVehicleProfileType::Rail",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier3Structure",
-    "FuelTank": 250,
+    "FuelTank": 300,
     "VehicleBuildType": "EVehicleBuildType::RailTrackCrane",
     "VehicleDynamicData": {
       "MaxHealth": 2600,
@@ -11277,8 +11312,8 @@
       "RepairCost": 125,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 5,
-      "FuelCapacity": 250,
-      "FuelConsumptionPerSecond": 0.2,
+      "FuelCapacity": 300,
+      "FuelConsumptionPerSecond": 0.45,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.833333,
       "OffroadSnowPenalty": 1,
@@ -11299,7 +11334,7 @@
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
       "bCanUseStructures": true,
-      "RamDamageDealtFlags": 0,
+      "RamDamageDealtFlags": 34,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
@@ -11329,7 +11364,7 @@
       "StoredItemCapacity": 0,
       "RamDamageReceivedFlags": 0,
       "bCanBeHarvested": false,
-      "IsVaultable": true,
+      "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },
@@ -14902,7 +14937,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 170,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 7,
+      "ItemHolderCapacity": 5,
       "FuelCapacity": 225,
       "FuelConsumptionPerSecond": 0.25,
       "SwimmingFuelConsumptionModifier": 1,
@@ -15632,9 +15667,9 @@
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Small",
     "VehicleDynamicData": {
-      "MaxHealth": 1200,
-      "MinorDamagePercent": 0.25,
-      "MajorDamagePercent": 0.65,
+      "MaxHealth": 1650,
+      "MinorDamagePercent": 0.5,
+      "MajorDamagePercent": 0.75,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
@@ -15660,7 +15695,7 @@
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
       "bCanUseStructures": true,
-      "RamDamageDealtFlags": 0,
+      "RamDamageDealtFlags": 34,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
@@ -15826,7 +15861,7 @@
       "MajorDamagePercent": 0.7,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 1,
+      "ItemHolderCapacity": 3,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -15838,8 +15873,8 @@
       "SpeedSqrThreshold": 500,
       "EngineForce": 0,
       "MassOverride": 0,
-      "TankArmour": 0,
-      "MinTankArmourPercent": 0.33,
+      "TankArmour": 100000,
+      "MinTankArmourPercent": 0.23,
       "TankArmourMinPenetrationChance": 0.23,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
@@ -15890,7 +15925,7 @@
       "MajorDamagePercent": 0.7,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 1,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -15902,8 +15937,8 @@
       "SpeedSqrThreshold": 500,
       "EngineForce": 0,
       "MassOverride": 0,
-      "TankArmour": 0,
-      "MinTankArmourPercent": 0.5,
+      "TankArmour": 100000,
+      "MinTankArmourPercent": 0.23,
       "TankArmourMinPenetrationChance": 0.23,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
@@ -15948,9 +15983,9 @@
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
     "VehicleDynamicData": {
-      "MaxHealth": 2500,
-      "MinorDamagePercent": 0.25,
-      "MajorDamagePercent": 0.7,
+      "MaxHealth": 3250,
+      "MinorDamagePercent": 0.5,
+      "MajorDamagePercent": 0.75,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 3,
@@ -15976,7 +16011,7 @@
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
       "bCanUseStructures": true,
-      "RamDamageDealtFlags": 0,
+      "RamDamageDealtFlags": 34,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
@@ -16066,7 +16101,7 @@
     "CodeName": "TrainInfantry",
     "ChassisName": "Infantry Car",
     "DisplayName": "BMS Holdout",
-    "Description": "An armoured train car with two mounted machinegun positions for transporting infantry safely over long distances.",
+    "Description": "An armoured train car with a mounted machinegun position for transporting infantry safely over long distances.",
     "TechID": "ETechID::UnlockTrainEngine",
     "Icon": "War/Content/Textures/UI/VehicleIcons/InfantryCarVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::RailCar",
@@ -16463,7 +16498,6 @@
     "CodeName": "ScoutVehicleUtilityC",
     "DisplayName": "UV-5c “Odyssey”",
     "Description": "This simple, modified Utility Vehicle is fitted with a reinforced hatch to provide one crew member with increased visibility for intense recon operations.",
-    "TechID": "ETechID::UnlockScoutVehicleUtility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleUtilityCVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
@@ -16659,12 +16693,12 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/SuperTank/BPSuperTankC",
     "CodeName": "SuperTankC",
     "DisplayName": "O-75b \"Ares\"",
-    "Description": "Armed with a dual 75mm turret, the Ares is a lumbering beast. What it lacks in speed and versatility, it more than makes up for with raw destructive power.",
+    "Description": "Armed with a dual 75mm turret, what the “Ares” lacks in speed and versatility, it more than makes up for with raw destructive power. Development of the “Ares” was fraught with strife, and its history is intertwined with a period of several riots erupting on the streets of Dimiourg. Rebels commandeered the first “Ares” Prototype, the O-75a, and turned it against Colonial forces in the region, ultimately leading to its destruction—albeit not without great effort. This event wove the great behemoth into the tapestry of Colonial legend.",
     "TechID": "ETechID::UnlockSuperTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/SuperTankCtemIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ShippableInfo": "EShippableType::None",
-    "FuelTank": 250,
+    "FuelTank": 600,
     "ChassisName": "Super Tank",
     "FactionVariant": "EFactionId::Colonials",
     "VehiclesPerCrateBonusQuantity": 2,
@@ -16676,11 +16710,11 @@
       "MaxHealth": 9250,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.75,
-      "RepairCost": 235,
-      "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 20,
+      "RepairCost": 350,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 18,
       "FuelCapacity": 600,
-      "FuelConsumptionPerSecond": 1,
+      "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.7,
       "OffroadSnowPenalty": 1,
@@ -16690,11 +16724,11 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 27000,
       "MassOverride": 13500,
-      "TankArmour": 17650,
+      "TankArmour": 15650,
       "MinTankArmourPercent": 0.5,
-      "TankArmourMinPenetrationChance": 0.2,
+      "TankArmourMinPenetrationChance": 0.25,
       "VehicleSubsystemDisableChances": 0,
-      "bHasTierUpgrades": true,
+      "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
     "VehicleProfileData": {
@@ -16740,28 +16774,28 @@
     "ArmourType": "EArmourType::Tier2Tank",
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
-      "MaxHealth": 10250,
+      "MaxHealth": 12000,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.75,
       "RepairCost": 235,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 22,
       "FuelCapacity": 600,
-      "FuelConsumptionPerSecond": 1,
+      "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.7,
       "OffroadSnowPenalty": 1,
-      "ReverseSpeedModifier": 0.6,
-      "RotationRate": 0.165,
+      "ReverseSpeedModifier": 0.4,
+      "RotationRate": 0.1,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 400,
-      "EngineForce": 26500,
-      "MassOverride": 13500,
-      "TankArmour": 15650,
+      "EngineForce": 22000,
+      "MassOverride": 22000,
+      "TankArmour": 17650,
       "MinTankArmourPercent": 0.5,
       "TankArmourMinPenetrationChance": 0.22,
       "VehicleSubsystemDisableChances": 0,
-      "bHasTierUpgrades": true,
+      "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
     "VehicleProfileData": {
@@ -17319,13 +17353,13 @@
     "Description": "This standard Truck is fitted with a resource hopper in place of the standard cargo hold. This allows for a much greater capacity for resources at the expense of space for cargo.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckUtilityVehicleIcon.0",
     "FuelTank": 120,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "MaxHealth": 1000,
       "MinorDamagePercent": 0.1875,
@@ -17375,6 +17409,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -17384,13 +17421,13 @@
     "Description": "This standard Truck is fitted with a resource hopper in place of the standard cargo hold. This allows for a much greater capacity for resources at the expense of space for cargo. ",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckUtilityWarVehicleIcon.0",
     "FuelTank": 120,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
       "MaxHealth": 1000,
       "MinorDamagePercent": 0.1875,
@@ -17440,6 +17477,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
