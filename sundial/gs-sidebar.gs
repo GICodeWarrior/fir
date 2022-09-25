@@ -3,8 +3,8 @@
 function onOpen() {
  SpreadsheetApp
    .getUi()
-   .createMenu("FH Inventory Report")
-   .addItem("FIR", "showSidebar")
+   .createMenu("Screenshots")
+   .addItem("Scan screenshots (FIR)", "showSidebar")
    .addToUi();
 }
 
@@ -168,9 +168,6 @@ function deactivateStockpile() {
   let fir = spreadsheet.getSheets().find((s) => {
     return s.getName() === 'fir';
   });
-  let fig = spreadsheet.getSheets().find((s) => {
-    return s.getName() === 'fig';
-  });
 
   // get stockpile row
   let stockpileId = stockpiles.getRange("F1").getValue();
@@ -191,15 +188,7 @@ function deactivateStockpile() {
   let stockpileTitle = stockpiles.getRange(stockpileRow, spreadsheet.getRange("H1").getColumn()).getValue();
   
   let rows = [];
-  for (const item of fig.getRange("A:B").getValues()) {
-    let codeName = item[0];
-    let name = item[1];
-    if (codeName == "" || name == "") {
-      continue;
-    }
-    rows.push([date, date, structureType, stockpileName, stockpileTitle, codeName, name, 0, false, screenshotId]);
-    rows.push([date, date, structureType, stockpileName, stockpileTitle, codeName, name, 0, true, screenshotId]);
-  }
+  rows.push([date, date, structureType, stockpileName, stockpileTitle, "Tombstone", "Nulling this tockpile", 0, true, screenshotId]);
 
   // append rows
   appendRows(fir, rows);
