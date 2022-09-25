@@ -1,14 +1,25 @@
 import * as front from './frontend.mjs'
 
-const BRANCH=location.search.replace(/^\?/, '');
+const VALID_VERSIONS = new Set([
+  'entrenched',
+  'inferno',
+]);
+
+const DEFAULT_VERSION = 'inferno';
+const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
+if (!VALID_VERSIONS.has(VERSION)) {
+  console.log(`Invalid version ${VERSION}`);
+  location.search = '';
+}
+console.log(`Loading resources for "${VERSION}"`);
 
 const res = {
-  CATALOG: fetch(`./includes/catalog${BRANCH}.json`).then(r => r.json()),
-  ICON_CLASS_NAMES: fetch(`./includes/classifier${BRANCH}/class_names.json`).then(r => r.json()),
+  CATALOG: fetch(`./includes/foxhole/${VERSION}/catalog.json`).then(r => r.json()),
+  ICON_CLASS_NAMES: fetch(`./includes/foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
   QUANTITY_CLASS_NAMES: fetch('./includes/quantities/class_names.json').then(r => r.json()),
 }
 
-const ICON_MODEL_URL = `./includes/classifier${BRANCH}/model.json`;
+const ICON_MODEL_URL = `./includes/foxhole/${VERSION}/classifier/model.json`;
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 
 await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);

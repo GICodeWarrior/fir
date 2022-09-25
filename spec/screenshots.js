@@ -1,18 +1,52 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const BRANCH=location.search.replace(/^\?/, '');
+const VALID_VERSIONS = new Set([
+  'entrenched',
+  'inferno',
+]);
+
+const DEFAULT_VERSION = 'inferno';
+const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
+if (!VALID_VERSIONS.has(VERSION)) {
+  console.log(`Invalid version ${VERSION}`);
+  location.search = '';
+}
+console.log(`Loading resources for "${VERSION}"`);
 
 const JASMINE_TIMEOUT = 60000;
-const ICON_MODEL_URL = `./includes/classifier${BRANCH}/model.json`;
-const ICON_CLASS_NAMES = await fetch(`./includes/classifier${BRANCH}/class_names.json`).then(r => r.json());
+const ICON_MODEL_URL = `./includes/foxhole/${VERSION}/classifier/model.json`;
+const ICON_CLASS_NAMES = await fetch(`./includes/foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 
 const expectedStockpiles = await fetch('./spec/data/stockpiles.json').then(r => r.json());
 
-const branchMapping = {
-  '': {},
-  '_devbranch': {
+const versionMapping = {
+  'entrenched': {
+    ATLargeAmmo: null,
+    BattleTankAmmo: null,
+    Coal: null,
+    FacilityCoal1: null,
+    FacilityMaterials1: null,
+    FacilityMaterials2: null,
+    FacilityMaterials3: null,
+    FacilityMaterials4: null,
+    FacilityMaterials5: null,
+    FacilityMaterials6: null,
+    FacilityMaterials7: null,
+    FacilityMaterials8: null,
+    FacilityOil1: null,
+    FacilityOil2: null,
+    FlameAmmo: null,
+    FlameBackpackC: null,
+    FlameTorchC: null,
+    GroundMaterials: null,
+    Oil: null,
+    PipeMaterials: null,
+    Water: null,
+    WaterBucket: null,
+  },
+  'inferno': {
     SmallShippingContainer: null,
     MetalBeamPlatform: null,
     SandbagPlatform: null,
@@ -76,8 +110,8 @@ for (const expectedStockpile of expectedStockpiles) {
 
     for (let index = 0; index < expectedStockpile.contents.length; ++index) {
       const expectedElement = expectedStockpile.contents[index];
-      if (Object.hasOwn(branchMapping[BRANCH], expectedElement.CodeName)) {
-        expectedElement.CodeName = branchMapping[BRANCH][expectedElement.CodeName];
+      if (Object.hasOwn(versionMapping[VERSION], expectedElement.CodeName)) {
+        expectedElement.CodeName = versionMapping[VERSION][expectedElement.CodeName];
         if (expectedElement.CodeName === null) {
           continue;
         }
