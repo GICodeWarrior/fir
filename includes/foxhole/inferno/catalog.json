@@ -11293,86 +11293,6 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Cranes/BPLargeCrane",
-    "CodeName": "LargeCrane",
-    "ChassisName": "Large Crane",
-    "DisplayName": "BMS Overseer Sky-Hauler",
-    "Description": "The star of the BMS arsenal of military-grade construction equipment, the Overseer Sky-Hauler makes several tonnes look like a feather, and enjoys a high level of mobility while deployed along heavy-duty rail lines.",
-    "TechID": "ETechID::UnlockFacilityTier3",
-    "Icon": "War/Content/Textures/UI/LargeCraneItemIcon.0",
-    "VehicleProfileType": "EVehicleProfileType::Rail",
-    "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier3Structure",
-    "FuelTank": 300,
-    "VehicleBuildType": "EVehicleBuildType::RailTrackCrane",
-    "VehicleDynamicData": {
-      "MaxHealth": 2600,
-      "MinorDamagePercent": 0.5,
-      "MajorDamagePercent": 0.7,
-      "RepairCost": 125,
-      "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
-      "FuelCapacity": 300,
-      "FuelConsumptionPerSecond": 0.45,
-      "SwimmingFuelConsumptionModifier": 1,
-      "DefaultSurfaceMovementRate": 0.833333,
-      "OffroadSnowPenalty": 1,
-      "ReverseSpeedModifier": 0.5,
-      "RotationRate": 0.165,
-      "RotationSpeedCuttoff": 15,
-      "SpeedSqrThreshold": 500,
-      "EngineForce": 25000,
-      "MassOverride": 0,
-      "TankArmour": 0,
-      "MinTankArmourPercent": 0,
-      "TankArmourMinPenetrationChance": 0,
-      "VehicleSubsystemDisableChances": 0,
-      "bHasTierUpgrades": false,
-      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
-    },
-    "VehicleProfileData": {
-      "bUsesRollTrace": true,
-      "bCanTriggerMine": false,
-      "bCanUseStructures": true,
-      "RamDamageDealtFlags": 34,
-      "bUsesGas": true,
-      "DrivingSpeedThreshold": 100,
-      "MaxVehicleAngle": 45,
-      "bEnableStealth": false,
-      "DamageDrivingOverStructures": 0,
-      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
-    },
-    "VehicleMovementProfileData": {
-      "Mass": 7500,
-      "BrakeForce": 26000,
-      "HandbrakeForce": 20000,
-      "AirResistance": 70,
-      "RollingResistance": 260,
-      "LowSpeedEngineForceMultiplier": 1.5,
-      "LowGearCutoff": 0.45,
-      "CenterOfGravityHeight": 1.4,
-      "bUsesDifferentialSteering": false,
-      "bCanRotateInPlace": false,
-      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "StructureDynamicData": {
-      "MaxHealth": 1000,
-      "DecayStartHours": 0,
-      "DecayDurationHours": 0,
-      "RepairCost": 100,
-      "StructuralIntegrity": 1,
-      "StoredItemCapacity": 0,
-      "RamDamageReceivedFlags": 0,
-      "bCanBeHarvested": false,
-      "IsVaultable": false,
-      "bIsDamagedWhileDrivingOver": false,
-      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
-    }
-  },
-  {
     "ObjectPath": "War/Content/Blueprints/Vehicles/DestroyerTank/BPDestroyerTankFlameW",
     "CodeName": "DestroyerTankFlameW",
     "DisplayName": "Noble Firebrand Mk. XVII",
@@ -17762,6 +17682,88 @@
       "RamDamageReceivedFlags": 0,
       "bCanBeHarvested": false,
       "IsVaultable": true,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Structures/Emplacements/BPEmplacedIndirectC",
+    "CodeName": "EmplacedIndirectC",
+    "DisplayName": "DAE 1o-3 “Polybolos”",
+    "Description": "To combat Caoivish ingenuity, the Meseans developed their own indirect RPG propulsion system. Dual launchers are fitted on a large emplacement platform to maximize coverage in an established position, rather than being relegated to a guerrilla warfare tool.",
+    "FactionVariant": "EFactionId::Colonials",
+    "TechID": "ETechID::UnlockEmplacedIndirect",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedIndirectCIcon.0",
+    "ShippableInfo": "EShippableType::Normal",
+    "BuildLocationType": "EBuildLocationType::ConstructionYard",
+    "MaxHealth": 1500,
+    "StructureDynamicData": {
+      "MaxHealth": 1500,
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 115,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Structures/Emplacements/BPEmplacedInfantryC",
+    "CodeName": "EmplacedInfantryC",
+    "DisplayName": "DAE 1b-2 “Serra”",
+    "Description": "Built like a saw blade, the DAE 1b-2 emplacement gun is fitted with three cascading machine gun turrets. What the \"Serra\" lacks in power, it makes up for in sheer rate of fire for a weapon of its size.",
+    "FactionVariant": "EFactionId::Colonials",
+    "TechID": "ETechID::UnlockEmplacedFieldMG",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedInfantryCIcon.0",
+    "ShippableInfo": "EShippableType::Normal",
+    "BuildLocationType": "EBuildLocationType::ConstructionYard",
+    "MaxHealth": 1650,
+    "StructureDynamicData": {
+      "MaxHealth": 1650,
+      "DecayStartHours": 48,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 1,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
+      "bIsDamagedWhileDrivingOver": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Structures/Facilities/BPFuelContainer",
+    "CodeName": "FuelContainer",
+    "DisplayName": "Fuel Container",
+    "Description": "Stores a high volume liquids, supporting a variety of fuel types. Nearby structures or vehicles can be refueled directly from this container.",
+    "Icon": "War/Content/Textures/UI/StructureIcons/FuelTankIcon.0",
+    "ShippableInfo": "EShippableType::Normal",
+    "BuildLocationType": "EBuildLocationType::ConstructionYard",
+    "MaxHealth": 1000,
+    "StructureDynamicData": {
+      "MaxHealth": 1000,
+      "DecayStartHours": 12.000001,
+      "DecayDurationHours": 24,
+      "RepairCost": 100,
+      "StructuralIntegrity": 1,
+      "StoredItemCapacity": 2,
+      "RamDamageReceivedFlags": 0,
+      "bCanBeHarvested": false,
+      "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
     },

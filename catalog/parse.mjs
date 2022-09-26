@@ -685,7 +685,6 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/',
   'War/Content/Blueprints/Vehicles/ArmoredCar/',
   'War/Content/Blueprints/Vehicles/BattleTanks/',
-  'War/Content/Blueprints/Vehicles/Cranes/',
   'War/Content/Blueprints/Vehicles/DestroyerTank/',
   'War/Content/Blueprints/Vehicles/FieldWeapons/',
   'War/Content/Blueprints/Vehicles/Gunboats/',
@@ -704,6 +703,8 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/Tankette/',
   'War/Content/Blueprints/Vehicles/Truck/',
   'War/Content/Blueprints/Structures/',
+  'War/Content/Blueprints/Structures/Emplacements/',
+  'War/Content/Blueprints/Structures/Facilities/',
 ];
 
 const objects = [];
