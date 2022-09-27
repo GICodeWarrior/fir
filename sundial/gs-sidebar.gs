@@ -171,7 +171,7 @@ function deactivateStockpile() {
 
   // get stockpile row
   let stockpileId = stockpiles.getRange("F1").getValue();
-  let stockpileIds = stockpiles.getRange("B6:B20");
+  let stockpileIds = stockpiles.getRange("B6:B36");
   let stockpileRow = stockpileIds.getValues().findIndex(function(value) { return value[0] == stockpileId; });
   if (stockpileRow == -1) {
     console.log("error: no stockpile with this id found");
