@@ -1,11 +1,8 @@
 import fs from 'graceful-fs';
 import process from 'node:process';
-import events from 'node:events';
-import { createCanvas, loadImage } from 'canvas';
 
-const TRAINING_LOCATION = `${process.cwd()}/training`
 const WAR_LOCATION = process.argv[2];
-process.chdir(WAR_LOCATION);
+const CATALOG_LOCATION = process.argv[3];
 
 class NonBPError extends Error {}
 class BPTypeMismatchError extends Error {}
@@ -23,7 +20,7 @@ class FHStruct {
     this.#structPath = structPath.replace(/\.json$/, '');
 
     const file = this.#structPath.replace(/(\.[0-9]+)?$/, '.json');
-    this.#data = JSON.parse(fs.readFileSync(file));
+    this.#data = JSON.parse(fs.readFileSync(`${WAR_LOCATION}/${file}`));
 
     if (isBlueprint === undefined) {
       isBlueprint = true;
@@ -198,10 +195,6 @@ function coalesceObject(coreObject) {
       combinedObject.ItemComponentClass
     );
 
-    //if (combinedObject.ItemComponentClass.ProjectileClasses && combinedObject.ItemComponentClass.ProjectileClasses.length > 1) {
-    //  console.log(combinedObject.CodeName);
-    //}
-
     const componentData = combinedObject.ItemComponentClass;
     ammoTypes.add(componentData.CompatibleAmmoCodeName);
     (componentData.MultiAmmo || []).forEach(e => ammoTypes.add(e));
@@ -216,9 +209,6 @@ function coalesceObject(coreObject) {
           ['ProjectileDeathDelay'],
         ];
 
-        //if (combinedObject.CodeName == 'ATRPGHeavyC') {
-        //  debugger;
-        //}
         componentData.ProjectileClass = projectileData.extractValues(
           ['Properties'],
           projectileProperties
@@ -559,98 +549,6 @@ function coalesceObject(coreObject) {
   return combinedObject;
 }
 
-async function writePNG(canvas, file) {
-  const out = fs.createWriteStream(file);
-  const png = canvas.createPNGStream();
-  png.pipe(out);
-  await events.once(out, 'finish');
-}
-
-const CORNER_ICON_RATIO = 7 / 16;
-const CORNER_ICON_ALPHA = 0.75;
-async function drawIcon(objectValues, size, smear, cache, modName) {
-  const canvas = createCanvas(size, size);
-  const context = canvas.getContext('2d');
-  context.fillRect(0, 0, size, size);
-
-  if (!cache.icon) {
-    let iconFile = objectValues.Icon.replace(/\.[0-9]+$/, '.png');
-    if (modName) {
-      iconFile = `mod-files/${modName}/${iconFile}`;
-      if (!fs.existsSync(iconFile)) {
-        return;
-      }
-    }
-
-    cache.icon = await loadImage(iconFile);
-  }
-  context.drawImage(cache.icon, 0, 0, size + smear, size);
-
-  if (objectValues.SubTypeIcon) {
-    cache.subTypeIcon ||= await loadImage(objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png'));
-    const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
-    const cornerHeight = size * CORNER_ICON_RATIO;
-
-    context.globalAlpha = CORNER_ICON_ALPHA;
-    context.drawImage(cache.subTypeIcon, 0, 0, cornerWidth, cornerHeight);
-    context.globalAlpha = 1;
-  }
-
-  return canvas;
-}
-
-const CRATE_ICON = loadImage('War/Content/Textures/UI/Menus/IconFilterCrates.png');
-async function addCrate(canvas, smear) {
-  const size = canvas.width;
-
-  const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
-  const cornerHeight = size * CORNER_ICON_RATIO;
-
-  const crateOffsetX = (size + smear) - cornerWidth;
-  const crateOffsetY = size - cornerHeight;
-
-  const context = canvas.getContext('2d');
-  context.globalAlpha = CORNER_ICON_ALPHA;
-  context.drawImage(await CRATE_ICON, crateOffsetX, crateOffsetY, cornerWidth, cornerHeight);
-  context.globalAlpha = 1;
-}
-
-async function writeTrainingPNG(objectValues, baseName, size, smear, cache, modName) {
-  const canvas = await drawIcon(objectValues, size, smear, cache, modName);
-  if (!canvas) {
-    return;
-  }
-  modName = modName ? `${modName}-` : '';
-
-  await fs.promises.mkdir(baseName, {recursive: true});
-  await writePNG(canvas, `${baseName}/${modName}${size}-${smear}.png`);
-
-  await addCrate(canvas, smear);
-  await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
-  await writePNG(canvas, `${baseName}-crated/${modName}${size}-${smear}.png`);
-}
-
-async function writeTrainingPNGs(objectValues, destination) {
-  const smallestSize = 25; // 26-27 at 1600x900
-  const largestSize = 72; // 64 at 4k
-  const baseName = `${destination}/${objectValues.CodeName}`;
-
-  const mods = fs.readdirSync('mod-files/')
-  mods.push(undefined);
-
-  const promises = [];
-
-  for (const modName of mods) {
-    const cache = {};
-    for (let size = smallestSize; size <= largestSize; ++size) {
-      promises.push(writeTrainingPNG(objectValues, baseName, size, 0, cache, modName));
-      promises.push(writeTrainingPNG(objectValues, baseName, size, 1, cache, modName));
-    }
-  }
-
-  await Promise.all(promises);
-}
-
 const common = {
   ammoDynamicData: new FHDataTable('BPAmmoDynamicData'),
   itemDynamicData: new FHDataTable('BPItemDynamicData'),
@@ -708,9 +606,8 @@ const searchDirectories = [
 ];
 
 const objects = [];
-const promises = [];
 for (const directory of searchDirectories) {
-  const entries = fs.readdirSync(directory, {withFileTypes: true});
+  const entries = fs.readdirSync(`${WAR_LOCATION}/${directory}`, {withFileTypes: true});
   entries.sort(function(a, b) {
     const aName = a.name.toLowerCase();
     const bName = b.name.toLowerCase();
@@ -723,22 +620,18 @@ for (const directory of searchDirectories) {
     return 0;
   });
 
-  process.stderr.write(`Processing JSON files in: ${directory}\n`);
+  //process.stderr.write(`Processing JSON files in: ${directory}\n`);
 
   for (const entry of entries) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) {
       continue;
     }
     const file = directory + entry.name;
-    //if (file != 'War/Content/Blueprints/Vehicles/LightTank/BPLightTankC.json') {
-    //  continue;
-    //}
     //process.stderr.write('Processing: ' + file + '\n');
 
     try {
       const coreObject = new FHStruct(file);
       const objectValues = coalesceObject(coreObject);
-
       //process.stderr.write(objectValues.CodeName + '\n');
 
       if (objectValues.CodeName
@@ -750,7 +643,6 @@ for (const directory of searchDirectories) {
               || objectValues.VehicleProfileType
               || (objectValues.BuildLocationType == 'EBuildLocationType::ConstructionYard'))) {
         objects.push(objectValues);
-        promises.push(writeTrainingPNGs(objectValues, TRAINING_LOCATION));
       }
     } catch (e) {
       if (e instanceof NonBPError) {
@@ -762,7 +654,4 @@ for (const directory of searchDirectories) {
   }
 }
 
-process.stderr.write('Processing icons.\n');
-Promise.all(promises).then(function() {
-  process.stdout.write(JSON.stringify(objects, null, 2));
-});
+fs.writeFileSync(CATALOG_LOCATION, JSON.stringify(objects, null, 2));

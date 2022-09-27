@@ -12,14 +12,27 @@ warLocation=$(cd "${1}"; pwd)
 version='inferno'
 
 parseCatalog() {
+  echo "Parsing catalog."
   cd catalog
   npm install
+  node parse.mjs "${warLocation}" ../includes/foxhole/${version}/catalog.json
+  cd ..
+}
+
+generateIconTraining() {
+  echo "Generating icon training images."
+  cd catalog
   rm -r training || true
-  node parse.mjs "${warLocation}" > ../includes/foxhole/${version}/catalog.json
+
+  cpus=$(nproc)
+  rangeMax=$(expr ${cpus} - 1)
+  seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../includes/foxhole/inferno/catalog.json training @ $cpus
+
   cd ..
 }
 
 saveIconCatalog() {
+  echo "Saving training samples into icon catalog."
   iconPath=includes/foxhole/${version}/icons
   rm -r $iconPath || true
   mkdir -p $iconPath
@@ -34,6 +47,7 @@ saveIconCatalog() {
 }
 
 buildClassifier() {
+  echo "Building icon classifier."
   cd trainer
   pipenv install
 
@@ -55,6 +69,7 @@ buildClassifier() {
 }
 
 parseCatalog
+generateIconTraining
 saveIconCatalog
 buildClassifier
 
