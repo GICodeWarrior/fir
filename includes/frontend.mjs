@@ -209,6 +209,9 @@ export function getAppendGoogleRows(format="gapi") {
       }
 
       const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+      if (typeof details == 'undefined') {
+        continue;
+      }
 
       if (format == "gapi") {
         rows.push({
