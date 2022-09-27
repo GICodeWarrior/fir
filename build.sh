@@ -15,7 +15,7 @@ parseCatalog() {
   echo "Parsing catalog."
   cd catalog
   npm install
-  node parse.mjs "${warLocation}" ../includes/foxhole/${version}/catalog.json
+  node parse.js "${warLocation}" ../includes/foxhole/${version}/catalog.json
   cd ..
 }
 
