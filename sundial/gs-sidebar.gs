@@ -146,6 +146,7 @@ function firAppend(rows, date_cols) {
   });
   let appendable = [];
   for(const row of rows) {
+    // js Dates dont automatically convert to gs Dates. We have to do that manually.
     const row_ = row.map(function(field, idx) {
       if (date_cols.includes(idx)) {
         return new Date(field);
@@ -160,6 +161,7 @@ function firAppend(rows, date_cols) {
 // Tombstone: set a stockpile to 0 to make it disappear in future history.
 // Implemented next to firAppend, since both have to adhere to the same append format. 
 // Note however, that deactivateStockpile() is purpose-built the be called from and with a button from our/my stockpiles sheet.
+// Specifically it expects the following named ranges as inputs: deactivateStockpileID, deactivateStockpileIDs, deactivateStockpileStructureTypeGenerator, deactivateStockpileNameGenerator, deactivateStockpileTitleGenerator
 function deactivateStockpile() {
   let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   let stockpiles = spreadsheet.getSheets().find((s) => {
@@ -170,8 +172,8 @@ function deactivateStockpile() {
   });
 
   // get stockpile row
-  let stockpileId = stockpiles.getRange("F1").getValue();
-  let stockpileIds = stockpiles.getRange("B6:B36");
+  let stockpileId = stockpiles.getRange("deactivateStockpileID").getValue();
+  let stockpileIds = stockpiles.getRange("deactivateStockpileIDs");
   let stockpileRow = stockpileIds.getValues().findIndex(function(value) { return value[0] == stockpileId; });
   if (stockpileRow == -1) {
     console.log("error: no stockpile with this id found");
@@ -183,9 +185,9 @@ function deactivateStockpile() {
   // collect data
   let date = new Date();
   let screenshotId = parseInt(Math.random() * 1000000000000000);
-  let structureType = stockpiles.getRange(stockpileRow, spreadsheet.getRange("E1").getColumn()).getValue();
-  let stockpileName = stockpiles.getRange(stockpileRow, spreadsheet.getRange("G1").getColumn()).getValue();
-  let stockpileTitle = stockpiles.getRange(stockpileRow, spreadsheet.getRange("H1").getColumn()).getValue();
+  let structureType = stockpiles.getRange(stockpileRow, spreadsheet.getRange("deactivateStockpileStructureTypeGenerator").getColumn()).getValue();
+  let stockpileName = stockpiles.getRange(stockpileRow, spreadsheet.getRange("deactivateStockpileNameGenerator").getColumn()).getValue();
+  let stockpileTitle = stockpiles.getRange(stockpileRow, spreadsheet.getRange("deactivateStockpileTitleGenerator").getColumn()).getValue();
   
   let rows = [];
   rows.push([date, date, structureType, stockpileName, stockpileTitle, "Tombstone", "Nulling this tockpile", 0, true, screenshotId]);

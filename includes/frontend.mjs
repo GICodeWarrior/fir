@@ -201,7 +201,6 @@ export function getAppendGoogleRows(format="gapi") {
   stockpiles.sort( (a, b) => a.lastModified - b.lastModified );
   for (const stockpile of stockpiles) {
     const stockpileTime = new Date(stockpile.lastModified);
-    //const stockpileID = Math.random().toString(36).replace(/^0\./, '');
     const stockpileID = Math.floor(Math.random() * 1000000000000000);
     let isEmpty = true;
     for (const element of stockpile.contents) {
