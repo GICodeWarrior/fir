@@ -203,10 +203,12 @@ export function getAppendGoogleRows(format="gapi") {
     const stockpileTime = new Date(stockpile.lastModified);
     //const stockpileID = Math.random().toString(36).replace(/^0\./, '');
     const stockpileID = Math.floor(Math.random() * 1000000000000000);
+    let isEmpty = true;
     for (const element of stockpile.contents) {
       if (element.quantity == 0) {
         continue;
       }
+      isEmpty = false;
 
       const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
       if (typeof details == 'undefined') {
@@ -244,6 +246,20 @@ export function getAppendGoogleRows(format="gapi") {
       } else {
         console.error("Unexpected format");
       }
+    }
+    if (format == "google-script" && isEmpty) {
+      rows.push([
+        exportTime.toString(),
+        stockpileTime.toString(),
+        stockpile.header.type || '',
+        stockpile.header.name || '',
+        stockpile.label.textContent.trim(),
+        "Update as empty stockpile",
+        "nulling this stockpile",
+        0,
+        true,
+        stockpileID,
+      ]);
     }
   }
   return rows;
