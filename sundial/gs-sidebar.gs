@@ -140,6 +140,7 @@ function fhInsert(s, column) {
 }
 
 function firAppend(rows, date_cols) {
+  let TYPE_COL = 2; // column on fir sheet that specifies type (i.e. Storage Depot)
   let spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   let sheet = spreadsheet.getSheets().find((s) => {
     return s.getName() === 'fir';
@@ -150,6 +151,15 @@ function firAppend(rows, date_cols) {
     const row_ = row.map(function(field, idx) {
       if (date_cols.includes(idx)) {
         return new Date(field);
+      }
+      if (idx == TYPE_COL) { 
+        // French, German, Portugese
+        if (field == "Entrepot" || field == "Lagerdepot" || field == "Armazem") {
+          return "Storage Depot";
+        }
+        if (field == "Port" || field == "Seehafen" || field == "Porto") {
+          return "Seaport";
+        }
       }
       return field;
     })
