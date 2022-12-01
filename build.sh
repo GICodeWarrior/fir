@@ -12,9 +12,10 @@ warLocation=$(cd "${1}"; pwd)
 version='inferno'
 
 parseCatalog() {
-  echo "Parsing catalog."
+  echo "Parsing catalog. (downloading / updating npm packages)"
   cd catalog
   npm install
+  echo "Parsing catalog."
   node parse.js "${warLocation}" ../includes/foxhole/${version}/catalog.json
   cd ..
 }
@@ -27,6 +28,11 @@ generateIconTraining() {
   cpus=$(nproc)
   rangeMax=$(expr ${cpus} - 1)
   seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../includes/foxhole/inferno/catalog.json training @ $cpus
+
+  # Textured Icons mod uses the same icon for both ATRPGW and ATRPGTW. This
+  # confuses the model, and the icon looks more like ATRPGW, so ignore the
+  # ATRPGTW icon.
+  rm training/ATRPGTW/textured-icons-*.png || true
 
   cd ..
 }

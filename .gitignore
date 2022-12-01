@@ -1,4 +1,6 @@
 catalog/node_modules
 catalog/training
+catalog/training.sha
+catalog/duplicates.sha
 trainer/model.h5
 spec/data
