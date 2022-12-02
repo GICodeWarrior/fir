@@ -32,7 +32,7 @@ generateIconTraining() {
   # Textured Icons mod uses the same icon for both ATRPGW and ATRPGTW. This
   # confuses the model, and the icon looks more like ATRPGW, so ignore the
   # ATRPGTW icon.
-  rm training/ATRPGTW/textured-icons-*.png || true
+  rm training/ATRPGTW*/textured-icons-*.png || true
 
   ./find-duplicates.sh $cpus
 
