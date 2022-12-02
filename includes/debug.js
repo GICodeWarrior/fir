@@ -24,7 +24,7 @@ document.querySelector('form input').addEventListener('change', function() {
     canvas.width = this.width;
     canvas.height = this.height;
 
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
     context.drawImage(this, 0, 0);
 
     Screenshot.process(canvas, ICON_MODEL_URL, ICON_CLASS_NAMES, QUANTITY_MODEL_URL, QUANTITY_CLASS_NAMES).then(function(stockpile) {
@@ -38,7 +38,7 @@ document.querySelector('form input').addEventListener('change', function() {
         stockpileCanvas.width = box.width;
         stockpileCanvas.height = box.height;
 
-        const stockpileContext = stockpileCanvas.getContext('2d');
+        const stockpileContext = stockpileCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
         stockpileContext.drawImage(canvas,
           box.x, box.y, box.width, box.height,
           0, 0, box.width, box.height);

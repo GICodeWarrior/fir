@@ -66,7 +66,7 @@ function extractStockpile(canvas) {
   const width = canvas.width;
   const height = canvas.height;
 
-  const context = canvas.getContext('2d', { alpha: false });
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
   const pixels = context.getImageData(0, 0, width, height).data;
   let darkStripes = {};
 
@@ -267,7 +267,7 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   const width = canvas.width;
   const height = canvas.height;
 
-  const context = canvas.getContext('2d', { alpha: false });
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
   const pixels = context.getImageData(0, 0, width, height).data;
 
   // Find the most common grey which is probably the quantity background
@@ -382,7 +382,7 @@ async function extractHeader(canvas, height, quantityWidth) {
   const MAX_GREY_LIGHTNESS_VARIANCE = 16;
 
   const width = canvas.width;
-  const context = canvas.getContext('2d', { alpha: false });
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
   const pixels = context.getImageData(0, 0, width, height).data;
 
   const histogram = {};
@@ -539,7 +539,7 @@ async function classifyIcon(canvas, model, classNames) {
 }
 
 function thresholdCanvas(canvas, threshold) {
-  const context = canvas.getContext('2d', { alpha: false });
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
   const length = imageData.data.length;
 
@@ -564,7 +564,7 @@ function cropCanvas(input, box, filter, resize) {
   output.width = outputWidth;
   output.height = outputHeight;
 
-  const outputContext = output.getContext('2d', { alpha: false });
+  const outputContext = output.getContext('2d', { alpha: false, willReadFrequently: true });
   outputContext.filter = filter;
   outputContext.drawImage(input,
       box.x, box.y, box.width, box.height,
@@ -583,7 +583,8 @@ function autoCropCanvas(image, outputWidth, outputHeight) {
   let right = imageWidth - 1;
   let bottom = imageHeight - 1;
   let left = 0;
-  const imgContext = image.getContext('2d', { alpha: false });
+
+  const imgContext = image.getContext('2d', { alpha: false, willReadFrequently: true });
   const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
 
   for (let offset = 0; offset < imgPixels.length; offset += 4) {
@@ -636,7 +637,7 @@ function autoCropCanvas(image, outputWidth, outputHeight) {
   const canvas = document.createElement('canvas');
   canvas.width = outputWidth;
   canvas.height = outputHeight;
-  const context = canvas.getContext('2d', { alpha: false });
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
   //context.filter = 'blur(2px)';
   context.drawImage(image,
     left, top, cropWidth, cropHeight,

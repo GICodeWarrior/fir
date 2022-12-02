@@ -70,7 +70,7 @@ for (const expectedStockpile of expectedStockpiles) {
           canvas.width = this.width;
           canvas.height = this.height;
 
-          const context = canvas.getContext('2d');
+          const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
           context.drawImage(this, 0, 0);
 
           resolve(canvas);

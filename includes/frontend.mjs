@@ -400,7 +400,7 @@ function getProcessImage(label, lastModified) {
     canvas.width = this.width;
     canvas.height = this.height;
 
-    const context = canvas.getContext('2d');
+    const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
     context.drawImage(this, 0, 0);
 
     const stockpile = await Screenshot.process(canvas, ICON_MODEL_URL, res.ICON_CLASS_NAMES, QUANTITY_MODEL_URL, res.QUANTITY_CLASS_NAMES);
