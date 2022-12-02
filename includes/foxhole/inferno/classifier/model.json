@@ -1,7 +1,7 @@
 {
-  "convertedBy": "TensorFlow.js Converter v3.20.0",
+  "convertedBy": "TensorFlow.js Converter v3.21.0",
   "format": "graph-model",
-  "generatedBy": "2.8.3",
+  "generatedBy": "2.8.4",
   "modelTopology": {
     "library": {},
     "node": [
