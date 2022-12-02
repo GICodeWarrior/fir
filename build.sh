@@ -34,6 +34,8 @@ generateIconTraining() {
   # ATRPGTW icon.
   rm training/ATRPGTW/textured-icons-*.png || true
 
+  ./find-duplicates.sh $cpus
+
   cd ..
 }
 
@@ -46,7 +48,10 @@ saveIconCatalog() {
   iconNames=$(ls catalog/training)
   for name in $iconNames
   do
-    cp catalog/training/$name/64-0.png $iconPath/$name.png
+    if [ -d "catalog/training/$name" ]
+    then
+      cp "catalog/training/$name/64-0.png" "$iconPath/$name.png"
+    fi
   done
 
   find $iconPath -type f | xargs -P16 -n1 optipng -strip all -quiet
