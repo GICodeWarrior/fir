@@ -1,7 +1,7 @@
 {
-  "convertedBy": "TensorFlow.js Converter v3.21.0",
+  "convertedBy": "TensorFlow.js Converter v4.1.0",
   "format": "graph-model",
-  "generatedBy": "2.8.4",
+  "generatedBy": "2.11.0",
   "modelTopology": {
     "library": {},
     "node": [
@@ -438,6 +438,13 @@
           "T": {
             "type": "DT_FLOAT"
           },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
           "data_format": {
             "s": "TkhXQw=="
           },
@@ -457,6 +464,9 @@
           "explicit_paddings": {
             "list": {}
           },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
           "fused_ops": {
             "list": {
               "s": [
@@ -465,8 +475,14 @@
               ]
             }
           },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
           "num_args": {
             "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
           },
           "padding": {
             "s": "U0FNRQ=="
@@ -566,6 +582,13 @@
           "T": {
             "type": "DT_FLOAT"
           },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
           "data_format": {
             "s": "TkhXQw=="
           },
@@ -585,6 +608,9 @@
           "explicit_paddings": {
             "list": {}
           },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
           "fused_ops": {
             "list": {
               "s": [
@@ -593,8 +619,14 @@
               ]
             }
           },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
           "num_args": {
             "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
           },
           "padding": {
             "s": "U0FNRQ=="
@@ -694,6 +726,13 @@
           "T": {
             "type": "DT_FLOAT"
           },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
           "data_format": {
             "s": "TkhXQw=="
           },
@@ -713,6 +752,9 @@
           "explicit_paddings": {
             "list": {}
           },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
           "fused_ops": {
             "list": {
               "s": [
@@ -721,8 +763,14 @@
               ]
             }
           },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
           "num_args": {
             "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
           },
           "padding": {
             "s": "U0FNRQ=="
@@ -848,6 +896,9 @@
               ]
             }
           },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
           "num_args": {
             "i": "1"
           },
@@ -881,7 +932,7 @@
       }
     ],
     "versions": {
-      "producer": 987
+      "producer": 1286
     }
   },
   "signature": {
