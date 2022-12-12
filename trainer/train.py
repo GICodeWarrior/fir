@@ -68,17 +68,20 @@ val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 model = Sequential([
 #  layers.RandomBrightness(0.05),
 #  layers.RandomContrast(0.05),
-  layers.Rescaling(1./255),
-  layers.Conv2D(16, 3, padding='same', activation='relu'),
-  layers.MaxPooling2D(),
+  layers.Rescaling(1./255, input_shape=IMG_SIZE + (3,)),
+  layers.Conv2D(16, 3, padding='same', use_bias=False),
   layers.BatchNormalization(),
-  layers.Conv2D(32, 3, padding='same', activation='relu'),
+  layers.Activation('relu'),
   layers.MaxPooling2D(),
+  layers.Conv2D(32, 3, padding='same', use_bias=False),
   layers.BatchNormalization(),
-  layers.Conv2D(64, 3, padding='same', activation='relu'),
+  layers.Activation('relu'),
   layers.MaxPooling2D(),
+  layers.Conv2D(64, 3, padding='same', use_bias=False),
   layers.BatchNormalization(),
-  layers.Dropout(DROPOUT),
+  layers.Activation('relu'),
+  layers.MaxPooling2D(),
+  layers.SpatialDropout2D(DROPOUT),
   layers.Flatten(),
 #  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
   layers.Dense(output_dim, name='outputs')
@@ -90,10 +93,17 @@ model.compile(
   metrics=['accuracy']
 )
 
+early_stopping = keras.callbacks.EarlyStopping(
+  monitor='loss',
+  patience=3,
+  restore_best_weights=True
+)
+
 model.fit(
   train_ds,
   validation_data=val_ds,
-  epochs=EPOCHS
+  epochs=EPOCHS,
+  callbacks=[early_stopping]
 )
 
 model.save('model.h5')
