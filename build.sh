@@ -67,6 +67,7 @@ buildClassifier() {
 
   pipenv run python train.py 50 rgb 0.05 0.01 ../catalog/training/
 
+  echo "Training complete, assembling results."
   rm -r ../includes/foxhole/${version}/classifier || true
   mkdir -p ../includes/foxhole/${version}/classifier
   mv class_names.json ../includes/foxhole/${version}/classifier/class_names.json
