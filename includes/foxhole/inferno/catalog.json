@@ -13404,7 +13404,7 @@
     "CodeName": "LightTankFlameC",
     "ChassisName": "Light Tank",
     "DisplayName": "H-19 “Vulcan”",
-    "Description": "This modified “Hatchet” features a reinforced fuel cell fixed to its rear alongside a heavy flamethrower turret. This light tank can launch litres of burning fuel a fair distance, while its crew remains protected behind light armour plating.",
+    "Description": "This modified “Hatchet” features a reinforced fuel cell fixed to its rear alongside a flamethrower turret. This light tank can launch litres of burning fuel a fair distance, while its crew remains protected behind light armour plating.",
     "TechID": "ETechID::UnlockLightTankFlame",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankFlameCIcon.0",
     "FuelTank": 225,
