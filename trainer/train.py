@@ -73,15 +73,14 @@ model = Sequential([
   layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
-  layers.Conv2D(32, 3, padding='same', use_bias=False),
-  layers.BatchNormalization(),
-  layers.Activation('relu'),
-  layers.MaxPooling2D(),
-  layers.Conv2D(64, 3, padding='same', use_bias=False),
-  layers.BatchNormalization(),
-  layers.Activation('relu'),
-  layers.MaxPooling2D(),
   layers.SpatialDropout2D(DROPOUT),
+  layers.Conv2D(32, 3, padding='same'),
+  layers.Activation('relu'),
+  layers.MaxPooling2D(),
+  layers.Conv2D(64, 3, padding='same'),
+  layers.Activation('relu'),
+  layers.MaxPooling2D(),
+  layers.Dropout(DROPOUT),
   layers.Flatten(),
 #  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
   layers.Dense(output_dim, name='outputs')
@@ -95,7 +94,7 @@ model.compile(
 
 early_stopping = keras.callbacks.EarlyStopping(
   monitor='loss',
-  patience=3,
+  patience=7,
   restore_best_weights=True
 )
 
