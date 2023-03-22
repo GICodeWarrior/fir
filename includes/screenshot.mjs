@@ -258,7 +258,7 @@ async function extractContents(canvas, iconModel, iconClassNames, quantityModel,
   const MIN_QUANTITY_WIDTH = 30;
   const MAX_QUANTITY_WIDTH = 90;
 
-  const MIN_QUANTITY_HEIGHT = 25;
+  const MIN_QUANTITY_HEIGHT = 22;
   const MAX_QUANTITY_HEIGHT = 70;
 
   const MAX_GREY_CHROMA = 16;
