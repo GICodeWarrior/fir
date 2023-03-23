@@ -3,8 +3,8 @@ import Screenshot from '../includes/screenshot.mjs';
 const CURRENT_VERSION = 'inferno-52';
 
 const JASMINE_TIMEOUT = 60000;
-const ICON_MODEL_URL = `./includes/foxhole/${CURRENT_VERSION}/classifier/model.json`;
-const ICON_CLASS_NAMES = await fetch(`./includes/foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json());
+const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
+const ICON_CLASS_NAMES = await fetch(`./foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 

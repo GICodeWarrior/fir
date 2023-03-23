@@ -15,12 +15,12 @@ if (!VALID_VERSIONS.has(VERSION)) {
 console.log(`Loading resources for "${VERSION}"`);
 
 const res = {
-  CATALOG: fetch(`./includes/foxhole/${VERSION}/catalog.json`).then(r => r.json()),
-  ICON_CLASS_NAMES: fetch(`./includes/foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
+  CATALOG: fetch(`./foxhole/${VERSION}/catalog.json`).then(r => r.json()),
+  ICON_CLASS_NAMES: fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
   QUANTITY_CLASS_NAMES: fetch('./includes/quantities/class_names.json').then(r => r.json()),
 }
 
-const ICON_MODEL_URL = `./includes/foxhole/${VERSION}/classifier/model.json`;
+const ICON_MODEL_URL = `./foxhole/${VERSION}/classifier/model.json`;
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 
 await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);

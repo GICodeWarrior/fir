@@ -2,8 +2,8 @@ import Screenshot from './screenshot.mjs'
 
 const VERSION = 'inferno-52';
 
-const ICON_CLASS_NAMES = await fetch(`./includes/foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json());
-const ICON_MODEL_URL = `./includes/foxhole/${VERSION}/classifier/model.json`;
+const ICON_CLASS_NAMES = await fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json());
+const ICON_MODEL_URL = `./foxhole/${VERSION}/classifier/model.json`;
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 

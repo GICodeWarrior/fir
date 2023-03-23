@@ -16,8 +16,8 @@ parseCatalog() {
   cd catalog
   npm install
   echo "Parsing catalog."
-  mkdir -p ../includes/foxhole/${version}/
-  node parse.js "${warLocation}" ../includes/foxhole/${version}/catalog.json
+  mkdir -p ../foxhole/${version}/
+  node parse.js "${warLocation}" ../foxhole/${version}/catalog.json
   cd ..
 }
 
@@ -28,7 +28,7 @@ generateIconTraining() {
 
   cpus=$(nproc)
   rangeMax=$(expr ${cpus} - 1)
-  seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../includes/foxhole/${version}/catalog.json training @ $cpus
+  seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../foxhole/${version}/catalog.json training @ $cpus
 
   # Textured Icons mod uses the same icon for both FieldMGAmmo and MGAmmo. This
   # confuses the model, and the icon looks more like MGAmmo, so ignore the
@@ -42,7 +42,7 @@ generateIconTraining() {
 
 saveIconCatalog() {
   echo "Saving training samples into icon catalog."
-  iconPath=includes/foxhole/${version}/icons
+  iconPath=foxhole/${version}/icons
   rm -r $iconPath || true
   mkdir -p $iconPath
 
@@ -68,15 +68,15 @@ buildClassifier() {
   pipenv run python train.py 50 rgb 0.05 0.01 ../catalog/training/
 
   echo "Training complete, assembling results."
-  rm -r ../includes/foxhole/${version}/classifier || true
-  mkdir -p ../includes/foxhole/${version}/classifier
-  mv class_names.json ../includes/foxhole/${version}/classifier/class_names.json
+  rm -r ../foxhole/${version}/classifier || true
+  mkdir -p ../foxhole/${version}/classifier
+  mv class_names.json ../foxhole/${version}/classifier/class_names.json
 
   #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
-  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../includes/foxhole/${version}/classifier
+  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../foxhole/${version}/classifier
 
-  pipenv run python sort_json.py ../includes/foxhole/${version}/classifier/model.json
+  pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
 
   cd ..
 }
