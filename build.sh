@@ -9,7 +9,7 @@ then
 fi
 
 warLocation=$(cd "${1}"; pwd)
-version='inferno'
+version='inferno-52'
 
 parseCatalog() {
   echo "Parsing catalog. (downloading / updating npm packages)"
@@ -28,12 +28,12 @@ generateIconTraining() {
 
   cpus=$(nproc)
   rangeMax=$(expr ${cpus} - 1)
-  seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../includes/foxhole/inferno/catalog.json training @ $cpus
+  seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js ~/foxhole ../includes/foxhole/${version}/catalog.json training @ $cpus
 
-  # Textured Icons mod uses the same icon for both ATRPGW and ATRPGTW. This
-  # confuses the model, and the icon looks more like ATRPGW, so ignore the
-  # ATRPGTW icon.
-  rm training/ATRPGTW*/textured-icons-*.png || true
+  # Textured Icons mod uses the same icon for both FieldMGAmmo and MGAmmo. This
+  # confuses the model, and the icon looks more like MGAmmo, so ignore the
+  # FieldMGAmmo icon.
+  rm training/FieldMGAmmo*/textured-icons-*.png || true
 
   ./find-duplicates.sh $cpus
 

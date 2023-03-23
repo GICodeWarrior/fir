@@ -1,51 +1,26 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const VALID_VERSIONS = new Set([
-  'entrenched',
-  'inferno',
-]);
-
-const DEFAULT_VERSION = 'inferno';
-const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
-if (!VALID_VERSIONS.has(VERSION)) {
-  console.log(`Invalid version ${VERSION}`);
-  location.search = '';
-}
-console.log(`Loading resources for "${VERSION}"`);
+const CURRENT_VERSION = 'inferno-52';
 
 const JASMINE_TIMEOUT = 60000;
-const ICON_MODEL_URL = `./includes/foxhole/${VERSION}/classifier/model.json`;
-const ICON_CLASS_NAMES = await fetch(`./includes/foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json());
+const ICON_MODEL_URL = `./includes/foxhole/${CURRENT_VERSION}/classifier/model.json`;
+const ICON_CLASS_NAMES = await fetch(`./includes/foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json());
 const QUANTITY_MODEL_URL = './includes/quantities/model.json';
 const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 
-const expectedStockpiles = await fetch('./spec/data/stockpiles.json').then(r => r.json());
+const EXPECTED_STOCKPILES = await fetch('./spec/data/stockpiles.json').then(r => r.json());
 
-const versionMapping = {
-  'entrenched': {
-    ATLargeAmmo: null,
-    BattleTankAmmo: null,
-    Coal: null,
-    FacilityCoal1: null,
-    FacilityMaterials1: null,
-    FacilityMaterials2: null,
-    FacilityMaterials3: null,
-    FacilityMaterials4: null,
-    FacilityMaterials5: null,
-    FacilityMaterials6: null,
-    FacilityMaterials7: null,
-    FacilityMaterials8: null,
-    FacilityOil1: null,
-    FacilityOil2: null,
-    FlameAmmo: null,
-    FlameBackpackC: null,
-    FlameTorchC: null,
-    GroundMaterials: null,
-    Oil: null,
-    PipeMaterials: null,
-    Water: null,
-    WaterBucket: null,
-  },
+const CRATED_LABEL = {
+  true: 'crated',
+  false: 'individual',
+};
+
+const VERSION_HISTORY = [
+  'entrenched',
+  'inferno',
+  'inferno-52',
+];
+const VERSION_CHANGES = {
   'inferno': {
     SmallShippingContainer: null,
     MetalBeamPlatform: null,
@@ -55,10 +30,33 @@ const versionMapping = {
     FieldCannonDamageW: 'FieldATDamageW',
     EmplacedMachineGun: 'EmplacedInfantryW',
     EmplacedAT: 'EmplacedATW',
+  },
+  'inferno-52': {
+    ArmoredCarMobilityC: 'TanketteC',
+    Concrete: null, // Icon changed
+    CrudeOil: null,
+    GarrisonSupplies: 'MaintenanceSupplies',
+    SatchelCharge: 'SatchelChargeW',
+    Water: null, // SubTypeIcon added at some point
+  },
+};
+
+function mapCodeNameIfChanged(stockpileVersion, codeName) {
+  let nextVersionIndex = VERSION_HISTORY.indexOf(stockpileVersion) + 1;
+  while (nextVersionIndex < VERSION_HISTORY.length) {
+    let change = VERSION_CHANGES[VERSION_HISTORY[nextVersionIndex]][codeName];
+    if (change === null) {
+      return null;
+    } else if (change !== undefined) {
+      codeName = change;
+    }
+    ++nextVersionIndex;
   }
+
+  return codeName;
 }
 
-for (const expectedStockpile of expectedStockpiles) {
+for (const expectedStockpile of EXPECTED_STOCKPILES) {
   describe(`Screenshot ${expectedStockpile.file}`, function() {
     beforeAll(async function() {
       const image = new Image();
@@ -110,19 +108,19 @@ for (const expectedStockpile of expectedStockpiles) {
 
     for (let index = 0; index < expectedStockpile.contents.length; ++index) {
       const expectedElement = expectedStockpile.contents[index];
-      if (Object.hasOwn(versionMapping[VERSION], expectedElement.CodeName)) {
-        expectedElement.CodeName = versionMapping[VERSION][expectedElement.CodeName];
-        if (expectedElement.CodeName === null) {
-          continue;
-        }
+      expectedElement.CodeName = mapCodeNameIfChanged(expectedStockpile.version, expectedElement.CodeName);
+      if (expectedElement.CodeName === null) {
+        continue;
       }
 
-      const suffix = expectedElement.isCrated ? ' (crated)' : '';
-      it(`contains ${expectedElement.quantity} ${expectedElement.CodeName}${suffix}`, function() {
+      const expectedCratedStatus = CRATED_LABEL[expectedElement.isCrated];
+      it(`contains ${expectedElement.quantity} ${expectedElement.CodeName} (${expectedCratedStatus})`, function() {
         const actualElement = this.actualStockpile.contents[index] || {};
+        const actualCratedStatus = CRATED_LABEL[actualElement.isCrated];
+
         expect(actualElement.CodeName).toBe(expectedElement.CodeName);
         expect(actualElement.quantity).toBe(expectedElement.quantity);
-        expect(actualElement.isCrated).toBe(expectedElement.isCrated);
+        expect(actualCratedStatus).toBe(expectedCratedStatus);
       });
     }
 

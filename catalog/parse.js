@@ -49,8 +49,8 @@ class FHStruct {
   }
 
   static constructBPFromReference(node) {
-    if (node && node.ObjectName.startsWith(FHStruct.#BPCLASS + ' ')) {
-      const type = node.ObjectName.slice(FHStruct.#BPCLASS.length + 1);
+    if (node && node.ObjectName.startsWith(FHStruct.#BPCLASS + "'")) {
+      const type = node.ObjectName.slice(FHStruct.#BPCLASS.length + 1, node.ObjectName.length - 1);
       return new FHStruct(node.ObjectPath, type);
     }
   }
@@ -66,7 +66,11 @@ class FHStruct {
 
     let base = this.#selected;
     for (const element of path) {
-      base = (base || {})[element];
+      if (Array.isArray(base)) {
+        base = base.find(v => v[element])?.[element];
+      } else {
+        base = (base || {})[element];
+      }
     }
 
     const superProperties = [];
@@ -364,7 +368,7 @@ function coalesceObject(coreObject) {
   const profileProperties = [
     ['bIsStockpilable'],
     ['bIsStackable'],
-    ['bIsConvertableToCrate'],
+    ['bIsConvertibleToCrate'],
     ['bIsCratable'],
     ['bIsStockpiledWithAmmo'],
     ['bUsableInVehicle'],

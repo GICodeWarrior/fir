@@ -3,9 +3,10 @@ import * as front from './frontend.mjs'
 const VALID_VERSIONS = new Set([
   'entrenched',
   'inferno',
+  'inferno-52',
 ]);
 
-const DEFAULT_VERSION = 'inferno';
+const DEFAULT_VERSION = 'inferno-52';
 const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
 if (!VALID_VERSIONS.has(VERSION)) {
   console.log(`Invalid version ${VERSION}`);
