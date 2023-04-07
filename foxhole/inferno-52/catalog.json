@@ -5424,6 +5424,28 @@
         "ProjectileDeathDelay": 8
       }
     },
+    "AmmoDynamicData": {
+      "Damage": 0,
+      "Suppression": 0,
+      "ExplosionRadius": 350,
+      "DamageType": {
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPExtinguishingDamageType.0",
+        "DisplayName": "Extinguishing",
+        "Type": "EDamageType::Extinguishing",
+        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeRainIcon.0",
+        "VehicleSubsystemDisableMultipliers": 0,
+        "bApplyTankArmourAngleRangeBonuses": false,
+        "bApplyDamageFalloff": true,
+        "bCanWoundCharacter": true,
+        "bExposeInUI": true
+      },
+      "DamageInnerRadius": 350,
+      "DamageFalloff": 0,
+      "AccuracyRadius": 0,
+      "EnvironmentImpactAmount": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
+    },
+    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeRainIcon.0",
     "GrenadeDynamicData": {
       "MinTossSpeed": 1000,
       "MaxTossSpeed": 1500,

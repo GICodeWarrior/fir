@@ -91,7 +91,7 @@ async function writeTrainingPNG(objectValues, baseName, size, smear, cache, modN
 }
 
 async function writeTrainingPNGs(objectValues) {
-  const smallestSize = 25; // 26-27 at 1600x900
+  const smallestSize = 22; // 22-23 at 1366x768
   const largestSize = 72; // 64 at 4k
   const baseName = `${TRAINING_LOCATION}/${objectValues.CodeName}`;
 

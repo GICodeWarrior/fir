@@ -176,6 +176,7 @@ function coalesceObject(coreObject) {
 
   const ammoTypes = new Set();
   const itemComponent = FHStruct.constructBPFromReference(combinedObject.ItemComponentClass);
+
   if (itemComponent) {
     const componentProperties = [
       ['ProjectileClasses'],
@@ -229,6 +230,11 @@ function coalesceObject(coreObject) {
       ammoTypes.add('RpgAmmo');
       ammoTypes.delete('RPGAmmo');
     }
+  }
+
+  if ((combinedObject.CodeName == 'WaterBucket') && (ammoTypes.size > 1)) {
+    // There are two damage types?  We need the SubTypeIcon below, so get rid of one type here.
+    ammoTypes.delete('Water');
   }
 
   const ammoProperties = [
