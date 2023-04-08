@@ -21,6 +21,27 @@ async function writePNG(canvas, file) {
   await events.once(out, 'finish');
 }
 
+async function loadCornerIcon(path) {
+  const image = await loadImage(path);
+  const canvas = createCanvas(image.width, image.height);
+  const context = canvas.getContext('2d');
+
+  context.drawImage(image, 0, 0);
+
+  const imageData = context.getImageData(0, 0, image.width, image.height);
+  const length = imageData.data.length;
+
+  // Attempt to replicate brown effect on corner icons
+  for (let offset = 0; offset < length; offset += 4) {
+    imageData.data[offset] *= 240 / 255;
+    imageData.data[offset + 1] *= 234 / 255;
+    imageData.data[offset + 2] *= 220 / 255;
+  }
+  context.putImageData(imageData, 0, 0);
+
+  return canvas;
+}
+
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
 async function drawIcon(objectValues, size, smear, cache, modName) {
@@ -45,7 +66,7 @@ async function drawIcon(objectValues, size, smear, cache, modName) {
   context.drawImage(cache.icon, 0, 0, size + smear, size);
 
   if (objectValues.SubTypeIcon) {
-    cache.subTypeIcon ||= await loadImage(
+    cache.subTypeIcon ||= await loadCornerIcon(
       `${WAR_LOCATION}/${objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png')}`
     );
     const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
@@ -59,7 +80,7 @@ async function drawIcon(objectValues, size, smear, cache, modName) {
   return canvas;
 }
 
-const CRATE_ICON = loadImage(`${WAR_LOCATION}/War/Content/Textures/UI/Menus/IconFilterCrates.png`);
+const CRATE_ICON = loadCornerIcon(`${WAR_LOCATION}/War/Content/Textures/UI/Menus/IconFilterCrates.png`);
 async function addCrate(canvas, smear) {
   const size = canvas.width;
 
