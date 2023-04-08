@@ -60,7 +60,7 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
   describe(`Screenshot ${expectedStockpile.file}`, function() {
     beforeAll(async function() {
       const image = new Image();
-      image.src = `spec/data/${expectedStockpile.file}`;
+      image.src = `spec/data/screenshots/${expectedStockpile.file}`;
 
       const canvas = await new Promise(function(resolve) {
         image.addEventListener('load', function() {
