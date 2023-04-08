@@ -57,7 +57,8 @@ class OCR {
     for (let i = 0; i < this.#concurrency; ++i) {
       const worker = Tesseract.createWorker({
         //logger: m => console.log(m),
-        langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
+        //langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
+        langPath: 'https://files.kubuxu.com/foxhole/tesseract/',
         //cacheMethod: 'none',
       });
 
@@ -69,8 +70,10 @@ class OCR {
 
     async function initWorker(scheduler, worker) {
       await worker.load();
-      await worker.loadLanguage('eng');
-      await worker.initialize('eng');
+      //await worker.loadLanguage('eng');
+      //await worker.initialize('eng');
+      await worker.loadLanguage('engJost-final3');
+      await worker.initialize('engJost-final3');
       await worker.setParameters({
         //tessedit_ocr_engine_mode: Tesseract.OEM.LSTM_ONLY,
         tessedit_char_whitelist: workerCharset,

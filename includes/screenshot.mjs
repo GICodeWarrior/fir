@@ -481,7 +481,7 @@ async function ocrHeader(canvas, box) {
     width: box.width - cropAmount,
     height: box.height - (cropAmount * 2),
   }
-  canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 5);
+  canvas = cropCanvas(canvas, cropBox, 'grayscale(100%) invert(100%)', 2);
 
   const threshold = Math.round(256 * 3 / 10);
   thresholdCanvas(canvas, threshold);
