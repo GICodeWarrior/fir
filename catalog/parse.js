@@ -618,17 +618,6 @@ const searchDirectories = [
 const objects = [];
 for (const directory of searchDirectories) {
   const entries = fs.readdirSync(`${WAR_LOCATION}/${directory}`, {withFileTypes: true});
-  entries.sort(function(a, b) {
-    const aName = a.name.toLowerCase();
-    const bName = b.name.toLowerCase();
-    if (aName > bName) {
-      return 1;
-    }
-    if (aName < bName) {
-      return -1;
-    }
-    return 0;
-  });
 
   //process.stderr.write(`Processing JSON files in: ${directory}\n`);
 
@@ -663,5 +652,17 @@ for (const directory of searchDirectories) {
     }
   }
 }
+
+objects.sort(function(a, b) {
+  const aName = a.CodeName.toLowerCase();
+  const bName = b.CodeName.toLowerCase();
+  if (aName > bName) {
+    return 1;
+  }
+  if (aName < bName) {
+    return -1;
+  }
+  return 0;
+});
 
 fs.writeFileSync(CATALOG_LOCATION, JSON.stringify(objects, null, 2));
