@@ -162,10 +162,11 @@ function coalesceObject(coreObject) {
     ['BuildLocationFilter'],
     ['BoostSpeedModifier'],
     ['BoostGasUsageModifier'],
+    ['bCanUseStructures'],
     ['bIsLarge'],
-    ['bSupportsVehicleMounts'],
-    ['bRequiresVehicleToBuild'],
     ['bRequiresCoverOrLowStanceToInvoke'],
+    ['bRequiresVehicleToBuild'],
+    ['bSupportsVehicleMounts'],
   ];
 
   coreObject.extractValues(
@@ -443,7 +444,6 @@ function coalesceObject(coreObject) {
   const vehicleProfileProperties = [
     ['bUsesRollTrace'],
     ['bCanTriggerMine'],
-    ['bCanUseStructures'],
     ['RamDamageDealtFlags'],
     ['bUsesGas'],
     ['DrivingSpeedThreshold'],
@@ -577,7 +577,7 @@ const common = {
         ['Properties'],
         [['ProductionCategories']]).ProductionCategories,
   massProductionFactoryProductionCategories: new FHStruct(
-      'War/Content/Blueprints/Structures/BPMassProductionFactory',
+      'War/Content/Blueprints/Structures/BPMassProduction',
       'SpecializedFactoryComponent',
       false).extractValues(
         ['Properties'],

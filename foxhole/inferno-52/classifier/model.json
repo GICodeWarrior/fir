@@ -172,7 +172,7 @@
                     "size": "1024"
                   },
                   {
-                    "size": "606"
+                    "size": "610"
                   }
                 ]
               }
@@ -193,7 +193,7 @@
               "tensorShape": {
                 "dim": [
                   {
-                    "size": "606"
+                    "size": "610"
                   }
                 ]
               }
@@ -764,7 +764,7 @@
               "size": "-1"
             },
             {
-              "size": "606"
+              "size": "610"
             }
           ]
         }
@@ -833,14 +833,14 @@
           "name": "StatefulPartitionedCall/sequential/outputs/MatMul/ReadVariableOp",
           "shape": [
             1024,
-            606
+            610
           ]
         },
         {
           "dtype": "float32",
           "name": "StatefulPartitionedCall/sequential/outputs/BiasAdd/ReadVariableOp",
           "shape": [
-            606
+            610
           ]
         },
         {

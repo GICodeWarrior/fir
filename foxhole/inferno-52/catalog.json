@@ -1,6 +1,6 @@
 [
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAluminum",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAluminumPickup",
     "CodeName": "Aluminum",
     "DisplayName": "Aluminum",
     "Description": "Aluminum can be refined into Aluminum Alloy, which is used in the prototyping process for items.",
@@ -30,7 +30,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAluminumAlloy",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAluminumAPickup",
     "CodeName": "AluminumA",
     "DisplayName": "Aluminum Alloy",
     "Description": "Aluminum Alloy can be used to produce Item Prototypes at the Engineering Center.",
@@ -66,7 +66,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPAmbulanceColonial",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPAmbulanceC",
     "CodeName": "AmbulanceC",
     "ChassisName": "Ambulance",
     "DisplayName": "R-12 - “Salus” Ambulance",
@@ -80,6 +80,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
       "MinorDamagePercent": 0.1875,
@@ -108,7 +109,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -148,13 +148,14 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
       "MinorDamagePercent": 0.1875,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 15,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.025,
       "SwimmingFuelConsumptionModifier": 1,
@@ -176,7 +177,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -213,13 +213,14 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
       "MinorDamagePercent": 0.1875,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 15,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.025,
       "SwimmingFuelConsumptionModifier": 1,
@@ -241,7 +242,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -265,7 +265,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPAmbulanceWarden",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPAmbulanceW",
     "CodeName": "AmbulanceW",
     "ChassisName": "Ambulance",
     "DisplayName": "Dunne Responder 3e",
@@ -279,6 +279,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
       "MinorDamagePercent": 0.1875,
@@ -307,7 +308,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -334,7 +334,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPAmmoUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPAmmoUniformWPickup",
     "CodeName": "AmmoUniformW",
     "ChassisName": "Warden Heavy Ammo Uniform",
     "DisplayName": "Specialist’s Overcoat",
@@ -404,7 +404,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 115,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 4,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -426,7 +426,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -493,7 +492,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -541,7 +539,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 115,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.075,
       "SwimmingFuelConsumptionModifier": 1,
@@ -563,7 +561,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -630,7 +627,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -697,7 +693,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -764,7 +759,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -809,7 +803,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 115,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 12,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -831,7 +825,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -876,7 +869,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 110,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 25,
+      "ItemHolderCapacity": 4,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.1,
       "SwimmingFuelConsumptionModifier": 1,
@@ -898,7 +891,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -968,7 +960,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -995,7 +986,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPArmourUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPArmourUniformCPickup",
     "CodeName": "ArmourUniformC",
     "ChassisName": "Colonial Armour Uniform",
     "DisplayName": "Velian Flak Vest",
@@ -1044,7 +1035,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPArmourUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPArmourUniformWPickup",
     "CodeName": "ArmourUniformW",
     "ChassisName": "Warden Armour Uniform",
     "DisplayName": "Gunner’s Breastplate",
@@ -1154,7 +1145,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPLightMachineGunPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAssaultRifleCPickup",
     "CodeName": "AssaultRifleC",
     "ChassisName": "Light Machine Gun",
     "DisplayName": "Catara mo.II",
@@ -1197,14 +1188,14 @@
       "MaxAmmo": 30,
       "MaxApexHalfAngle": 9.5,
       "BaselineApexHalfAngle": 3.5,
-      "StabilityCostPerShot": 0.2,
+      "StabilityCostPerShot": 0.225,
       "Agility": 1,
       "CoverProvided": 0,
       "StabilityFloorFromMovement": 0,
       "StabilityGainRate": 1,
       "MaximumRange": 2700,
       "MaximumReachability": 3200,
-      "DamageMultiplier": 1,
+      "DamageMultiplier": 0.64,
       "ArtilleryAccuracyMinDist": 0,
       "ArtilleryAccuracyMaxDist": 0,
       "MaxVehicleDeviationAngle": 0,
@@ -1418,7 +1409,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAssaultRiflePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPAssaultRifleWPickup",
     "CodeName": "AssaultRifleW",
     "ChassisName": "Assault Rifle",
     "DisplayName": "Aalto Storm Rifle 24",
@@ -1506,7 +1497,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/ATAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATAmmoPickup",
     "CodeName": "ATAmmo",
     "DisplayName": "68mm",
     "Description": "Standard shell for anti-tank weapons.",
@@ -1681,7 +1672,7 @@
         "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
         "TankArmourEffectType": "ETankArmourEffectType::Large",
         "TankArmourPenetrationFactor": 2,
-        "VehicleSubsystemDisableMultipliers": 3,
+        "VehicleSubsystemDisableMultipliers": 1.5,
         "bApplyTankArmourMechanics": true,
         "bExposeInUI": true
       },
@@ -1786,7 +1777,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRifleTC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRifleTCPickup",
     "CodeName": "ATRifleTC",
     "ChassisName": "Mounted Anti-Tank Rifle",
     "DisplayName": "“Typhon” ra.XII",
@@ -1842,7 +1833,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRiflePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRifleWPickup",
     "CodeName": "ATRifleW",
     "ChassisName": "Anti-Tank Rifle",
     "DisplayName": "20 Neville Anti-Tank Rifle",
@@ -2202,7 +2193,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRPGIndirectAmmo",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRPGIndirectAmmoPickup",
     "CodeName": "ATRPGIndirectAmmo",
     "DisplayName": "ARC/RPG",
     "Description": "An armour piercing projectile used with indirect RPG launchers.",
@@ -2557,7 +2548,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BandagesPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPBandagesPickup",
     "CodeName": "Bandages",
     "DisplayName": "Bandages",
     "Description": "Used to stem bleeding.",
@@ -2603,7 +2594,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPBarbedWireMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPBarbedWireMaterialsPickup",
     "CodeName": "BarbedWireMaterials",
     "ChassisName": "Large Material",
     "DisplayName": "Barbed Wire",
@@ -2656,6 +2647,7 @@
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1440,
       "MinorDamagePercent": 0.5,
@@ -2684,7 +2676,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -2698,7 +2689,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/TankAmmo/BattleTankAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/TankAmmo/BPBattleTankAmmoPickup",
     "CodeName": "BattleTankAmmo",
     "DisplayName": "75mm",
     "Description": "Standard payload for battle tanks.",
@@ -2770,12 +2761,12 @@
   {
     "ObjectPath": "War/Content/Blueprints/Vehicles/BattleTanks/BPBattleTankATC",
     "CodeName": "BattleTankATC",
-    "ChassisName": "Battle Tank",
     "DisplayName": "Lance-25 “Hasta”",
     "Description": "A heavy Lance variation, the 25, or “Hasta”, was employed in the first siege on Brightwall, a city now colloquially referred to as, “The Blemish”. Bombarded by heavy, armoured resistance in northern Veli, Colonial tank regiments requested a heavy vehicle with more effective search and destroy capabilities. Fitted with a front-facing 94.5mm cannon, the “Hasta” is a more than capable tank destroyer.",
     "TechID": "ETechID::UnlockBattleTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankATCIcon.0",
     "FuelTank": 750,
+    "ChassisName": "Battle Tank",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
@@ -2788,7 +2779,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 230,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 8,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 750,
       "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
@@ -2802,7 +2793,7 @@
       "MassOverride": 16000,
       "TankArmour": 15650,
       "MinTankArmourPercent": 0.5,
-      "TankArmourMinPenetrationChance": 0.22,
+      "TankArmourMinPenetrationChance": 0.2,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
@@ -2810,7 +2801,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -2836,11 +2826,11 @@
   {
     "ObjectPath": "War/Content/Blueprints/Vehicles/BattleTanks/BPBattleTankC",
     "CodeName": "BattleTankC",
-    "ChassisName": "Battle Tank",
     "Description": "A heavy-duty Battle Tank with thick armour plating and destructive firepower. The Lance is fitted with a 75mm turret and a front-facing 12.7mm anti-infantry machine gun. The heavy armour limits top speed, but in exchange it can take a lot of punishment.",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "FuelTank": 600,
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "ChassisName": "Battle Tank",
     "DisplayName": "Lance-36",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockBattleTank",
@@ -2855,7 +2845,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 200,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 16,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
@@ -2877,7 +2867,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -2901,7 +2890,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/BattleTanks/BattleTankDefensiveW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/BattleTanks/BPBattleTankDefensiveW",
     "CodeName": "BattleTankDefensiveW",
     "ChassisName": "Battle Tank",
     "DisplayName": "Flood Juggernaut Mk. VII",
@@ -2922,7 +2911,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 220,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 20,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 0.55,
       "SwimmingFuelConsumptionModifier": 1,
@@ -2944,7 +2933,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -2989,7 +2977,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 220,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 16,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
@@ -3011,7 +2999,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -3086,6 +3073,7 @@
     "VehicleProfileType": "EVehicleProfileType::Bicycle",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 200,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 200,
       "MinorDamagePercent": 1000,
@@ -3114,7 +3102,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -3125,7 +3112,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BinocularsPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPBinocularsPickup",
     "CodeName": "Binoculars",
     "DisplayName": "Binoculars",
     "Description": "An optical instrument used for viewing distant objects.",
@@ -3209,7 +3196,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BunkerSupplies",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPBunkerSuppliesPickup",
     "CodeName": "BunkerSupplies",
     "DisplayName": "Bunker Supplies",
     "Description": "Supplies for maintaining structures. Store at Bases to prevent decay on surrounding Bunker/Trench structures when Garrison Supplies are not available.",
@@ -3246,7 +3233,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPBus",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPBusC",
     "CodeName": "BusC",
     "ChassisName": "Transport Bus",
     "DisplayName": "R-15 - “Chariot”",
@@ -3259,6 +3246,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 600,
       "MinorDamagePercent": 0.333333,
@@ -3287,7 +3275,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -3314,7 +3301,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPBusWarden",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPBusW",
     "CodeName": "BusW",
     "DisplayName": "Dunne Caravaner 2f",
     "Description": "The Caravaner is a transport vehicle used to shuttle personnel to the front line.",
@@ -3327,6 +3314,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 600,
       "MinorDamagePercent": 0.333333,
@@ -3355,7 +3343,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -3382,7 +3369,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPBasicMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPClothPickup",
     "CodeName": "Cloth",
     "DisplayName": "Basic Materials",
     "Description": "Resource used for building basic structures and producing items.",
@@ -3419,7 +3406,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPCoal",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPCoalPickup",
     "CodeName": "Coal",
     "DisplayName": "Coal",
     "Description": "Chunks of raw Coal that can be refined into materials needed for production and power generation at Facilities.",
@@ -3476,7 +3463,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPConcreteMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPConcretePickup",
     "CodeName": "Concrete",
     "DisplayName": "Concrete Materials",
     "Description": "A concrete compound that is used to build heavily fortified structures.",
@@ -3569,7 +3556,7 @@
     "CodeName": "Construction",
     "ChassisName": "Construction Vehicle",
     "DisplayName": "BMS - Universal Assembly Rig",
-    "Description": "A specialized vehicle designed by the Basset Motor Society used in the construction of large structures.",
+    "Description": "A specialized vehicle designed by the Bassett Motor Society used in the construction of large structures.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ConstructionVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::Construction",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
@@ -3577,6 +3564,7 @@
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 265,
     "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1000,
       "MinorDamagePercent": 0.25,
@@ -3605,7 +3593,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
@@ -3658,6 +3645,7 @@
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 265,
     "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1000,
       "MinorDamagePercent": 0.25,
@@ -3686,7 +3674,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
@@ -3713,7 +3700,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPCopper",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPCopperPickup",
     "CodeName": "Copper",
     "DisplayName": "Copper",
     "Description": "Copper can be refined into Copper Alloy, which is used in the prototyping process for vehicles.",
@@ -3743,7 +3730,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPCopperAlloy",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPCopperAPickup",
     "CodeName": "CopperA",
     "DisplayName": "Copper Alloy",
     "Description": "Copper Alloy can be used to produce Vehicle Prototypes at the Engineering Center.",
@@ -3782,13 +3769,14 @@
     "CodeName": "Crane",
     "ChassisName": "Crane",
     "DisplayName": "BMS - Class 2 Mobile Auto-Crane",
-    "Description": "The Basset Motor Society’s Class 2 Mobile Auto-Crane is used to lift and reposition vehicles and very heavy equipment.",
+    "Description": "The Bassett Motor Society’s Class 2 Mobile Auto-Crane is used to lift and reposition vehicles and very heavy equipment.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/CraneVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::Construction",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
     "ArmourType": "EArmourType::LightVehicle",
     "DepthCuttoffForSwimDamage": 270,
     "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1500,
       "MinorDamagePercent": 0.5,
@@ -3817,7 +3805,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
@@ -3919,7 +3906,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 10,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 225,
       "FuelConsumptionPerSecond": 0.25,
       "SwimmingFuelConsumptionModifier": 1,
@@ -3941,7 +3928,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -4008,7 +3994,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -4076,7 +4061,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Structures/BPEmplacedAT",
+    "ObjectPath": "War/Content/Blueprints/Structures/BPEmplacedATW",
     "CodeName": "EmplacedATW",
     "DisplayName": "Leary Shellbore 68mm",
     "Description": "A defensive emplacement with a 68mm Anti-tank cannon. This rudimentary weapon was once built to fit onto the hull of large naval vessels, but was eventually phased out and repurposed.",
@@ -4216,7 +4201,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Structures/BPEmplacedMachineGun",
+    "ObjectPath": "War/Content/Blueprints/Structures/BPEmplacedInfantryW",
     "CodeName": "EmplacedInfantryW",
     "DisplayName": "Leary Snare Trap 127",
     "Description": "The Snare Trap is a repurposed anti-aircraft flak cannon used to fortify emplaced positions with twin anti-infantry machine guns.",
@@ -4272,7 +4257,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPEngineerUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPEngineerUniformCPickup",
     "CodeName": "EngineerUniformC",
     "ChassisName": "Colonial Engineer Uniform",
     "DisplayName": "Fabri Rucksack",
@@ -4321,7 +4306,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPEngineerUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPEngineerUniformWPickup",
     "CodeName": "EngineerUniformW",
     "ChassisName": "Warden Engineer Uniform",
     "DisplayName": "Sapper Gear",
@@ -4370,7 +4355,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPExplosiveMaterial",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPExplosivePickup",
     "CodeName": "Explosive",
     "DisplayName": "Explosive Materials",
     "Description": "Resource used for producing heavy explosive weapons.",
@@ -5035,7 +5020,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldATGunC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldATC",
     "CodeName": "FieldATC",
     "ChassisName": "Field AT Gun",
     "DisplayName": "AA-2 \"Battering Ram\"",
@@ -5077,7 +5062,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5104,7 +5088,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/FieldATDamageW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldATDamageW",
     "CodeName": "FieldATDamageW",
     "ChassisName": "Heavy Field Cannon",
     "DisplayName": "Balfour Rampart 68mm",
@@ -5145,7 +5129,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5210,7 +5193,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5234,7 +5216,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldATGunW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldATW",
     "CodeName": "FieldATW",
     "ChassisName": "Field AT Gun",
     "DisplayName": "Collins Cannon 68mm",
@@ -5276,7 +5258,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5344,7 +5325,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5409,7 +5389,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5475,7 +5454,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5502,7 +5480,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldArtillery",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldLightArtilleryC",
     "CodeName": "FieldLightArtilleryC",
     "ChassisName": "Field Artillery",
     "DisplayName": "120-68 “Koronides” Field Gun",
@@ -5544,7 +5522,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5571,7 +5548,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/FieldMGAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFieldMGAmmoPickup",
     "CodeName": "FieldMGAmmo",
     "DisplayName": "14.5mm",
     "Description": "Standard ammunition for Field Machine Guns and Gunboats.",
@@ -5629,7 +5606,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldMachineGun",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldMGC",
     "CodeName": "FieldMGC",
     "ChassisName": "Field Machine Gun",
     "DisplayName": "G40 “Sagittarii”",
@@ -5671,7 +5648,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5698,10 +5674,10 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldMachineGunWarden",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/FieldWeapons/BPFieldMGW",
     "CodeName": "FieldMGW",
     "ChassisName": "Field Machine Gun",
-    "DisplayName": "Swallowtail 988/127-2 ",
+    "DisplayName": "Swallowtail 988/127-2",
     "Description": "A dual barrelled, high calibre anti-infantry machine gun. The Swallowtail is fitted with forward-facing armour plating and is excellent for suppression. ",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldMachineGunWar.0",
@@ -5740,7 +5716,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5787,7 +5762,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 6,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0,
       "SwimmingFuelConsumptionModifier": 1,
@@ -5809,7 +5784,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5877,7 +5851,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -5901,7 +5874,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/FireRocketAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFireRocketAmmoPickup",
     "CodeName": "FireRocketAmmo",
     "DisplayName": "4C-Fire Rocket",
     "Description": "Standard calibre rocket with an incendiary explosion. Will ignite objects near impact.",
@@ -5909,7 +5882,6 @@
     "EquipmentSlot": "EEquipmentSlot::Large",
     "ItemCategory": "EItemCategory::HeavyAmmo",
     "ItemProfileType": "EItemProfileType::HeavyAmmo",
-    "FactionVariant": "EFactionId::Wardens",
     "ItemFlagsMask": 17,
     "Icon": "War/Content/Textures/UI/ItemIcons/FlameRocketAmmoIcon.0",
     "ItemComponentClass": {
@@ -5973,7 +5945,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/FirstAidKitPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFirstAidKitPickup",
     "CodeName": "FirstAidKit",
     "DisplayName": "First Aid Kit",
     "Description": "Used by medics to heal other soldiers.",
@@ -6019,7 +5991,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameAmmo",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameAmmoPickup",
     "CodeName": "FlameAmmo",
     "DisplayName": "Flame Ammo",
     "Description": "A drum containing fuel for use with flame weapons.",
@@ -6225,7 +6197,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameTorchCItemPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameTorchCPickup",
     "CodeName": "FlameTorchC",
     "ChassisName": "Flamethrower",
     "DisplayName": "“Molten Wind” v.II Flame Torch",
@@ -6319,7 +6291,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameTorchWItemPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPFlameTorchWPickup",
     "CodeName": "FlameTorchW",
     "ChassisName": "Flamethrower",
     "DisplayName": "Willow’s Bane Model 845",
@@ -6425,6 +6397,7 @@
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 265,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1125,
       "MinorDamagePercent": 0.2,
@@ -6453,7 +6426,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -6483,12 +6455,13 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPFreighter",
     "CodeName": "Freighter",
     "DisplayName": "BMS - Ironship",
-    "Description": "The Basset Motor Society’s Ironship-class shipping vessel is used to freight shippable goods and heavy vehicles.",
+    "Description": "The Bassett Motor Society’s Ironship-class shipping vessel is used to freight shippable goods and heavy vehicles.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FreighterVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 300,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.5,
@@ -6517,7 +6490,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -6557,7 +6529,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/GasMaskPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPGasMaskPickup",
     "CodeName": "GasMask",
     "DisplayName": "Gas Mask",
     "Description": "Protects against poison gas",
@@ -6637,7 +6609,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/DeadlyGasGrenadePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPGreenAshPickup",
     "CodeName": "GreenAsh",
     "ChassisName": "Gas Grenade",
     "DisplayName": "Green Ash Grenade",
@@ -6987,7 +6959,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPGrenadeUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPGrenadeUniformCPickup",
     "CodeName": "GrenadeUniformC",
     "ChassisName": "Colonial Grenade Uniform",
     "DisplayName": "Grenadier’s Baldric",
@@ -7036,7 +7008,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/GrenadeWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPGrenadeWPickup",
     "CodeName": "GrenadeW",
     "ChassisName": "Grenade",
     "DisplayName": "A3 Harpa Fragmentation Grenade",
@@ -7116,7 +7088,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPGroundMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPGroundMaterialsPickup",
     "CodeName": "GroundMaterials",
     "DisplayName": "Gravel",
     "Description": "Resource used for building Roads and Foundations.",
@@ -7152,7 +7124,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Gunboats/BPGunboat",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Gunboats/BPGunboatC",
     "CodeName": "GunboatC",
     "ChassisName": "Gunboat",
     "DisplayName": "Type C - “Charon”",
@@ -7164,13 +7136,14 @@
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1320,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.9,
       "RepairCost": 160,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 20,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7192,7 +7165,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7213,6 +7185,7 @@
     "Description": "The Meteora Gunship replaces the machinegun with another identical 120mm artillery cannon on the bow. ",
     "TechID": "ETechID::UnlockGunboatOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/GunboatWarDoubleArtilleryVehicleIcon.0",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "ArmourType": "EArmourType::Tier1Tank",
@@ -7224,7 +7197,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 160,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 30,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7246,7 +7219,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7265,6 +7237,7 @@
     "ChassisName": "Gunboat",
     "DisplayName": "74b-1 Ronan Gunship",
     "Description": "A naval vessel designed to bombard coastal targets. The Ronan is fitted with a 120mm light artillery cannon and a 12.7mm Machinegun.",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/GunboatWarVehicleIcon.0",
     "TechID": "ETechID::UnlockGunboat",
@@ -7278,7 +7251,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 160,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 20,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7300,7 +7273,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7335,7 +7307,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 95,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 20,
+      "ItemHolderCapacity": 4,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.075,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7357,7 +7329,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7402,7 +7373,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 95,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 7,
+      "ItemHolderCapacity": 4,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.075,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7424,7 +7395,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7472,7 +7442,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 110,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 8,
+      "ItemHolderCapacity": 5,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.075,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7494,7 +7464,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7518,7 +7487,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Halftrack/HalftrackMultiW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Halftrack/BPHalftrackMultiW",
     "CodeName": "HalftrackMultiW",
     "ChassisName": "Half-Track",
     "DisplayName": "Niska-Rycker Mk. IX Skycaller",
@@ -7535,7 +7504,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7559,7 +7527,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Halftrack/BPHalfTrackOffensiveWarden",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Halftrack/BPHalfTrackOffensiveW",
     "CodeName": "HalfTrackOffensiveW",
     "ChassisName": "Half-Track",
     "DisplayName": "Niska Mk. II Blinder",
@@ -7602,7 +7570,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7647,7 +7614,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 110,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 8,
+      "ItemHolderCapacity": 4,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.1,
       "SwimmingFuelConsumptionModifier": 1,
@@ -7669,7 +7636,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7709,6 +7675,7 @@
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 185,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1250,
       "MinorDamagePercent": 0.5,
@@ -7737,7 +7704,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -7761,7 +7727,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/HeavyArtilleryAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPHeavyArtilleryAmmoPickup",
     "CodeName": "HeavyArtilleryAmmo",
     "DisplayName": "150mm",
     "Description": "Payload for heavy artillery weapons.",
@@ -7851,7 +7817,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPHeavyExplosiveMaterial",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPHeavyExplosivePickup",
     "CodeName": "HeavyExplosive",
     "DisplayName": "Heavy Explosive Materials",
     "Description": "Resource used for producing heavy explosive weapons.",
@@ -7964,7 +7930,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/HELaunchedGrenadePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPHELaunchedGrenadePickup",
     "CodeName": "HELaunchedGrenade",
     "ChassisName": "HE Grenade",
     "DisplayName": "Tremola Grenade GPb-1",
@@ -8048,7 +8014,6 @@
     "EquipmentSlot": "EEquipmentSlot::Large",
     "ItemCategory": "EItemCategory::HeavyAmmo",
     "ItemProfileType": "EItemProfileType::HeavyAmmo",
-    "FactionVariant": "EFactionId::Colonials",
     "ItemFlagsMask": 17,
     "Icon": "War/Content/Textures/UI/ItemIcons/HERocketAmmoIcon.0",
     "ItemComponentClass": {
@@ -8057,7 +8022,7 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 300,
+      "Damage": 350,
       "Suppression": 20,
       "ExplosionRadius": 550,
       "DamageType": {
@@ -8112,7 +8077,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPIron",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPIronPickup",
     "CodeName": "Iron",
     "DisplayName": "Iron",
     "Description": "Iron can be refined into Iron Alloy, which is used in the prototyping process for vehicles.",
@@ -8142,7 +8107,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPIronAlloy",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPIronAPickup",
     "CodeName": "IronA",
     "DisplayName": "Iron Alloy",
     "Description": "Iron Alloy can be used to produce Vehicle Prototypes at the Engineering Center.",
@@ -8177,7 +8142,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPInfantrySupportGun",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPISGTCPickup",
     "CodeName": "ISGTC",
     "ChassisName": "Mounted Infantry Support Gun",
     "DisplayName": "Daucus isg.III",
@@ -8276,7 +8241,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8342,7 +8306,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8366,7 +8329,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LandingCraft/BPLandingCraftWarden",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LandingCraft/BPLandingCraftW",
     "CodeName": "LandingCraftW",
     "ChassisName": "Landing APC",
     "DisplayName": "Mulloy LPC",
@@ -8407,7 +8370,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8431,7 +8393,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/LightArtilleryAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPLightArtilleryAmmoPickup",
     "CodeName": "LightArtilleryAmmo",
     "DisplayName": "120mm",
     "Description": "Payload for light artillery weapons.",
@@ -8564,7 +8526,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8588,7 +8549,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/TankAmmo/LightTankAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/TankAmmo/BPLightTankAmmoPickup",
     "CodeName": "LightTankAmmo",
     "DisplayName": "40mm",
     "Description": "Standard payload for small cannons.",
@@ -8675,7 +8636,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 135,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 14,
+      "ItemHolderCapacity": 3,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.175,
       "SwimmingFuelConsumptionModifier": 1,
@@ -8697,7 +8658,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8764,7 +8724,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8794,7 +8753,7 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/LightTank/BPLightTankDefensiveW",
     "CodeName": "LightTankDefensiveW",
     "ChassisName": "Light Tank",
-    "DisplayName": "Devitt Ironhide Mk. IV ",
+    "DisplayName": "Devitt Ironhide Mk. IV",
     "Description": "The Ironhide Light Tank is similar to the Mk. III but reinforced with plates of heavy steel at the expense of speed and maneuverability.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarDefensiveVehicleIcon.0",
@@ -8808,8 +8767,8 @@
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 1950,
-      "MinorDamagePercent": 0.7,
-      "MajorDamagePercent": 0.85,
+      "MinorDamagePercent": 0.8,
+      "MajorDamagePercent": 0.9,
       "RepairCost": 135,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
@@ -8834,7 +8793,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8879,7 +8837,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 145,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 10,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 225,
       "FuelConsumptionPerSecond": 0.15,
       "SwimmingFuelConsumptionModifier": 1,
@@ -8901,7 +8859,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8970,7 +8927,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -8994,7 +8950,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/LightTank/LightTankOffensiveC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LightTank/BPLightTankOffensiveC",
     "CodeName": "LightTankOffensiveC",
     "ChassisName": "Light Tank",
     "DisplayName": "H-10 “Pelekys”",
@@ -9037,7 +8993,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9104,7 +9059,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9179,7 +9133,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPLongRangeArtilleryAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPLRArtilleryAmmoPickup",
     "CodeName": "LRArtilleryAmmo",
     "DisplayName": "300mm",
     "Description": "Standard payload used with Storm Cannons.",
@@ -9266,7 +9220,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMaintenanceSupplies",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMaintenanceSuppliesPickup",
     "CodeName": "MaintenanceSupplies",
     "DisplayName": "Maintenance Supplies",
     "Description": "Supplies for maintaining structures. Store at Bases or Maintenance Tunnels to prevent decay on surrounding structures.",
@@ -9374,7 +9328,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9440,7 +9393,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9464,7 +9416,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPMedicUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPMedicUniformCPickup",
     "CodeName": "MedicUniformC",
     "ChassisName": "Colonial Medic Uniform",
     "DisplayName": "Medic Fatigues",
@@ -9513,7 +9465,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPMedicUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPMedicUniformWPickup",
     "CodeName": "MedicUniformW",
     "ChassisName": "Warden Medic Uniform",
     "DisplayName": "Physician’s Jacket",
@@ -9605,7 +9557,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9677,7 +9628,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9701,7 +9651,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/BPMediumTank2MultiW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/MediumTank/BPMediumTank2MultiW",
     "CodeName": "MediumTank2MultiW",
     "ChassisName": "Cruiser Tank",
     "DisplayName": "Gallagher Highwayman Mk. III",
@@ -9724,7 +9674,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 2,
+      "ItemHolderCapacity": 3,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.1,
       "SwimmingFuelConsumptionModifier": 1,
@@ -9746,7 +9696,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9815,7 +9764,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9885,7 +9833,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -9930,7 +9877,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 200,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 6,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 275,
       "FuelConsumptionPerSecond": 0.15,
       "SwimmingFuelConsumptionModifier": 1,
@@ -9952,7 +9899,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10020,7 +9966,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10069,7 +10014,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 170,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 225,
       "FuelConsumptionPerSecond": 0.25,
       "SwimmingFuelConsumptionModifier": 1,
@@ -10091,7 +10036,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10159,7 +10103,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10183,7 +10126,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/MediumTank/MediumTankSiegeW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/MediumTank/BPMediumTankSiegeW",
     "CodeName": "MediumTankSiegeW",
     "DisplayName": "Silverhand Chieftain - Mk. VI",
     "Description": "The Chieftan assault tank is fitted with asymmetrical armaments, including a 250mm mortar cannon and a twin-barrelled 12.7mm turret.",
@@ -10204,7 +10147,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 170,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 6,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 225,
       "FuelConsumptionPerSecond": 0.15,
       "SwimmingFuelConsumptionModifier": 1,
@@ -10226,7 +10169,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10293,7 +10235,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -10320,7 +10261,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPScrap",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMetalPickup",
     "CodeName": "Metal",
     "DisplayName": "Salvage",
     "Description": "Salvage that can be recycled into other resources at a Refinery",
@@ -10355,7 +10296,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPMetalBeamMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPMetalBeamMaterialsPickup",
     "CodeName": "MetalBeamMaterials",
     "ChassisName": "Large Material",
     "DisplayName": "Metal Beam",
@@ -10402,7 +10343,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/MachineGunAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGAmmoPickup",
     "CodeName": "MGAmmo",
     "DisplayName": "12.7mm",
     "Description": "Standard ammunition for machine guns.",
@@ -10551,7 +10492,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGTC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGTCPickup",
     "CodeName": "MGTC",
     "ChassisName": "Mounted Machinegun",
     "DisplayName": "Lamentum mm.IV",
@@ -10607,7 +10548,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGTW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMGTWPickup",
     "CodeName": "MGTW",
     "ChassisName": "Mounted Machinegun",
     "DisplayName": "Malone Ratcatcher MK.1",
@@ -10818,7 +10759,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/MortarPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPMortarPickup",
     "CodeName": "Mortar",
     "ChassisName": "Mortar",
     "DisplayName": "Cremari Mortar",
@@ -11180,7 +11121,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 160,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 10,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.15,
       "SwimmingFuelConsumptionModifier": 1,
@@ -11202,7 +11143,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11233,11 +11173,12 @@
     "CodeName": "Motorboat",
     "ChassisName": "Motorboat",
     "DisplayName": "BMS - Grouper",
-    "Description": "Powered by the Basset Motor Society’s lightweight Grouper engine, this simple wooden boat is ideal for ferrying small groups of infantry across rivers and between islands.",
+    "Description": "Powered by the Bassett Motor Society’s lightweight Grouper engine, this simple wooden boat is ideal for ferrying small groups of infantry across rivers and between islands.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/Motorboat.0",
     "VehicleProfileType": "EVehicleProfileType::BeachableShip",
     "ArmourType": "EArmourType::LightVehicle",
     "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 200,
       "MinorDamagePercent": 0.5,
@@ -11266,7 +11207,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11297,6 +11237,7 @@
     "CodeName": "MotorcycleC",
     "DisplayName": "03MM “Caster”",
     "TechID": "ETechID::UnlockMotorcycle",
+    "bCanUseStructures": true,
     "Description": "A motorcycle and sidecar used to patrol large areas. Speed can be boosted at the cost of additional fuel.",
     "FactionVariant": "EFactionId::Colonials",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MotorcycleVehicleIcon.0",
@@ -11336,7 +11277,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11369,6 +11309,7 @@
     "Description": "The cab of this Motorcycle is fitted with an LMG for fast-response hit and run assaults.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MotorcycleOffensiveVehicleIcon.0",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Motorcycle",
@@ -11405,7 +11346,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11434,6 +11374,7 @@
     "DisplayName": "Kivela Power Wheel 80-1",
     "Description": "A Warden motorcycle used in patrols and fitted with a sidecar. The Kivela Power Wheel can also gain a momentary speed boost by burning additional fuel.",
     "TechID": "ETechID::UnlockMotorcycle",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MotorcycleWIcon.0",
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
@@ -11472,7 +11413,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11499,7 +11439,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPOfficerUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPOfficerUniformCPickup",
     "CodeName": "OfficerUniformC",
     "ChassisName": "Colonial Officer Uniform",
     "DisplayName": "Officialis’ Attire",
@@ -11548,7 +11488,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPOfficerUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPOfficerUniformWPickup",
     "CodeName": "OfficerUniformW",
     "ChassisName": "Warden Officer Uniform",
     "DisplayName": "Officer’s Regalia",
@@ -11651,6 +11591,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1125,
       "MinorDamagePercent": 0.125,
@@ -11679,7 +11620,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11719,6 +11659,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1125,
       "MinorDamagePercent": 0.125,
@@ -11747,7 +11688,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -11919,7 +11859,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/PistolPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPPistolCPickup",
     "CodeName": "PistolC",
     "ChassisName": "Pistol",
     "DisplayName": "Ferro 879",
@@ -12003,7 +11943,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/PistolLightWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPPistolLightWPickup",
     "CodeName": "PistolLightW",
     "ChassisName": "Pistol",
     "DisplayName": "Cascadier 873",
@@ -12092,7 +12032,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/PistolWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPPistolWPickup",
     "CodeName": "PistolW",
     "ChassisName": "Pistol",
     "DisplayName": "Ahti Model 2",
@@ -12176,7 +12116,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RadioPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRadioPickup",
     "CodeName": "Radio",
     "DisplayName": "Radio",
     "Description": "Receives map intelligence updates",
@@ -12215,7 +12155,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RadioBackpackPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRadioBackpackPickup",
     "CodeName": "RadioBackpack",
     "DisplayName": "Radio Backpack",
     "Description": "Automatically gathers map intel periodically when equipped. The Radio Backpack is also used to transmit other sensitive information across long distances.",
@@ -12259,7 +12199,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPRainUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPRainUniformCPickup",
     "CodeName": "RainUniformC",
     "ChassisName": "Colonial Rain Uniform",
     "DisplayName": "Legionary’s Oilcoat",
@@ -12381,7 +12321,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12410,7 +12349,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 2,
+      "ItemHolderCapacity": 5,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.25,
       "SwimmingFuelConsumptionModifier": 1,
@@ -12432,7 +12371,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12477,7 +12415,7 @@
       "MajorDamagePercent": 0.85,
       "RepairCost": 160,
       "ResourcesPerBuildCycle": 2,
-      "ItemHolderCapacity": 1,
+      "ItemHolderCapacity": 3,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.175,
       "SwimmingFuelConsumptionModifier": 1,
@@ -12489,9 +12427,9 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 20500,
       "MassOverride": 16000,
-      "TankArmour": 4800,
+      "TankArmour": 6800,
       "MinTankArmourPercent": 0.33,
-      "TankArmourMinPenetrationChance": 0.5,
+      "TankArmourMinPenetrationChance": 0.4,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
@@ -12499,7 +12437,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12526,7 +12463,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRelicMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRelicMaterialsPickup",
     "CodeName": "RelicMaterials",
     "DisplayName": "Relic Materials",
     "Description": "Vehicle parts used to assemble Relic vehicles.",
@@ -12594,7 +12531,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 22500,
       "MassOverride": 15000,
-      "TankArmour": 5400,
+      "TankArmour": 8400,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -12604,7 +12541,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12646,14 +12582,15 @@
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "BoostSpeedModifier": 1.25,
     "BoostGasUsageModifier": 4,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.6,
       "MajorDamagePercent": 0.8,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 9,
-      "FuelCapacity": 150,
+      "ItemHolderCapacity": 10,
+      "FuelCapacity": 175,
       "FuelConsumptionPerSecond": 0.0625,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
@@ -12674,7 +12611,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12713,13 +12649,14 @@
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 240,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 800,
       "MinorDamagePercent": 0.1875,
       "MajorDamagePercent": 0.7,
       "RepairCost": 100,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 17,
+      "ItemHolderCapacity": 18,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -12741,7 +12678,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -12882,7 +12818,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRevolverAmmo",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRevolverAmmoPickup",
     "CodeName": "RevolverAmmo",
     "DisplayName": ".44",
     "Description": "Standard ammunition for revolvers.",
@@ -13004,7 +12940,96 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleAutomaticWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleAutomaticCPickup",
+    "CodeName": "RifleAutomaticC",
+    "ChassisName": "Rifle",
+    "DisplayName": "Catena rt.IV Auto-Rifle",
+    "Description": "An auto-firing rifle that played a pivotal role in maintaining Mesean interests on the Katoman continent. While not quite as rapid-firing as its assault rifle brethren, many soldiers speak fondly of the Catena as a sturdy, easy-to-use, and reliable firearm. It doesn’t boast high points in any particular area but performs admirably as a general-purpose rifle.",
+    "Encumbrance": 120,
+    "EquipmentSlot": "EEquipmentSlot::Primary",
+    "ItemCategory": "EItemCategory::SmallArms",
+    "ItemProfileType": "EItemProfileType::HandheldWeapon",
+    "FactionVariant": "EFactionId::Colonials",
+    "TechID": "ETechID::UnlockRifleAutomatic",
+    "ItemFlagsMask": 129,
+    "Icon": "War/Content/Textures/UI/ItemIcons/RifleAutomaticCIcon.0",
+    "ItemComponentClass": {
+      "ObjectPath": "War/Content/Blueprints/Items/RifleAutomaticCComponent.0",
+      "EquippedGripType": "EEquippedWeaponGripType::Rifle",
+      "FiringRate": 0.45,
+      "CompatibleAmmoCodeName": "RifleAmmo"
+    },
+    "AmmoDynamicData": {
+      "Damage": 45,
+      "Suppression": 17,
+      "ExplosionRadius": 0,
+      "DamageType": {
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPLightKineticDamageType.0",
+        "DisplayName": "Light Kinetic",
+        "Type": "EDamageType::LightKinetic",
+        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeSBIcon.0",
+        "VehicleSubsystemDisableMultipliers": 0,
+        "bApplyDamageFalloff": true,
+        "bCanWoundCharacter": true,
+        "bExposeInUI": true
+      },
+      "DamageInnerRadius": 0,
+      "DamageFalloff": 0,
+      "AccuracyRadius": 0,
+      "EnvironmentImpactAmount": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 0.6,
+      "MaxAmmo": 10,
+      "MaxApexHalfAngle": 8.5,
+      "BaselineApexHalfAngle": 3,
+      "StabilityCostPerShot": 0.3,
+      "Agility": 0.5,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.4,
+      "StabilityGainRate": 0.7,
+      "MaximumRange": 2300,
+      "MaximumReachability": 4000,
+      "DamageMultiplier": 0.888,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
+    "ItemDynamicData": {
+      "CostPerCrate": [
+        {
+          "ItemCodeName": "Cloth",
+          "Quantity": 120,
+          "DisplayName": "Basic Materials"
+        }
+      ],
+      "QuantityPerCrate": 15,
+      "CrateProductionTime": 90,
+      "SingleRetrieveTime": 3.5,
+      "CrateRetrieveTime": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfileData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsConvertibleToCrate": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleAutomaticWPickup",
     "CodeName": "RifleAutomaticW",
     "ChassisName": "Rifle",
     "DisplayName": "Sampo Auto-Rifle 77",
@@ -13091,7 +13116,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleCPickup",
     "CodeName": "RifleC",
     "ChassisName": "Rifle",
     "DisplayName": "Argenti r.II Rifle",
@@ -13185,7 +13210,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleHeavyCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleHeavyCPickup",
     "CodeName": "RifleHeavyC",
     "ChassisName": "Heavy Rifle",
     "DisplayName": "Volta r.I Repeater",
@@ -13280,7 +13305,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleHeavyWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleHeavyWPickup",
     "CodeName": "RifleHeavyW",
     "ChassisName": "Heavy Rifle",
     "DisplayName": "The Hangman 757",
@@ -13375,7 +13400,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleLightCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleLightCPickup",
     "CodeName": "RifleLightC",
     "ChassisName": "Rifle",
     "DisplayName": "Fuscina pi.I",
@@ -13469,7 +13494,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPCarbinePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleLightWPickup",
     "CodeName": "RifleLightW",
     "ChassisName": "Rifle",
     "DisplayName": "Blakerow 871",
@@ -13564,7 +13589,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleLongCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleLongCPickup",
     "CodeName": "RifleLongC",
     "ChassisName": "Long Rifle",
     "DisplayName": "KRR2-790 Omen",
@@ -13659,7 +13684,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RifleLongWPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleLongWPickup",
     "CodeName": "RifleLongW",
     "ChassisName": "Long Rifle",
     "DisplayName": "Clancy Cinder M3",
@@ -13733,6 +13758,95 @@
       "QuantityPerCrate": 15,
       "CrateProductionTime": 90,
       "SingleRetrieveTime": 3.5,
+      "CrateRetrieveTime": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfileData": {
+      "bIsStockpilable": true,
+      "bIsStackable": false,
+      "bIsConvertibleToCrate": false,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 1,
+      "RetrieveQuantity": 1,
+      "ReserveStockpileMaxQuantity": 100,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::SmallArms",
+      "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRifleShortWPickup",
+    "CodeName": "RifleShortW",
+    "ChassisName": "Rifle",
+    "DisplayName": "No.2B Hawthorne",
+    "Description": "Initially a field-modified Loughcaster, the Hawthorne sports a sawed-off barrel and a much lower profile than its ancestor. While sacrificing accuracy, its lightweight frame opens up the Hawthorne to a much higher degree of flexibility in battle and can be carried alongside a heavier primary firearm.",
+    "Encumbrance": 85,
+    "EquipmentSlot": "EEquipmentSlot::Secondary",
+    "ItemCategory": "EItemCategory::SmallArms",
+    "ItemProfileType": "EItemProfileType::HandheldWeapon",
+    "FactionVariant": "EFactionId::Wardens",
+    "TechID": "ETechID::UnlockRifleShort",
+    "ItemFlagsMask": 129,
+    "Icon": "War/Content/Textures/UI/ItemIcons/RifleShortWIcon.0",
+    "ItemComponentClass": {
+      "ObjectPath": "War/Content/Blueprints/Items/BPRifleShortWComponent.0",
+      "EquippedGripType": "EEquippedWeaponGripType::Rifle",
+      "CompatibleAmmoCodeName": "RifleAmmo",
+      "bCanFireFromVehicle": true
+    },
+    "AmmoDynamicData": {
+      "Damage": 45,
+      "Suppression": 17,
+      "ExplosionRadius": 0,
+      "DamageType": {
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPLightKineticDamageType.0",
+        "DisplayName": "Light Kinetic",
+        "Type": "EDamageType::LightKinetic",
+        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeSBIcon.0",
+        "VehicleSubsystemDisableMultipliers": 0,
+        "bApplyDamageFalloff": true,
+        "bCanWoundCharacter": true,
+        "bExposeInUI": true
+      },
+      "DamageInnerRadius": 0,
+      "DamageFalloff": 0,
+      "AccuracyRadius": 0,
+      "EnvironmentImpactAmount": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 8,
+      "MaxApexHalfAngle": 9,
+      "BaselineApexHalfAngle": 2.5,
+      "StabilityCostPerShot": 0.65,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0.4,
+      "StabilityGainRate": 1,
+      "MaximumRange": 2200,
+      "MaximumReachability": 3500,
+      "DamageMultiplier": 0.888,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 65,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
+    "ItemDynamicData": {
+      "CostPerCrate": [
+        {
+          "ItemCodeName": "Cloth",
+          "Quantity": 70,
+          "DisplayName": "Basic Materials"
+        }
+      ],
+      "QuantityPerCrate": 15,
+      "CrateProductionTime": 60,
+      "SingleRetrieveTime": 2.5,
       "CrateRetrieveTime": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
@@ -13844,46 +13958,6 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
-    }
-  },
-  {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/RocketBooster",
-    "CodeName": "RocketBooster",
-    "DisplayName": "Rocket Booster",
-    "Description": "A booster engine that provides thrust for launching Ballistic Rockets to long distant targets.",
-    "Encumbrance": 1000,
-    "ItemCategory": "EItemCategory::HeavyArms",
-    "ItemProfileType": "EItemProfileType::UniqueItem",
-    "TechID": "ETechID::UnlockRocketBooster",
-    "Icon": "War/Content/Textures/UI/ItemIcons/RocketBoosterIcon.0",
-    "ItemDynamicData": {
-      "CostPerCrate": [
-        {
-          "ItemCodeName": "Wood",
-          "Quantity": 800,
-          "DisplayName": "Refined Materials"
-        }
-      ],
-      "QuantityPerCrate": 1,
-      "CrateProductionTime": 600,
-      "SingleRetrieveTime": 600,
-      "CrateRetrieveTime": 600,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
-    },
-    "ItemProfileData": {
-      "bIsStockpilable": false,
-      "bIsStackable": false,
-      "bIsConvertibleToCrate": false,
-      "bIsCratable": false,
-      "bIsStockpiledWithAmmo": false,
-      "bUsableInVehicle": false,
-      "StackTransferLimit": 1,
-      "RetrieveQuantity": 1,
-      "ReserveStockpileMaxQuantity": 100,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "ProductionCategories": {
-      "Factory": "EFactoryQueueType::Utility"
     }
   },
   {
@@ -14126,7 +14200,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPSandbagMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/LargeResources/BPSandbagMaterialsPickup",
     "CodeName": "SandbagMaterials",
     "ChassisName": "Large Material",
     "DisplayName": "Sandbag",
@@ -14245,7 +14319,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SatchelChargePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSatchelChargeWPickup",
     "CodeName": "SatchelChargeW",
     "ChassisName": "Explosive Charge",
     "DisplayName": "Alligator Charge",
@@ -14316,6 +14390,71 @@
     }
   },
   {
+    "ObjectPath": "War/Content/Blueprints/Vehicles/ScoutTank/BPScoutTankMultiW",
+    "CodeName": "ScoutTankMultiW",
+    "ChassisName": "Scout Tank",
+    "DisplayName": "King Jester Mk. I-1",
+    "Description": "Originally designed as a mock-up for more sophisticated rocket platforms, the Jester gets its designation from the response to reckless early prototypes that were bolted onto stripped down King Spires. This unusual vehicle can fire specialized rockets over long distances. Its light frame makes it easy to reposition, but vulnerable to sabotage.",
+    "FactionVariant": "EFactionId::Wardens",
+    "TechID": "ETechID::UnlockFacilityTier2",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutTankMultiWIcon.0",
+    "VehicleProfileType": "EVehicleProfileType::Tank",
+    "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
+    "ArmourType": "EArmourType::Tier2Tank",
+    "ShippableInfo": "EShippableType::Large",
+    "FuelTank": 250,
+    "DepthCuttoffForSwimDamage": 225,
+    "VehicleDynamicData": {
+      "MaxHealth": 1350,
+      "MinorDamagePercent": 0.7,
+      "MajorDamagePercent": 0.85,
+      "RepairCost": 135,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 1,
+      "FuelCapacity": 250,
+      "FuelConsumptionPerSecond": 0.15,
+      "SwimmingFuelConsumptionModifier": 1,
+      "DefaultSurfaceMovementRate": 0.7,
+      "OffroadSnowPenalty": 0.1,
+      "ReverseSpeedModifier": 0.75,
+      "RotationRate": 0.45,
+      "RotationSpeedCuttoff": 0,
+      "SpeedSqrThreshold": 400,
+      "EngineForce": 20000,
+      "MassOverride": 10000,
+      "TankArmour": 6500,
+      "MinTankArmourPercent": 0.1,
+      "TankArmourMinPenetrationChance": 0.5,
+      "VehicleSubsystemDisableChances": 0,
+      "bHasTierUpgrades": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "RamDamageDealtFlags": 7,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 800,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 10000,
+      "BrakeForce": 50000,
+      "HandbrakeForce": 40000,
+      "AirResistance": 90,
+      "RollingResistance": 2400,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.2,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    }
+  },
+  {
     "ObjectPath": "War/Content/Blueprints/Vehicles/ScoutTank/BPScoutTankOffensiveW",
     "CodeName": "ScoutTankOffensiveW",
     "DisplayName": "King Gallant Mk. II",
@@ -14359,7 +14498,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14426,7 +14564,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14453,7 +14590,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPScoutUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPScoutUniformCPickup",
     "CodeName": "ScoutUniformC",
     "ChassisName": "Colonial Scout Uniform",
     "DisplayName": "Recon Camo",
@@ -14502,7 +14639,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPScoutUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPScoutUniformWPickup",
     "CodeName": "ScoutUniformW",
     "ChassisName": "Warden Scout Uniform",
     "DisplayName": "Outrider’s Mantle",
@@ -14558,6 +14695,7 @@
     "TechID": "ETechID::UnlockScoutVehicleMobility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleMobilityVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
@@ -14592,7 +14730,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14627,6 +14764,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleOffensiveVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
@@ -14638,7 +14776,7 @@
       "MajorDamagePercent": 0.8,
       "RepairCost": 120,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 8,
+      "ItemHolderCapacity": 3,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -14660,7 +14798,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14692,6 +14829,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleOffensiveWarVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
@@ -14725,7 +14863,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14756,6 +14893,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleUtilityCVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
@@ -14789,7 +14927,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14825,6 +14962,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.6,
@@ -14853,7 +14991,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14882,6 +15019,7 @@
     "DisplayName": "Drummond 100a",
     "TechID": "ETechID::UnlockScoutVehicle",
     "ArmourType": "EArmourType::LightVehicle",
+    "bCanUseStructures": true,
     "Description": "A multipurpose off-road Warden vehicle that can scout nearby targets.",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleWarVehicleIcon.0",
@@ -14918,7 +15056,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -14971,7 +15108,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/ShotgunPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPShotgunPickup",
     "CodeName": "Shotgun",
     "ChassisName": "Shotgun",
     "DisplayName": "Brasa Shotgun",
@@ -15119,7 +15256,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/ShovelPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPShovelPickup",
     "CodeName": "Shovel",
     "DisplayName": "Shovel",
     "Description": "A tool for digging Trenches and other entrenched structures.",
@@ -15164,7 +15301,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSledgeHammer",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSledgeHammerPickup",
     "CodeName": "SledgeHammer",
     "DisplayName": "Sledge Hammer",
     "Description": "A tool used to salvage components from remains of old vehicles and equipment.",
@@ -15220,6 +15357,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Small",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.25,
@@ -15248,7 +15386,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -15282,6 +15419,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Small",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1650,
       "MinorDamagePercent": 0.5,
@@ -15310,7 +15448,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -15344,6 +15481,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Small",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.25,
@@ -15372,7 +15510,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -15406,6 +15543,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Small",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.25,
@@ -15434,7 +15572,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -15458,7 +15595,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SubMachineGunAmmoPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSMGAmmoPickup",
     "CodeName": "SMGAmmo",
     "DisplayName": "9mm",
     "Description": "Standard ammunition for submachine guns.",
@@ -15519,7 +15656,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SMGCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSMGCPickup",
     "CodeName": "SMGC",
     "ChassisName": "Submachine Gun",
     "DisplayName": "“The Pitch Gun” mc.V",
@@ -15785,7 +15922,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SubMachineGunPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSMGWPickup",
     "CodeName": "SMGW",
     "ChassisName": "Submachine Gun",
     "DisplayName": "Fiddler Submachine Gun Model 868",
@@ -15873,7 +16010,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SmokeGrenadePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSmokeGrenadePickup",
     "CodeName": "SmokeGrenade",
     "ChassisName": "Smoke Grenade",
     "DisplayName": "PT-815 Smoke Grenade",
@@ -15944,7 +16081,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSniperRifleAmmo",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSniperRifleAmmoPickup",
     "CodeName": "SniperRifleAmmo",
     "DisplayName": "8.5mm",
     "Description": "Standard ammunition for sniper rifles.",
@@ -16002,7 +16139,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SniperRifleCPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSniperRifleCPickup",
     "CodeName": "SniperRifleC",
     "ChassisName": "Sniper Rifle",
     "DisplayName": "KRR3-792 Auger",
@@ -16095,7 +16232,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SniperRiflePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSniperRifleWPickup",
     "CodeName": "SniperRifleW",
     "ChassisName": "Sniper Rifle",
     "DisplayName": "Clancy-Raca M4",
@@ -16188,7 +16325,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSnowUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSnowUniformCPickup",
     "CodeName": "SnowUniformC",
     "ChassisName": "Colonial Snow Uniform",
     "DisplayName": "Heavy Topcoat",
@@ -16237,7 +16374,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSnowUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSnowUniformWPickup",
     "CodeName": "SnowUniformW",
     "ChassisName": "Warden Snow Uniform",
     "DisplayName": "Caoivish Parka",
@@ -16286,7 +16423,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/SoldierSupplies",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPSoldierSuppliesPickup",
     "CodeName": "SoldierSupplies",
     "DisplayName": "Soldier Supplies",
     "Description": "A standard issue set of supplies for foot soldiers. Bases must be stockpiled with Soldier Supplies in order for players to spawn.",
@@ -16325,7 +16462,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSoldierUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSoldierUniformCPickup",
     "CodeName": "SoldierUniformC",
     "ChassisName": "Colonial Soldier Uniform",
     "DisplayName": "Legionary Fatigues",
@@ -16368,7 +16505,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSoldierUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPSoldierUniformWPickup",
     "CodeName": "SoldierUniformW",
     "ChassisName": "Warden Soldier Uniform",
     "DisplayName": "Infantry Battledress",
@@ -16411,7 +16548,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/StickyBombPickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPStickyBombPickup",
     "CodeName": "StickyBomb",
     "DisplayName": "Anti-Tank Sticky Bomb",
     "Description": "A adherable grenade designed to penetrate heavy tank armor. The Sticky Bomb can only be thrown a short distance and is ineffective against structures.",
@@ -16547,7 +16684,7 @@
       "MajorDamagePercent": 0.75,
       "RepairCost": 350,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 18,
+      "ItemHolderCapacity": 1,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
@@ -16569,7 +16706,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -16614,7 +16750,7 @@
       "MajorDamagePercent": 0.75,
       "RepairCost": 235,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 22,
+      "ItemHolderCapacity": 5,
       "FuelCapacity": 600,
       "FuelConsumptionPerSecond": 0.5,
       "SwimmingFuelConsumptionModifier": 1,
@@ -16629,14 +16765,13 @@
       "TankArmour": 17650,
       "MinTankArmourPercent": 0.5,
       "TankArmourMinPenetrationChance": 0.22,
-      "VehicleSubsystemDisableChances": 0,
+      "VehicleSubsystemDisableChances": 0.25,
       "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -16660,7 +16795,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/TanketteC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/BPTanketteC",
     "CodeName": "TanketteC",
     "ChassisName": "Tankette",
     "DisplayName": "T12 “Actaeon” Tankette",
@@ -16703,7 +16838,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -16730,7 +16864,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/TanketteFlameC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/BPTanketteFlameC",
     "CodeName": "TanketteFlameC",
     "ChassisName": "Tankette",
     "DisplayName": "T14 “Vesta” Tankette",
@@ -16750,7 +16884,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.15,
       "SwimmingFuelConsumptionModifier": 1,
@@ -16772,7 +16906,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -16796,7 +16929,71 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/TanketteOffensiveC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/BPTanketteMultiC",
+    "CodeName": "TanketteMultiC",
+    "ChassisName": "Tankette",
+    "DisplayName": "T13 “Deioneus” Rocket Battery",
+    "Description": "Initially intended to provide a mobile platform for cumbersome field weapons, the T13 “Deioneus” Rocket Battery is a lightweight tankette fitted with a nine-barrelled rocket artillery. This unique battery is configured for incendiary rockets to be launched at range while maintaining high maneuverability between deployments.",
+    "FactionVariant": "EFactionId::Colonials",
+    "TechID": "ETechID::UnlockFacilityTier2",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/TanketteMultiCIcon.0",
+    "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
+    "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
+    "ArmourType": "EArmourType::Tier2Tank",
+    "ShippableInfo": "EShippableType::Normal",
+    "FuelTank": 150,
+    "VehicleDynamicData": {
+      "MaxHealth": 1350,
+      "MinorDamagePercent": 0.7,
+      "MajorDamagePercent": 0.9,
+      "RepairCost": 150,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 1,
+      "FuelCapacity": 150,
+      "FuelConsumptionPerSecond": 0.15,
+      "SwimmingFuelConsumptionModifier": 1,
+      "DefaultSurfaceMovementRate": 0.7,
+      "OffroadSnowPenalty": 1,
+      "ReverseSpeedModifier": 0.5,
+      "RotationRate": 0.2,
+      "RotationSpeedCuttoff": 0,
+      "SpeedSqrThreshold": 400,
+      "EngineForce": 7500,
+      "MassOverride": 3350,
+      "TankArmour": 7200,
+      "MinTankArmourPercent": 0.2,
+      "TankArmourMinPenetrationChance": 0.55,
+      "VehicleSubsystemDisableChances": 0,
+      "bHasTierUpgrades": true,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "RamDamageDealtFlags": 5,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 45,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 25,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 3000,
+      "BrakeForce": 20000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 900,
+      "LowSpeedEngineForceMultiplier": 3,
+      "LowGearCutoff": 0.5,
+      "CenterOfGravityHeight": 0.4,
+      "bUsesDifferentialSteering": true,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Tankette/BPTanketteOffensiveC",
     "CodeName": "TanketteOffensiveC",
     "ChassisName": "Tankette",
     "DisplayName": "T20 “Ixion” Tankette",
@@ -16816,7 +17013,7 @@
       "MajorDamagePercent": 0.9,
       "RepairCost": 145,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 1,
+      "ItemHolderCapacity": 2,
       "FuelCapacity": 150,
       "FuelConsumptionPerSecond": 0.1,
       "SwimmingFuelConsumptionModifier": 1,
@@ -16838,7 +17035,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
-      "bCanUseStructures": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -16862,7 +17058,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/AntiTankMinePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPTankMinePickup",
     "CodeName": "TankMine",
     "ChassisName": "Explosive Charge",
     "DisplayName": "Abisme AT-99",
@@ -16932,7 +17128,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPTankUniformC",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPTankUniformCPickup",
     "CodeName": "TankUniformC",
     "ChassisName": "Colonial Tank Uniform",
     "DisplayName": "Tankman’s Coveralls",
@@ -16981,7 +17177,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPTankUniformW",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Uniforms/BPTankUniformWPickup",
     "CodeName": "TankUniformW",
     "ChassisName": "Warden Tank Uniform",
     "DisplayName": "Padded Boiler Suit",
@@ -17041,6 +17237,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1500,
       "MinorDamagePercent": 0.25,
@@ -17069,7 +17266,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17104,6 +17300,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Large",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1500,
       "MinorDamagePercent": 0.25,
@@ -17132,7 +17329,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17168,6 +17364,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.25,
@@ -17196,7 +17393,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17232,6 +17428,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 3250,
       "MinorDamagePercent": 0.25,
@@ -17260,7 +17457,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17295,6 +17491,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 3250,
       "MinorDamagePercent": 0.5,
@@ -17323,7 +17520,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17358,6 +17554,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Large",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1500,
       "MinorDamagePercent": 0.25,
@@ -17386,7 +17583,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17421,6 +17617,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 3250,
       "MinorDamagePercent": 0.25,
@@ -17449,7 +17646,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17473,7 +17669,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Rail/BPLRArtilleryCar",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Rail/BPTrainLRArtillery",
     "CodeName": "TrainLRArtillery",
     "ChassisName": "Long-Range Artillery Car",
     "DisplayName": "Tempest Cannon RA-2",
@@ -17484,6 +17680,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.25,
@@ -17512,7 +17709,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
@@ -17536,7 +17732,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPTraumaKit",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPTraumaKitPickup",
     "CodeName": "TraumaKit",
     "DisplayName": "Trauma Kit",
     "Description": "Used by medics to revive wounded soldiers.",
@@ -17631,13 +17827,14 @@
     "ObjectPath": "War/Content/Blueprints/Vehicles/LogisticsVehicles/BPTroopShip",
     "CodeName": "TroopShip",
     "DisplayName": "BMS - White Whale",
-    "Description": "A heavily armoured vessel, the Basset Motor Society’s White Whale-class troop transports can deploy on faraway beaches to function as a permanent forward operating base.",
+    "Description": "A heavily armoured vessel, the Bassett Motor Society’s White Whale-class troop transports can deploy on faraway beaches to function as a permanent forward operating base.",
     "TechID": "ETechID::UnlockTroopShip",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TroopShipVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "ArmourType": "EArmourType::Tier1Tank",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
       "MinorDamagePercent": 0.5,
@@ -17666,7 +17863,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17684,6 +17880,7 @@
     "CodeName": "TruckC",
     "DisplayName": "R-1 Hauler",
     "Description": "A heavy-duty Colonial truck used to mobilize troops and supplies.",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -17720,7 +17917,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17753,6 +17949,7 @@
     "Description": "A heavy, reinforced Dunne transport. Fitted with a heavier frame, the Leatherback is capable of enduring more punishment at the cost of initial acceleration. ",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckDefensiveWIcon.0",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -17787,7 +17984,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17811,12 +18007,13 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Truck/BPTruckUtilityC",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Truck/BPTruckDumpC",
     "CodeName": "TruckDumpC",
     "DisplayName": "R-5 “Atlas” Hauler",
     "Description": "This standard Truck is fitted with a resource hopper in place of the standard cargo hold. This allows for a much greater capacity for resources at the expense of space for cargo.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckUtilityVehicleIcon.0",
     "FuelTank": 120,
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -17852,7 +18049,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17879,12 +18075,13 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/Vehicles/Truck/BPTruckUtilityW",
+    "ObjectPath": "War/Content/Blueprints/Vehicles/Truck/BPTruckDumpW",
     "CodeName": "TruckDumpW",
     "DisplayName": "Dunne Loadlugger 3c",
     "Description": "This standard Truck is fitted with a resource hopper in place of the standard cargo hold. This allows for a much greater capacity for resources at the expense of space for cargo. ",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckUtilityWarVehicleIcon.0",
     "FuelTank": 120,
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -17920,7 +18117,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -17955,6 +18151,7 @@
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "BoostSpeedModifier": 1.3,
     "BoostGasUsageModifier": 5,
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -17989,7 +18186,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -18020,6 +18216,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckMobilityWarVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "ArmourType": "EArmourType::LightVehicle",
@@ -18053,7 +18250,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -18117,7 +18313,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -18147,6 +18342,7 @@
     "Description": "This standard Truck is fitted with Light Machinegun in place of the passenger seat. It’s well suited as an escort for convoys or lightly armoured operations.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckOffensiveVehicleIcon.0",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -18181,7 +18377,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -18209,6 +18404,7 @@
     "CodeName": "TruckW",
     "DisplayName": "Dunne Transport",
     "Description": "A heavy-duty Warden truck used to mobilize troops and supplies.",
+    "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckWarVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -18245,7 +18441,6 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
-      "bCanUseStructures": true,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
@@ -18272,7 +18467,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/UnexplodedOrdnancePickup",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPUnexplodedOrdnancePickup",
     "CodeName": "UnexplodedOrdnance",
     "DisplayName": "Unexploded Ordnance",
     "Description": "An old war artillery shell that failed to detonate. Etchings on the side indicate a powerful payload and should be handled carefully.",
@@ -18330,52 +18525,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Warhead",
-    "CodeName": "Warhead",
-    "DisplayName": "Warhead",
-    "Description": "The payload for Ballistic Rockets. A high yield bomb that delivers over 3 tons of TNT and is capable of leveling an entire village or town block.",
-    "Encumbrance": 1000,
-    "ItemCategory": "EItemCategory::HeavyAmmo",
-    "ItemProfileType": "EItemProfileType::UniqueItem",
-    "TechID": "ETechID::UnlockWarhead",
-    "Icon": "War/Content/Textures/UI/ItemIcons/RocketWarheadIcon.0",
-    "ItemDynamicData": {
-      "CostPerCrate": [
-        {
-          "ItemCodeName": "Wood",
-          "Quantity": 200,
-          "DisplayName": "Refined Materials"
-        },
-        {
-          "ItemCodeName": "HeavyExplosive",
-          "Quantity": 1000,
-          "DisplayName": "Heavy Explosive Materials"
-        }
-      ],
-      "QuantityPerCrate": 1,
-      "CrateProductionTime": 600,
-      "SingleRetrieveTime": 10,
-      "CrateRetrieveTime": 10,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
-    },
-    "ItemProfileData": {
-      "bIsStockpilable": false,
-      "bIsStackable": false,
-      "bIsConvertibleToCrate": false,
-      "bIsCratable": false,
-      "bIsStockpiledWithAmmo": false,
-      "bUsableInVehicle": false,
-      "StackTransferLimit": 1,
-      "RetrieveQuantity": 1,
-      "ReserveStockpileMaxQuantity": 100,
-      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
-    },
-    "ProductionCategories": {
-      "Factory": "EFactoryQueueType::HeavyAmmo"
-    }
-  },
-  {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPWater",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPWaterPickup",
     "CodeName": "Water",
     "DisplayName": "Water",
     "Description": "Water... in a can!",
@@ -18539,7 +18689,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRefinedMaterials",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPWoodPickup",
     "CodeName": "Wood",
     "DisplayName": "Refined Materials",
     "Description": "Resource used for building advanced structures and producing special items.",
@@ -18576,7 +18726,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/WorkHammer",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPWorkHammerPickup",
     "CodeName": "WorkHammer",
     "DisplayName": "Hammer",
     "Description": "A tool used to build structures and assemble materials.",
@@ -18617,7 +18767,7 @@
     }
   },
   {
-    "ObjectPath": "War/Content/Blueprints/ItemPickups/WorkWrench",
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/BPWorkWrenchPickup",
     "CodeName": "WorkWrench",
     "DisplayName": "Wrench",
     "Description": "A multipurpose tool. Can be used to dismantle mines/barbed wire and unlock vehicles.",
