@@ -83,13 +83,7 @@ buildClassifier() {
 
   #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
-  # Recent tensorflowjs is incompatible with tensorflow 2.12.0 due to differing protobuf version requirements.
-  # Install them separately as a workaround.
-  cd convert
-  pipenv clean
-  pipenv install
-  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model ../model.h5 ../../foxhole/${version}/classifier
-  cd ..
+  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../foxhole/${version}/classifier
 
   pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
 

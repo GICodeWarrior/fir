@@ -1,7 +1,7 @@
 {
-  "convertedBy": "TensorFlow.js Converter v4.2.0",
+  "convertedBy": "TensorFlow.js Converter v4.7.0",
   "format": "graph-model",
-  "generatedBy": "2.11.1",
+  "generatedBy": "2.12.0",
   "modelTopology": {
     "library": {},
     "node": [
@@ -728,7 +728,7 @@
       }
     ],
     "versions": {
-      "producer": 1286
+      "producer": 1395
     }
   },
   "signature": {
