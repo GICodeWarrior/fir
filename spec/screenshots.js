@@ -1,6 +1,6 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const CURRENT_VERSION = 'inferno-52';
+const CURRENT_VERSION = 'naval';
 
 const JASMINE_TIMEOUT = 60000;
 const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
@@ -19,6 +19,7 @@ const VERSION_HISTORY = [
   'entrenched',
   'inferno',
   'inferno-52',
+  'naval',
 ];
 const VERSION_CHANGES = {
   'inferno': {
@@ -38,6 +39,11 @@ const VERSION_CHANGES = {
     GarrisonSupplies: 'MaintenanceSupplies',
     SatchelCharge: 'SatchelChargeW',
     Water: null, // SubTypeIcon added at some point
+  },
+  'naval': {
+    FieldMultiW: 'LargeFieldMultiW',
+    FieldLightArtilleryC: 'LargeFieldLightArtilleryC',
+    TroopShip: null,
   },
 };
 

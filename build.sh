@@ -9,7 +9,7 @@ then
 fi
 
 warLocation=$(cd "${1}"; pwd)
-version='inferno-52'
+version='naval'
 
 parseCatalog() {
   echo "Parsing catalog. (downloading / updating npm packages)"
@@ -51,7 +51,7 @@ saveIconCatalog() {
   do
     if [ -d "catalog/training/$name" ]
     then
-      cp "catalog/training/$name/64-0.png" "$iconPath/$name.png"
+      cp "catalog/training/$name/64-0-0.png" "$iconPath/$name.png"
     fi
   done
 
@@ -83,7 +83,7 @@ buildClassifier() {
 
   #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
-  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.h5 ../foxhole/${version}/classifier
+  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.keras ../foxhole/${version}/classifier
 
   pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
 

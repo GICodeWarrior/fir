@@ -20,6 +20,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
 
 import json
+import os
 import sys
 
 
@@ -62,6 +63,19 @@ with open('class_names.json', 'w', encoding='utf-8') as f:
   f.write(json.dumps(class_names, indent=2));
   f.write('\n');
 
+raw_counts = dict()
+total_files = 0
+for root, dirs, files in os.walk(DATA_DIR):
+  if root == DATA_DIR:
+    continue
+  raw_counts[root[len(DATA_DIR):]] = len(files)
+  total_files += len(files)
+
+class_weights = dict()
+for index, name in enumerate(class_names):
+  class_weights[index] = total_files / (output_dim * raw_counts[name])
+  #print('Total: ' + str(total_files) + ', Class: ' + name + ', Count: ' + str(raw_counts[name]) + ', Weight: ' + str(class_weights[index]))
+
 train_ds = train_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 
@@ -73,7 +87,7 @@ model = Sequential([
   layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
-  layers.SpatialDropout2D(DROPOUT),
+  layers.GaussianDropout(DROPOUT),
   layers.Conv2D(32, 3, padding='same'),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
@@ -89,20 +103,22 @@ model = Sequential([
 model.compile(
   optimizer='adam',
   loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-  metrics=['accuracy']
+  metrics=['accuracy'],
+  #steps_per_execution='auto',
 )
 
 early_stopping = keras.callbacks.EarlyStopping(
   monitor='loss',
   patience=7,
-  restore_best_weights=True
+  restore_best_weights=True,
 )
 
 model.fit(
   train_ds,
   validation_data=val_ds,
   epochs=EPOCHS,
-  callbacks=[early_stopping]
+  callbacks=[early_stopping],
+  class_weight=class_weights,
 )
 
-model.save('model.h5')
+model.save('model.keras')

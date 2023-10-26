@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "~=2.12.0"
+tensorflow = "~=2.14.0"
 tensorflowjs = ">=4.7.0"
 nvidia-cudnn-cu11 = "*"
 

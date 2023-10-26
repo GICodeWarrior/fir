@@ -595,9 +595,18 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/BattleTanks/',
   'War/Content/Blueprints/Vehicles/DestroyerTank/',
   'War/Content/Blueprints/Vehicles/FieldWeapons/',
-  'War/Content/Blueprints/Vehicles/Gunboats/',
+  'War/Content/Blueprints/Vehicles/Gunboats/GunboatC/',
+  'War/Content/Blueprints/Vehicles/Gunboats/GunboatW/',
   'War/Content/Blueprints/Vehicles/Halftrack/',
+  'War/Content/Blueprints/Vehicles/HeavyTruck/',
   'War/Content/Blueprints/Vehicles/LandingCraft/',
+  'War/Content/Blueprints/Vehicles/LandingShips/LandingShipC/',
+  'War/Content/Blueprints/Vehicles/LandingShips/LandingShipW/',
+  'War/Content/Blueprints/Vehicles/LargeShips/BattleShipC/',
+  'War/Content/Blueprints/Vehicles/LargeShips/BattleShipW/',
+  'War/Content/Blueprints/Vehicles/LargeShips/DestroyerC/',
+  'War/Content/Blueprints/Vehicles/LargeShips/StorageShip/',
+  'War/Content/Blueprints/Vehicles/LargeShips/SubmarineW/',
   'War/Content/Blueprints/Vehicles/LightTank/',
   'War/Content/Blueprints/Vehicles/LogisticsVehicles/',
   'War/Content/Blueprints/Vehicles/Mech/',
@@ -609,10 +618,12 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/ScoutVehicle/',
   'War/Content/Blueprints/Vehicles/SuperTank/',
   'War/Content/Blueprints/Vehicles/Tankette/',
+  'War/Content/Blueprints/Vehicles/Trailers/',
   'War/Content/Blueprints/Vehicles/Truck/',
   'War/Content/Blueprints/Structures/',
   'War/Content/Blueprints/Structures/Emplacements/',
   'War/Content/Blueprints/Structures/Facilities/',
+  'War/Content/Blueprints/Structures/Rocket/',
 ];
 
 const objects = [];
@@ -625,6 +636,11 @@ for (const directory of searchDirectories) {
     if (!entry.isFile() || !entry.name.endsWith('.json')) {
       continue;
     }
+    if (entry.name == 'BPRareMaterialsPickup.json') {
+      // RareMaterials and RareMetal have the same icon, and only RareMetal is used in game?
+      continue;
+    }
+
     const file = directory + entry.name;
     //process.stderr.write('Processing: ' + file + '\n');
 

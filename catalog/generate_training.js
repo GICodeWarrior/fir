@@ -44,7 +44,7 @@ async function loadCornerIcon(path) {
 
 const CORNER_ICON_RATIO = 7 / 16;
 const CORNER_ICON_ALPHA = 0.75;
-async function drawIcon(objectValues, size, smear, cache, modName) {
+async function drawIcon(objectValues, size, xsmear, ysmear, cache, modName) {
   const canvas = createCanvas(size, size);
   const context = canvas.getContext('2d');
   context.fillRect(0, 0, size, size);
@@ -63,14 +63,14 @@ async function drawIcon(objectValues, size, smear, cache, modName) {
 
     cache.icon = await loadImage(iconFile);
   }
-  context.drawImage(cache.icon, 0, 0, size + smear, size);
+  context.drawImage(cache.icon, 0, 0, size + xsmear, size + ysmear);
 
   if (objectValues.SubTypeIcon) {
     cache.subTypeIcon ||= await loadCornerIcon(
       `${WAR_LOCATION}/${objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png')}`
     );
-    const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
-    const cornerHeight = size * CORNER_ICON_RATIO;
+    const cornerWidth = (size + xsmear) * CORNER_ICON_RATIO;
+    const cornerHeight = (size + ysmear) * CORNER_ICON_RATIO;
 
     context.globalAlpha = CORNER_ICON_ALPHA;
     context.drawImage(cache.subTypeIcon, 0, 0, cornerWidth, cornerHeight);
@@ -81,14 +81,14 @@ async function drawIcon(objectValues, size, smear, cache, modName) {
 }
 
 const CRATE_ICON = loadCornerIcon(`${WAR_LOCATION}/War/Content/Textures/UI/Menus/IconFilterCrates.png`);
-async function addCrate(canvas, smear) {
+async function addCrate(canvas, xsmear, ysmear) {
   const size = canvas.width;
 
-  const cornerWidth = (size + smear) * CORNER_ICON_RATIO;
-  const cornerHeight = size * CORNER_ICON_RATIO;
+  const cornerWidth = (size + xsmear) * CORNER_ICON_RATIO;
+  const cornerHeight = (size + ysmear) * CORNER_ICON_RATIO;
 
-  const crateOffsetX = (size + smear) - cornerWidth;
-  const crateOffsetY = size - cornerHeight;
+  const crateOffsetX = (size + xsmear) - cornerWidth;
+  const crateOffsetY = (size + ysmear) - cornerHeight;
 
   const context = canvas.getContext('2d');
   context.globalAlpha = CORNER_ICON_ALPHA;
@@ -96,19 +96,19 @@ async function addCrate(canvas, smear) {
   context.globalAlpha = 1;
 }
 
-async function writeTrainingPNG(objectValues, baseName, size, smear, cache, modName) {
-  const canvas = await drawIcon(objectValues, size, smear, cache, modName);
+async function writeTrainingPNG(objectValues, baseName, size, xsmear, ysmear, cache, modName) {
+  const canvas = await drawIcon(objectValues, size, xsmear, ysmear, cache, modName);
   if (!canvas) {
     return;
   }
   modName = modName ? `${modName}-` : '';
 
   await fs.promises.mkdir(baseName, {recursive: true});
-  await writePNG(canvas, `${baseName}/${modName}${size}-${smear}.png`);
+  await writePNG(canvas, `${baseName}/${modName}${size}-${xsmear}-${ysmear}.png`);
 
-  await addCrate(canvas, smear);
+  await addCrate(canvas, xsmear, ysmear);
   await fs.promises.mkdir(`${baseName}-crated`, {recursive: true});
-  await writePNG(canvas, `${baseName}-crated/${modName}${size}-${smear}.png`);
+  await writePNG(canvas, `${baseName}-crated/${modName}${size}-${xsmear}-${ysmear}.png`);
 }
 
 async function writeTrainingPNGs(objectValues) {
@@ -124,8 +124,13 @@ async function writeTrainingPNGs(objectValues) {
   for (const modName of mods) {
     const cache = {};
     for (let size = smallestSize; size <= largestSize; ++size) {
-      promises.push(writeTrainingPNG(objectValues, baseName, size, 0, cache, modName));
-      promises.push(writeTrainingPNG(objectValues, baseName, size, 1, cache, modName));
+      //promises.push(writeTrainingPNG(objectValues, baseName, size, -1, -1, cache, modName));
+      //promises.push(writeTrainingPNG(objectValues, baseName, size, 0, -1, cache, modName));
+      promises.push(writeTrainingPNG(objectValues, baseName, size, -1, 0, cache, modName));
+      promises.push(writeTrainingPNG(objectValues, baseName, size, 0, 0, cache, modName));
+      promises.push(writeTrainingPNG(objectValues, baseName, size, 1, 0, cache, modName));
+      //promises.push(writeTrainingPNG(objectValues, baseName, size, 0, 1, cache, modName));
+      //promises.push(writeTrainingPNG(objectValues, baseName, size, 1, 1, cache, modName));
     }
   }
 
