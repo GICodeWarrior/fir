@@ -732,7 +732,7 @@
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
-      "MaxHealth": 1000,
+      "MaxHealth": 1250,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.9,
       "RepairCost": 130,
@@ -864,7 +864,7 @@
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
-      "MaxHealth": 1000,
+      "MaxHealth": 1250,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.9,
       "RepairCost": 110,
@@ -2288,7 +2288,7 @@
       }
     },
     "AmmoDynamicData": {
-      "Damage": 325,
+      "Damage": 375,
       "Suppression": 20,
       "ExplosionRadius": 200,
       "DamageType": {
@@ -4020,7 +4020,7 @@
     "CodeName": "DepthChargeAmmo",
     "ChassisName": "Depth Charge",
     "DisplayName": "Model-7 “Evie”",
-    "Description": "An explosive charge that detonates at a target depth. This anti-submarine ordinance is fired from the deck of naval vessels using specialized launchers.",
+    "Description": "An explosive charge that detonates at a target depth. This anti-submarine ordnance is fired from the deck of naval vessels using specialized launchers.",
     "Encumbrance": 300,
     "EquipmentSlot": "EEquipmentSlot::Large",
     "ItemCategory": "EItemCategory::HeavyAmmo",
@@ -6916,7 +6916,7 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 10,
+      "QuantityPerCrate": 5,
       "CrateProductionTime": 100,
       "SingleRetrieveTime": 4,
       "CrateRetrieveTime": 16,
@@ -7004,7 +7004,7 @@
     "ItemProfileType": "EItemProfileType::Throwable",
     "ItemFlagsMask": 9,
     "AmmoDynamicData": {
-      "Damage": 150,
+      "Damage": 125,
       "Suppression": 20,
       "ExplosionRadius": 650,
       "DamageType": {
@@ -7764,7 +7764,7 @@
     "ChassisName": "Half-Track",
     "DisplayName": "Niska Mk. II Blinder",
     "Description": "Fitted with a heavy-duty anti-tank gun, the Blinder is capable of punching through all but the most tempered of alloys.",
-    "TechID": "ETechID::UnlockFacilityTier2",
+    "TechID": "ETechID::UnlockHalfTrackOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HalfTrackOffensiveWarVehicleIcon.0",
     "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "FactionVariant": "EFactionId::Wardens",
@@ -8803,7 +8803,7 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockLargeShipBaseShip",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingShipCIcon.0",
-    "FuelTank": 200,
+    "FuelTank": 10,
     "ChassisName": "Landing Ship",
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -8870,8 +8870,8 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockLargeShipBaseShip",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingShipWIcon.0",
+    "FuelTank": 10,
     "bCanUseStructures": true,
-    "FuelTank": 200,
     "ChassisName": "Landing Ship",
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -9321,7 +9321,7 @@
     "CodeName": "LargeShipDestroyerC",
     "ChassisName": "Destroyer",
     "DisplayName": "Conqueror",
-    "Description": "Serving as the front line to the Republic Coastal Legion, long have Conquerers lived up to the namesake. These beasts are fitted with armaments to tackle threats both above and below, including a specialized sonar station and depth charge launchers. A young upstart, Diana Geminus, was first to command a Conquerer after quickly rising through the ranks with fresh ideas for defence against the northerner’s disgraceful efforts.",
+    "Description": "Serving as the front line to the Republic Coastal Legion, long have Conquerors lived up to the namesake. These beasts are fitted with armaments to tackle threats both above and below, including a specialized sonar station and depth charge launchers. A young upstart, Diana Geminus, was first to command a Conqueror after quickly rising through the ranks with fresh ideas for defence against the northerner’s disgraceful efforts.",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockLargeShipDestroyer",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LargeShipDestroyerCIcon.0",
@@ -10776,7 +10776,7 @@
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
-      "MaxHealth": 2400,
+      "MaxHealth": 2650,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
@@ -10793,7 +10793,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 20000,
       "MassOverride": 7000,
-      "TankArmour": 10000,
+      "TankArmour": 11000,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -10844,7 +10844,7 @@
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
-      "MaxHealth": 2700,
+      "MaxHealth": 2950,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
@@ -10861,7 +10861,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 20000,
       "MassOverride": 7000,
-      "TankArmour": 10000,
+      "TankArmour": 11000,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -10912,7 +10912,7 @@
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
-      "MaxHealth": 2700,
+      "MaxHealth": 2950,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
@@ -10929,7 +10929,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 20000,
       "MassOverride": 7000,
-      "TankArmour": 10000,
+      "TankArmour": 11000,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -11114,7 +11114,7 @@
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
-      "MaxHealth": 3000,
+      "MaxHealth": 3650,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 170,
@@ -11131,7 +11131,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 23500,
       "MassOverride": 10500,
-      "TankArmour": 9100,
+      "TankArmour": 12725,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -11184,7 +11184,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
-      "MaxHealth": 3250,
+      "MaxHealth": 4000,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 170,
@@ -11201,7 +11201,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 24000,
       "MassOverride": 12550,
-      "TankArmour": 12000,
+      "TankArmour": 13550,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -11251,7 +11251,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
-      "MaxHealth": 3000,
+      "MaxHealth": 3650,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 165,
@@ -11268,7 +11268,7 @@
       "SpeedSqrThreshold": 400,
       "EngineForce": 23500,
       "MassOverride": 10500,
-      "TankArmour": 11000,
+      "TankArmour": 13550,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
@@ -18473,7 +18473,7 @@
     "Description": "Fired from submersible vessels, the Moray Torpedo is a self-propelled underwater missile that functions well at a variety of ranges and depths. It’s designed to bore into the hulls of large ships, leaving them vulnerable to leaks.",
     "Encumbrance": 385,
     "EquipmentSlot": "EEquipmentSlot::Large",
-    "ItemCategory": "EItemCategory::HeavyArms",
+    "ItemCategory": "EItemCategory::HeavyAmmo",
     "ItemProfileType": "EItemProfileType::HeavyAmmo",
     "FactionVariant": "EFactionId::Wardens",
     "ItemFlagsMask": 17,
@@ -19859,8 +19859,7 @@
       ],
       "ProjectileClass": {
         "ExplosiveCodeName": "WaterBucketfull",
-        "AutoDetonateTime": 2,
-        "ProjectileDeathDelay": 8
+        "AutoDetonateTime": 2
       }
     },
     "AmmoDynamicData": {
