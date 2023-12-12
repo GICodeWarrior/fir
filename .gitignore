@@ -1,4 +1,5 @@
 catalog/node_modules
 catalog/training
-trainer/model.keras
+trainer/logs
+trainer/model-tf
 spec/data

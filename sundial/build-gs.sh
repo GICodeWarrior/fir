@@ -3,7 +3,7 @@
 
 set -e
 
-VERSION='inferno-52'
+VERSION='naval-56'
 
 mkdir -p ./gs-build
 

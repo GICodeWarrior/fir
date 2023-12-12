@@ -4,9 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-tensorflow = "~=2.14.0"
-tensorflowjs = ">=4.7.0"
+tensorflow = {extras = ["and-cuda"], version = "~=2.16.0"}
+tensorflowjs = "~=4.19.0"
 nvidia-cudnn-cu11 = "*"
+tensorboard-plugin-profile = "*"
+pillow = "*"
 
 [dev-packages]
 

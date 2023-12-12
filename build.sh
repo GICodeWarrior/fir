@@ -9,7 +9,7 @@ then
 fi
 
 warLocation=$(cd "${1}"; pwd)
-version='naval'
+version='naval-56'
 
 parseCatalog() {
   echo "Parsing catalog. (downloading / updating npm packages)"
@@ -77,7 +77,8 @@ buildClassifier() {
   CUDNN_PATH=$(dirname $(pipenv run python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDNN_PATH/lib
 
-  pipenv run python train.py 50 rgb 0.05 0.01 ../catalog/training/
+  rm -r model-tf || true
+  pipenv run python train.py 50 rgb 0.05 0.005 ../catalog/training/
 
   echo "Training complete, assembling results."
   rm -r ../foxhole/${version}/classifier || true
@@ -86,7 +87,7 @@ buildClassifier() {
 
   #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
-  pipenv run tensorflowjs_converter --input_format keras --output_format=tfjs_graph_model model.keras ../foxhole/${version}/classifier
+  pipenv run tensorflowjs_converter --input_format tf_saved_model --output_format=tfjs_graph_model model-tf ../foxhole/${version}/classifier
 
   pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
 

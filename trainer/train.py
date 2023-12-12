@@ -15,10 +15,12 @@
 
 import tensorflow as tf
 
-from tensorflow import keras
-from tensorflow.keras import layers
-from tensorflow.keras.models import Sequential
+import keras
+from keras import layers
+from keras import regularizers
+from keras.models import Sequential
 
+import datetime
 import json
 import os
 import sys
@@ -35,22 +37,13 @@ IMG_SIZE = (32, 32)
 PREFETCH_SIZE = tf.data.AUTOTUNE
 RANDOM_SEED = 639936
 
-tf.keras.utils.set_random_seed(RANDOM_SEED)
-tf.config.experimental.enable_op_determinism()
+keras.utils.set_random_seed(RANDOM_SEED)
+#tf.config.experimental.enable_op_determinism()
 
-train_ds = keras.utils.image_dataset_from_directory(
+train_ds, val_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
   validation_split=VALIDATION_SPLIT,
-  subset='training',
-  seed=RANDOM_SEED,
-  color_mode=COLOR_MODE,
-  image_size=IMG_SIZE
-)
-
-val_ds = keras.utils.image_dataset_from_directory(
-  DATA_DIR,
-  validation_split=VALIDATION_SPLIT,
-  subset='validation',
+  subset='both',
   seed=RANDOM_SEED,
   color_mode=COLOR_MODE,
   image_size=IMG_SIZE
@@ -76,7 +69,8 @@ for index, name in enumerate(class_names):
   class_weights[index] = total_files / (output_dim * raw_counts[name])
   #print('Total: ' + str(total_files) + ', Class: ' + name + ', Count: ' + str(raw_counts[name]) + ', Weight: ' + str(class_weights[index]))
 
-train_ds = train_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
+#train_ds = train_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
+train_ds = train_ds.cache().shuffle(train_ds.cardinality(), reshuffle_each_iteration=True, seed=RANDOM_SEED).prefetch(buffer_size=PREFETCH_SIZE)
 val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
 
 model = Sequential([
@@ -84,16 +78,23 @@ model = Sequential([
 #  layers.RandomContrast(0.05),
   layers.Rescaling(1./255, input_shape=IMG_SIZE + (3,)),
   layers.Conv2D(16, 3, padding='same', use_bias=False),
+  #layers.Conv2D(16, 3, padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.0000001)),
   layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
   layers.GaussianDropout(DROPOUT),
   layers.Conv2D(32, 3, padding='same'),
+  #layers.Conv2D(32, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
+  #layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
+  #layers.GaussianDropout(DROPOUT),
   layers.Conv2D(64, 3, padding='same'),
+  #layers.Conv2D(64, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
+  #layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
+  #layers.GaussianDropout(DROPOUT),
   layers.Dropout(DROPOUT),
   layers.Flatten(),
 #  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
@@ -105,20 +106,24 @@ model.compile(
   loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
   metrics=['accuracy'],
   #steps_per_execution='auto',
+  #jit_compile=False,
 )
 
 early_stopping = keras.callbacks.EarlyStopping(
   monitor='loss',
-  patience=7,
+  patience=13,
   restore_best_weights=True,
 )
+
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1, profile_batch=(10,20))
 
 model.fit(
   train_ds,
   validation_data=val_ds,
   epochs=EPOCHS,
-  callbacks=[early_stopping],
+  callbacks=[early_stopping, tensorboard],
   class_weight=class_weights,
 )
 
-model.save('model.keras')
+model.export('model-tf')

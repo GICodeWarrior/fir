@@ -1,6 +1,6 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const CURRENT_VERSION = 'naval';
+const CURRENT_VERSION = 'naval-56';
 
 const JASMINE_TIMEOUT = 60000;
 const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
@@ -20,6 +20,7 @@ const VERSION_HISTORY = [
   'inferno',
   'inferno-52',
   'naval',
+  'naval-56',
 ];
 const VERSION_CHANGES = {
   'inferno': {
@@ -44,6 +45,18 @@ const VERSION_CHANGES = {
     FieldMultiW: 'LargeFieldMultiW',
     FieldLightArtilleryC: 'LargeFieldLightArtilleryC',
     TroopShip: null,
+  },
+  'naval-56': {
+    ArmoredCarOffensiveW: 'ArmoredCar2LargeW',
+    ArmoredCarTwinW: 'ArmoredCar2TwinW',
+    FuelContainer: 'LiquidContainer',
+    OilTankerC: 'TruckLiquidC',
+    OilTankerW: 'TruckLiquidW',
+    SmallTrainDump: 'SmallTrainMaterial',
+    SmallTrainFuelContainer: 'SmallTrainLiquid',
+    SmallTrainResourcePlatform: 'SmallTrainResource',
+    TruckDumpC: 'TruckResourceC',
+    TruckDumpW: 'TruckResourceW',
   },
 };
 
