@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2008-2022 Pivotal Labs
+Copyright (c) 2008-2023 Pivotal Labs
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -89,7 +89,9 @@ var getJasmineRequireObj = (function(jasmineGlobal) {
     j$.CompleteOnFirstErrorSkipPolicy = jRequire.CompleteOnFirstErrorSkipPolicy(
       j$
     );
+    j$.reporterEvents = jRequire.reporterEvents(j$);
     j$.ReportDispatcher = jRequire.ReportDispatcher(j$);
+    j$.ParallelReportDispatcher = jRequire.ParallelReportDispatcher(j$);
     j$.RunableResources = jRequire.RunableResources(j$);
     j$.Runner = jRequire.Runner(j$);
     j$.Spec = jRequire.Spec(j$);
@@ -741,6 +743,8 @@ getJasmineRequireObj().Spec = function(j$) {
     this.asyncExpectationFactory = attrs.asyncExpectationFactory;
     this.resultCallback = attrs.resultCallback || function() {};
     this.id = attrs.id;
+    this.filename = attrs.filename;
+    this.parentSuiteId = attrs.parentSuiteId;
     this.description = attrs.description || '';
     this.queueableFn = attrs.queueableFn;
     this.beforeAndAfterFns =
@@ -774,35 +778,7 @@ getJasmineRequireObj().Spec = function(j$) {
       this.exclude();
     }
 
-    /**
-     * @typedef SpecResult
-     * @property {Int} id - The unique id of this spec.
-     * @property {String} description - The description passed to the {@link it} that created this spec.
-     * @property {String} fullName - The full description including all ancestors of this spec.
-     * @property {Expectation[]} failedExpectations - The list of expectations that failed during execution of this spec.
-     * @property {Expectation[]} passedExpectations - The list of expectations that passed during execution of this spec.
-     * @property {Expectation[]} deprecationWarnings - The list of deprecation warnings that occurred during execution this spec.
-     * @property {String} pendingReason - If the spec is {@link pending}, this will be the reason.
-     * @property {String} status - Once the spec has completed, this string represents the pass/fail status of this spec.
-     * @property {number} duration - The time in ms used by the spec execution, including any before/afterEach.
-     * @property {Object} properties - User-supplied properties, if any, that were set using {@link Env#setSpecProperty}
-     * @property {DebugLogEntry[]|null} debugLogs - Messages, if any, that were logged using {@link jasmine.debugLog} during a failing spec.
-     * @since 2.0.0
-     */
-    this.result = {
-      id: this.id,
-      description: this.description,
-      fullName: this.getFullName(),
-      failedExpectations: [],
-      passedExpectations: [],
-      deprecationWarnings: [],
-      pendingReason: '',
-      duration: null,
-      properties: null,
-      debugLogs: null
-    };
-
-    this.reportedDone = false;
+    this.reset();
   }
 
   Spec.prototype.addExpectationResult = function(passed, data, isError) {
@@ -831,14 +807,6 @@ getJasmineRequireObj().Spec = function(j$) {
   Spec.prototype.setSpecProperty = function(key, value) {
     this.result.properties = this.result.properties || {};
     this.result.properties[key] = value;
-  };
-
-  Spec.prototype.expect = function(actual) {
-    return this.expectationFactory(actual, this);
-  };
-
-  Spec.prototype.expectAsync = function(actual) {
-    return this.asyncExpectationFactory(actual, this);
   };
 
   Spec.prototype.execute = function(
@@ -912,14 +880,33 @@ getJasmineRequireObj().Spec = function(j$) {
   };
 
   Spec.prototype.reset = function() {
+    /**
+     * @typedef SpecResult
+     * @property {String} id - The unique id of this spec.
+     * @property {String} description - The description passed to the {@link it} that created this spec.
+     * @property {String} fullName - The full description including all ancestors of this spec.
+     * @property {String|null} parentSuiteId - The ID of the suite containing this spec, or null if this spec is not in a describe().
+     * @property {String} filename - The name of the file the spec was defined in.
+     * @property {Expectation[]} failedExpectations - The list of expectations that failed during execution of this spec.
+     * @property {Expectation[]} passedExpectations - The list of expectations that passed during execution of this spec.
+     * @property {Expectation[]} deprecationWarnings - The list of deprecation warnings that occurred during execution this spec.
+     * @property {String} pendingReason - If the spec is {@link pending}, this will be the reason.
+     * @property {String} status - Once the spec has completed, this string represents the pass/fail status of this spec.
+     * @property {number} duration - The time in ms used by the spec execution, including any before/afterEach.
+     * @property {Object} properties - User-supplied properties, if any, that were set using {@link Env#setSpecProperty}
+     * @property {DebugLogEntry[]|null} debugLogs - Messages, if any, that were logged using {@link jasmine.debugLog} during a failing spec.
+     * @since 2.0.0
+     */
     this.result = {
       id: this.id,
       description: this.description,
       fullName: this.getFullName(),
+      parentSuiteId: this.parentSuiteId,
+      filename: this.filename,
       failedExpectations: [],
       passedExpectations: [],
       deprecationWarnings: [],
-      pendingReason: this.excludeMessage,
+      pendingReason: this.excludeMessage || '',
       duration: null,
       properties: null,
       debugLogs: null
@@ -1188,6 +1175,7 @@ getJasmineRequireObj().Env = function(j$) {
     let reporter;
     let topSuite;
     let runner;
+    let parallelLoadingState = null; // 'specs', 'helpers', or null for non-parallel
 
     /**
      * This represents the available options to configure Jasmine.
@@ -1216,6 +1204,10 @@ getJasmineRequireObj().Env = function(j$) {
       seed: null,
       /**
        * Whether to stop execution of the suite after the first spec failure
+       *
+       * <p>In parallel mode, `stopOnSpecFailure` works on a "best effort"
+       * basis. Jasmine will stop execution as soon as practical after a failure
+       * but it might not be immediate.</p>
        * @name Configuration#stopOnSpecFailure
        * @since 3.9.0
        * @type Boolean
@@ -1291,20 +1283,14 @@ getJasmineRequireObj().Env = function(j$) {
 
     if (!options.suppressLoadErrors) {
       installGlobalErrors();
-      globalErrors.pushListener(function loadtimeErrorHandler(
-        message,
-        filename,
-        lineno,
-        colNo,
-        err
-      ) {
+      globalErrors.pushListener(function loadtimeErrorHandler(error, event) {
         topSuite.result.failedExpectations.push({
           passed: false,
           globalErrorType: 'load',
-          message: message,
-          stack: err && err.stack,
-          filename: filename,
-          lineno: lineno
+          message: error ? error.message : event.message,
+          stack: error && error.stack,
+          filename: event && event.filename,
+          lineno: event && event.lineno
         });
       });
     }
@@ -1317,6 +1303,12 @@ getJasmineRequireObj().Env = function(j$) {
      * @function
      */
     this.configure = function(configuration) {
+      if (parallelLoadingState) {
+        throw new Error(
+          'Jasmine cannot be configured via Env in parallel mode'
+        );
+      }
+
       const booleanProps = [
         'random',
         'failSpecWithNoExpectations',
@@ -1399,6 +1391,49 @@ getJasmineRequireObj().Env = function(j$) {
       function addExpectationResult(passed, result) {
         return spec.addExpectationResult(passed, result);
       }
+    };
+
+    const handleThrowUnlessFailure = function(passed, result) {
+      if (!passed) {
+        /**
+         * @interface
+         * @name ThrowUnlessFailure
+         * @extends Error
+         * @description Represents a failure of an expectation evaluated with
+         * {@link throwUnless}. Properties of this error are a subset of the
+         * properties of {@link Expectation} and have the same values.
+         * @property {String} matcherName - The name of the matcher that was executed for this expectation.
+         * @property {String} message - The failure message for the expectation.
+         * @property {Boolean} passed - Whether the expectation passed or failed.
+         * @property {Object} expected - If the expectation failed, what was the expected value.
+         * @property {Object} actual - If the expectation failed, what actual value was produced.
+         */
+        const error = new Error(result.message);
+        error.passed = result.passed;
+        error.message = result.message;
+        error.expected = result.expected;
+        error.actual = result.actual;
+        error.matcherName = result.matcherName;
+        throw error;
+      }
+    };
+
+    const throwUnlessFactory = function(actual, spec) {
+      return j$.Expectation.factory({
+        matchersUtil: runableResources.makeMatchersUtil(),
+        customMatchers: runableResources.customMatchers(),
+        actual: actual,
+        addExpectationResult: handleThrowUnlessFailure
+      });
+    };
+
+    const throwUnlessAsyncFactory = function(actual, spec) {
+      return j$.Expectation.asyncFactory({
+        matchersUtil: runableResources.makeMatchersUtil(),
+        customAsyncMatchers: runableResources.customAsyncMatchers(),
+        actual: actual,
+        addExpectationResult: handleThrowUnlessFailure
+      });
     };
 
     // TODO: Unify recordLateError with recordLateExpectation? The extra
@@ -1522,7 +1557,6 @@ getJasmineRequireObj().Env = function(j$) {
         function(e) {
           (runner.currentRunable() || topSuite).handleException(e);
         };
-      options.deprecated = self.deprecated;
 
       new j$.QueueRunner(options).execute();
     }
@@ -1548,6 +1582,7 @@ getJasmineRequireObj().Env = function(j$) {
      * @since 2.0.0
      */
     this.topSuite = function() {
+      ensureNonParallel('topSuite');
       return topSuite.metadata;
     };
 
@@ -1557,72 +1592,7 @@ getJasmineRequireObj().Env = function(j$) {
      * @see custom_reporter
      */
     reporter = new j$.ReportDispatcher(
-      [
-        /**
-         * `jasmineStarted` is called after all of the specs have been loaded, but just before execution starts.
-         * @function
-         * @name Reporter#jasmineStarted
-         * @param {JasmineStartedInfo} suiteInfo Information about the full Jasmine suite that is being run
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'jasmineStarted',
-        /**
-         * When the entire suite has finished execution `jasmineDone` is called
-         * @function
-         * @name Reporter#jasmineDone
-         * @param {JasmineDoneInfo} suiteInfo Information about the full Jasmine suite that just finished running.
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'jasmineDone',
-        /**
-         * `suiteStarted` is invoked when a `describe` starts to run
-         * @function
-         * @name Reporter#suiteStarted
-         * @param {SuiteResult} result Information about the individual {@link describe} being run
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'suiteStarted',
-        /**
-         * `suiteDone` is invoked when all of the child specs and suites for a given suite have been run
-         *
-         * While jasmine doesn't require any specific functions, not defining a `suiteDone` will make it impossible for a reporter to know when a suite has failures in an `afterAll`.
-         * @function
-         * @name Reporter#suiteDone
-         * @param {SuiteResult} result
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'suiteDone',
-        /**
-         * `specStarted` is invoked when an `it` starts to run (including associated `beforeEach` functions)
-         * @function
-         * @name Reporter#specStarted
-         * @param {SpecResult} result Information about the individual {@link it} being run
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'specStarted',
-        /**
-         * `specDone` is invoked when an `it` and its associated `beforeEach` and `afterEach` functions have been run.
-         *
-         * While jasmine doesn't require any specific functions, not defining a `specDone` will make it impossible for a reporter to know when a spec has failed.
-         * @function
-         * @name Reporter#specDone
-         * @param {SpecResult} result
-         * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
-         * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
-         * @see async
-         */
-        'specDone'
-      ],
+      j$.reporterEvents,
       function(options) {
         options.SkipPolicy = j$.NeverSkipPolicy;
         return queueRunnerFactory(options);
@@ -1641,20 +1611,23 @@ getJasmineRequireObj().Env = function(j$) {
       reportSpecDone
     });
 
+    this.setParallelLoadingState = function(state) {
+      parallelLoadingState = state;
+    };
+
+    this.parallelReset = function() {
+      suiteBuilder.parallelReset();
+      runner.parallelReset();
+    };
+
     /**
      * Executes the specs.
      *
-     * If called with no parameters or with a falsy value as the first parameter,
+     * If called with no parameter or with a falsy parameter,
      * all specs will be executed except those that are excluded by a
      * [spec filter]{@link Configuration#specFilter} or other mechanism. If the
-     * first parameter is a list of spec/suite IDs, only those specs/suites will
+     * parameter is a list of spec/suite IDs, only those specs/suites will
      * be run.
-     *
-     * Both parameters are optional, but a completion callback is only valid as
-     * the second parameter. To specify a completion callback but not a list of
-     * specs/suites to run, pass null or undefined as the first parameter. The
-     * completion callback is supported for backward compatibility. In most
-     * cases it will be more convenient to use the returned promise instead.
      *
      * execute should not be called more than once unless the env has been
      * configured with `{autoCleanClosures: false}`.
@@ -1663,25 +1636,26 @@ getJasmineRequireObj().Env = function(j$) {
      * {@link JasmineDoneInfo|overall result} that's passed to a reporter's
      * `jasmineDone` method, even if the suite did not pass. To determine
      * whether the suite passed, check the value that the promise resolves to
-     * or use a {@link Reporter}.
+     * or use a {@link Reporter}. The promise will be rejected in the case of
+     * certain serious errors that prevent execution from starting.
      *
      * @name Env#execute
      * @since 2.0.0
      * @function
+     * @async
      * @param {(string[])=} runablesToRun IDs of suites and/or specs to run
-     * @param {Function=} onComplete Function that will be called after all specs have run
      * @return {Promise<JasmineDoneInfo>}
      */
-    this.execute = function(runablesToRun, onComplete) {
+    this.execute = async function(runablesToRun) {
       installGlobalErrors();
 
-      return runner.execute(runablesToRun).then(function(jasmineDoneInfo) {
-        if (onComplete) {
-          onComplete();
-        }
+      if (parallelLoadingState) {
+        validateConfigForParallel();
+      }
 
-        return jasmineDoneInfo;
-      });
+      const result = await runner.execute(runablesToRun);
+      this.cleanup_();
+      return result;
     };
 
     /**
@@ -1693,6 +1667,10 @@ getJasmineRequireObj().Env = function(j$) {
      * @see custom_reporter
      */
     this.addReporter = function(reporterToAdd) {
+      if (parallelLoadingState) {
+        throw new Error('Reporters cannot be added via Env in parallel mode');
+      }
+
       reporter.addReporter(reporterToAdd);
     };
 
@@ -1715,6 +1693,10 @@ getJasmineRequireObj().Env = function(j$) {
      * @function
      */
     this.clearReporters = function() {
+      if (parallelLoadingState) {
+        throw new Error('Reporters cannot be removed via Env in parallel mode');
+      }
+
       reporter.clearReporters();
     };
 
@@ -1814,19 +1796,58 @@ getJasmineRequireObj().Env = function(j$) {
       }
     }
 
+    function ensureNonParallel(method) {
+      if (parallelLoadingState) {
+        throw new Error(`'${method}' is not available in parallel mode`);
+      }
+    }
+
+    function ensureNonParallelOrInDescribe(msg) {
+      if (parallelLoadingState && !suiteBuilder.inDescribe()) {
+        throw new Error(msg);
+      }
+    }
+
+    function ensureNonParallelOrInHelperOrInDescribe(method) {
+      if (parallelLoadingState === 'specs' && !suiteBuilder.inDescribe()) {
+        throw new Error(
+          'In parallel mode, ' +
+            method +
+            ' must be in a describe block or in a helper file'
+        );
+      }
+    }
+
+    function validateConfigForParallel() {
+      if (!config.random) {
+        throw new Error('Randomization cannot be disabled in parallel mode');
+      }
+
+      if (config.seed !== null && config.seed !== undefined) {
+        throw new Error('Random seed cannot be set in parallel mode');
+      }
+    }
+
     this.describe = function(description, definitionFn) {
       ensureIsNotNested('describe');
-      return suiteBuilder.describe(description, definitionFn).metadata;
+      const filename = callerCallerFilename();
+      return suiteBuilder.describe(description, definitionFn, filename)
+        .metadata;
     };
 
     this.xdescribe = function(description, definitionFn) {
       ensureIsNotNested('xdescribe');
-      return suiteBuilder.xdescribe(description, definitionFn).metadata;
+      const filename = callerCallerFilename();
+      return suiteBuilder.xdescribe(description, definitionFn, filename)
+        .metadata;
     };
 
     this.fdescribe = function(description, definitionFn) {
       ensureIsNotNested('fdescribe');
-      return suiteBuilder.fdescribe(description, definitionFn).metadata;
+      ensureNonParallel('fdescribe');
+      const filename = callerCallerFilename();
+      return suiteBuilder.fdescribe(description, definitionFn, filename)
+        .metadata;
     };
 
     function specResultCallback(spec, result, next) {
@@ -1843,27 +1864,31 @@ getJasmineRequireObj().Env = function(j$) {
     function specStarted(spec, suite, next) {
       runner.currentSpec = spec;
       runableResources.initForRunable(spec.id, suite.id);
-      reporter.specStarted(spec.result, next);
+      reporter.specStarted(spec.result).then(next);
     }
 
     function reportSpecDone(spec, result, next) {
       spec.reportedDone = true;
-      reporter.specDone(result, next);
+      reporter.specDone(result).then(next);
     }
 
     this.it = function(description, fn, timeout) {
       ensureIsNotNested('it');
-      return suiteBuilder.it(description, fn, timeout).metadata;
+      const filename = callerCallerFilename();
+      return suiteBuilder.it(description, fn, timeout, filename).metadata;
     };
 
     this.xit = function(description, fn, timeout) {
       ensureIsNotNested('xit');
-      return suiteBuilder.xit(description, fn, timeout).metadata;
+      const filename = callerCallerFilename();
+      return suiteBuilder.xit(description, fn, timeout, filename).metadata;
     };
 
     this.fit = function(description, fn, timeout) {
       ensureIsNotNested('fit');
-      return suiteBuilder.fit(description, fn, timeout).metadata;
+      ensureNonParallel('fit');
+      const filename = callerCallerFilename();
+      return suiteBuilder.fit(description, fn, timeout, filename).metadata;
     };
 
     /**
@@ -1914,42 +1939,72 @@ getJasmineRequireObj().Env = function(j$) {
     };
 
     this.expect = function(actual) {
-      if (!runner.currentRunable()) {
+      const runable = runner.currentRunable();
+
+      if (!runable) {
         throw new Error(
           "'expect' was used when there was no current spec, this could be because an asynchronous test timed out"
         );
       }
 
-      return runner.currentRunable().expect(actual);
+      return runable.expectationFactory(actual, runable);
     };
 
     this.expectAsync = function(actual) {
-      if (!runner.currentRunable()) {
+      const runable = runner.currentRunable();
+
+      if (!runable) {
         throw new Error(
           "'expectAsync' was used when there was no current spec, this could be because an asynchronous test timed out"
         );
       }
 
-      return runner.currentRunable().expectAsync(actual);
+      return runable.asyncExpectationFactory(actual, runable);
+    };
+
+    this.throwUnless = function(actual) {
+      const runable = runner.currentRunable();
+      return throwUnlessFactory(actual, runable);
+    };
+
+    this.throwUnlessAsync = function(actual) {
+      const runable = runner.currentRunable();
+      return throwUnlessAsyncFactory(actual, runable);
     };
 
     this.beforeEach = function(beforeEachFunction, timeout) {
       ensureIsNotNested('beforeEach');
+      ensureNonParallelOrInHelperOrInDescribe('beforeEach');
       suiteBuilder.beforeEach(beforeEachFunction, timeout);
     };
 
     this.beforeAll = function(beforeAllFunction, timeout) {
       ensureIsNotNested('beforeAll');
+      // This message is -npm-specific, but currently parallel operation is
+      // only supported via -npm.
+      ensureNonParallelOrInDescribe(
+        "In parallel mode, 'beforeAll' " +
+          'must be in a describe block. Use the globalSetup config ' +
+          'property for exactly-once setup in parallel mode.'
+      );
       suiteBuilder.beforeAll(beforeAllFunction, timeout);
     };
 
     this.afterEach = function(afterEachFunction, timeout) {
       ensureIsNotNested('afterEach');
+      ensureNonParallelOrInHelperOrInDescribe('afterEach');
       suiteBuilder.afterEach(afterEachFunction, timeout);
     };
 
     this.afterAll = function(afterAllFunction, timeout) {
       ensureIsNotNested('afterAll');
+      // This message is -npm-specific, but currently parallel operation is
+      // only supported via -npm.
+      ensureNonParallelOrInDescribe(
+        "In parallel mode, 'afterAll' " +
+          'must be in a describe block. Use the globalTeardown config ' +
+          'property for exactly-once teardown in parallel mode.'
+      );
       suiteBuilder.afterAll(afterAllFunction, timeout);
     };
 
@@ -2001,6 +2056,13 @@ getJasmineRequireObj().Env = function(j$) {
         globalErrors.uninstall();
       }
     };
+  }
+
+  function callerCallerFilename() {
+    const frames = new j$.StackTrace(new Error()).frames;
+    // frames[3] should always exist except in Jasmine's own tests, which bypass
+    // the global it/describe layer, but don't crash if it doesn't.
+    return frames[3] && frames[3].file;
   }
 
   return Env;
@@ -2638,11 +2700,7 @@ getJasmineRequireObj().buildExpectationResult = function(j$) {
         } else if (options.stack) {
           error = options;
         } else {
-          try {
-            throw new Error(message());
-          } catch (e) {
-            error = e;
-          }
+          error = new Error(message());
         }
       }
       // Omit the message from the stack trace because it will be
@@ -2789,8 +2847,32 @@ getJasmineRequireObj().CallTracker = function(j$) {
 getJasmineRequireObj().clearStack = function(j$) {
   const maxInlineCallCount = 10;
 
-  function messageChannelImpl(global, setTimeout) {
-    const channel = new global.MessageChannel();
+  function browserQueueMicrotaskImpl(global) {
+    const { setTimeout, queueMicrotask } = global;
+    let currentCallCount = 0;
+    return function clearStack(fn) {
+      currentCallCount++;
+
+      if (currentCallCount < maxInlineCallCount) {
+        queueMicrotask(fn);
+      } else {
+        currentCallCount = 0;
+        setTimeout(fn);
+      }
+    };
+  }
+
+  function nodeQueueMicrotaskImpl(global) {
+    const { queueMicrotask } = global;
+
+    return function(fn) {
+      queueMicrotask(fn);
+    };
+  }
+
+  function messageChannelImpl(global) {
+    const { MessageChannel, setTimeout } = global;
+    const channel = new MessageChannel();
     let head = {};
     let tail = head;
 
@@ -2801,7 +2883,7 @@ getJasmineRequireObj().clearStack = function(j$) {
       delete head.task;
 
       if (taskRunning) {
-        global.setTimeout(task, 0);
+        setTimeout(task, 0);
       } else {
         try {
           taskRunning = true;
@@ -2827,29 +2909,32 @@ getJasmineRequireObj().clearStack = function(j$) {
   }
 
   function getClearStack(global) {
-    let currentCallCount = 0;
-    const realSetTimeout = global.setTimeout;
-    const setTimeoutImpl = function clearStack(fn) {
-      Function.prototype.apply.apply(realSetTimeout, [global, [fn, 0]]);
-    };
+    const NODE_JS =
+      global.process &&
+      global.process.versions &&
+      typeof global.process.versions.node === 'string';
 
-    if (j$.isFunction_(global.setImmediate)) {
-      const realSetImmediate = global.setImmediate;
-      return function(fn) {
-        currentCallCount++;
+    const SAFARI =
+      global.navigator &&
+      /^((?!chrome|android).)*safari/i.test(global.navigator.userAgent);
 
-        if (currentCallCount < maxInlineCallCount) {
-          realSetImmediate(fn);
-        } else {
-          currentCallCount = 0;
-
-          setTimeoutImpl(fn);
-        }
-      };
-    } else if (!j$.util.isUndefined(global.MessageChannel)) {
-      return messageChannelImpl(global, setTimeoutImpl);
+    if (NODE_JS) {
+      // Unlike browsers, Node doesn't require us to do a periodic setTimeout
+      // so we avoid the overhead.
+      return nodeQueueMicrotaskImpl(global);
+    } else if (
+      SAFARI ||
+      j$.util.isUndefined(global.MessageChannel) /* tests */
+    ) {
+      // queueMicrotask is dramatically faster than MessageChannel in Safari,
+      // at least through version 16.
+      // Some of our own integration tests provide a mock queueMicrotask in all
+      // environments because it's simpler to mock than MessageChannel.
+      return browserQueueMicrotaskImpl(global);
     } else {
-      return setTimeoutImpl;
+      // MessageChannel is faster than queueMicrotask in supported browsers
+      // other than Safari.
+      return messageChannelImpl(global);
     }
   }
 
@@ -3139,6 +3224,9 @@ getJasmineRequireObj().CompleteOnFirstErrorSkipPolicy = function(j$) {
   return CompleteOnFirstErrorSkipPolicy;
 };
 
+// Warning: don't add "use strict" to this file. Doing so potentially changes
+// the behavior of user code that does things like setTimeout("var x = 1;")
+// while the mock clock is installed.
 getJasmineRequireObj().DelayedFunctionScheduler = function(j$) {
   function DelayedFunctionScheduler() {
     this.scheduledLookup_ = [];
@@ -3164,6 +3252,9 @@ getJasmineRequireObj().DelayedFunctionScheduler = function(j$) {
     ) {
       let f;
       if (typeof funcToCall === 'string') {
+        // setTimeout("some code") and setInterval("some code") are legal, if
+        // not recommended. We don't do that ourselves, but user code might.
+        // This allows such code to work when the mock clock is installed.
         f = function() {
           // eslint-disable-next-line no-eval
           return eval(funcToCall);
@@ -3468,18 +3559,38 @@ getJasmineRequireObj().ExceptionFormatter = function(j$) {
         return null;
       }
 
-      const stackTrace = new j$.StackTrace(error);
-      const lines = filterJasmine(stackTrace);
-      let result = '';
+      const lines = this.stack_(error, {
+        messageHandling: omitMessage ? 'omit' : undefined
+      });
+      return lines.join('\n');
+    };
 
-      if (stackTrace.message && !omitMessage) {
+    // messageHandling can be falsy (unspecified), 'omit', or 'require'
+    this.stack_ = function(error, { messageHandling }) {
+      let lines = formatProperties(error).split('\n');
+
+      if (lines[lines.length - 1] === '') {
+        lines.pop();
+      }
+
+      const stackTrace = new j$.StackTrace(error);
+      lines = lines.concat(filterJasmine(stackTrace));
+
+      if (messageHandling === 'require') {
+        lines.unshift(stackTrace.message || 'Error: ' + error.message);
+      } else if (messageHandling !== 'omit' && stackTrace.message) {
         lines.unshift(stackTrace.message);
       }
 
-      result += formatProperties(error);
-      result += lines.join('\n');
+      if (error.cause && error.cause instanceof Error) {
+        const substack = this.stack_(error.cause, {
+          messageHandling: 'require'
+        });
+        substack[0] = 'Caused by: ' + substack[0];
+        lines = lines.concat(substack);
+      }
 
-      return result;
+      return lines;
     };
 
     function filterJasmine(stackTrace) {
@@ -3506,7 +3617,7 @@ getJasmineRequireObj().ExceptionFormatter = function(j$) {
       const result = {};
       let empty = true;
 
-      for (const prop in error) {
+      for (const prop of Object.keys(error)) {
         if (ignoredProperties.includes(prop)) {
           continue;
         }
@@ -3952,18 +4063,22 @@ getJasmineRequireObj().GlobalErrors = function(j$) {
     let overrideHandler = null,
       onRemoveOverrideHandler = null;
 
-    function onerror(message, source, lineno, colno, error) {
+    function onBrowserError(event) {
+      dispatchBrowserError(event.error, event);
+    }
+
+    function dispatchBrowserError(error, event) {
       if (overrideHandler) {
-        overrideHandler(error || message);
+        overrideHandler(error);
         return;
       }
 
       const handler = handlers[handlers.length - 1];
 
       if (handler) {
-        handler.apply(null, Array.prototype.slice.call(arguments, 0));
+        handler(error, event);
       } else {
-        throw arguments[0];
+        throw error;
       }
     }
 
@@ -4040,8 +4155,7 @@ getJasmineRequireObj().GlobalErrors = function(j$) {
         this.installOne_('uncaughtException', 'Uncaught exception');
         this.installOne_('unhandledRejection', 'Unhandled promise rejection');
       } else {
-        const originalHandler = global.onerror;
-        global.onerror = onerror;
+        global.addEventListener('error', onBrowserError);
 
         const browserRejectionHandler = function browserRejectionHandler(
           event
@@ -4049,31 +4163,34 @@ getJasmineRequireObj().GlobalErrors = function(j$) {
           if (j$.isError_(event.reason)) {
             event.reason.jasmineMessage =
               'Unhandled promise rejection: ' + event.reason;
-            global.onerror(event.reason);
+            dispatchBrowserError(event.reason, event);
           } else {
-            global.onerror('Unhandled promise rejection: ' + event.reason);
+            dispatchBrowserError(
+              'Unhandled promise rejection: ' + event.reason,
+              event
+            );
           }
         };
 
-        if (global.addEventListener) {
-          global.addEventListener(
+        global.addEventListener('unhandledrejection', browserRejectionHandler);
+
+        this.uninstall = function uninstall() {
+          global.removeEventListener('error', onBrowserError);
+          global.removeEventListener(
             'unhandledrejection',
             browserRejectionHandler
           );
-        }
-
-        this.uninstall = function uninstall() {
-          global.onerror = originalHandler;
-          if (global.removeEventListener) {
-            global.removeEventListener(
-              'unhandledrejection',
-              browserRejectionHandler
-            );
-          }
         };
       }
     };
 
+    // The listener at the top of the stack will be called with two arguments:
+    // the error and the event. Either of them may be falsy.
+    // The error will normally be provided, but will be falsy in the case of
+    // some browser load-time errors. The event will normally be provided in
+    // browsers but will be falsy in Node.
+    // Listeners that are pushed after spec files have been loaded should be
+    // able to just use the error parameter.
     this.pushListener = function pushListener(listener) {
       handlers.push(listener);
     };
@@ -5222,7 +5339,7 @@ getJasmineRequireObj().MatchersUtil = function(j$) {
  *   };
  * }
  *
- * var actual = {
+ * const actual = {
  *   n: 2,
  *   otherFields: "don't care"
  * };
@@ -6368,7 +6485,7 @@ getJasmineRequireObj().toHaveClass = function(j$) {
    * @since 3.0.0
    * @param {Object} expected - The class name to test for
    * @example
-   * var el = document.createElement('div');
+   * const el = document.createElement('div');
    * el.className = 'foo bar baz';
    * expect(el).toHaveClass('bar');
    */
@@ -7043,6 +7160,102 @@ getJasmineRequireObj().NeverSkipPolicy = function(j$) {
   return NeverSkipPolicy;
 };
 
+getJasmineRequireObj().ParallelReportDispatcher = function(j$) {
+  'use strict';
+
+  /**
+   * @class ParallelReportDispatcher
+   * @implements Reporter
+   * @classdesc A report dispatcher packaged for convenient use from outside jasmine-core.
+   *
+   * This is intended to help packages like `jasmine` (the Jasmine runner for
+   * Node.js) do their own report dispatching in order to support parallel
+   * execution. If you aren't implementing a runner package that supports
+   * parallel execution, this class probably isn't what you're looking for.
+   *
+   * Warning: Do not use ParallelReportDispatcher in the same process that
+   * Jasmine specs run in. Doing so will break Jasmine's error handling.
+   * @param onError {function} Function called when an unhandled exception, unhandled promise rejection, or explicit reporter failure occurs
+   */
+  function ParallelReportDispatcher(onError, deps = {}) {
+    const ReportDispatcher = deps.ReportDispatcher || j$.ReportDispatcher;
+    const QueueRunner = deps.QueueRunner || j$.QueueRunner;
+    const globalErrors = deps.globalErrors || new j$.GlobalErrors();
+    const dispatcher = new ReportDispatcher(
+      j$.reporterEvents,
+      function(queueRunnerOptions) {
+        queueRunnerOptions = {
+          ...queueRunnerOptions,
+          globalErrors,
+          timeout: { setTimeout, clearTimeout },
+          fail: function(error) {
+            // A callback-style async reporter called either done.fail()
+            // or done(anError).
+            if (!error) {
+              error = new Error('A reporter called done.fail()');
+            }
+
+            onError(error);
+          },
+          onException: function(error) {
+            // A reporter method threw an exception or returned a rejected
+            // promise, or there was an unhandled exception or unhandled promise
+            // rejection while an asynchronous reporter method was running.
+            onError(error);
+          }
+        };
+        new QueueRunner(queueRunnerOptions).execute();
+      },
+      function(error) {
+        // A reporter called done() more than once.
+        onError(error);
+      }
+    );
+
+    const self = {
+      /**
+       * Adds a reporter to the list of reporters that events will be dispatched to.
+       * @function
+       * @name ParallelReportDispatcher#addReporter
+       * @param {Reporter} reporterToAdd The reporter to be added.
+       * @see custom_reporter
+       */
+      addReporter: dispatcher.addReporter.bind(dispatcher),
+      /**
+       * Clears all registered reporters.
+       * @function
+       * @name ParallelReportDispatcher#clearReporters
+       */
+      clearReporters: dispatcher.clearReporters.bind(dispatcher),
+      /**
+       * Installs a global error handler. After this method is called, any
+       * unhandled exceptions or unhandled promise rejections will be passed to
+       * the onError callback that was passed to the constructor.
+       * @function
+       * @name ParallelReportDispatcher#installGlobalErrors
+       */
+      installGlobalErrors: globalErrors.install.bind(globalErrors),
+      /**
+       * Uninstalls the global error handler.
+       * @function
+       * @name ParallelReportDispatcher#uninstallGlobalErrors
+       */
+      uninstallGlobalErrors: function() {
+        // late-bind uninstall because it doesn't exist until install is called
+        globalErrors.uninstall(globalErrors);
+      }
+    };
+
+    for (const eventName of j$.reporterEvents) {
+      self[eventName] = dispatcher[eventName].bind(dispatcher);
+    }
+
+    return self;
+  }
+
+  return ParallelReportDispatcher;
+};
+
 getJasmineRequireObj().makePrettyPrinter = function(j$) {
   class SinglePrettyPrintRun {
     constructor(customObjectFormatters, pp) {
@@ -7467,15 +7680,11 @@ getJasmineRequireObj().QueueRunner = function(j$) {
     if (typeof this.onComplete !== 'function') {
       throw new Error('invalid onComplete ' + JSON.stringify(this.onComplete));
     }
-    this.deprecated = attrs.deprecated;
   }
 
   QueueRunner.prototype.execute = function() {
-    this.handleFinalError = (message, source, lineno, colno, error) => {
-      // Older browsers would send the error as the first parameter. HTML5
-      // specifies the the five parameters above. The error instance should
-      // be preffered, otherwise the call stack would get lost.
-      this.onException(error || message);
+    this.handleFinalError = error => {
+      this.onException(error);
     };
     this.globalErrors.pushListener(this.handleFinalError);
     this.run(0);
@@ -7664,17 +7873,21 @@ getJasmineRequireObj().QueueRunner = function(j$) {
       // on the stack at this point.
       if (j$.isAsyncFunction_(fn)) {
         this.onException(
-          'An asynchronous before/it/after ' +
-            'function was defined with the async keyword but also took a ' +
-            'done callback. Either remove the done callback (recommended) or ' +
-            'remove the async keyword.'
+          new Error(
+            'An asynchronous before/it/after ' +
+              'function was defined with the async keyword but also took a ' +
+              'done callback. Either remove the done callback (recommended) or ' +
+              'remove the async keyword.'
+          )
         );
       } else {
         this.onException(
-          'An asynchronous before/it/after ' +
-            'function took a done callback but also returned a promise. ' +
-            'Either remove the done callback (recommended) or change the ' +
-            'function to not return a promise.'
+          new Error(
+            'An asynchronous before/it/after ' +
+              'function took a done callback but also returned a promise. ' +
+              'Either remove the done callback (recommended) or change the ' +
+              'function to not return a promise.'
+          )
         );
       }
     }
@@ -7694,13 +7907,15 @@ getJasmineRequireObj().QueueRunner = function(j$) {
 };
 
 getJasmineRequireObj().ReportDispatcher = function(j$) {
+  'use strict';
+
   function ReportDispatcher(methods, queueRunnerFactory, onLateError) {
     const dispatchedMethods = methods || [];
 
     for (const method of dispatchedMethods) {
       this[method] = (function(m) {
         return function() {
-          dispatch(m, arguments);
+          return dispatch(m, arguments);
         };
       })(method);
     }
@@ -7726,25 +7941,25 @@ getJasmineRequireObj().ReportDispatcher = function(j$) {
       if (reporters.length === 0 && fallbackReporter !== null) {
         reporters.push(fallbackReporter);
       }
-      const onComplete = args[args.length - 1];
-      args = Array.from(args).splice(0, args.length - 1);
       const fns = [];
       for (const reporter of reporters) {
         addFn(fns, reporter, method, args);
       }
 
-      queueRunnerFactory({
-        queueableFns: fns,
-        onComplete: onComplete,
-        isReporter: true,
-        onMultipleDone: function() {
-          onLateError(
-            new Error(
-              "An asynchronous reporter callback called its 'done' callback " +
-                'more than once.'
-            )
-          );
-        }
+      return new Promise(function(resolve) {
+        queueRunnerFactory({
+          queueableFns: fns,
+          onComplete: resolve,
+          isReporter: true,
+          onMultipleDone: function() {
+            onLateError(
+              new Error(
+                "An asynchronous reporter callback called its 'done' callback " +
+                  'more than once.'
+              )
+            );
+          }
+        });
       });
     }
 
@@ -7772,6 +7987,77 @@ getJasmineRequireObj().ReportDispatcher = function(j$) {
   }
 
   return ReportDispatcher;
+};
+
+getJasmineRequireObj().reporterEvents = function() {
+  const events = [
+    /**
+     * `jasmineStarted` is called after all of the specs have been loaded, but just before execution starts.
+     * @function
+     * @name Reporter#jasmineStarted
+     * @param {JasmineStartedInfo} suiteInfo Information about the full Jasmine suite that is being run
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'jasmineStarted',
+    /**
+     * When the entire suite has finished execution `jasmineDone` is called
+     * @function
+     * @name Reporter#jasmineDone
+     * @param {JasmineDoneInfo} suiteInfo Information about the full Jasmine suite that just finished running.
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'jasmineDone',
+    /**
+     * `suiteStarted` is invoked when a `describe` starts to run
+     * @function
+     * @name Reporter#suiteStarted
+     * @param {SuiteResult} result Information about the individual {@link describe} being run
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'suiteStarted',
+    /**
+     * `suiteDone` is invoked when all of the child specs and suites for a given suite have been run
+     *
+     * While jasmine doesn't require any specific functions, not defining a `suiteDone` will make it impossible for a reporter to know when a suite has failures in an `afterAll`.
+     * @function
+     * @name Reporter#suiteDone
+     * @param {SuiteResult} result
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'suiteDone',
+    /**
+     * `specStarted` is invoked when an `it` starts to run (including associated `beforeEach` functions)
+     * @function
+     * @name Reporter#specStarted
+     * @param {SpecResult} result Information about the individual {@link it} being run
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'specStarted',
+    /**
+     * `specDone` is invoked when an `it` and its associated `beforeEach` and `afterEach` functions have been run.
+     *
+     * While jasmine doesn't require any specific functions, not defining a `specDone` will make it impossible for a reporter to know when a spec has failed.
+     * @function
+     * @name Reporter#specDone
+     * @param {SpecResult} result
+     * @param {Function} [done] Used to specify to Jasmine that this callback is asynchronous and Jasmine should wait until it has been called before moving on.
+     * @returns {} Optionally return a Promise instead of using `done` to cause Jasmine to wait for completion.
+     * @see async
+     */
+    'specDone'
+  ];
+  Object.freeze(events);
+  return events;
 };
 
 getJasmineRequireObj().interface = function(jasmine, env) {
@@ -8002,6 +8288,54 @@ getJasmineRequireObj().interface = function(jasmine, env) {
     },
 
     /**
+     * Create an asynchronous expectation for a spec and throw an error if it fails.
+     *
+     * This is intended to allow Jasmine matchers to be used with tools like
+     * testing-library's `waitFor`, which expect matcher failures to throw
+     * exceptions and not trigger a spec failure if the exception is caught.
+     * It can also be used to integration-test custom matchers.
+     *
+     * If the resulting expectation fails, a {@link ThrowUnlessFailure} will be
+     * thrown. A failed expectation will not result in a spec failure unless the
+     * exception propagates back to Jasmine, either via the call stack or via
+     * the global unhandled exception/unhandled promise rejection events.
+     * @name throwUnlessAsync
+     * @since 5.1.0
+     * @function
+     * @param actual
+     * @global
+     * @param {Object} actual - Actual computed value to test expectations against.
+     * @return {matchers}
+     */
+    throwUnlessAsync: function(actual) {
+      return env.throwUnless(actual);
+    },
+
+    /**
+     * Create an expectation for a spec and throw an error if it fails.
+     *
+     * This is intended to allow Jasmine matchers to be used with tools like
+     * testing-library's `waitFor`, which expect matcher failures to throw
+     * exceptions and not trigger a spec failure if the exception is caught.
+     * It can also be used to integration-test custom matchers.
+     *
+     * If the resulting expectation fails, a {@link ThrowUnlessFailure} will be
+     * thrown. A failed expectation will not result in a spec failure unless the
+     * exception propagates back to Jasmine, either via the call stack or via
+     * the global unhandled exception/unhandled promise rejection events.
+     * @name throwUnless
+     * @since 5.1.0
+     * @function
+     * @param actual
+     * @global
+     * @param {Object} actual - Actual computed value to test expectations against.
+     * @return {matchers}
+     */
+    throwUnless: function(actual) {
+      return env.throwUnless(actual);
+    },
+
+    /**
      * Mark a spec as pending, expectation results will be ignored.
      * @name pending
      * @since 2.0.0
@@ -8151,7 +8485,11 @@ getJasmineRequireObj().interface = function(jasmine, env) {
    * @since 1.3.0
    * @function
    * @param {String} [name] - Name to give the spy. This will be displayed in failure messages.
-   * @param {Function} [originalFn] - Function to act as the real implementation.
+   * @param {Function} [originalFn] - The "real" function. This will
+   * be used for subsequent calls to the spy after you call
+   * `mySpy.and.callThrough()`. In most cases you should omit this parameter.
+   * The usual way to supply an original function is to call {@link spyOn}
+   * instead of createSpy.
    * @return {Spy}
    */
   jasmine.createSpy = function(name, originalFn) {
@@ -8365,6 +8703,7 @@ getJasmineRequireObj().Runner = function(j$) {
   class Runner {
     constructor(options) {
       this.topSuite_ = options.topSuite;
+      // TODO use names that read like getters
       this.totalSpecsDefined_ = options.totalSpecsDefined;
       this.focusedRunables_ = options.focusedRunables;
       this.runableResources_ = options.runableResources;
@@ -8389,18 +8728,17 @@ getJasmineRequireObj().Runner = function(j$) {
       ];
     }
 
-    // Although execute returns a promise, it isn't async for backwards
-    // compatibility: The "Invalid order" exception needs to be propagated
-    // synchronously from Env#execute.
-    // TODO: make this and Env#execute async in the next major release
-    execute(runablesToRun) {
+    parallelReset() {
+      this.executedBefore_ = false;
+    }
+
+    async execute(runablesToRun) {
       if (this.executedBefore_) {
         this.topSuite_.reset();
       }
       this.executedBefore_ = true;
 
       this.hasFailures = false;
-      const totalSpecsDefined = this.totalSpecsDefined_();
       const focusedRunables = this.focusedRunables_();
       const config = this.getConfig_();
 
@@ -8414,7 +8752,7 @@ getJasmineRequireObj().Runner = function(j$) {
 
       const order = new j$.Order({
         random: config.random,
-        seed: config.seed
+        seed: j$.isNumber_(config.seed) ? config.seed + '' : config.seed
       });
 
       const processor = new j$.TreeProcessor({
@@ -8439,7 +8777,7 @@ getJasmineRequireObj().Runner = function(j$) {
         nodeStart: (suite, next) => {
           this.currentlyExecutingSuites_.push(suite);
           this.runableResources_.initForRunable(suite.id, suite.parentSuite.id);
-          this.reporter_.suiteStarted(suite.result, next);
+          this.reporter_.suiteStarted(suite.result).then(next);
           suite.startTimer();
         },
         nodeComplete: (suite, result, next) => {
@@ -8477,106 +8815,106 @@ getJasmineRequireObj().Runner = function(j$) {
         );
       }
 
+      return this.execute2_(runablesToRun, order, processor);
+    }
+
+    async execute2_(runablesToRun, order, processor) {
+      const totalSpecsDefined = this.totalSpecsDefined_();
+
       this.runableResources_.initForRunable(this.topSuite_.id);
       const jasmineTimer = new j$.Timer();
       jasmineTimer.start();
 
-      return new Promise(resolve => {
-        /**
-         * Information passed to the {@link Reporter#jasmineStarted} event.
-         * @typedef JasmineStartedInfo
-         * @property {Int} totalSpecsDefined - The total number of specs defined in this suite.
-         * @property {Order} order - Information about the ordering (random or not) of this execution of the suite.
-         * @since 2.0.0
-         */
-        this.reporter_.jasmineStarted(
-          {
-            totalSpecsDefined,
-            order: order
-          },
-          () => {
-            this.currentlyExecutingSuites_.push(this.topSuite_);
-
-            processor.execute(() => {
-              (async () => {
-                if (this.topSuite_.hadBeforeAllFailure) {
-                  await this.reportChildrenOfBeforeAllFailure_(this.topSuite_);
-                }
-
-                this.runableResources_.clearForRunable(this.topSuite_.id);
-                this.currentlyExecutingSuites_.pop();
-                let overallStatus, incompleteReason;
-
-                if (
-                  this.hasFailures ||
-                  this.topSuite_.result.failedExpectations.length > 0
-                ) {
-                  overallStatus = 'failed';
-                } else if (focusedRunables.length > 0) {
-                  overallStatus = 'incomplete';
-                  incompleteReason = 'fit() or fdescribe() was found';
-                } else if (totalSpecsDefined === 0) {
-                  overallStatus = 'incomplete';
-                  incompleteReason = 'No specs found';
-                } else {
-                  overallStatus = 'passed';
-                }
-
-                /**
-                 * Information passed to the {@link Reporter#jasmineDone} event.
-                 * @typedef JasmineDoneInfo
-                 * @property {OverallStatus} overallStatus - The overall result of the suite: 'passed', 'failed', or 'incomplete'.
-                 * @property {Int} totalTime - The total time (in ms) that it took to execute the suite
-                 * @property {IncompleteReason} incompleteReason - Explanation of why the suite was incomplete.
-                 * @property {Order} order - Information about the ordering (random or not) of this execution of the suite.
-                 * @property {Expectation[]} failedExpectations - List of expectations that failed in an {@link afterAll} at the global level.
-                 * @property {Expectation[]} deprecationWarnings - List of deprecation warnings that occurred at the global level.
-                 * @since 2.4.0
-                 */
-                const jasmineDoneInfo = {
-                  overallStatus: overallStatus,
-                  totalTime: jasmineTimer.elapsed(),
-                  incompleteReason: incompleteReason,
-                  order: order,
-                  failedExpectations: this.topSuite_.result.failedExpectations,
-                  deprecationWarnings: this.topSuite_.result.deprecationWarnings
-                };
-                this.topSuite_.reportedDone = true;
-                this.reporter_.jasmineDone(jasmineDoneInfo, function() {
-                  resolve(jasmineDoneInfo);
-                });
-              })();
-            });
-          }
-        );
+      /**
+       * Information passed to the {@link Reporter#jasmineStarted} event.
+       * @typedef JasmineStartedInfo
+       * @property {Int} totalSpecsDefined - The total number of specs defined in this suite. Note that this property is not present when Jasmine is run in parallel mode.
+       * @property {Order} order - Information about the ordering (random or not) of this execution of the suite. Note that this property is not present when Jasmine is run in parallel mode.
+       * @property {Boolean} parallel - Whether Jasmine is being run in parallel mode.
+       * @since 2.0.0
+       */
+      await this.reporter_.jasmineStarted({
+        // In parallel mode, the jasmineStarted event is separately dispatched
+        // by jasmine-npm. This event only reaches reporters in non-parallel.
+        totalSpecsDefined,
+        order: order,
+        parallel: false
       });
+
+      this.currentlyExecutingSuites_.push(this.topSuite_);
+      await processor.execute();
+
+      if (this.topSuite_.hadBeforeAllFailure) {
+        await this.reportChildrenOfBeforeAllFailure_(this.topSuite_);
+      }
+
+      this.runableResources_.clearForRunable(this.topSuite_.id);
+      this.currentlyExecutingSuites_.pop();
+      let overallStatus, incompleteReason, incompleteCode;
+
+      if (
+        this.hasFailures ||
+        this.topSuite_.result.failedExpectations.length > 0
+      ) {
+        overallStatus = 'failed';
+      } else if (this.focusedRunables_().length > 0) {
+        overallStatus = 'incomplete';
+        incompleteReason = 'fit() or fdescribe() was found';
+        incompleteCode = 'focused';
+      } else if (totalSpecsDefined === 0) {
+        overallStatus = 'incomplete';
+        incompleteReason = 'No specs found';
+        incompleteCode = 'noSpecsFound';
+      } else {
+        overallStatus = 'passed';
+      }
+
+      /**
+       * Information passed to the {@link Reporter#jasmineDone} event.
+       * @typedef JasmineDoneInfo
+       * @property {OverallStatus} overallStatus - The overall result of the suite: 'passed', 'failed', or 'incomplete'.
+       * @property {Int} totalTime - The total time (in ms) that it took to execute the suite
+       * @property {String} incompleteReason - Human-readable explanation of why the suite was incomplete.
+       * @property {String} incompleteCode - Machine-readable explanation of why the suite was incomplete: 'focused', 'noSpecsFound', or undefined.
+       * @property {Order} order - Information about the ordering (random or not) of this execution of the suite.  Note that this property is not present when Jasmine is run in parallel mode.
+       * @property {Int} numWorkers - Number of parallel workers.  Note that this property is only present when Jasmine is run in parallel mode.
+       * @property {Expectation[]} failedExpectations - List of expectations that failed in an {@link afterAll} at the global level.
+       * @property {Expectation[]} deprecationWarnings - List of deprecation warnings that occurred at the global level.
+       * @since 2.4.0
+       */
+      const jasmineDoneInfo = {
+        overallStatus: overallStatus,
+        totalTime: jasmineTimer.elapsed(),
+        incompleteReason: incompleteReason,
+        incompleteCode: incompleteCode,
+        order: order,
+        failedExpectations: this.topSuite_.result.failedExpectations,
+        deprecationWarnings: this.topSuite_.result.deprecationWarnings
+      };
+      this.topSuite_.reportedDone = true;
+      await this.reporter_.jasmineDone(jasmineDoneInfo);
+      return jasmineDoneInfo;
     }
 
     reportSuiteDone_(suite, result, next) {
       suite.reportedDone = true;
-      this.reporter_.suiteDone(result, next);
+      this.reporter_.suiteDone(result).then(next);
     }
 
     async reportChildrenOfBeforeAllFailure_(suite) {
       for (const child of suite.children) {
         if (child instanceof j$.Suite) {
-          await new Promise(resolve => {
-            this.reporter_.suiteStarted(child.result, resolve);
-          });
+          await this.reporter_.suiteStarted(child.result);
           await this.reportChildrenOfBeforeAllFailure_(child);
 
           // Marking the suite passed is consistent with how suites that
           // contain failed specs but no suite-level failures are reported.
           child.result.status = 'passed';
 
-          await new Promise(resolve => {
-            this.reporter_.suiteDone(child.result, resolve);
-          });
+          await this.reporter_.suiteDone(child.result);
         } else {
           /* a spec */
-          await new Promise(resolve => {
-            this.reporter_.specStarted(child.result, resolve);
-          });
+          await this.reporter_.specStarted(child.result);
 
           child.addExpectationResult(
             false,
@@ -9500,6 +9838,8 @@ getJasmineRequireObj().Suite = function(j$) {
     this.id = attrs.id;
     this.parentSuite = attrs.parentSuite;
     this.description = attrs.description;
+    this.reportedParentSuiteId = attrs.reportedParentSuiteId;
+    this.filename = attrs.filename;
     this.expectationFactory = attrs.expectationFactory;
     this.asyncExpectationFactory = attrs.asyncExpectationFactory;
     this.throwOnExpectationFailure = !!attrs.throwOnExpectationFailure;
@@ -9520,14 +9860,6 @@ getJasmineRequireObj().Suite = function(j$) {
   Suite.prototype.setSuiteProperty = function(key, value) {
     this.result.properties = this.result.properties || {};
     this.result.properties[key] = value;
-  };
-
-  Suite.prototype.expect = function(actual) {
-    return this.expectationFactory(actual, this);
-  };
-
-  Suite.prototype.expectAsync = function(actual) {
-    return this.asyncExpectationFactory(actual, this);
   };
 
   Suite.prototype.getFullName = function() {
@@ -9602,9 +9934,11 @@ getJasmineRequireObj().Suite = function(j$) {
   Suite.prototype.reset = function() {
     /**
      * @typedef SuiteResult
-     * @property {Int} id - The unique id of this suite.
+     * @property {String} id - The unique id of this suite.
      * @property {String} description - The description text passed to the {@link describe} that made this suite.
      * @property {String} fullName - The full description including all ancestors of this suite.
+     * @property {String|null} parentSuiteId - The ID of the suite containing this suite, or null if this is not in another describe().
+     * @property {String} filename - The name of the file the suite was defined in.
      * @property {Expectation[]} failedExpectations - The list of expectations that failed in an {@link afterAll} for this suite.
      * @property {Expectation[]} deprecationWarnings - The list of deprecation warnings that occurred on this suite.
      * @property {String} status - Once the suite has completed, this string represents the pass/fail status of this suite.
@@ -9616,6 +9950,8 @@ getJasmineRequireObj().Suite = function(j$) {
       id: this.id,
       description: this.description,
       fullName: this.getFullName(),
+      parentSuiteId: this.reportedParentSuiteId,
+      filename: this.filename,
       failedExpectations: [],
       deprecationWarnings: [],
       duration: null,
@@ -9626,6 +9962,10 @@ getJasmineRequireObj().Suite = function(j$) {
       child.reset();
     });
     this.reportedDone = false;
+  };
+
+  Suite.prototype.removeChildren = function() {
+    this.children = [];
   };
 
   Suite.prototype.addChild = function(child) {
@@ -9843,9 +10183,20 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       this.focusedRunables = [];
     }
 
-    describe(description, definitionFn) {
+    inDescribe() {
+      return this.currentDeclarationSuite_ !== this.topSuite;
+    }
+
+    parallelReset() {
+      this.topSuite.removeChildren();
+      this.topSuite.reset();
+      this.totalSpecsDefined = 0;
+      this.focusedRunables = [];
+    }
+
+    describe(description, definitionFn, filename) {
       ensureIsFunction(definitionFn, 'describe');
-      const suite = this.suiteFactory_(description);
+      const suite = this.suiteFactory_(description, filename);
       if (definitionFn.length > 0) {
         throw new Error('describe does not expect any arguments');
       }
@@ -9853,17 +10204,12 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
         suite.exclude();
       }
       this.addSpecsToSuite_(suite, definitionFn);
-      if (suite.parentSuite && !suite.children.length) {
-        throw new Error(
-          `describe with no children (describe() or it()): ${suite.getFullName()}`
-        );
-      }
       return suite;
     }
 
-    fdescribe(description, definitionFn) {
+    fdescribe(description, definitionFn, filename) {
       ensureIsFunction(definitionFn, 'fdescribe');
-      const suite = this.suiteFactory_(description);
+      const suite = this.suiteFactory_(description, filename);
       suite.isFocused = true;
 
       this.focusedRunables.push(suite.id);
@@ -9873,37 +10219,37 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       return suite;
     }
 
-    xdescribe(description, definitionFn) {
+    xdescribe(description, definitionFn, filename) {
       ensureIsFunction(definitionFn, 'xdescribe');
-      const suite = this.suiteFactory_(description);
+      const suite = this.suiteFactory_(description, filename);
       suite.exclude();
       this.addSpecsToSuite_(suite, definitionFn);
 
       return suite;
     }
 
-    it(description, fn, timeout) {
+    it(description, fn, timeout, filename) {
       // it() sometimes doesn't have a fn argument, so only check the type if
       // it's given.
       if (arguments.length > 1 && typeof fn !== 'undefined') {
         ensureIsFunctionOrAsync(fn, 'it');
       }
 
-      return this.it_(description, fn, timeout);
+      return this.it_(description, fn, timeout, filename);
     }
 
-    xit(description, fn, timeout) {
+    xit(description, fn, timeout, filename) {
       // xit(), like it(), doesn't always have a fn argument, so only check the
       // type when needed.
       if (arguments.length > 1 && typeof fn !== 'undefined') {
         ensureIsFunctionOrAsync(fn, 'xit');
       }
-      const spec = this.it_(description, fn, timeout);
+      const spec = this.it_(description, fn, timeout, filename);
       spec.exclude('Temporarily disabled with xit');
       return spec;
     }
 
-    fit(description, fn, timeout) {
+    fit(description, fn, timeout, filename) {
       // Unlike it and xit, the function is required because it doesn't make
       // sense to focus on nothing.
       ensureIsFunctionOrAsync(fn, 'fit');
@@ -9911,7 +10257,7 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       if (timeout) {
         j$.util.validateTimeout(timeout);
       }
-      const spec = this.specFactory_(description, fn, timeout);
+      const spec = this.specFactory_(description, fn, timeout, filename);
       this.currentDeclarationSuite_.addChild(spec);
       this.focusedRunables.push(spec.id);
       this.unfocusAncestor_();
@@ -9971,12 +10317,12 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       });
     }
 
-    it_(description, fn, timeout) {
+    it_(description, fn, timeout, filename) {
       if (timeout) {
         j$.util.validateTimeout(timeout);
       }
 
-      const spec = this.specFactory_(description, fn, timeout);
+      const spec = this.specFactory_(description, fn, timeout, filename);
       if (this.currentDeclarationSuite_.markedExcluding) {
         spec.exclude();
       }
@@ -9985,12 +10331,17 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       return spec;
     }
 
-    suiteFactory_(description) {
+    suiteFactory_(description, filename) {
       const config = this.env_.configuration();
+      const parentSuite = this.currentDeclarationSuite_;
+      const reportedParentSuiteId =
+        parentSuite === this.topSuite ? null : parentSuite.id;
       return new j$.Suite({
         id: 'suite' + this.nextSuiteId_++,
         description,
-        parentSuite: this.currentDeclarationSuite_,
+        filename,
+        parentSuite,
+        reportedParentSuiteId,
         timer: new j$.Timer(),
         expectationFactory: this.expectationFactory_,
         asyncExpectationFactory: this.suiteAsyncExpectationFactory_,
@@ -10004,22 +10355,33 @@ getJasmineRequireObj().SuiteBuilder = function(j$) {
       const parentSuite = this.currentDeclarationSuite_;
       parentSuite.addChild(suite);
       this.currentDeclarationSuite_ = suite;
+      let threw = false;
 
       try {
         definitionFn();
       } catch (e) {
         suite.handleException(e);
+        threw = true;
+      }
+
+      if (suite.parentSuite && !suite.children.length && !threw) {
+        throw new Error(
+          `describe with no children (describe() or it()): ${suite.getFullName()}`
+        );
       }
 
       this.currentDeclarationSuite_ = parentSuite;
     }
 
-    specFactory_(description, fn, timeout) {
+    specFactory_(description, fn, timeout, filename) {
       this.totalSpecsDefined++;
       const config = this.env_.configuration();
       const suite = this.currentDeclarationSuite_;
+      const parentSuiteId = suite === this.topSuite ? null : suite.id;
       const spec = new j$.Spec({
         id: 'spec' + this.nextSpecId_++,
+        filename,
+        parentSuiteId,
         beforeAndAfterFns: beforeAndAfterFns(suite),
         expectationFactory: this.expectationFactory_,
         asyncExpectationFactory: this.specAsyncExpectationFactory_,
@@ -10129,16 +10491,35 @@ getJasmineRequireObj().Timer = function() {
     };
   })(Date);
 
+  /**
+   * @class Timer
+   * @classdesc Tracks elapsed time
+   * @example
+   * const timer = new jasmine.Timer();
+   * timer.start();
+   * const elapsed = timer.elapsed()
+   */
   function Timer(options) {
     options = options || {};
 
     const now = options.now || defaultNow;
     let startTime;
 
+    /**
+     * Starts the timer.
+     * @function
+     * @name Timer#start
+     */
     this.start = function() {
       startTime = now();
     };
 
+    /**
+     * Determines the time since the timer was started.
+     * @function
+     * @name Timer#elapsed
+     * @returns {number} Elapsed time in milliseconds, or NaN if the timer has not been started
+     */
     this.elapsed = function() {
       return now() - startTime;
     };
@@ -10176,7 +10557,7 @@ getJasmineRequireObj().TreeProcessor = function() {
       return stats;
     };
 
-    this.execute = function(done) {
+    this.execute = async function() {
       if (!processed) {
         this.processTree();
       }
@@ -10187,16 +10568,18 @@ getJasmineRequireObj().TreeProcessor = function() {
 
       const childFns = wrapChildren(tree, 0);
 
-      queueRunnerFactory({
-        queueableFns: childFns,
-        userContext: tree.sharedUserContext(),
-        onException: function() {
-          tree.handleException.apply(tree, arguments);
-        },
-        onComplete: done,
-        onMultipleDone: tree.onMultipleDone
-          ? tree.onMultipleDone.bind(tree)
-          : null
+      await new Promise(function(resolve) {
+        queueRunnerFactory({
+          queueableFns: childFns,
+          userContext: tree.sharedUserContext(),
+          onException: function() {
+            tree.handleException.apply(tree, arguments);
+          },
+          onComplete: resolve,
+          onMultipleDone: tree.onMultipleDone
+            ? tree.onMultipleDone.bind(tree)
+            : null
+        });
       });
     };
 
@@ -10429,5 +10812,5 @@ getJasmineRequireObj().UserContext = function(j$) {
 };
 
 getJasmineRequireObj().version = function() {
-  return '4.3.0';
+  return '5.1.1';
 };

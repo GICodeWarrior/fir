@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2008-2022 Pivotal Labs
+Copyright (c) 2008-2023 Pivotal Labs
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -530,14 +530,13 @@ jasmineRequire.HtmlReporter = function(j$) {
           if (noExpectations(resultNode.result)) {
             specDescription = 'SPEC HAS NO EXPECTATIONS ' + specDescription;
           }
-          if (
-            resultNode.result.status === 'pending' &&
-            resultNode.result.pendingReason !== ''
-          ) {
-            specDescription =
-              specDescription +
-              ' PENDING WITH MESSAGE: ' +
-              resultNode.result.pendingReason;
+          if (resultNode.result.status === 'pending') {
+            if (resultNode.result.pendingReason !== '') {
+              specDescription +=
+                ' PENDING WITH MESSAGE: ' + resultNode.result.pendingReason;
+            } else {
+              specDescription += ' PENDING';
+            }
           }
           specListNode.appendChild(
             createDom(
