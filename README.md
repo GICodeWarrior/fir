@@ -22,6 +22,12 @@ python3 -m http.server
 
 To build the google spreadsheet sidebar, run `./sundial/gs-build.sh` and find the files to be added to Google Apps Script in `./sundial/gs-build`.
 
+## Example spreadsheet
+
+Try it yourself: [Sun Stocks v7.1 demo](https://docs.google.com/spreadsheets/d/1cAZ4CWbBQvpGNQ4EtrgNj9YiBu5rozQNGJuw7SmFqKU/edit?usp=share_link)
+
+Copy the template: [Sun Stocks v7.1 template](https://docs.google.com/spreadsheets/d/14ldb5FTKHEFWi8qWmTLl-bYeoU6xkGMVg_OpkrZCCCU/copy)
+
 ## License
 
 All original source code and contributions available under MIT License.
