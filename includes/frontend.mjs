@@ -524,7 +524,8 @@ function outputTotals() {
 
         const itemCategory = (catalogItem.ItemCategory || '').replace(/^EItemCategory::/, '');
         const vehicleCategory = catalogItem.VehicleProfileType ? 'Vehicles' : undefined;
-        const structureCategory = catalogItem.BuildLocationType ? 'Structures' : undefined;
+        const structureCategory = catalogItem.BuildLocationType
+            || (catalogItem.ProfileType == 'EStructureProfileType::Shippable') ? 'Structures' : undefined;
 
         const category = itemCategory || vehicleCategory || structureCategory;
         categories[category] ||= [];
