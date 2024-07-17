@@ -349,8 +349,8 @@ function coalesceObject(coreObject) {
   const materialNames = {
     Cloth: 'Basic Materials',  // BPBasicMaterials.uasset
     Wood: 'Refined Materials',  // BPRefinedMaterials.uasset
-    Explosive: 'Explosive Materials',  // BPExplosiveMaterial.uasset
-    HeavyExplosive: 'Heavy Explosive Materials',  // BPHeavyExplosiveMaterial.uasset
+    Explosive: 'Explosive Powder',  // BPExplosiveMaterial.uasset
+    HeavyExplosive: 'Heavy Explosive Powder',  // BPHeavyExplosiveMaterial.uasset
   };
 
   const productionProperties = [

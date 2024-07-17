@@ -9,7 +9,7 @@ then
 fi
 
 warLocation=$(cd "${1}"; pwd)
-version='naval-56'
+version='naval-57'
 
 parseCatalog() {
   echo "Parsing catalog. (downloading / updating npm packages)"
@@ -78,7 +78,7 @@ buildClassifier() {
   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDNN_PATH/lib
 
   rm -r model-tf || true
-  pipenv run python train.py 50 rgb 0.05 0.005 ../catalog/training/
+  pipenv run python train.py 50 rgb 0.10 0.005 ../catalog/training/
 
   echo "Training complete, assembling results."
   rm -r ../foxhole/${version}/classifier || true

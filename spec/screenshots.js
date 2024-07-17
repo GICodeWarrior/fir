@@ -1,6 +1,6 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const CURRENT_VERSION = 'naval-56';
+const CURRENT_VERSION = 'naval-57';
 
 const JASMINE_TIMEOUT = 60000;
 const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
@@ -21,6 +21,7 @@ const VERSION_HISTORY = [
   'inferno-52',
   'naval',
   'naval-56',
+  'naval-57',
 ];
 const VERSION_CHANGES = {
   'inferno': {
@@ -57,6 +58,11 @@ const VERSION_CHANGES = {
     SmallTrainResourcePlatform: 'SmallTrainResource',
     TruckDumpC: 'TruckResourceC',
     TruckDumpW: 'TruckResourceW',
+  },
+  'naval-57': {
+    Explosive: null, // Icon changed
+    HeavyExplosive: null, // Icon changed
+    Freighter: null, // Icon changed
   },
 };
 
