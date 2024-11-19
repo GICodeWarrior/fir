@@ -1,0 +1,923 @@
+{
+  "convertedBy": "TensorFlow.js Converter v4.19.0",
+  "format": "graph-model",
+  "generatedBy": "2.16.2",
+  "modelTopology": {
+    "library": {},
+    "node": [
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {}
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/rescaling_1/Cast/x",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {}
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/rescaling_1/Cast_1/x",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_1/convolution/merged_input",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "16"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/batch_normalization_1/batchnorm/sub",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "16"
+                  },
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/convolution/ReadVariableOp",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "32"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "3"
+                  },
+                  {
+                    "size": "32"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/convolution/ReadVariableOp",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "1"
+                  },
+                  {
+                    "size": "64"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_INT32"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_INT32",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "2"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/flatten_1/Reshape/shape",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "1024"
+                  },
+                  {
+                    "size": "694"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/outputs_1/Cast/ReadVariableOp",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "value": {
+            "tensor": {
+              "dtype": "DT_FLOAT",
+              "tensorShape": {
+                "dim": [
+                  {
+                    "size": "694"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp",
+        "op": "Const"
+      },
+      {
+        "attr": {
+          "dtype": {
+            "type": "DT_FLOAT"
+          },
+          "shape": {
+            "shape": {
+              "dim": [
+                {
+                  "size": "-1"
+                },
+                {
+                  "size": "32"
+                },
+                {
+                  "size": "32"
+                },
+                {
+                  "size": "3"
+                }
+              ]
+            }
+          }
+        },
+        "name": "keras_tensor",
+        "op": "Placeholder"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "keras_tensor",
+          "StatefulPartitionedCall/sequential_1/rescaling_1/Cast/x"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/rescaling_1/mul",
+        "op": "Mul"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/rescaling_1/mul",
+          "StatefulPartitionedCall/sequential_1/rescaling_1/Cast_1/x"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/rescaling_1/add",
+        "op": "AddV2"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "dilations": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "epsilon": {
+            "f": 0.0
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
+          "fused_ops": {
+            "list": {
+              "s": [
+                "Qmlhc0FkZA=="
+              ]
+            }
+          },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
+          "num_args": {
+            "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
+          },
+          "padding": {
+            "s": "U0FNRQ=="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "use_cudnn_on_gpu": {
+            "b": true
+          }
+        },
+        "device": "/device:CPU:0",
+        "input": [
+          "StatefulPartitionedCall/sequential_1/rescaling_1/add",
+          "StatefulPartitionedCall/sequential_1/conv2d_1/convolution/merged_input",
+          "StatefulPartitionedCall/sequential_1/batch_normalization_1/batchnorm/sub"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/batch_normalization_1/batchnorm/add_1",
+        "op": "_FusedConv2D"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "ksize": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          },
+          "padding": {
+            "s": "VkFMSUQ="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/batch_normalization_1/batchnorm/add_1"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/max_pooling2d_1/MaxPool2d",
+        "op": "MaxPool"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/max_pooling2d_1/MaxPool2d"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/activation_1/Relu",
+        "op": "Relu"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "dilations": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "epsilon": {
+            "f": 0.0
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
+          "fused_ops": {
+            "list": {
+              "s": [
+                "Qmlhc0FkZA=="
+              ]
+            }
+          },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
+          "num_args": {
+            "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
+          },
+          "padding": {
+            "s": "U0FNRQ=="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "use_cudnn_on_gpu": {
+            "b": true
+          }
+        },
+        "device": "/device:CPU:0",
+        "input": [
+          "StatefulPartitionedCall/sequential_1/activation_1/Relu",
+          "StatefulPartitionedCall/sequential_1/conv2d_1_2/convolution/ReadVariableOp",
+          "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/add",
+        "op": "_FusedConv2D"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "ksize": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          },
+          "padding": {
+            "s": "VkFMSUQ="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/conv2d_1_2/add"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/max_pooling2d_1_2/MaxPool2d",
+        "op": "MaxPool"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/max_pooling2d_1_2/MaxPool2d"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/activation_1_2/Relu",
+        "op": "Relu"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "TArgs": {
+            "list": {
+              "type": [
+                "DT_FLOAT"
+              ]
+            }
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "dilations": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "epsilon": {
+            "f": 0.0
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "filter_format": {
+            "s": "SFdJTw=="
+          },
+          "fused_ops": {
+            "list": {
+              "s": [
+                "Qmlhc0FkZA=="
+              ]
+            }
+          },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
+          "num_args": {
+            "i": "1"
+          },
+          "num_host_args": {
+            "i": "0"
+          },
+          "padding": {
+            "s": "U0FNRQ=="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "1",
+                "1",
+                "1"
+              ]
+            }
+          },
+          "use_cudnn_on_gpu": {
+            "b": true
+          }
+        },
+        "device": "/device:CPU:0",
+        "input": [
+          "StatefulPartitionedCall/sequential_1/activation_1_2/Relu",
+          "StatefulPartitionedCall/sequential_1/conv2d_2_1/convolution/ReadVariableOp",
+          "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/add",
+        "op": "_FusedConv2D"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "data_format": {
+            "s": "TkhXQw=="
+          },
+          "explicit_paddings": {
+            "list": {}
+          },
+          "ksize": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          },
+          "padding": {
+            "s": "VkFMSUQ="
+          },
+          "strides": {
+            "list": {
+              "i": [
+                "1",
+                "2",
+                "2",
+                "1"
+              ]
+            }
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/conv2d_2_1/add"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/max_pooling2d_2_1/MaxPool2d",
+        "op": "MaxPool"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/max_pooling2d_2_1/MaxPool2d"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/activation_2_1/Relu",
+        "op": "Relu"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "Tshape": {
+            "type": "DT_INT32"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/activation_2_1/Relu",
+          "StatefulPartitionedCall/sequential_1/flatten_1/Reshape/shape"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/flatten_1/Reshape",
+        "op": "Reshape"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          },
+          "epsilon": {
+            "f": 0.0
+          },
+          "fused_ops": {
+            "list": {
+              "s": [
+                "Qmlhc0FkZA=="
+              ]
+            }
+          },
+          "leakyrelu_alpha": {
+            "f": 0.2
+          },
+          "num_args": {
+            "i": "1"
+          },
+          "transpose_a": {
+            "b": false
+          },
+          "transpose_b": {
+            "b": false
+          }
+        },
+        "device": "/device:CPU:0",
+        "input": [
+          "StatefulPartitionedCall/sequential_1/flatten_1/Reshape",
+          "StatefulPartitionedCall/sequential_1/outputs_1/Cast/ReadVariableOp",
+          "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp"
+        ],
+        "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add",
+        "op": "_FusedMatMul"
+      },
+      {
+        "attr": {
+          "T": {
+            "type": "DT_FLOAT"
+          }
+        },
+        "input": [
+          "StatefulPartitionedCall/sequential_1/outputs_1/Add"
+        ],
+        "name": "Identity",
+        "op": "Identity"
+      }
+    ],
+    "versions": {
+      "producer": 1766
+    }
+  },
+  "signature": {
+    "inputs": {
+      "keras_tensor": {
+        "dtype": "DT_FLOAT",
+        "name": "keras_tensor:0",
+        "tensorShape": {
+          "dim": [
+            {
+              "size": "-1"
+            },
+            {
+              "size": "32"
+            },
+            {
+              "size": "32"
+            },
+            {
+              "size": "3"
+            }
+          ]
+        }
+      }
+    },
+    "outputs": {
+      "output_0": {
+        "dtype": "DT_FLOAT",
+        "name": "Identity:0",
+        "tensorShape": {
+          "dim": [
+            {
+              "size": "-1"
+            },
+            {
+              "size": "694"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "weightsManifest": [
+    {
+      "paths": [
+        "group1-shard1of1.bin"
+      ],
+      "weights": [
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/rescaling_1/Cast/x",
+          "shape": []
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/rescaling_1/Cast_1/x",
+          "shape": []
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_1/convolution/merged_input",
+          "shape": [
+            3,
+            3,
+            3,
+            16
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/batch_normalization_1/batchnorm/sub",
+          "shape": [
+            16
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/convolution/ReadVariableOp",
+          "shape": [
+            3,
+            3,
+            16,
+            32
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape",
+          "shape": [
+            1,
+            1,
+            1,
+            32
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/convolution/ReadVariableOp",
+          "shape": [
+            3,
+            3,
+            32,
+            64
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape",
+          "shape": [
+            1,
+            1,
+            1,
+            64
+          ]
+        },
+        {
+          "dtype": "int32",
+          "name": "StatefulPartitionedCall/sequential_1/flatten_1/Reshape/shape",
+          "shape": [
+            2
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/outputs_1/Cast/ReadVariableOp",
+          "shape": [
+            1024,
+            694
+          ]
+        },
+        {
+          "dtype": "float32",
+          "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp",
+          "shape": [
+            694
+          ]
+        }
+      ]
+    }
+  ]
+}
