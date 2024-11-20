@@ -32,18 +32,13 @@ To begin training, simply run `build.sh <FModel-Data-Directory>`.
 ### Docker
 
 Training can also be performed using a Docker container instead. [https://docs.docker.com/desktop/features/wsl/]
-Make sure you are running Docker Desktop when training.
- 
-#### CPU-Only Training
+If you plan to use your GPU(s) for training, you will need to install NVIDIA drivers and the NVIDIA Container Toolkit. [https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html]
 
-To train using only your CPU, first run the following command `docker build -f Dockerfile.cpu --tag 'fir_trainer' .`.
-Once the image is built, run `docker run -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`.
+Build the docker container by running docker `docker build --tag 'fir_trainer' .` 
 
-#### GPU-Enabled Training
+If you only want to utilize your CPU for training, run `docker run -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
-Install and configure the NVIDIA drivers and Container NVIDIA Toolkit. [https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html]
-To train using your GPU, first run the following command `docker build -f Dockerfile.gpu --tag 'fir_trainer' .`.
-Once the image is built, run `docker run --runtime=nvidia -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`.
+If you want to utilize both your CPU and GPU(s) for training, run `docker run --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
 ## License
 

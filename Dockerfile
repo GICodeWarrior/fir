@@ -1,5 +1,5 @@
-# CPU-Only TensorFlow Image
-FROM tensorflow/tensorflow
+# GPU-Enabled TensorFlow Image
+FROM tensorflow/tensorflow:2.14.0-gpu
 
 # Path to extracted Foxhole files
 ARG WAR_LOCATION
