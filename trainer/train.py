@@ -17,6 +17,7 @@ import tensorflow as tf
 
 import keras
 from keras import layers
+from keras import mixed_precision
 from keras import regularizers
 from keras.models import Sequential
 
@@ -35,10 +36,13 @@ DATA_DIR = sys.argv[5]
 IMG_SIZE = (32, 32)
 
 PREFETCH_SIZE = tf.data.AUTOTUNE
+BATCH_SIZE = 2048
 RANDOM_SEED = 639936
 
 keras.utils.set_random_seed(RANDOM_SEED)
 #tf.config.experimental.enable_op_determinism()
+keras.config.disable_traceback_filtering()
+#mixed_precision.set_global_policy('mixed_float16')
 
 train_ds, val_ds = keras.utils.image_dataset_from_directory(
   DATA_DIR,
@@ -46,7 +50,9 @@ train_ds, val_ds = keras.utils.image_dataset_from_directory(
   subset='both',
   seed=RANDOM_SEED,
   color_mode=COLOR_MODE,
-  image_size=IMG_SIZE
+  image_size=IMG_SIZE,
+  batch_size=None,
+  shuffle=True,
 )
 
 class_names = train_ds.class_names
@@ -69,14 +75,18 @@ for index, name in enumerate(class_names):
   class_weights[index] = total_files / (output_dim * raw_counts[name])
   #print('Total: ' + str(total_files) + ', Class: ' + name + ', Count: ' + str(raw_counts[name]) + ', Weight: ' + str(class_weights[index]))
 
-#train_ds = train_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
-train_ds = train_ds.cache().shuffle(train_ds.cardinality(), reshuffle_each_iteration=True, seed=RANDOM_SEED).prefetch(buffer_size=PREFETCH_SIZE)
-val_ds = val_ds.cache().prefetch(buffer_size=PREFETCH_SIZE)
+train_ds = train_ds.cache()
+train_ds = train_ds.shuffle(train_ds.cardinality(), reshuffle_each_iteration=True, seed=RANDOM_SEED)
+train_ds = train_ds.batch(BATCH_SIZE, num_parallel_calls=tf.data.AUTOTUNE, deterministic=True)
+train_ds = train_ds.prefetch(buffer_size=PREFETCH_SIZE)
+#train_ds = train_ds.apply(tf.data.experimental.prefetch_to_device('/gpu:0'))
+val_ds = val_ds.cache().batch(BATCH_SIZE).prefetch(buffer_size=PREFETCH_SIZE)
 
 model = Sequential([
+  layers.Input(IMG_SIZE + (3,)),
 #  layers.RandomBrightness(0.05),
 #  layers.RandomContrast(0.05),
-  layers.Rescaling(1./255, input_shape=IMG_SIZE + (3,)),
+  layers.Rescaling(1./255),
   layers.Conv2D(16, 3, padding='same', use_bias=False),
   #layers.Conv2D(16, 3, padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.0000001)),
   layers.BatchNormalization(),
@@ -102,7 +112,7 @@ model = Sequential([
 ])
 
 model.compile(
-  optimizer='adam',
+  optimizer=keras.optimizers.Adam(learning_rate=0.0001),
   loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
   metrics=['accuracy'],
   #steps_per_execution='auto',
@@ -110,20 +120,21 @@ model.compile(
 )
 
 early_stopping = keras.callbacks.EarlyStopping(
-  monitor='loss',
-  patience=13,
+  monitor='val_loss',
+  patience=7,
   restore_best_weights=True,
 )
 
-log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-tensorboard = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1, profile_batch=(10,20))
+#log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+#tensorboard = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1, profile_batch=(10,20))
 
 model.fit(
   train_ds,
   validation_data=val_ds,
   epochs=EPOCHS,
-  callbacks=[early_stopping, tensorboard],
+  callbacks=[early_stopping],#, tensorboard],
   class_weight=class_weights,
+  #verbose=2,
 )
 
 model.export('model-tf')

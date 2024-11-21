@@ -100,7 +100,7 @@
       "RotationRate": 0.4,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 800,
-      "EngineForce": 13000,
+      "EngineForce": 16000,
       "MassOverride": 0,
       "TankArmour": 0,
       "MinTankArmourPercent": 0.33,
@@ -168,7 +168,7 @@
       "RotationRate": 0.4,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 800,
-      "EngineForce": 13000,
+      "EngineForce": 16000,
       "MassOverride": 0,
       "TankArmour": 0,
       "MinTankArmourPercent": 0.33,
@@ -233,7 +233,7 @@
       "RotationRate": 0.4,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 800,
-      "EngineForce": 13000,
+      "EngineForce": 16000,
       "MassOverride": 0,
       "TankArmour": 0,
       "MinTankArmourPercent": 0.33,
@@ -299,7 +299,7 @@
       "RotationRate": 0.4,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 800,
-      "EngineForce": 13000,
+      "EngineForce": 16000,
       "MassOverride": 0,
       "TankArmour": 0,
       "MinTankArmourPercent": 0.33,
@@ -1594,12 +1594,12 @@
       "Suppression": 0,
       "ExplosionRadius": 125,
       "DamageType": {
-        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPAntiTankExplosiveStickyBombDamageType.0",
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPAntiTankExplosiveATGrenadeDamageType.0",
         "DisplayName": "Anti-Tank Explosive",
         "Type": "EDamageType::AntiTankExplosive",
         "DescriptionDetails": "High chance of disabling Track subsystem\nDeals damage to vehicle armour",
         "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeATIcon.0",
-        "VehicleSubsystemDisableMultipliers": 7,
+        "VehicleSubsystemDisableMultipliers": 3,
         "bApplyTankArmourMechanics": true,
         "bApplyTankArmourAngleRangeBonuses": false,
         "bExposeInUI": true
@@ -1941,7 +1941,7 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 3,
+      "QuantityPerCrate": 5,
       "CrateProductionTime": 37.5,
       "SingleRetrieveTime": 7.5,
       "CrateRetrieveTime": 12,
@@ -3619,6 +3619,24 @@
     "Icon": "War/Content/Textures/UI/ItemIcons/BayonetIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPBayonetMeleeComponent.0"
+    },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
     },
     "ItemDynamicData": {
       "CostPerCrate": [
@@ -9007,15 +9025,14 @@
     "AmmoDynamicData": {
       "Damage": 250,
       "Suppression": 0,
-      "ExplosionRadius": 400,
+      "ExplosionRadius": 300,
       "DamageType": {
-        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPLightKineticDamageType.0",
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPLightKineticInfantryMineDamageType.0",
         "DisplayName": "Light Kinetic",
         "Type": "EDamageType::LightKinetic",
         "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeSBIcon.0",
         "VehicleSubsystemDisableMultipliers": 0,
         "bApplyDamageFalloff": true,
-        "bCanWoundCharacter": true,
         "bExposeInUI": true
       },
       "DamageInnerRadius": 0,
@@ -10964,6 +10981,24 @@
       "ObjectPath": "War/Content/Blueprints/Items/BPMaceWComponent.0",
       "EquippedGripType": "EEquippedWeaponGripType::DedicatedMelee"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -11785,9 +11820,9 @@
       "FuelCapacity": 300,
       "FuelConsumptionPerSecond": 0.1875,
       "SwimmingFuelConsumptionModifier": 1,
-      "DefaultSurfaceMovementRate": 0.6,
+      "DefaultSurfaceMovementRate": 0.7,
       "OffroadSnowPenalty": 1,
-      "ReverseSpeedModifier": 0.4,
+      "ReverseSpeedModifier": 0.5,
       "RotationRate": 0.145,
       "RotationSpeedCuttoff": 0,
       "SpeedSqrThreshold": 400,
@@ -17528,6 +17563,7 @@
     "Icon": "War/Content/Textures/UI/ItemIcons/ShotgunWItemIcon.0",
     "ItemComponentClass": {
       "ObjectPath": "War/Content/Blueprints/Items/BPShotgunWComponent.0",
+      "bCanFireFromVehicle": true,
       "EquippedGripType": "EEquippedWeaponGripType::Shotgun",
       "CompatibleAmmoCodeName": "ShotgunAmmo"
     },
@@ -17566,7 +17602,7 @@
       "DamageMultiplier": 2.5,
       "ArtilleryAccuracyMinDist": 0,
       "ArtilleryAccuracyMaxDist": 0,
-      "MaxVehicleDeviationAngle": 0,
+      "MaxVehicleDeviationAngle": 75,
       "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
     },
     "ItemDynamicData": {
@@ -19225,6 +19261,24 @@
       "ObjectPath": "War/Content/Blueprints/Items/BPSwordCComponent.0",
       "EquippedGripType": "EEquippedWeaponGripType::DedicatedMelee"
     },
+    "WeaponDynamicData": {
+      "SuppressionMultiplier": 1,
+      "MaxAmmo": 0,
+      "MaxApexHalfAngle": 0,
+      "BaselineApexHalfAngle": 0,
+      "StabilityCostPerShot": 0,
+      "Agility": 1,
+      "CoverProvided": 0,
+      "StabilityFloorFromMovement": 0,
+      "StabilityGainRate": 1,
+      "MaximumRange": 0,
+      "MaximumReachability": 0,
+      "DamageMultiplier": 1,
+      "ArtilleryAccuracyMinDist": 0,
+      "ArtilleryAccuracyMaxDist": 0,
+      "MaxVehicleDeviationAngle": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPWeaponDynamicData"
+    },
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -20131,18 +20185,18 @@
     "ChassisName": "First Aid Car",
     "DisplayName": "BMS Bloodtender",
     "Description": "This unique train car has been specially fitted with medical equipment and a mounted machine gun, making it ideal for transporting injured soldiers away from active battlefields to the safety of hospitals. When stationary, the BMS Bloodtender may also be used as a mobile first aid centre to treat wounded soldiers so long as supplies remain plentiful.",
-    "TechID": "ETechID::UnlockTrainEngine",
-    "Icon": "War/Content/Textures/UI/VehicleIcons/InfantryCarVehicleIcon.0",
+    "TechID": "ETechID::UnlockFacilityTier3",
+    "Icon": "War/Content/Textures/UI/ItemIcons/TrainHospitalItemIcon.0",
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier1Tank",
+    "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::ExtraLarge",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
-      "MaxHealth": 3250,
+      "MaxHealth": 9250,
       "MinorDamagePercent": 0.25,
       "MajorDamagePercent": 0.7,
-      "RepairCost": 100,
+      "RepairCost": 250,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 20,
       "FuelCapacity": 100,
@@ -20156,9 +20210,9 @@
       "SpeedSqrThreshold": 500,
       "EngineForce": 0,
       "MassOverride": 0,
-      "TankArmour": 0,
+      "TankArmour": 100000,
       "MinTankArmourPercent": 0.33,
-      "TankArmourMinPenetrationChance": 0,
+      "TankArmourMinPenetrationChance": 0.33,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
