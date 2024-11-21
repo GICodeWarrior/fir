@@ -66,7 +66,8 @@ const VERSION_CHANGES = {
     Freighter: null, // Icon changed
   },
   'infantry-59': {
-    SoldierSupplies: null // Icon Changed
+    SoldierSupplies: null, // Icon Changed
+    Shotgun: null, // Removed (two new shotguns)
   },
 };
 
