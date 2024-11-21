@@ -22,6 +22,24 @@ python3 -m http.server
 
 To build the google spreadsheet sidebar, run `./sundial/gs-build.sh` and find the files to be added to Google Apps Script in `./sundial/gs-build`.
 
+## Training
+
+### Standalone
+
+The standalone method will require you to manually install all the necessary dependencies, such as Node, NPM, TensorFlow, etc.
+To begin training, simply run `build.sh <FModel-Data-Directory>`.
+
+### Docker
+
+Training can also be performed using a Docker container instead. [https://docs.docker.com/desktop/features/wsl/]
+If you plan to use your GPU(s) for training, you will need to install NVIDIA drivers and the NVIDIA Container Toolkit. [https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html]
+
+Build the docker container by running docker `docker build --tag 'fir_trainer' .` 
+
+If you only want to utilize your CPU for training, run `docker run -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+
+If you want to utilize both your CPU and GPU(s) for training, run `docker run --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+
 ## License
 
 All original source code and contributions available under MIT License.
