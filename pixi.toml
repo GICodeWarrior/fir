@@ -1,0 +1,18 @@
+[project]
+name = "fir"
+version = "naval-57"
+description = "Foxhole Inventory Report"
+authors = ["Gregory Power <31050507+gregorywaynepower@users.noreply.github.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tasks]
+
+[dependencies]
+sed = "*"
+gawk = "*"
+nodejs = "*"
+python = "3.10"
+tensorflow = "*"
+keras = "*"
+pillow = "*"

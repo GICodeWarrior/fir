@@ -3,3 +3,6 @@ catalog/training
 trainer/logs
 trainer/model-tf
 spec/data
+# pixi environments
+.pixi
+*.egg-info
