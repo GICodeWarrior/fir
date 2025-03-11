@@ -1,8 +1,8 @@
 {
   "type": "module",
   "dependencies": {
-    "async": "^3.2.4",
-    "canvas": "^2.9.3",
-    "graceful-fs": "^4.2.10"
+    "async": "^3.2.6",
+    "canvas": "^2.11.2",
+    "graceful-fs": "^4.2.11"
   }
 }
