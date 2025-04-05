@@ -12,6 +12,33 @@ This tool prepares [Foxhole](https://www.foxholegame.com/about-foxhole) stockpil
 
 Under development. However, it is already being used "in production" within regiment(s) for evaluation. 
 
+## Deployment
+### Local
+To deploy a non-containerized server run:
+```
+cd fir
+python3 -m http.server
+```
+### Docker
+#### Building the Docker Container
+To build the docker container run:
+```
+docker build -f Dockerfile.server --tag 'fir_server' .
+```
+
+##### Overriding the listen port
+If you'd like to override the override the port the server listens on run:
+```
+docker build -f Dockerfile.server --build-arg PORT=<override port> --tag 'fir_server' .
+```
+#### Running the Docker Container
+To run the FIR server in the built docker continer:
+```
+docker run -p <host port>:<fir port> fir_server
+```
+The `-p` argument maps the host port to the fir server port inside the container. FIR defaults to listening on port
+8000. To override the port please see [this section](#overriding-the-listen-port).
+
 ## Development
 
 Standalone website:
@@ -34,11 +61,11 @@ To begin training, simply run `build.sh <FModel-Data-Directory>`.
 Training can also be performed using a Docker container instead. [https://docs.docker.com/desktop/features/wsl/]
 If you plan to use your GPU(s) for training, you will need to install NVIDIA drivers and the NVIDIA Container Toolkit. [https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html]
 
-Build the docker container by running docker `docker build --tag 'fir_trainer' .` 
+Build the docker container by running docker `docker build -f Dockerfile.trainer --tag 'fir_trainer' .`
 
-If you only want to utilize your CPU for training, run `docker run -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+If you only want to utilize your CPU for training, run `docker run -f Dockerfile.trainer -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
-If you want to utilize both your CPU and GPU(s) for training, run `docker run --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+If you want to utilize both your CPU and GPU(s) for training, run `docker run -f Dockerfile.trainer --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
 ## License
 

@@ -1,0 +1,31 @@
+FROM busybox:1.37
+
+LABEL name=fir-server
+LABEL version=0.0.1
+
+RUN adduser -D static
+USER static
+WORKDIR /home/static/fir
+
+COPY --chown=static:static ./foxhole /home/static/fir/foxhole
+COPY --chown=static:static ./index.html /home/static/fir
+COPY --chown=static:static ./includes /home/static/fir/includes
+COPY --chown=static:static ./includes /home/static/fir/includes
+COPY --chown=static:static ./favicon.ico /home/static/fir
+COPY --chown=static:static LICENSE /home/static/fir
+
+ARG PORT=8000
+ENV PORT=${PORT}
+
+EXPOSE ${PORT}
+
+# Busybox's httpd doesn't support a mime type for .mjs
+# files by default, so we'll need to add it to httpd.conf
+# manually. The http daemon also treats .js files as
+# application/javascript by default. However, in
+# RFC 9239 application/javascript has been marked as
+# obselete in favor of text/javascript. So we're overriding
+# that mime type as well.
+RUN printf ".mjs:text/javascript\n.js:text/javascript\n" > httpd.conf
+
+CMD busybox httpd -f -v -p "$PORT" -h /home/static/fir -c /home/static/fir/httpd.conf
