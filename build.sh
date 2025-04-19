@@ -30,11 +30,6 @@ generateIconTraining() {
   rangeMax=$(expr ${cpus} - 1)
   seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js "${warLocation}" ../foxhole/${version}/catalog.json training @ $cpus
 
-  # Textured Icons mod uses the same icon for both FieldMGAmmo and MGAmmo. This
-  # confuses the model, and the icon looks more like MGAmmo, so ignore the
-  # FieldMGAmmo icon.
-  rm training/FieldMGAmmo*/textured-icons-*.png || true
-
   ./find-duplicates.sh $cpus
 
   echo "Copying each training png to jpg."
