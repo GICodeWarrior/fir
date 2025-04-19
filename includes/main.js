@@ -17,6 +17,7 @@ if (!VALID_VERSIONS.has(VERSION)) {
   console.log(`Invalid version ${VERSION}`);
   location.search = '';
 }
+window.FIR_CATALOG_VERSION = VERSION;
 console.log(`Loading resources for "${VERSION}"`);
 
 const res = {
