@@ -1,7 +1,7 @@
 {
-  "convertedBy": "TensorFlow.js Converter v4.19.0",
+  "convertedBy": "TensorFlow.js Converter v4.22.0",
   "format": "graph-model",
-  "generatedBy": "2.16.2",
+  "generatedBy": "2.19.0",
   "modelTopology": {
     "library": {},
     "node": [
@@ -127,15 +127,6 @@
               "tensorShape": {
                 "dim": [
                   {
-                    "size": "1"
-                  },
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "1"
-                  },
-                  {
                     "size": "32"
                   }
                 ]
@@ -143,7 +134,7 @@
             }
           }
         },
-        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape",
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Squeeze",
         "op": "Const"
       },
       {
@@ -187,15 +178,6 @@
               "tensorShape": {
                 "dim": [
                   {
-                    "size": "1"
-                  },
-                  {
-                    "size": "1"
-                  },
-                  {
-                    "size": "1"
-                  },
-                  {
                     "size": "64"
                   }
                 ]
@@ -203,7 +185,7 @@
             }
           }
         },
-        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape",
+        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Squeeze",
         "op": "Const"
       },
       {
@@ -269,7 +251,7 @@
             }
           }
         },
-        "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp",
+        "name": "StatefulPartitionedCall/sequential_1/outputs_1/BiasAdd/ReadVariableOp",
         "op": "Const"
       },
       {
@@ -491,7 +473,8 @@
           "fused_ops": {
             "list": {
               "s": [
-                "Qmlhc0FkZA=="
+                "Qmlhc0FkZA==",
+                "UmVsdQ=="
               ]
             }
           },
@@ -525,9 +508,9 @@
         "input": [
           "StatefulPartitionedCall/sequential_1/activation_1/Relu",
           "StatefulPartitionedCall/sequential_1/conv2d_1_2/convolution/ReadVariableOp",
-          "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape"
+          "StatefulPartitionedCall/sequential_1/conv2d_1_2/Squeeze"
         ],
-        "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/add",
+        "name": "StatefulPartitionedCall/sequential_1/activation_1_2/Relu",
         "op": "_FusedConv2D"
       },
       {
@@ -566,22 +549,10 @@
           }
         },
         "input": [
-          "StatefulPartitionedCall/sequential_1/conv2d_1_2/add"
+          "StatefulPartitionedCall/sequential_1/activation_1_2/Relu"
         ],
         "name": "StatefulPartitionedCall/sequential_1/max_pooling2d_1_2/MaxPool2d",
         "op": "MaxPool"
-      },
-      {
-        "attr": {
-          "T": {
-            "type": "DT_FLOAT"
-          }
-        },
-        "input": [
-          "StatefulPartitionedCall/sequential_1/max_pooling2d_1_2/MaxPool2d"
-        ],
-        "name": "StatefulPartitionedCall/sequential_1/activation_1_2/Relu",
-        "op": "Relu"
       },
       {
         "attr": {
@@ -620,7 +591,8 @@
           "fused_ops": {
             "list": {
               "s": [
-                "Qmlhc0FkZA=="
+                "Qmlhc0FkZA==",
+                "UmVsdQ=="
               ]
             }
           },
@@ -652,11 +624,11 @@
         },
         "device": "/device:CPU:0",
         "input": [
-          "StatefulPartitionedCall/sequential_1/activation_1_2/Relu",
+          "StatefulPartitionedCall/sequential_1/max_pooling2d_1_2/MaxPool2d",
           "StatefulPartitionedCall/sequential_1/conv2d_2_1/convolution/ReadVariableOp",
-          "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape"
+          "StatefulPartitionedCall/sequential_1/conv2d_2_1/Squeeze"
         ],
-        "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/add",
+        "name": "StatefulPartitionedCall/sequential_1/activation_2_1/Relu",
         "op": "_FusedConv2D"
       },
       {
@@ -695,22 +667,10 @@
           }
         },
         "input": [
-          "StatefulPartitionedCall/sequential_1/conv2d_2_1/add"
+          "StatefulPartitionedCall/sequential_1/activation_2_1/Relu"
         ],
         "name": "StatefulPartitionedCall/sequential_1/max_pooling2d_2_1/MaxPool2d",
         "op": "MaxPool"
-      },
-      {
-        "attr": {
-          "T": {
-            "type": "DT_FLOAT"
-          }
-        },
-        "input": [
-          "StatefulPartitionedCall/sequential_1/max_pooling2d_2_1/MaxPool2d"
-        ],
-        "name": "StatefulPartitionedCall/sequential_1/activation_2_1/Relu",
-        "op": "Relu"
       },
       {
         "attr": {
@@ -722,7 +682,7 @@
           }
         },
         "input": [
-          "StatefulPartitionedCall/sequential_1/activation_2_1/Relu",
+          "StatefulPartitionedCall/sequential_1/max_pooling2d_2_1/MaxPool2d",
           "StatefulPartitionedCall/sequential_1/flatten_1/Reshape/shape"
         ],
         "name": "StatefulPartitionedCall/sequential_1/flatten_1/Reshape",
@@ -760,9 +720,9 @@
         "input": [
           "StatefulPartitionedCall/sequential_1/flatten_1/Reshape",
           "StatefulPartitionedCall/sequential_1/outputs_1/Cast/ReadVariableOp",
-          "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp"
+          "StatefulPartitionedCall/sequential_1/outputs_1/BiasAdd/ReadVariableOp"
         ],
-        "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add",
+        "name": "StatefulPartitionedCall/sequential_1/outputs_1/BiasAdd",
         "op": "_FusedMatMul"
       },
       {
@@ -772,14 +732,14 @@
           }
         },
         "input": [
-          "StatefulPartitionedCall/sequential_1/outputs_1/Add"
+          "StatefulPartitionedCall/sequential_1/outputs_1/BiasAdd"
         ],
         "name": "Identity",
         "op": "Identity"
       }
     ],
     "versions": {
-      "producer": 1766
+      "producer": 2129
     }
   },
   "signature": {
@@ -867,11 +827,8 @@
         },
         {
           "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Reshape",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_1_2/Squeeze",
           "shape": [
-            1,
-            1,
-            1,
             32
           ]
         },
@@ -887,11 +844,8 @@
         },
         {
           "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Reshape",
+          "name": "StatefulPartitionedCall/sequential_1/conv2d_2_1/Squeeze",
           "shape": [
-            1,
-            1,
-            1,
             64
           ]
         },
@@ -912,7 +866,7 @@
         },
         {
           "dtype": "float32",
-          "name": "StatefulPartitionedCall/sequential_1/outputs_1/Add/ReadVariableOp",
+          "name": "StatefulPartitionedCall/sequential_1/outputs_1/BiasAdd/ReadVariableOp",
           "shape": [
             702
           ]

@@ -88,7 +88,11 @@ buildClassifier() {
 
   #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
-  pipenv run tensorflowjs_converter --input_format tf_saved_model --output_format=tfjs_graph_model model-tf ../foxhole/${version}/classifier
+  cd convert
+  pipenv clean
+  pipenv install
+  pipenv run tensorflowjs_converter --input_format tf_saved_model --output_format=tfjs_graph_model ../model-tf ../../foxhole/${version}/classifier
+  cd ..
 
   pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
 
