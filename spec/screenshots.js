@@ -1,6 +1,6 @@
 import Screenshot from '../includes/screenshot.mjs';
 
-const CURRENT_VERSION = 'infantry-59';
+const CURRENT_VERSION = 'infantry-60';
 
 const JASMINE_TIMEOUT = 60000;
 const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
@@ -23,6 +23,7 @@ const VERSION_HISTORY = [
   'naval-56',
   'naval-57',
   'infantry-59',
+  'infantry-60',
 ];
 const VERSION_CHANGES = {
   'inferno': {
@@ -68,6 +69,10 @@ const VERSION_CHANGES = {
   'infantry-59': {
     SoldierSupplies: null, // Icon Changed
     Shotgun: null, // Removed (two new shotguns)
+  },
+  'infantry-60': {
+    BunkerSupplies: null,
+    SniperRifleAmmo: null,
   },
 };
 
