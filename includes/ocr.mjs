@@ -59,6 +59,8 @@ class OCR {
         //logger: m => console.log(m),
         //langPath: 'https://tessdata.projectnaptha.com/4.0.0_best',
         langPath: 'https://files.kubuxu.com/foxhole/tesseract/',
+        workerPath: 'https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/3.0.3/worker.min.js',
+        corePath: 'https://cdn.jsdelivr.net/npm/tesseract.js-core@3.0.2/tesseract-core-simd.wasm.js',
         //cacheMethod: 'none',
       });
 
