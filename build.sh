@@ -9,7 +9,7 @@ then
 fi
 
 warLocation=$(cd "${1}"; pwd)
-version='infantry-60'
+version='infantry-61'
 
 parseCatalog() {
   echo "Parsing catalog. (downloading / updating npm packages)"

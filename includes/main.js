@@ -9,9 +9,10 @@ const VALID_VERSIONS = new Set([
   'naval-57',
   'infantry-59',
   'infantry-60',
+  'infantry-61',
 ]);
 
-const DEFAULT_VERSION = 'infantry-60';
+const DEFAULT_VERSION = 'infantry-61';
 const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
 if (!VALID_VERSIONS.has(VERSION)) {
   console.log(`Invalid version ${VERSION}`);
