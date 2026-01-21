@@ -10,6 +10,7 @@ const VALID_VERSIONS = new Set([
   'infantry-59',
   'infantry-60',
   'infantry-61',
+  'airborne-63',
 ]);
 
 const DEFAULT_VERSION = 'infantry-61';

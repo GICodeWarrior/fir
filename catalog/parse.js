@@ -167,6 +167,7 @@ function coalesceObject(coreObject) {
     ['bRequiresCoverOrLowStanceToInvoke'],
     ['bRequiresVehicleToBuild'],
     ['bSupportsVehicleMounts'],
+    ['bIsStockpilable'],
   ];
 
   coreObject.extractValues(
@@ -390,6 +391,21 @@ function coalesceObject(coreObject) {
     v => combinedObject.ItemProfileData = v
   );
 
+  const meleeDynamicProperties = [
+    ['ChargingMaxSpeedModifier'],
+    ['BlockingMaxSpeedModifier'],
+    ['QuickAttack'],
+    ['LongAttack'],
+  ];
+  const meleeDynamicValues = common.meleeDynamicData.extractValues(
+    ['Rows', combinedObject.CodeName],
+    meleeDynamicProperties
+  );
+  if (Object.keys(meleeDynamicValues).length) {
+    meleeDynamicValues.ObjectPath = common.meleeDynamicData.getPath();
+    combinedObject.MeleeDynamicData = meleeDynamicValues;
+  }
+
   const vehicleDynamicProperties = [
     ['ResourceRequirements'],
     ['MaxHealth'],
@@ -474,6 +490,74 @@ function coalesceObject(coreObject) {
     vehicleMovementProfileProperties,
     v => combinedObject.VehicleMovementProfileData = v
   );
+
+  const aircraftDynamicProperties = [
+    ['EnginePower'],
+    ['MaxSpeed'],
+    ['MaxSpeedFromEngine'],
+    ['MaxSpeedFromEngineUnsupportedSurface'],
+    ['MaxSpeedFromEngineMissingPartMultiplier'],
+    ['MaxEngineRPM'],
+    ['OverspeedEngineRPM'],
+    ['MaxReverseThrottlePct'],
+    ['MaxReverseThrottleSpeed'],
+    ['SimulationScale'],
+    ['SupportedSurfaceTypes'],
+    ['WheelBrakeCoefficient'],
+    ['SuspensionStiffness'],
+    ['SuspensionDamping'],
+    ['TailSuspensionStiffness'],
+    ['TailSuspensionDamping'],
+    ['NormalizedCrashDamagePerSecond'],
+    ['CrashDamageAngleThreshold'],
+    ['AssistModeMaxRoll'],
+    ['AssistModeMaxPitch'],
+    ['MinSpeedFlaps'],
+    ['MinSpeedOffset'],
+  ];
+  const aircraftDynamicValues = common.aircraftDynamicData.extractValues(
+    ['Rows', combinedObject.CodeName],
+    aircraftDynamicProperties
+  );
+  if (Object.keys(aircraftDynamicValues).length) {
+    aircraftDynamicValues.ObjectPath = common.aircraftDynamicData.getPath();
+    combinedObject.AirDynamicData = aircraftDynamicValues;
+  }
+
+  const shipDynamicProperties = [
+    ['SecondsToMaxRPM'],
+    ['MaxPropellerRPM'],
+    ['MaxRudderAngle'],
+    ['RudderTurnRate'],
+    ['Fp'],
+    ['Fs'],
+    ['DragReferenceSpeed'],
+    ['Cpd1'],
+    ['Cpd2'],
+    ['Csd1'],
+    ['Csd2'],
+    ['SlammingPower'],
+    ['GammaMax'],
+    ['Cad'],
+    ['RudderLength'],
+    ['RudderDepth'],
+    ['ThrustVectoringPercent'],
+    ['MaxDivePlaneAngle'],
+    ['DivePlaneTurnRate'],
+    ['VerticalThrustVectoringPercent'],
+    ['BallastFloodRate'],
+    ['BallastBlowRate'],
+    ['FullyFloodedEngineForceMultiplier'],
+    ['BeachedEngineForceMultiplier'],
+  ];
+  const shipDynamicValues = common.shipDynamicData.extractValues(
+    ['Rows', combinedObject.CodeName],
+    shipDynamicProperties
+  );
+  if (Object.keys(shipDynamicValues).length) {
+    shipDynamicValues.ObjectPath = common.shipDynamicData.getPath();
+    combinedObject.ShipDynamicData = shipDynamicValues;
+  }
 
   const structureProfileProperties = [
     ['bSupportsAdvancedConstruction'],
@@ -560,14 +644,17 @@ function coalesceObject(coreObject) {
 }
 
 const common = {
+  aircraftDynamicData: new FHDataTable('BPAirDynamicData'),
   ammoDynamicData: new FHDataTable('BPAmmoDynamicData'),
   itemDynamicData: new FHDataTable('BPItemDynamicData'),
   itemProfiles: new FHStruct('War/Content/Blueprints/Data/BPItemProfileTable'),
   grenadeDynamicData: new FHDataTable('BPGrenadeDynamicData'),
+  meleeDynamicData: new FHDataTable('BPMeleeDynamicData'),
   weaponDynamicData: new FHDataTable('BPWeaponDynamicData'),
   vehicleDynamicData: new FHDataTable('BPVehicleDynamicData'),
   vehicleProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleProfileList'),
   vehicleMovementProfileList: new FHStruct('War/Content/Blueprints/Data/BPVehicleMovementProfileList'),
+  shipDynamicData: new FHDataTable('BPShipDynamicData'),
   structureProfileList: new FHStruct('War/Content/Blueprints/Data/BPStructureProfileList'),
   structureDynamicData: new FHDataTable('BPStructureDynamicData'),
   factoryProductionCategories: new FHStruct(
@@ -586,17 +673,36 @@ const common = {
 
 const searchDirectories = [
   'War/Content/Blueprints/ItemPickups/',
+  'War/Content/Blueprints/ItemPickups/AircraftParts/',
   'War/Content/Blueprints/ItemPickups/Facilities/',
   'War/Content/Blueprints/ItemPickups/LargeResources/',
   'War/Content/Blueprints/ItemPickups/TankAmmo/',
   'War/Content/Blueprints/ItemPickups/Uniforms/',
   'War/Content/Blueprints/Vehicles/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftDiveC/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftFighterC/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftFighterW/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftParatrooperW/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftScoutC/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftScoutW/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftTorpedoW/',
+  'War/Content/Blueprints/Vehicles/Aircraft/AircraftWaterW/',
+  'War/Content/Blueprints/Vehicles/AircraftBomberC/',
+  'War/Content/Blueprints/Vehicles/AircraftBomberW/',
+  'War/Content/Blueprints/Vehicles/AircraftDiveBomberC/',
+  'War/Content/Blueprints/Vehicles/AircraftFighterC/',
+  'War/Content/Blueprints/Vehicles/AircraftParatrooperC/',
+  'War/Content/Blueprints/Vehicles/AircraftParatrooperW/',
+  'War/Content/Blueprints/Vehicles/AircraftTorpedoW/',
+  'War/Content/Blueprints/Vehicles/AircraftWaterW/',
   'War/Content/Blueprints/Vehicles/Cranes/',
   'War/Content/Blueprints/Vehicles/ArmoredCar/',
   'War/Content/Blueprints/Vehicles/BattleTanks/',
   'War/Content/Blueprints/Vehicles/DestroyerTank/',
   'War/Content/Blueprints/Vehicles/FieldWeapons/',
+  'War/Content/Blueprints/Vehicles/Gunboats/Gunboat2C/',
   'War/Content/Blueprints/Vehicles/Gunboats/GunboatC/',
+  'War/Content/Blueprints/Vehicles/Gunboats/GunboatCRemodel/',
   'War/Content/Blueprints/Vehicles/Gunboats/GunboatW/',
   'War/Content/Blueprints/Vehicles/Halftrack/',
   'War/Content/Blueprints/Vehicles/HeavyTruck/',
@@ -612,10 +718,16 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/LargeShips/StorageShip/',
   'War/Content/Blueprints/Vehicles/LargeShips/SubmarineC/',
   'War/Content/Blueprints/Vehicles/LargeShips/SubmarineW/',
+  'War/Content/Blueprints/Vehicles/LightBoats/FreighterLight/',
+  'War/Content/Blueprints/Vehicles/LightBoats/LightBoatInfantryC/',
+  'War/Content/Blueprints/Vehicles/LightBoats/LightBoatInfantryW/',
   'War/Content/Blueprints/Vehicles/LightTank/',
   'War/Content/Blueprints/Vehicles/LogisticsVehicles/',
   'War/Content/Blueprints/Vehicles/Mech/',
+  'War/Content/Blueprints/Vehicles/MediumBoats/MediumBoatC/',
+  'War/Content/Blueprints/Vehicles/MediumBoats/MediumBoatW/',
   'War/Content/Blueprints/Vehicles/MediumTank/',
+  'War/Content/Blueprints/Vehicles/MineBoat/',
   'War/Content/Blueprints/Vehicles/MortarTank/',
   'War/Content/Blueprints/Vehicles/Motorcycle/',
   'War/Content/Blueprints/Vehicles/Rail/',
@@ -626,6 +738,7 @@ const searchDirectories = [
   'War/Content/Blueprints/Vehicles/Trailers/',
   'War/Content/Blueprints/Vehicles/Truck/',
   'War/Content/Blueprints/Structures/',
+  'War/Content/Blueprints/Structures/Banners/',
   'War/Content/Blueprints/Structures/Emplacements/',
   'War/Content/Blueprints/Structures/Facilities/',
   'War/Content/Blueprints/Structures/Rocket/',
@@ -674,10 +787,13 @@ for (const directory of searchDirectories) {
           && ((objectValues.TechID || '') != 'ETechID::ETechID_MAX')
           && (objectValues.ItemCategory
               || objectValues.VehicleProfileType
+              || objectValues.AirDynamicData
               || (objectValues.BuildLocationType == 'EBuildLocationType::ConstructionYard')
-              || (objectValues.ProfileType == 'EStructureProfileType::Shippable'))) {
+              || (objectValues.ProfileType == 'EStructureProfileType::Shippable')
+              || (objectValues.bIsStockpilable))) {
         objects.push(objectValues);
       }
+      //else { process.stderr.write(objectValues.CodeName + '\n'); }
     } catch (e) {
       if (e instanceof NonBPError) {
         continue;

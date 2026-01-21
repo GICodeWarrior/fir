@@ -1,6 +1,6 @@
 import Screenshot from './screenshot.mjs'
 
-const VERSION = 'infantry-61';
+const VERSION = 'airborne-63';
 
 const ICON_CLASS_NAMES = await fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json());
 const ICON_MODEL_URL = `./foxhole/${VERSION}/classifier/model.json`;

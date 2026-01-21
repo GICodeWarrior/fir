@@ -3,7 +3,7 @@
 
 set -e
 
-VERSION='infantry-61'
+VERSION='airborne-63'
 
 mkdir -p ./gs-build
 
