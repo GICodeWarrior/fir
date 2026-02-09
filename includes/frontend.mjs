@@ -127,29 +127,29 @@ export function addDownloadTSVListener(downloadTSV) {
     ].join('\t')];
     for (const stockpile of stockpiles) {
       for (const element of stockpile.contents) {
-        if (element.quantity == 0) {
+        if (element.quantity.value == 0) {
           continue;
         }
 
-        const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+        const details = res.CATALOG.find(e => e.CodeName == element.icon.CodeName);
         if (typeof details == 'undefined') {
           continue;
         }
         const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
             + (details.VehiclesPerCrateBonusQuantity || 0);
-        const perUnit = element.isCrated ? perCrate : 1;
+        const perUnit = element.icon.isCrated ? perCrate : 1;
 
         items.push([
           stockpile.label.textContent.trim(),
-          stockpile.header.name || '',
-          stockpile.header.type || '',
-          element.quantity,
+          stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '',
+          stockpile.header && stockpile.header.stockpile_type.value || '',
+          element.quantity.value,
           details.DisplayName,
-          element.isCrated,
-          element.isCrated ? perUnit : '',
-          element.quantity * perUnit,
+          element.icon.isCrated,
+          element.icon.isCrated ? perUnit : '',
+          element.quantity.value * perUnit,
           details.Description,
-          element.CodeName,
+          element.icon.CodeName,
         ].join('\t'));
       }
     }
@@ -204,12 +204,12 @@ export function getAppendGoogleRows(format="gapi") {
     const stockpileID = Math.floor(Math.random() * 1000000000000000);
     let isEmpty = true;
     for (const element of stockpile.contents) {
-      if (element.quantity == 0) {
+      if (element.quantity.value == 0) {
         continue;
       }
       isEmpty = false;
 
-      const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+      const details = res.CATALOG.find(e => e.CodeName == element.icon.CodeName);
       if (typeof details == 'undefined') {
         continue;
       }
@@ -219,13 +219,13 @@ export function getAppendGoogleRows(format="gapi") {
           values: [
             dateValue(exportTime),
             dateValue(stockpileTime),
-            stringValue(stockpile.header.type || ''),
-            stringValue(stockpile.header.name || ''),
+            stringValue(stockpile.header && stockpile.header.stockpile_type.value || ''),
+            stringValue(stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || ''),
             stringValue(stockpile.label.textContent.trim()),
-            stringValue(element.CodeName),
+            stringValue(element.icon.CodeName),
             stringValue(details.DisplayName),
-            numberValue(element.quantity),
-            { userEnteredValue: { boolValue: element.isCrated } },
+            numberValue(element.quantity.value),
+            { userEnteredValue: { boolValue: element.icon.isCrated } },
             numberValue(stockpileID),
           ],
         });
@@ -233,13 +233,13 @@ export function getAppendGoogleRows(format="gapi") {
         rows.push([
           exportTime.toString(),
           stockpileTime.toString(),
-          stockpile.header.type || '',
-          stockpile.header.name || '',
+          stockpile.header && stockpile.header.stockpile_type.value || '',
+          stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '',
           stockpile.label.textContent.trim(),
-          element.CodeName,
+          element.icon.CodeName,
           details.DisplayName,
-          element.quantity,
-          element.isCrated,
+          element.quantity.value,
+          element.icon.isCrated,
           stockpileID,
         ]);
       } else {
@@ -451,9 +451,20 @@ function getProcessImage(label, lastModified) {
 
     const stockpile = await Screenshot.process(canvas, ICON_MODEL_URL, res.ICON_CLASS_NAMES, QUANTITY_MODEL_URL, res.QUANTITY_CLASS_NAMES);
     if (stockpile) {
-      this.src = stockpile.box.canvas.toDataURL();
+      const box = stockpile.bounds;
+      const stockpileCanvas = document.createElement('canvas');
+      stockpileCanvas.width = box.width;
+      stockpileCanvas.height = box.height;
+
+      const stockpileContext = stockpileCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
+      stockpileContext.drawImage(canvas,
+        box.x, box.y, box.width, box.height,
+        0, 0, box.width, box.height);
+
+      this.src = stockpileCanvas.toDataURL();
       stockpile.label = label;
       stockpile.lastModified = lastModified;
+      stockpile.canvas = stockpileCanvas;
       stockpiles.push(stockpile);
     }
 
@@ -467,21 +478,16 @@ function getProcessImage(label, lastModified) {
         return {
           file: s.label.textContent.trim(),
           version: window.FIR_CATALOG_VERSION,
-          box: {
-            x: s.box.x,
-            y: s.box.y,
-            width: s.box.width,
-            height: s.box.height,
-          },
+          box: stockpile.bounds,
           header: {
-            type: s.header.type || null,
-            name: s.header.name || null,
+            type: s.header && s.header.stockpile_type.value,
+            name: s.header && s.header.stockpile_name && s.header.stockpile_name.value || null,
           },
           contents: s.contents.map(function(e) {
             return {
-              CodeName: e.CodeName,
-              quantity: e.quantity,
-              isCrated: e.isCrated,
+              CodeName: e.icon.CodeName,
+              quantity: e.quantity.value,
+              isCrated: e.icon.isCrated,
             };
           }),
         };
@@ -511,15 +517,15 @@ function outputTotals() {
 
   for (const stockpile of stockpiles) {
     for (const element of stockpile.contents) {
-      let key = element.CodeName;
-      if (element.isCrated) {
+      let key = element.icon.CodeName;
+      if (element.icon.isCrated) {
         key += '-crated';
       }
 
       if (!totals[key]) {
-        const catalogItem = res.CATALOG.find(e=>e.CodeName == element.CodeName);
+        const catalogItem = res.CATALOG.find(e=>e.CodeName == element.icon.CodeName);
         if (!catalogItem) {
-          console.log(`${element.CodeName} missing from catalog`);
+          console.log(`${element.icon.CodeName} missing from catalog`);
           continue;
         }
 
@@ -533,15 +539,16 @@ function outputTotals() {
         categories[category].push(key);
 
         totals[key] = {
-          CodeName: element.CodeName,
-          isCrated: element.isCrated,
+          CodeName: element.icon.CodeName,
+          isCrated: element.icon.isCrated,
           name: catalogItem.DisplayName,
           category: category,
           total: 0,
           collection: [],
         };
       }
-      totals[key].total += element.quantity;
+      totals[key].firstStockpile ||= stockpile;
+      totals[key].total += element.quantity.value;
       totals[key].collection.push(element);
     }
   }
@@ -604,7 +611,18 @@ function outputTotals() {
       quantity.textContent = type.total;
       cell.appendChild(quantity);
 
-      cell.appendChild(type.collection[0].iconBox.canvas);
+      const iconBox = type.collection[0].icon.bounds;
+      const iconCanvas = document.createElement('canvas');
+      iconCanvas.width = iconBox.width;
+      iconCanvas.height = iconBox.height;
+
+      const iconContext = iconCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
+      iconContext.drawImage(type.firstStockpile.canvas,
+        iconBox.x - type.firstStockpile.bounds.x, iconBox.y - type.firstStockpile.bounds.y,
+        iconBox.width, iconBox.height,
+        0, 0, iconBox.width, iconBox.height);
+
+      cell.appendChild(iconCanvas);
 
       const name = document.createElement('div');
       name.textContent = type.name;

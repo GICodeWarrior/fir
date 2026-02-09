@@ -122,29 +122,29 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
 
     const box = expectedStockpile.box;
     it(`has stockpile box x:${box.x}, y:${box.y}, width:${box.width}, height:${box.height}`, function() {
-      expect(this.actualStockpile.box.x).toBe(expectedStockpile.box.x);
-      expect(this.actualStockpile.box.y).toBe(expectedStockpile.box.y);
-      expect(this.actualStockpile.box.width).toBe(expectedStockpile.box.width);
-      expect(this.actualStockpile.box.height).toBe(expectedStockpile.box.height);
+      expect(this.actualStockpile.bounds.x).toBe(expectedStockpile.box.x);
+      expect(this.actualStockpile.bounds.y).toBe(expectedStockpile.box.y);
+      expect(this.actualStockpile.bounds.width).toBe(expectedStockpile.box.width);
+      expect(this.actualStockpile.bounds.height).toBe(expectedStockpile.box.height);
     });
 
     if (expectedStockpile.header.type) {
       it(`has structure type ${expectedStockpile.header.type}`, function() {
-        expect(this.actualStockpile.header.type).toBe(expectedStockpile.header.type);
+        expect(this.actualStockpile.header.stockpile_type.value).toBe(expectedStockpile.header.type);
       });
     } else {
       it(`has no structure type`, function() {
-        expect(this.actualStockpile.header.type).toBeUndefined();
+        expect(this.actualStockpile.header).toBeUndefined();
       });
     }
 
     if (expectedStockpile.header.name) {
       it(`has stockpile name ${expectedStockpile.header.name}`, function() {
-        expect(this.actualStockpile.header.name).toBe(expectedStockpile.header.name);
+        expect(this.actualStockpile.header.stockpile_name.value).toBe(expectedStockpile.header.name);
       });
     } else {
       it(`has no stockpile name`, function() {
-        expect(this.actualStockpile.header.name).toBeUndefined();
+        expect(this.actualStockpile.header && this.actualStockpile.header.stockpile_name).toBeUndefined();
       });
     }
 
@@ -158,10 +158,10 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
       const expectedCratedStatus = CRATED_LABEL[expectedElement.isCrated];
       it(`contains ${expectedElement.quantity} ${expectedElement.CodeName} (${expectedCratedStatus})`, function() {
         const actualElement = this.actualStockpile.contents[index] || {};
-        const actualCratedStatus = CRATED_LABEL[actualElement.isCrated];
+        const actualCratedStatus = CRATED_LABEL[actualElement.icon.isCrated];
 
-        expect(actualElement.CodeName).toBe(expectedElement.CodeName);
-        expect(actualElement.quantity).toBe(expectedElement.quantity);
+        expect(actualElement.icon.CodeName).toBe(expectedElement.CodeName);
+        expect(actualElement.quantity.value).toBe(expectedElement.quantity);
         expect(actualCratedStatus).toBe(expectedCratedStatus);
       });
     }

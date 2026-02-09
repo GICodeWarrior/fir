@@ -2,4 +2,5 @@ catalog/node_modules
 catalog/training
 trainer/logs
 trainer/model-tf
+slicer/target
 spec/data

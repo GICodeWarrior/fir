@@ -33,7 +33,7 @@ document.querySelector('form input').addEventListener('change', function() {
       //console.log(stockpile);
       if (stockpile) {
         globalThis.stockpile = stockpile;
-        const box = stockpile.box;
+        const box = stockpile.bounds;
         drawOutline(context, box, '#FF00FFAA');
 
         const stockpileCanvas = document.createElement('canvas');
@@ -45,16 +45,20 @@ document.querySelector('form input').addEventListener('change', function() {
           box.x, box.y, box.width, box.height,
           0, 0, box.width, box.height);
 
-        for (const element of stockpile.contents) {
-          drawOutline(stockpileContext, element.iconBox, '#00FFFFAA');
-          drawOutline(stockpileContext, element.quantityBox, '#FF00FFAA');
+        function offset(b) {
+          return { x: b.x - box.x, y: b.y - box.y, width: b.width, height: b.height };
         }
 
-        if (stockpile.header.typeBox) {
-          drawOutline(stockpileContext, stockpile.header.typeBox, '#FF0000AA');
+        for (const element of stockpile.contents) {
+          drawOutline(stockpileContext, offset(element.icon.bounds), '#00FFFFAA');
+          drawOutline(stockpileContext, offset(element.quantity.bounds), '#FF00FFAA');
         }
-        if (stockpile.header.nameBox) {
-          drawOutline(stockpileContext, stockpile.header.nameBox, '#00FF00AA');
+
+        if (stockpile.header) {
+          drawOutline(stockpileContext, offset(stockpile.header.stockpile_type.bounds), '#FF0000AA');
+          if (stockpile.header.stockpile_name) {
+            drawOutline(stockpileContext, offset(stockpile.header.stockpile_name.bounds), '#00FF00AA');
+          }
         }
 
         document.body.appendChild(stockpileCanvas);
