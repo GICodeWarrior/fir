@@ -124,6 +124,9 @@ async function writeTrainingPNGs(objectValues) {
   for (const modName of mods) {
     const cache = {};
     for (let size = smallestSize; size <= largestSize; ++size) {
+      // Skip 2/3 of sizes larger than 32px (i.e. larger than 1080p), keep 64px (i.e. 4k)
+      if ((size > 32) && (size % 3 != 0) && (size != 64)) continue;
+
       //promises.push(writeTrainingPNG(objectValues, baseName, size, -1, -1, cache, modName));
       //promises.push(writeTrainingPNG(objectValues, baseName, size, 0, -1, cache, modName));
       promises.push(writeTrainingPNG(objectValues, baseName, size, -1, 0, cache, modName));

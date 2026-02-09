@@ -13,7 +13,7 @@ const VALID_VERSIONS = new Set([
   'airborne-63',
 ]);
 
-const DEFAULT_VERSION = 'infantry-61';
+const DEFAULT_VERSION = 'airborne-63';
 const VERSION = (new URLSearchParams(location.search)).get('v') || DEFAULT_VERSION;
 if (!VALID_VERSIONS.has(VERSION)) {
   console.log(`Invalid version ${VERSION}`);

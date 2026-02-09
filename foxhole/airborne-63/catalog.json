@@ -17,9 +17,9 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 2200,
+      "Damage": 1200,
       "Suppression": 200,
-      "ExplosionRadius": 1125,
+      "ExplosionRadius": 1150,
       "DamageType": {
         "ObjectPath": "War/Content/Blueprints/DamageTypes/BPShrapnelDamageType.0",
         "DisplayName": "Shrapnel",
@@ -30,7 +30,7 @@
         "bAlwaysAppliesBleeding": true,
         "bExposeInUI": true
       },
-      "DamageInnerRadius": 900,
+      "DamageInnerRadius": 850,
       "DamageFalloff": 1,
       "AccuracyRadius": 4000,
       "EnvironmentImpactAmount": 0,
@@ -41,12 +41,12 @@
       "CostPerCrate": [
         {
           "ItemCodeName": "Cloth",
-          "Quantity": 120,
+          "Quantity": 100,
           "DisplayName": "Basic Materials"
         },
         {
           "ItemCodeName": "HeavyExplosive",
-          "Quantity": 60,
+          "Quantity": 15,
           "DisplayName": "Heavy Explosive Powder"
         }
       ],
@@ -67,6 +67,10 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "ProductionCategories": {
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
     }
   },
   {
@@ -145,19 +149,19 @@
     "Description": "A large, deadly bomber capable of delivering high volumes of explosive payloads. While the V-1 Tzykalia requires a proficient bombardier crew, this Velian-made aircraft has an infamous reputation overseas on the Katoma front. Facing minimal air-to-air resistance, a full squadron of Tzykalias led by seasoned captain and ace lodesman Calliope Bibas erased a large Estrellan fortress in the desert region of Sorra Blava off the map. This operation left Alliance presence in the west reeling, furthering Republic ambitions in the region.",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockAircraftBomber",
-    "Icon": "War/Content/Blueprints/Vehicles/AircraftBomberC/Textures/AircraftBomberCIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftBomberCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 350,
     "VehicleDynamicData": {
-      "MaxHealth": 45000,
+      "MaxHealth": 15000,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 350,
-      "FuelConsumptionPerSecond": 0.897,
+      "FuelConsumptionPerSecond": 0.858,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -209,19 +213,19 @@
     "Description": "A Nevish bomber that was developed in direct response to a lack of aerial heavy explosive support during Alliance operations. Having been repeatedly waylaid by Tzykalia bombers along the Sorovian coast, it became clear that the Sky Brigade needed to improve their armada. The Brigade commissioned a light and fuel-efficient bomber still capable of deploying catastrophic payloads.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftBomber",
-    "Icon": "War/Content/Blueprints/Vehicles/AircraftBomberW/Textures/AircraftBomberWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftBomberWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 300,
     "VehicleDynamicData": {
-      "MaxHealth": 45000,
+      "MaxHealth": 15000,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 300,
-      "FuelConsumptionPerSecond": 0.769,
+      "FuelConsumptionPerSecond": 0.7359,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -277,14 +281,14 @@
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "VehicleDynamicData": {
-      "MaxHealth": 16500,
+      "MaxHealth": 5500,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 100,
-      "FuelConsumptionPerSecond": 0.256,
+      "FuelConsumptionPerSecond": 0.239,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -309,14 +313,14 @@
       "MaxSpeedFromEngineMissingPartMultiplier": 0.05,
       "MaxEngineRPM": 1000,
       "OverspeedEngineRPM": 1500,
-      "MaxReverseThrottlePct": 0.3,
+      "MaxReverseThrottlePct": 0.5,
       "MaxReverseThrottleSpeed": 200,
       "SimulationScale": 3.5,
       "SupportedSurfaceTypes": [
         97,
         0
       ],
-      "WheelBrakeCoefficient": 0.5,
+      "WheelBrakeCoefficient": 1,
       "SuspensionStiffness": 1.5,
       "SuspensionDamping": 0.5,
       "TailSuspensionStiffness": 2,
@@ -341,7 +345,7 @@
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "VehicleDynamicData": {
-      "MaxHealth": 16500,
+      "MaxHealth": 5500,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
@@ -367,8 +371,8 @@
     },
     "AirDynamicData": {
       "EnginePower": 1500000,
-      "MaxSpeed": 2600,
-      "MaxSpeedFromEngine": 2200,
+      "MaxSpeed": 2675,
+      "MaxSpeedFromEngine": 2275,
       "MaxSpeedFromEngineUnsupportedSurface": 600,
       "MaxSpeedFromEngineMissingPartMultiplier": 0.05,
       "MaxEngineRPM": 1000,
@@ -401,11 +405,11 @@
     "Description": "The backbone of the Alliance Sky Brigade, the Harbinger excels at both strafing ground targets and dogfighting with its twin, front-facing machine guns. Not willing to be outclassed by crude Mesean engineering, Luminary—formerly a northern Caoivish industrial engineering firm—set to work on designing its Mk. I prototype. Sleek, aerodynamic, and so fast it screams, the Harbinger’s design is intended to give the Nevish Alliance a psychological edge on the battlefield as much as it provides air support. ",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftFighter",
-    "Icon": "War/Content/Blueprints/Vehicles/Aircraft/AircraftFighterW/Textures/AircraftFighterWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftFighterWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "VehicleDynamicData": {
-      "MaxHealth": 18000,
+      "MaxHealth": 6000,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
@@ -465,19 +469,20 @@
     "Description": "A handful of these Velian-made aircraft are capable of depositing entire platoons of Colonial paratroopers deep behind Warden lines. In fact, these selfsame paratroopers are feared throughout the north for their commitment to night diving and opening their chute late enough that even an observant enemy might blink and miss their descent. While most paratroopers have a short lifespan, one trio that called themselves “The Furies” successfully completed over one hundred combat jumps into Caoivish territory. It’s believed The Furies are responsible for sabotaging countless Warden operations in the north and played a pivotal role in Legate Thea Maro’s “Operation Sunfall.”",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockAircraftParatrooper",
-    "Icon": "War/Content/Blueprints/Vehicles/AircraftParatrooperC/Textures/AircraftParatrooperCIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 350,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
-      "MaxHealth": 25000,
+      "MaxHealth": 8300,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
-      "FuelCapacity": 350,
-      "FuelConsumptionPerSecond": 0.897,
+      "FuelCapacity": 425,
+      "FuelConsumptionPerSecond": 1.04,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -558,19 +563,20 @@
     "Description": "A recent addition to the Alliance Sky Brigade, the Zealot is a first-of-its-kind dropship out of Sorovia. Its large fuselage and cargo bay facilitate transporting entire paratrooper units and dropping them into the fray with ease. The Zealot is best paired with escorts, as it doesn’t boast much in the way of firepower, but once it deploys a retinue of Cloudrunners, it circles back to base to load up the next squad.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftParatrooper",
-    "Icon": "War/Content/Blueprints/Vehicles/Aircraft/AircraftParatrooperW/Textures/AircraftParatrooperWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 350,
+    "bCanUseStructures": true,
     "VehicleDynamicData": {
-      "MaxHealth": 25000,
+      "MaxHealth": 8300,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
-      "FuelCapacity": 350,
-      "FuelConsumptionPerSecond": 0.897,
+      "FuelCapacity": 250,
+      "FuelConsumptionPerSecond": 0.558,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1240,19 +1246,19 @@
     "Description": "Inspired by passenger seaplanes, the A51 is an extremely proficient scout plane. Dubbed “The Daedalus” by countless crews for its intrepid design, pontoons and foldable wheels give the flexibility to land, refuel, or observe enemy movements under various conditions unrivalled by more conventional aircraft.",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockAircraftScout",
-    "Icon": "War/Content/Blueprints/Vehicles/Aircraft/AircraftScoutC/Textures/AircraftScoutCIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftScoutCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "VehicleBuildType": "EVehicleBuildType::AircraftFactory",
     "VehicleDynamicData": {
-      "MaxHealth": 1500,
+      "MaxHealth": 500,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 75,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 100,
-      "FuelConsumptionPerSecond": 0.256,
+      "FuelConsumptionPerSecond": 0.197,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1338,20 +1344,20 @@
     "Description": "The Mk. IV is a lighter Luminary aircraft designed for high and low-altitude intelligence gathering. Living up to its namesake, the Herald has been instrumental in thwarting several Colonial operations in the west. What it lacks in resilience and firepower, it more than makes up for in flexibility.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftScout",
-    "Icon": "War/Content/Blueprints/Vehicles/Aircraft/AircraftScoutW/Textures/AircraftScoutWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftScoutWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 230,
     "VehicleBuildType": "EVehicleBuildType::AircraftFactory",
     "VehicleDynamicData": {
-      "MaxHealth": 1500,
+      "MaxHealth": 500,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 75,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 100,
-      "FuelConsumptionPerSecond": 0.256,
+      "FuelConsumptionPerSecond": 0.197,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1437,19 +1443,19 @@
     "Description": "The M925 Edellian bomber is the Alliance Sky Brigade’s ace at air-to-sea combat. Featuring twin torpedo bays and a rear-mounted machine gun, the Man-O-War is a veritable threat to any ship’s hull or would-be assailants. The M925's unique capabilities overdelivered, as it was originally conceived as nothing more than a short-range coastal defence bomber. During the M925’s first operation off of the Katoman coast, a small squadron single-handedly sank a Titan. Her crew had no idea how their ship filled with seawater as torpedo after torpedo bored into the underside of her hull. ",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftTorpedo",
-    "Icon": "War/Content/Blueprints/Vehicles/AircraftTorpedoW/Textures/AircraftTorpedoWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftTorpedoWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "VehicleDynamicData": {
-      "MaxHealth": 32500,
+      "MaxHealth": 10800,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
       "FuelCapacity": 200,
-      "FuelConsumptionPerSecond": 0.513,
+      "FuelConsumptionPerSecond": 0.478,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1467,7 +1473,7 @@
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
     },
     "AirDynamicData": {
-      "EnginePower": 1100000,
+      "EnginePower": 1200000,
       "MaxSpeed": 1900,
       "MaxSpeedFromEngine": 1650,
       "MaxSpeedFromEngineUnsupportedSurface": 600,
@@ -1502,18 +1508,19 @@
     "Description": "This unique Nevish fighter was specially designed to be launched from Mercy-class aircraft carriers, with the flexibility to operate in different environments. Fitted with several front-facing armaments, the White Raven is known to swarm enemy armadas out of nowhere. They soon find themselves careening out of the clouds. ",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockAircraftWater",
-    "Icon": "War/Content/Blueprints/Vehicles/Aircraft/AircraftWaterW/Textures/AircraftWaterWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftWaterWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
+    "DepthCuttoffForSwimDamage": 100,
     "VehicleDynamicData": {
-      "MaxHealth": 16500,
+      "MaxHealth": 5750,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.7,
       "RepairCost": 150,
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
-      "FuelConsumptionPerSecond": 0.256,
+      "FuelConsumptionPerSecond": 0.2453,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1522,7 +1529,7 @@
       "RotationSpeedCuttoff": 15,
       "SpeedSqrThreshold": 500,
       "EngineForce": 25000,
-      "MassOverride": 1500,
+      "MassOverride": 2200,
       "TankArmour": 0,
       "MinTankArmourPercent": 0.33,
       "TankArmourMinPenetrationChance": 0,
@@ -1737,6 +1744,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
@@ -1786,6 +1794,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1802,6 +1813,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 220,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 750,
@@ -1851,6 +1863,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1975,7 +1990,7 @@
     "Description": "This early O’Brien variant, the V.101 Freeman is fitted with a 360 degree ballistics cannon turret at the expense of top speed.",
     "TechID": "ETechID::UnlockArmoredCarOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarOffensiveWVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
@@ -2031,6 +2046,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2041,7 +2059,7 @@
     "Description": "The second full iteration of Conor O’Brien’s storied Armoured Car designs, the Squire serves as a reinforced rocket platform. The squire—designed to play a support role for larger assault operations with its rocket battery platform—is easy to reposition and provides operators and nearby infantry with more protection than might be afforded by a standard utility vehicle.",
     "TechID": "ETechID::UnlockArmoredCar2Multi",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCar2MultiWIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
@@ -2097,6 +2115,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2176,7 +2197,7 @@
     "Description": "A slight variation of the V.110, the Gravekeeper comes fitted with an embedded Bonesaw launcher, transforming the humble armoured car into an effective indirect anti-armour vehicle.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarATWVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
@@ -2232,6 +2253,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2312,7 +2336,7 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarFlameWarVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "ArmourType": "EArmourType::Tier1Tank",
@@ -2367,6 +2391,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2378,7 +2405,7 @@
     "TechID": "ETechID::None",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarMobilityWarVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "ArmourType": "EArmourType::Tier1Tank",
@@ -2433,6 +2460,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2443,7 +2473,7 @@
     "Description": "This “Xiphos” variant is fitted with a high-powered anti-tank turret in place of the twin machine gun platform.",
     "TechID": "ETechID::UnlockArmoredCarOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarOffensiveCVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
@@ -2499,6 +2529,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2509,7 +2542,7 @@
     "Description": "Fitted with twin RPG launchers, the T8 employs hit-and-run assaults against enemy structures and emplacements.",
     "TechID": "ETechID::UnlockArmoredCarTwin",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ArmoredCarTwinCItemIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
@@ -2565,6 +2598,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -3917,7 +3953,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPATRifleWPickup",
     "CodeName": "ATRifleW",
-    "DisplayName": "20 Neville Anti-Tank Rifle",
+    "DisplayName": "Neville Anti-Tank Rifle",
     "Description": "The Neville is unmatched in its versatility as a portable, magazine-based anti-armour firearm.",
     "Encumbrance": 170,
     "EquipmentSlot": "EEquipmentSlot::Primary",
@@ -5041,6 +5077,7 @@
     "TechID": "ETechID::UnlockBattleTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankATCIcon.0",
     "FuelTank": 750,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bIsStockpilable": false,
     "ChassisName": "Battle Tank",
     "FactionVariant": "EFactionId::Colonials",
@@ -5097,6 +5134,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5105,7 +5145,7 @@
     "Description": "A heavy-duty Battle Tank with thick armour plating and destructive firepower. The Lance is fitted with a 75mm turret and a front-facing 12.7mm anti-infantry machine gun. The heavy armour limits top speed, but in exchange it can take a lot of punishment.",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "FuelTank": 600,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Battle Tank",
     "bIsStockpilable": false,
     "DisplayName": "Lance-36",
@@ -5164,6 +5204,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5175,7 +5218,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankWarDefensiveVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "FuelTank": 600,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "bIsStockpilable": false,
     "TechID": "ETechID::UnlockBattleTank",
@@ -5231,6 +5274,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5241,6 +5287,7 @@
     "TechID": "ETechID::UnlockBattleTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankHeavyArtilleryCIcon.0",
     "FuelTank": 600,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bIsStockpilable": false,
     "ChassisName": "Battle Tank",
     "FactionVariant": "EFactionId::Colonials",
@@ -5297,6 +5344,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5308,6 +5358,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankHeavyArtilleryWIcon.0",
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 600,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Battle Tank",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
@@ -5363,6 +5414,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5373,7 +5427,7 @@
     "Description": "A heavy-duty Battle Tank with thick armour plating and destructive firepower. The Flood is fitted with a 75mm turret and a front-facing 12.7mm anti-infantry machine gun. The heavy armour limits top speed, but in exchange it can take a lot of punishment.",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "FuelTank": 600,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankWar.0",
     "bIsStockpilable": false,
@@ -5430,6 +5484,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5661,7 +5718,7 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 1500,
+      "Damage": 1200,
       "Suppression": 200,
       "ExplosionRadius": 1125,
       "DamageType": {
@@ -6578,6 +6635,7 @@
     "TechID": "ETechID::UnlockDestroyerTankFlame",
     "Icon": "War/Content/Textures/UI/VehicleIcons/DestroyerTankFlameWIcon.0",
     "FuelTank": 325,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Destroyer Tank",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
@@ -6633,6 +6691,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6764,7 +6825,7 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 900,
+      "Damage": 1050,
       "Suppression": 85,
       "ExplosionRadius": 600,
       "DamageType": {
@@ -6774,12 +6835,12 @@
         "DescriptionDetails": "High chance of disabling all vehicle subsystems",
         "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
         "TankArmourEffectType": "ETankArmourEffectType::Large",
-        "VehicleSubsystemDisableMultipliers": 3,
+        "VehicleSubsystemDisableMultipliers": 7,
         "bApplyTankArmourMechanics": true,
         "bApplyTankArmourAngleRangeBonuses": false,
         "bExposeInUI": true
       },
-      "DamageInnerRadius": 400,
+      "DamageInnerRadius": 200,
       "DamageFalloff": 0,
       "AccuracyRadius": 0,
       "EnvironmentImpactAmount": 0,
@@ -6818,12 +6879,12 @@
     "CodeName": "EmplacedAircraftC",
     "ChassisName": "Emplaced Anti-Air Cannon",
     "DisplayName": "DAE 5b “Zeal”",
-    "Description": "A sturdy, stationary cannon for bombarding low-flying enemy aircraft with explosive shells. The DAE 5b anti-aircraft emplacement has become infamous for walls of black smoke its payload leaves behind.",
+    "Description": "A sturdy, stationary cannon for bombarding high-flying enemy aircraft with explosive shrapnel shells. The DAE 5b anti-aircraft emplacement has become infamous for walls of black smoke its payload leaves behind.",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedAircraft",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedAircraftCIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "BuildLocationType": "EBuildLocationType::Facility",
+    "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
     "bIsStockpilable": true,
     "StructureDynamicData": {
@@ -6838,6 +6899,9 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -6850,7 +6914,7 @@
     "TechID": "ETechID::UnlockEmplacedAircraft",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedAircraftWIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "BuildLocationType": "EBuildLocationType::Facility",
+    "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
     "bIsStockpilable": true,
     "StructureDynamicData": {
@@ -6865,6 +6929,9 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7075,7 +7142,7 @@
     "ObjectPath": "War/Content/Blueprints/Structures/Emplacements/BPEmplacedInfantryW",
     "CodeName": "EmplacedInfantryW",
     "ChassisName": "Emplaced Machine Gun",
-    "DisplayName": "Leary Snare Trap 127",
+    "DisplayName": "Leary Snare Trap 20",
     "Description": "The Snare Trap is a repurposed anti-aircraft flak cannon used to fortify emplaced positions with twin anti-infantry machine guns.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedFieldMG",
@@ -7607,6 +7674,44 @@
     }
   },
   {
+    "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials12Pickup",
+    "CodeName": "FacilityMaterials12",
+    "DisplayName": "Rare Materials",
+    "Description": "Incredibly rare small components used in some specialized equipment.",
+    "Encumbrance": 300,
+    "ItemCategory": "EItemCategory::Supplies",
+    "ItemProfileType": "EItemProfileType::RefinedResource",
+    "TechID": "ETechID::UnlockFacilityMineOilRig",
+    "ItemFlagsMask": 257,
+    "Icon": "War/Content/Textures/UI/ItemIcons/MetalBeamPlatformItemIcon.0",
+    "ItemDynamicData": {
+      "CostPerCrate": [
+        {
+          "ItemCodeName": "Cloth",
+          "Quantity": 50,
+          "DisplayName": "Basic Materials"
+        }
+      ],
+      "QuantityPerCrate": 1,
+      "CrateProductionTime": 15,
+      "SingleRetrieveTime": 1.5,
+      "CrateRetrieveTime": 10,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
+    },
+    "ItemProfileData": {
+      "bIsStockpilable": true,
+      "bIsStackable": true,
+      "bIsConvertibleToCrate": true,
+      "bIsCratable": true,
+      "bIsStockpiledWithAmmo": false,
+      "bUsableInVehicle": false,
+      "StackTransferLimit": 2,
+      "RetrieveQuantity": 10,
+      "ReserveStockpileMaxQuantity": 300,
+      "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    }
+  },
+  {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/Facilities/BPFacilityMaterials2Pickup",
     "CodeName": "FacilityMaterials2",
     "DisplayName": "Processed Construction Materials",
@@ -8056,6 +8161,7 @@
     "Description": "This simple, dual-barreled short-range field gun packs a punch. Its economic construction makes for fairly basic assembly at the cost of longevity. Meant for Anti-Tank support, the Cestus is best utilized in ambush tactics or woven between the lines of heavier armour.",
     "TechID": "ETechID::UnlockFieldAT2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldAT2CIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
@@ -8110,6 +8216,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8121,6 +8230,7 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFieldAT2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldAT2WIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -8174,6 +8284,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8253,6 +8366,7 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockFieldATDamageGun",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldCannonOffensiveWIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -8306,6 +8420,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8384,6 +8501,7 @@
     "Description": "Armed with explosive 40mm rounds, the Smelter is perfect for engaging enemy armour. The frontal blast shielding provides operators with ample cover during heated skirmishes.",
     "TechID": "ETechID::UnlockFieldCannonDamage",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldATOffensiveCIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
@@ -8438,6 +8556,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -9453,7 +9574,6 @@
     "CodeName": "FreighterLight",
     "DisplayName": "Das Krokodil by VAC",
     "Description": "This deep water Venchin Auto Corporation light freighter is a sturdy vessel that specializes in seaport-to-seaport deliveries. As a deep water ship, Das Krokodil can’t safely reach land-based shipping structures. ",
-    "TechID": "ETechID::UnlockFreighterLight",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightFreighterVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -9525,8 +9645,8 @@
       "SlammingPower": 2,
       "GammaMax": 5,
       "Cad": 40,
-      "RudderLength": 200,
-      "RudderDepth": 200,
+      "RudderLength": 250,
+      "RudderDepth": 250,
       "ThrustVectoringPercent": 0.65,
       "MaxDivePlaneAngle": 35,
       "DivePlaneTurnRate": 45,
@@ -10132,11 +10252,10 @@
     "DisplayName": "Type B - “Lucian”",
     "Description": "This shoreline “bunker buster” packs quite the punch to any unfortunately positioned enemy emplacements. The Type B was gifted its colloquial name in jest in response to the discovery that its first-ever captain, Lucian Kelly, once served in the Caoivish Naval Command.",
     "FactionVariant": "EFactionId::Colonials",
-    "TechID": "ETechID::UnlockGunboat2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/GunBoat2CVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier1Ship",
+    "ArmourType": "EArmourType::Tier2Ship",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
@@ -10226,11 +10345,10 @@
     "DisplayName": "81f-f Ronan Blackguard",
     "Description": "A shore-strafing gunship, the Blackguard’s heavy mortar blitz makes short work of coastline bunker networks. Sporting ample storage for mortar shells means a no-frills approach to overall engineering. While the Blackguard may need a nearby escort, it more than makes up for it with pure guile.",
     "FactionVariant": "EFactionId::Wardens",
-    "TechID": "ETechID::UnlockGunboat2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/Gunboat2WIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier1Ship",
+    "ArmourType": "EArmourType::Tier2Ship",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
@@ -10324,7 +10442,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/GunBoatCHullIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier1Ship",
+    "ArmourType": "EArmourType::Tier2Ship",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
@@ -10418,7 +10536,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/GunboatWIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
-    "ArmourType": "EArmourType::Tier1Ship",
+    "ArmourType": "EArmourType::Tier2Ship",
     "FuelTank": 200,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
@@ -10488,7 +10606,7 @@
       "Cad": 40,
       "RudderLength": 125,
       "RudderDepth": 125,
-      "ThrustVectoringPercent": 0.5,
+      "ThrustVectoringPercent": 0.6,
       "MaxDivePlaneAngle": 35,
       "DivePlaneTurnRate": 45,
       "VerticalThrustVectoringPercent": 0,
@@ -10510,7 +10628,7 @@
     "Description": "This “Javelin” variant is fitted with a 360 degree mortar platform, designed to support infantry in frontline operations.",
     "TechID": "ETechID::UnlockHalfTrackArtillery",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HalfTrackArtilleryCIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
@@ -10566,6 +10684,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10645,7 +10766,7 @@
     "Description": "With reinforced armour at the expense of speed, the \"Hoplite\" is a formidable force in the heat of combat.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HalfTrackColHeavyArmorVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
@@ -10701,6 +10822,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10718,6 +10842,7 @@
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
@@ -10741,6 +10866,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10751,7 +10879,7 @@
     "Description": "Fitted with a heavy-duty anti-tank gun, the Blinder is capable of punching through all but the most tempered of alloys.",
     "TechID": "ETechID::UnlockHalfTrackOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HalfTrackOffensiveWarVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
@@ -10807,6 +10935,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10817,7 +10948,7 @@
     "Description": "The third Niska Motor Carriage variation sports twin mounted machine guns at the expense of reduced passenger shielding and overall firepower. This simple revision was originally an ad hoc alteration by field engineers, but quickly sought after by armour regiments across the Caoiva-Veli front line.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/Vehicles/HalftrackTwinW.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
@@ -10848,6 +10979,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10933,6 +11067,7 @@
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 185,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1250,
@@ -10982,6 +11117,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11118,6 +11256,7 @@
     "Description": "Built to brave the hills in the western provinces of the Alliant Union, the Taurine Rigger is a Velian modified variation that specializes in towing heavy equipment and supplies over treacherous terrain. Employed in the Colonial Legion for near three centuries, the A150 has become an indispensable tool in Colonial operations. It’s no surprise then that it has been often imitated, yet never replicated.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "FuelTank": 150,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HeavyTruckCVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackHeavyTruck",
     "ChassisName": "Heavy-Duty Truck",
@@ -11174,6 +11313,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11184,6 +11326,7 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/HeavyTruckWItemIcon_copy.0",
     "FuelTank": 150,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::HeavyTruck",
     "ChassisName": "Heavy-Duty Truck",
@@ -11239,6 +11382,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11729,7 +11875,7 @@
     "Description": "With its mounted machinegun, the \"Doru\" is the perfect addition to any shoreline assault. ",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingCraftOffensiveVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
@@ -11784,6 +11930,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12130,6 +12279,7 @@
     "Description": "The “Stygian Bolt” Large Field Gun is fitted with a monstrous 94.5mm cannon paired with heavy angled blast shielding. Inspired by the rows of narrow canyons in their homeland of the Lacrista province, Mesean engineers designed this field weapon to keep its crew as safe from ancillary fire as possible while maintaining forward momentum.",
     "TechID": "ETechID::UnlockFacilityTier3",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldATHeavyCIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
@@ -12184,6 +12334,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12194,6 +12347,7 @@
     "Description": "This robust field cannon not only allows infantry to fire heavy 75mm shells with ease, but it provides state-of-the-art curved blast shielding for maximum protection from crossfire.",
     "TechID": "ETechID::UnlockFacilityTier3",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FieldCannonHeavyWIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
@@ -12248,6 +12402,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12332,6 +12489,7 @@
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
       "MaxHealth": 3750,
       "MinorDamagePercent": 0.7,
@@ -12380,6 +12538,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12396,6 +12557,7 @@
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 235,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
       "MaxHealth": 1000,
       "MinorDamagePercent": 0.7,
@@ -12444,6 +12606,99 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LargeShips/LargeShipAircraftC/BPLargeShipAircraftC",
+    "CodeName": "LargeShipAircraftC",
+    "DisplayName": "Poseidon",
+    "Description": "The Poseidon-class Aircraft Carrier represents a masterwork of military might for both the Republic Coastal Legion and the Colonial Aeronautics Corps This massive vessel rivals even Titan-class battleships in scale. Upon launching the first ever aerial assault in the north, it became clear to the Mesean Senate that the sky was the future of warfare. Republic Command was quick to put concerted effort into further developing the Aeronautics Corps capabilities. Before a single plane marked by a Caoivish flag passed through clouds, the Poseidon had been launched. Following the success of the Poseidon, Combat Magister Curia was stripped of his position, having wasted resources investing in submersibles.",
+    "FactionVariant": "EFactionId::Colonials",
+    "TechID": "ETechID::UnlockLargeShipAircraft",
+    "Icon": "War/Content/Textures/UI/ItemIcons/LargeshipAircraftCIcon.0",
+    "VehicleProfileType": "EVehicleProfileType::CombatShip",
+    "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
+    "ArmourType": "EArmourType::Tier1LargeShip",
+    "FuelTank": 3000,
+    "bIsStockpilable": false,
+    "VehicleDynamicData": {
+      "MaxHealth": 78050,
+      "MinorDamagePercent": 0.5,
+      "MajorDamagePercent": 0.75,
+      "RepairCost": 500,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 15,
+      "FuelCapacity": 3000,
+      "FuelConsumptionPerSecond": 0.7,
+      "SwimmingFuelConsumptionModifier": 1,
+      "DefaultSurfaceMovementRate": 0.7,
+      "OffroadSnowPenalty": 1,
+      "ReverseSpeedModifier": 0.7,
+      "RotationRate": 0.045,
+      "RotationSpeedCuttoff": 0,
+      "SpeedSqrThreshold": 500,
+      "EngineForce": 0,
+      "MassOverride": 2650000,
+      "TankArmour": 78050,
+      "MinTankArmourPercent": 0.75,
+      "TankArmourMinPenetrationChance": 0.05,
+      "VehicleSubsystemDisableChances": 0,
+      "bHasTierUpgrades": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ShipDynamicData": {
+      "SecondsToMaxRPM": 1,
+      "MaxPropellerRPM": 300,
+      "MaxRudderAngle": 45,
+      "RudderTurnRate": 45,
+      "Fp": 1,
+      "Fs": 1,
+      "DragReferenceSpeed": 5,
+      "Cpd1": 1000,
+      "Cpd2": 3000,
+      "Csd1": 1000,
+      "Csd2": 3000,
+      "SlammingPower": 2,
+      "GammaMax": 5,
+      "Cad": 21500,
+      "RudderLength": 400,
+      "RudderDepth": 600,
+      "ThrustVectoringPercent": 0.26,
+      "MaxDivePlaneAngle": 0,
+      "DivePlaneTurnRate": 0,
+      "VerticalThrustVectoringPercent": 0,
+      "BallastFloodRate": 0,
+      "BallastBlowRate": 0,
+      "FullyFloodedEngineForceMultiplier": 0.05,
+      "BeachedEngineForceMultiplier": 30,
+      "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
     }
   },
   {
@@ -12534,6 +12789,96 @@
       "BallastBlowRate": 0,
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
+      "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    }
+  },
+  {
+    "ObjectPath": "War/Content/Blueprints/Vehicles/LargeShips/BattleShipAircraftW/BPLargeShipBattleshipAircraftW",
+    "CodeName": "LargeShipBattleshipAircraftW",
+    "DisplayName": "Mercy",
+    "Description": "The Mercy-class carrier, commissioned to aid the Alliance Sky Brigade in combating the rapid deployment of Colonial aircraft, is fitted with several launchpads to rapidly deploy aircraft from any oceanic location. Mercys were designed to be self-sufficient in defending against aerial bombardments and ship-to-ship defence. Originally, this class of ship had a different designation, but Bright Mercy, great-grandfather of Archon Fionn Mercy, had it changed once he’d seen it in person. To this day, the story goes that he fell to his knees and sobbed at the sight of it. “It was akin to witnessing a god.”",
+    "FactionVariant": "EFactionId::Wardens",
+    "TechID": "ETechID::UnlockLargeShipBattleshipAircraft",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/LargeShipBattleshipAircraftWIcon.0",
+    "VehicleProfileType": "EVehicleProfileType::CombatShip",
+    "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
+    "ArmourType": "EArmourType::Tier1LargeShip",
+    "FuelTank": 3500,
+    "bIsStockpilable": false,
+    "VehicleDynamicData": {
+      "MaxHealth": 74750,
+      "MinorDamagePercent": 0.5,
+      "MajorDamagePercent": 0.75,
+      "RepairCost": 500,
+      "ResourcesPerBuildCycle": 1,
+      "ItemHolderCapacity": 15,
+      "FuelCapacity": 3500,
+      "FuelConsumptionPerSecond": 0.9,
+      "SwimmingFuelConsumptionModifier": 1,
+      "DefaultSurfaceMovementRate": 0.7,
+      "OffroadSnowPenalty": 1,
+      "ReverseSpeedModifier": 0.7,
+      "RotationRate": 0.045,
+      "RotationSpeedCuttoff": 0,
+      "SpeedSqrThreshold": 500,
+      "EngineForce": 0,
+      "MassOverride": 2850000,
+      "TankArmour": 74750,
+      "MinTankArmourPercent": 0.75,
+      "TankArmourMinPenetrationChance": 0.05,
+      "VehicleSubsystemDisableChances": 0,
+      "bHasTierUpgrades": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
+    },
+    "VehicleProfileData": {
+      "bUsesRollTrace": true,
+      "bCanTriggerMine": true,
+      "RamDamageDealtFlags": 37,
+      "bUsesGas": true,
+      "DrivingSpeedThreshold": 100,
+      "MaxVehicleAngle": 0,
+      "bEnableStealth": false,
+      "DamageDrivingOverStructures": 0,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "VehicleMovementProfileData": {
+      "Mass": 7500,
+      "BrakeForce": 26000,
+      "HandbrakeForce": 20000,
+      "AirResistance": 70,
+      "RollingResistance": 260,
+      "LowSpeedEngineForceMultiplier": 1.5,
+      "LowGearCutoff": 0.45,
+      "CenterOfGravityHeight": 1.4,
+      "bUsesDifferentialSteering": false,
+      "bCanRotateInPlace": false,
+      "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ShipDynamicData": {
+      "SecondsToMaxRPM": 1,
+      "MaxPropellerRPM": 300,
+      "MaxRudderAngle": 45,
+      "RudderTurnRate": 45,
+      "Fp": 1,
+      "Fs": 1,
+      "DragReferenceSpeed": 5,
+      "Cpd1": 1000,
+      "Cpd2": 3000,
+      "Csd1": 1000,
+      "Csd2": 3000,
+      "SlammingPower": 2,
+      "GammaMax": 5,
+      "Cad": 21500,
+      "RudderLength": 200,
+      "RudderDepth": 300,
+      "ThrustVectoringPercent": 0.26,
+      "MaxDivePlaneAngle": 0,
+      "DivePlaneTurnRate": 0,
+      "VerticalThrustVectoringPercent": 0,
+      "BallastFloodRate": 0,
+      "BallastBlowRate": 0,
+      "FullyFloodedEngineForceMultiplier": 0.05,
+      "BeachedEngineForceMultiplier": 30,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
     }
   },
@@ -12818,7 +13163,7 @@
     "Description": "Named for the unpainted look of an early prototype, the Blacksteele-Class Frigate is a highly manoeuvrable, albeit small-statured vessel. Deployment of “Trident” Submarines by the Republic Coastal Legion saw the Caoivish Naval Command respond in kind with the Blacksteele. Designed as a sub-hunter escort, the Blacksteele excels at thwarting submersible assaults against larger, ungainly ships. The head shipwright on the project was none other than Conor O’Brien’s top protégé, Rory Boyd, who, in his later years became known as a master shipwright, and largely recognised as the man behind the Caoivish Naval Command’s world-class reputation.",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockLargeShipDestroyer",
-    "Icon": "War/Content/Blueprints/Vehicles/LargeShips/LargeShipDestroyerW/LargeShipDestroyerWIcon.0",
+    "Icon": "War/Content/Textures/UI/VehicleIcons/LargeShipDestroyerWIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
@@ -13361,7 +13706,6 @@
     "DisplayName": "K-81e “Sombre”",
     "Description": "The “Sombre” is an escort gunship that excels at deterring air-to-naval aggression. Fitted with paired machine gun turrets and boasting a heavier frame than most vessels of comparable size, this Kraunian-made K81e emerges at a moment’s notice to defend its charge.",
     "FactionVariant": "EFactionId::Colonials",
-    "TechID": "ETechID::UnlockLightBoatInfantry",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightBoatInfantryCIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -13370,10 +13714,10 @@
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 1500,
-      "MinorDamagePercent": 0.7,
+      "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.85,
-      "RepairCost": 100,
-      "ResourcesPerBuildCycle": 1,
+      "RepairCost": 130,
+      "ResourcesPerBuildCycle": 2,
       "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
@@ -13388,7 +13732,7 @@
       "MassOverride": 50000,
       "TankArmour": 7000,
       "MinTankArmourPercent": 0.33,
-      "TankArmourMinPenetrationChance": 0.33,
+      "TankArmourMinPenetrationChance": 0.4,
       "VehicleSubsystemDisableChances": 0,
       "bHasTierUpgrades": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleDynamicData"
@@ -13454,7 +13798,6 @@
     "DisplayName": "68A-4 Ronan Fathomer",
     "Description": "This naval escort ship excels at sea-to-air engagements, providing friendly naval vessels with critical protection from enemy aircraft. The 68-series remains one of Patrick Ronan’s favourite designs. Having been commissioned by the Watchers to aid in coastal investigations, this modification—given the designation A-4—has since eclipsed its forebear’s ubiquity.",
     "FactionVariant": "EFactionId::Wardens",
-    "TechID": "ETechID::UnlockLightBoatInfantry",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightBoatInfantryWVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -13467,7 +13810,7 @@
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
-      "ResourcesPerBuildCycle": 1,
+      "ResourcesPerBuildCycle": 2,
       "ItemHolderCapacity": 2,
       "FuelCapacity": 200,
       "FuelConsumptionPerSecond": 0.075,
@@ -13526,9 +13869,9 @@
       "SlammingPower": 2,
       "GammaMax": 5,
       "Cad": 40,
-      "RudderLength": 125,
-      "RudderDepth": 125,
-      "ThrustVectoringPercent": 0.25,
+      "RudderLength": 225,
+      "RudderDepth": 225,
+      "ThrustVectoringPercent": 0.4,
       "MaxDivePlaneAngle": 35,
       "DivePlaneTurnRate": 45,
       "VerticalThrustVectoringPercent": 0,
@@ -13688,7 +14031,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankArtilleryWar.0",
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 300,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -13742,6 +14085,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13822,12 +14168,12 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarDefensiveVehicleIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 300,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
-    "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 1950,
@@ -13877,6 +14223,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13888,8 +14237,8 @@
     "TechID": "ETechID::UnlockLightTankFlame",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankFlameCIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "FuelTank": 225,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 325,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -13943,6 +14292,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13954,14 +14306,14 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankColMobilityVehicleIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 300,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "BoostSpeedModifier": 1.8,
     "BoostGasUsageModifier": 6,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
-    "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2250,
@@ -14011,6 +14363,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14023,7 +14378,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankOffensiveCVehicleIcon.0",
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 325,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
@@ -14077,6 +14432,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14684,12 +15042,11 @@
     "DisplayName": "Strider",
     "Description": "A small but sturdy naval weapons platform excelling in ship-to-ship combat. Deadly to both enemy vessels and crew, the Type D comes fitted with starboard and port-facing machine guns alongside bow and stern-facing cannons.",
     "FactionVariant": "EFactionId::Colonials",
-    "TechID": "ETechID::UnlockMediumBoat",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumBoatCIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Ship",
-    "FuelTank": 300,
+    "FuelTank": 250,
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
@@ -14697,7 +15054,7 @@
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 150,
-      "ResourcesPerBuildCycle": 1,
+      "ResourcesPerBuildCycle": 5,
       "ItemHolderCapacity": 4,
       "FuelCapacity": 250,
       "FuelConsumptionPerSecond": 0.075,
@@ -14744,7 +15101,7 @@
     "ShipDynamicData": {
       "SecondsToMaxRPM": 1,
       "MaxPropellerRPM": 1000,
-      "MaxRudderAngle": 35,
+      "MaxRudderAngle": 45,
       "RudderTurnRate": 75,
       "Fp": 0.3,
       "Fs": 0.3,
@@ -14756,8 +15113,8 @@
       "SlammingPower": 2,
       "GammaMax": 5,
       "Cad": 40,
-      "RudderLength": 320,
-      "RudderDepth": 320,
+      "RudderLength": 500,
+      "RudderDepth": 500,
       "ThrustVectoringPercent": 0.5,
       "MaxDivePlaneAngle": 35,
       "DivePlaneTurnRate": 45,
@@ -14778,7 +15135,6 @@
     "DisplayName": "Rinnspeir Ornitier-Class Gunship",
     "Description": "Known as the “Bounty Hunter of the Sea”, the Ornitier is a deadly ship-to-ship weapons platform. While not as manoeuvrable as smaller vessels, its sturdy frame allows it to take much more punishment. Twin gunwale-mounted cannons provide ample firepower to punch holes in enemy ships, while its bow-mounted RPG launcher ends any chase before it has a chance to begin.",
     "FactionVariant": "EFactionId::Wardens",
-    "TechID": "ETechID::UnlockMediumBoat",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumBoatWVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -14787,11 +15143,11 @@
     "VehicleBuildType": "EVehicleBuildType::Shipyard",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
-      "MaxHealth": 2000,
+      "MaxHealth": 2050,
       "MinorDamagePercent": 0.7,
       "MajorDamagePercent": 0.85,
       "RepairCost": 130,
-      "ResourcesPerBuildCycle": 1,
+      "ResourcesPerBuildCycle": 5,
       "ItemHolderCapacity": 3,
       "FuelCapacity": 250,
       "FuelConsumptionPerSecond": 0.05,
@@ -14850,9 +15206,9 @@
       "SlammingPower": 2,
       "GammaMax": 5,
       "Cad": 500,
-      "RudderLength": 300,
-      "RudderDepth": 300,
-      "ThrustVectoringPercent": 0.5,
+      "RudderLength": 400,
+      "RudderDepth": 400,
+      "ThrustVectoringPercent": 0.6,
       "MaxDivePlaneAngle": 35,
       "DivePlaneTurnRate": 45,
       "VerticalThrustVectoringPercent": 0,
@@ -14945,7 +15301,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2IndirectWIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "FuelTank": 300,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "BoostSpeedModifier": 1.6,
     "BoostGasUsageModifier": 6,
@@ -15001,6 +15357,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15013,7 +15372,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2MultiWIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "FuelTank": 300,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "BoostSpeedModifier": 1.6,
     "BoostGasUsageModifier": 6,
@@ -15069,6 +15428,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15081,7 +15443,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2RangeWIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "FuelTank": 300,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
     "BoostSpeedModifier": 1.6,
     "BoostGasUsageModifier": 6,
@@ -15137,6 +15499,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15148,8 +15513,8 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTank2TwinCVehicleIcon.0",
-    "FuelTank": 275,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 375,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -15203,6 +15568,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15353,7 +15721,7 @@
     "TechID": "ETechID::UnlockFacilityTier3",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTankATWIcon.0",
     "FuelTank": 375,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Assault Tank",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
@@ -15409,6 +15777,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15490,7 +15861,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTankLargeCIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "FuelTank": 325,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Assault Tank",
     "FactionVariant": "EFactionId::Colonials",
     "VehiclesPerCrateBonusQuantity": 2,
@@ -15546,6 +15917,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15555,11 +15929,11 @@
     "Description": "The “Spatha” assault tank features a unique and destructive 40mm turret that fires high-velocity shells. This specialized turret is not as well suited to mass-production as its more refined counterpart, the “Falchion.”",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ColonialMediumTankOffensive.0",
+    "FuelTank": 325,
     "VehiclesPerCrateBonusQuantity": 0,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Assault Tank",
     "FactionVariant": "EFactionId::Colonials",
-    "FuelTank": 225,
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
@@ -15613,6 +15987,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15623,7 +16000,7 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MediumTankSiegeWVehicleIcon.0",
     "FuelTank": 325,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Assault Tank",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
@@ -15679,6 +16056,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16187,7 +16567,6 @@
     "ChassisName": "Mine Boat",
     "DisplayName": "Bellweather by VAC",
     "Description": "A simple vessel designed to lay out and maintain naval mines. Manufactured by the Venchin Auto Corporation, the Bellweather was originally commissioned by the Wenitan Naval Guard. Sensing further opportunities to profit, VAC began marketing the Bellweather to navies beyond Katoma, finally reaching Caoivish shores.",
-    "TechID": "ETechID::UnlockMineBoat",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MineboatIcon.0",
     "VehicleProfileType": "EVehicleProfileType::Ship",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
@@ -16361,14 +16740,17 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 2200,
+      "Damage": 500,
       "Suppression": 0,
       "ExplosionRadius": 750,
       "DamageType": {
-        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPExplosiveDamageType.0",
-        "DisplayName": "Explosive",
-        "Type": "EDamageType::Explosive",
-        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPArmourPiercingWaterMineDamageType.0",
+        "DisplayName": "Armour Piercing",
+        "Type": "EDamageType::ArmourPiercing",
+        "DescriptionDetails": "High chance to penetrate armoured vehicles.\nAdditional 100% chance to penetrate armoured vehicles.",
+        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+        "TankArmourEffectType": "ETankArmourEffectType::Large",
+        "bApplyTankArmourAngleRangeBonuses": false,
         "bExposeInUI": true
       },
       "DamageInnerRadius": 650,
@@ -16377,7 +16759,7 @@
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
-    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -16410,7 +16792,8 @@
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
     },
     "ProductionCategories": {
-      "Factory": "EFactoryQueueType::HeavyAmmo"
+      "Factory": "EFactoryQueueType::HeavyAmmo",
+      "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
     }
   },
   {
@@ -16901,8 +17284,8 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MortarTankVehicleIcon.0",
-    "FuelTank": 200,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 300,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Siege Tank",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
@@ -16957,6 +17340,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -17100,7 +17486,7 @@
     "DisplayName": "00MS “Stinger”",
     "Description": "The cab of this Motorcycle is fitted with an LMG for fast-response hit and run assaults.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MotorcycleOffensiveVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
@@ -17158,6 +17544,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -17622,6 +18011,7 @@
     "ChassisName": "Colonial Pilot Uniform",
     "DisplayName": "Lodesman’s Lorica",
     "Description": "Standard-issue Colonial Aeronautics Corps lodesman’s uniform. Fashioned for function over form, CAC pilots are protected from external elements while free to execute their duties with efficiency.",
+    "ItemProfileType": "EItemProfileType::ReserveableUniform",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockPilotUniform",
     "Icon": "War/Content/Textures/UI/ItemIcons/Uniforms/PilotUniformCIcon.0",
@@ -17629,7 +18019,6 @@
     "Encumbrance": 125,
     "EquipmentSlot": "EEquipmentSlot::Body",
     "ItemCategory": "EItemCategory::Uniforms",
-    "ItemProfileType": "EItemProfileType::Uniform",
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -17638,16 +18027,16 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 10,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 90,
       "SingleRetrieveTime": 5,
-      "CrateRetrieveTime": 16,
+      "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
     "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
-      "bIsConvertibleToCrate": false,
+      "bIsConvertibleToCrate": true,
       "bIsCratable": true,
       "bIsStockpiledWithAmmo": false,
       "bUsableInVehicle": false,
@@ -17663,6 +18052,7 @@
     "ChassisName": "Warden Pilot Uniform",
     "DisplayName": "Aviator’s Raiment",
     "Description": "A pilot’s overcoat and goggles specially designed for cold-weather flying. Alliance Sky Brigade pilots are amongst the most talented aviators in the world, training from as young as eight years of age to hone their reflexes and strengthen their bones against atmospheric forces. Many won’t make it to adulthood.",
+    "ItemProfileType": "EItemProfileType::ReserveableUniform",
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockPilotUniform",
     "Icon": "War/Content/Textures/UI/ItemIcons/Uniforms/PilotUniformWIcon.0",
@@ -17670,7 +18060,6 @@
     "Encumbrance": 125,
     "EquipmentSlot": "EEquipmentSlot::Body",
     "ItemCategory": "EItemCategory::Uniforms",
-    "ItemProfileType": "EItemProfileType::Uniform",
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -17679,16 +18068,16 @@
           "DisplayName": "Basic Materials"
         }
       ],
-      "QuantityPerCrate": 10,
+      "QuantityPerCrate": 1,
       "CrateProductionTime": 90,
       "SingleRetrieveTime": 5,
-      "CrateRetrieveTime": 16,
+      "CrateRetrieveTime": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemDynamicData"
     },
     "ItemProfileData": {
       "bIsStockpilable": true,
       "bIsStackable": false,
-      "bIsConvertibleToCrate": false,
+      "bIsConvertibleToCrate": true,
       "bIsCratable": true,
       "bIsStockpiledWithAmmo": false,
       "bUsableInVehicle": false,
@@ -18100,7 +18489,7 @@
   {
     "ObjectPath": "War/Content/Blueprints/ItemPickups/BPRadioAircraftPickup",
     "CodeName": "RadioAircraft",
-    "DisplayName": "Liason Transmitter",
+    "DisplayName": "Liaison Transmitter",
     "Description": "Allows receiving map intelligence reports on detected airborne targets.",
     "EquipmentSlot": "EEquipmentSlot::Utility",
     "ItemCategory": "EItemCategory::Utility",
@@ -20473,8 +20862,8 @@
     "CodeName": "SatchelChargeW",
     "DisplayName": "Alligator Charge",
     "Description": "This heavy-duty explosive device is designed to deal significant damage to fortified structures and stationary vehicles. ",
-    "Encumbrance": 385,
-    "EquipmentSlot": "EEquipmentSlot::Tertiary",
+    "Encumbrance": 125,
+    "EquipmentSlot": "EEquipmentSlot::Large",
     "ItemCategory": "EItemCategory::Utility",
     "ItemProfileType": "EItemProfileType::Tool",
     "FactionVariant": "EFactionId::Wardens",
@@ -20484,8 +20873,9 @@
       "ObjectPath": "War/Content/Blueprints/Items/SatchelChargeComponent.0",
       "EquippedGripType": "EEquippedWeaponGripType::HeavySingleHandItem"
     },
+    "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 400,
+      "Damage": 550,
       "Suppression": 45,
       "ExplosionRadius": 200,
       "DamageType": {
@@ -20507,16 +20897,16 @@
       "CostPerCrate": [
         {
           "ItemCodeName": "Cloth",
-          "Quantity": 150,
+          "Quantity": 100,
           "DisplayName": "Basic Materials"
         },
         {
           "ItemCodeName": "Explosive",
-          "Quantity": 160,
+          "Quantity": 80,
           "DisplayName": "Explosive Powder"
         }
       ],
-      "QuantityPerCrate": 10,
+      "QuantityPerCrate": 5,
       "CrateProductionTime": 100,
       "SingleRetrieveTime": 10,
       "CrateRetrieveTime": 20,
@@ -20553,6 +20943,7 @@
     "ShippableInfo": "EShippableType::Large",
     "FuelTank": 350,
     "DepthCuttoffForSwimDamage": 225,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
       "MaxHealth": 1350,
       "MinorDamagePercent": 0.7,
@@ -20601,6 +20992,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -20611,13 +21005,13 @@
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutTankOffensiveWIcon.0",
     "ShippableInfo": "EShippableType::Normal",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "FuelTank": 350,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Scout Tank",
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
-    "FuelTank": 250,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 1350,
@@ -20667,6 +21061,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -20849,7 +21246,7 @@
       "MajorDamagePercent": 0.8,
       "RepairCost": 120,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 5,
+      "ItemHolderCapacity": 6,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -20904,7 +21301,7 @@
     "TechID": "ETechID::UnlockScoutVehicleOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleOffensiveVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -20959,6 +21356,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -20969,7 +21369,7 @@
     "TechID": "ETechID::UnlockScoutVehicleOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleOffensiveWarVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -21024,6 +21424,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -21033,7 +21436,7 @@
     "Description": "This simple, modified Utility Vehicle is fitted with a reinforced hatch to provide one crew member with increased visibility for intense recon operations.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleUtilityCVehicleIcon.0",
     "ArmourType": "EArmourType::LightVehicle",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -21046,7 +21449,7 @@
       "MajorDamagePercent": 0.8,
       "RepairCost": 120,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 6,
+      "ItemHolderCapacity": 7,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -21088,6 +21491,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -21103,6 +21509,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Normal",
     "DepthCuttoffForSwimDamage": 205,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 900,
@@ -21110,7 +21517,7 @@
       "MajorDamagePercent": 0.8,
       "RepairCost": 120,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 6,
+      "ItemHolderCapacity": 7,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.1,
       "SwimmingFuelConsumptionModifier": 3.5,
@@ -21152,6 +21559,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -21175,7 +21585,7 @@
       "MajorDamagePercent": 0.8,
       "RepairCost": 120,
       "ResourcesPerBuildCycle": 1,
-      "ItemHolderCapacity": 8,
+      "ItemHolderCapacity": 9,
       "FuelCapacity": 100,
       "FuelConsumptionPerSecond": 0.05,
       "SwimmingFuelConsumptionModifier": 1,
@@ -23023,11 +23433,11 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ShippableInfo": "EShippableType::None",
     "FuelTank": 600,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Super Tank",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::SuperTank",
     "VehiclesPerCrateBonusQuantity": 2,
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "ArmourType": "EArmourType::Tier2Tank",
     "DepthCuttoffForSwimDamage": 225,
     "bIsStockpilable": false,
@@ -23068,6 +23478,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23082,8 +23495,8 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::SuperTankW",
     "ShippableInfo": "EShippableType::None",
     "FuelTank": 600,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
     "ArmourType": "EArmourType::Tier2Tank",
     "DepthCuttoffForSwimDamage": 225,
     "bIsStockpilable": false,
@@ -23124,6 +23537,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23134,7 +23550,7 @@
     "Description": "A specialized sea mine that floats near the surface, causing destructive damage to ship hulls.",
     "Encumbrance": 385,
     "EquipmentSlot": "EEquipmentSlot::Large",
-    "ItemCategory": "EItemCategory::Utility",
+    "ItemCategory": "EItemCategory::HeavyAmmo",
     "ItemProfileType": "EItemProfileType::Tool",
     "Icon": "War/Content/Textures/UI/ItemIcons/SurfaceMineIcon.0",
     "ItemComponentClass": {
@@ -23143,14 +23559,17 @@
     },
     "bIsLarge": true,
     "AmmoDynamicData": {
-      "Damage": 750,
+      "Damage": 650,
       "Suppression": 0,
       "ExplosionRadius": 750,
       "DamageType": {
-        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPExplosiveDamageType.0",
-        "DisplayName": "Explosive",
-        "Type": "EDamageType::Explosive",
-        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+        "ObjectPath": "War/Content/Blueprints/DamageTypes/BPArmourPiercingWaterMineDamageType.0",
+        "DisplayName": "Armour Piercing",
+        "Type": "EDamageType::ArmourPiercing",
+        "DescriptionDetails": "High chance to penetrate armoured vehicles.\nAdditional 100% chance to penetrate armoured vehicles.",
+        "Icon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
+        "TankArmourEffectType": "ETankArmourEffectType::Large",
+        "bApplyTankArmourAngleRangeBonuses": false,
         "bExposeInUI": true
       },
       "DamageInnerRadius": 750,
@@ -23159,7 +23578,7 @@
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
-    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0",
+    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -23351,7 +23770,7 @@
     "Description": "The first T-class tankette to utilize this sturdier frame and versatile treads, the Vesta also represents the Velian’s first foray into fire weapons. The “Vesta” boasts a light flame turret and ample storage for the additional fuel supply required.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TanketteFlameCIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
@@ -23406,6 +23825,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23422,6 +23844,7 @@
     "ArmourType": "EArmourType::Tier2Tank",
     "ShippableInfo": "EShippableType::Normal",
     "FuelTank": 150,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
       "MaxHealth": 1350,
       "MinorDamagePercent": 0.7,
@@ -23470,6 +23893,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23480,7 +23906,7 @@
     "Description": "A bombastic variant of the T12 Tankette, the “Ixion” provides its crew with more support and a mounted Infantry Support Gun. Added weight from the armour results in reduced overall speed.",
     "TechID": "ETechID::UnlockTanketteOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TanketteOffensiveCVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
@@ -23535,6 +23961,9 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23765,6 +24194,7 @@
     "Description": "A simple towable trailer that holds various fuel sources and can be used to refuel vehicles.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/FuelTrailerIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Trailer",
     "VehicleProfileType": "EVehicleProfileType::Trailer",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Trailer",
@@ -23818,6 +24248,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -23827,6 +24260,7 @@
     "Description": "A simple towable trailer that holds heavier building materials.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/MaterialTrailerIcon.0",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Trailer",
     "VehicleProfileType": "EVehicleProfileType::Trailer",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Trailer",
@@ -23880,6 +24314,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24692,7 +25129,7 @@
     "DisplayName": "Dunne Leatherback 2a",
     "Description": "A heavy, reinforced Dunne transport. Fitted with a heavier frame, the Leatherback is capable of enduring more punishment at the cost of initial acceleration. ",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckDefensiveWIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -24701,7 +25138,7 @@
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
     "VehicleDynamicData": {
-      "MaxHealth": 1250,
+      "MaxHealth": 900,
       "MinorDamagePercent": 0.5,
       "MajorDamagePercent": 0.85,
       "RepairCost": 120,
@@ -24748,6 +25185,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24892,7 +25332,7 @@
     "DisplayName": "R-5b “Sisyphus” Hauler",
     "Description": "This variation of the standard R-5 Hauler is fitted with an improved suspension and axle system resulting in better overall handling. However, these improvements may not hold up under severe weather conditions.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckMobilityCVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "BoostSpeedModifier": 1.3,
     "BoostGasUsageModifier": 5,
     "bCanUseStructures": true,
@@ -24950,6 +25390,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24959,7 +25402,7 @@
     "Description": "This standard Truck is fitted with rugged off-road treads, allowing for more efficient movement on rough terrain and conditions at the expense of maximum speed.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckMobilityWarVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -25014,6 +25457,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25029,6 +25475,7 @@
     "ArmourType": "EArmourType::LightVehicle",
     "ShippableInfo": "EShippableType::Large",
     "DepthCuttoffForSwimDamage": 255,
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.35,
@@ -25077,6 +25524,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25085,7 +25535,7 @@
     "DisplayName": "R-9 “Speartip” Escort",
     "Description": "This standard Truck is fitted with Light Machinegun in place of the passenger seat. It’s well suited as an escort for convoys or lightly armoured operations.",
     "Icon": "War/Content/Textures/UI/VehicleIcons/TruckOffensiveVehicleIcon.0",
-    "VehicleBuildType": "EVehicleBuildType::NotBuildable",
+    "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
@@ -25141,6 +25591,9 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "ProductionCategories": {
+      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
