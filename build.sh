@@ -33,7 +33,7 @@ generateIconTraining() {
   ./find-duplicates.sh $cpus
 
   echo "Copying each training png to jpg."
-  find training/* -type d | xargs -I@ -n1 -P$cpus sh -c "cd @; mogrify -quality 89 -format jpg *.png"
+  find training/* -type d | xargs -I@ -n1 -P$cpus sh -c "cd @; mogrify -quality 89 -format jpg -strip *.png"
 
   cd ..
 }

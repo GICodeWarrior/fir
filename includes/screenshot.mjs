@@ -1,9 +1,10 @@
 import OCR from './ocr.mjs'
 import fis_init, { slice_stockpile } from './slicer/fis.js'
 
-const fis_init_promise = fis_init();
-
-class UnableToParseQuantity extends Error {}
+const globalInitPromises = [
+  fis_init(),
+  tf.setBackend('wasm'),
+];
 
 const quantityOCR = new OCR();
 const headerOCR = new OCR({
@@ -23,7 +24,13 @@ export async function process(screenshotCanvas, iconModelURL, iconClassNames, qu
   const context = screenshotCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
   const rgba = context.getImageData(0, 0, width, height).data;
 
-  await fis_init_promise;
+  const initPromises = [
+    models[iconModelURL],
+    models[quantityModelURL],
+    ...globalInitPromises,
+  ];
+  const [iconModel, quantityModel, ] = await Promise.all(initPromises);
+
   const stockpile = slice_stockpile(rgba, width);
   if (!stockpile) {
     console.log("extraction failed");
@@ -36,7 +43,7 @@ export async function process(screenshotCanvas, iconModelURL, iconClassNames, qu
     classifyIcons(
       screenshotCanvas,
       stockpile.contents.map(e => e.icon.bounds),
-      models[iconModelURL],
+      iconModel,
       iconClassNames,
     ).then(results => {
       results.forEach((classification, index) => {
@@ -45,24 +52,18 @@ export async function process(screenshotCanvas, iconModelURL, iconClassNames, qu
     })
   );
 
-  const quantityThreshold = (265 - stockpile.quantity_grey) * 2/3;
-  for (const entry of stockpile.contents) {
-    promises.push(
-      ocrQuantity(
-        screenshotCanvas,
-        entry.quantity.bounds,
-        models[quantityModelURL],
-        quantityClassNames,
-        quantityThreshold,
-      ).then(q => entry.quantity.value = q).catch(function(e) {
-        if (e instanceof UnableToParseQuantity) {
-          console.log('Unable to parse quantity:', quantityBox);
-        } else {
-          throw e;
-        }
-      })
-    );
-  }
+  promises.push(
+    classifyQuantities(
+      screenshotCanvas,
+      stockpile.contents.map(e => e.quantity.bounds),
+      quantityModel,
+      quantityClassNames,
+    ).then(results => {
+      results.forEach((classification, index) => {
+        Object.assign(stockpile.contents[index].quantity, classification);
+      });
+    })
+  );
 
   if (stockpile.header) {
     stockpile.header.stockpile_type.bounds
@@ -114,69 +115,111 @@ async function ocrHeader(canvas, box) {
 
   let value = result.data.text.trim();
   if (!value.length) {
-    //throw new UnableToParseQuantity(value);
     console.log('empty header text', box);
   }
 
   return value;
 }
 
-async function ocrQuantity(canvas, box, model, classNames, threshold) {
-  canvas = cropCanvas(canvas, box, 'grayscale(100%) invert(100%)', 5);
-  thresholdCanvas(canvas, threshold);
-  //document.body.appendChild(canvas);
+async function batchPredict(canvas, bounds, model, classNames, shape, channels) {
+  const groups = {};
+  bounds.forEach((b, i) => {
+    const key = `${b.width}x${b.height}`;
+    groups[key] ||= [];
+    groups[key].push(Object.assign({ index: i }, b));
+  });
 
-  canvas = autoCropCanvas(canvas, 32, 32);
+  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
 
-  const tfImage = tf.browser.fromPixels(canvas, 1).toFloat();
-  const prediction = (await model).predict(tfImage.expandDims(0));
+  const reorderIndices = [];
+  const predictionDataPromises = [];
 
-  const best = (await prediction.argMax(1).data())[0];
-  let value = classNames[best];
+  const toDispose = [];
 
-  if (value.match(/^[1-9][0-9]*k\+$/)) {
-    value = parseInt(value.slice(0, -2), 10) * 1000;
-  } else if (value.match(/^[0-9]+x$/)) {
-    value = parseInt(value.slice(0, -1), 10);
-  } else if (value.match(/^([1-9][0-9]*|[0-9])$/)) {
-    value = parseInt(value, 10);
-  } else {
-    throw new UnableToParseQuantity(value);
+  for (const group of Object.values(groups)) {
+    const batch = group.map(box => {
+      reorderIndices.push(box.index);
+
+      const data = context.getImageData(box.x, box.y, box.width, box.height).data;
+      const result = [];
+
+      for (let y = 0; y < box.height; ++y) {
+        const row = [];
+        for (let x = 0; x < box.width; ++x) {
+          const index = (y * box.width + x) * 4;
+          if (channels === 1) {
+            row.push([data[index]]);
+          } else if (channels === 3) {
+            row.push([data[index], data[index + 1], data[index + 2]]);
+          }
+        }
+        result.push(row);
+      }
+
+      return result;
+    });
+
+    const resized = tf.image.resizeBilinear(batch, shape);
+    toDispose.push(resized);
+
+    const predictions = model.predict(resized);
+    toDispose.push(predictions);
+
+    const argMax = predictions.argMax(1);
+    toDispose.push(argMax);
+
+    predictionDataPromises.push(argMax.data());
   }
 
-  return value;
+  const groupedResults = await Promise.all(predictionDataPromises);
+  toDispose.concat(groupedResults);
+
+  const results = new Array(bounds.length);
+  let offset = 0;
+  for (const group of groupedResults) {
+    for (const result of group) {
+      results[reorderIndices[offset++]] = result;
+    }
+  }
+
+  for (const tensor of toDispose) {
+    tensor.dispose();
+  }
+
+  return results;
 }
 
 const CRATED_REGEXP = new RegExp('-crated$');
 async function classifyIcons(canvas, iconBounds, model, classNames) {
-  const image = tf.browser.fromPixels(canvas);
+  const bestIndices = await batchPredict(canvas, iconBounds, model, classNames, [32, 32], 3);
 
-  const resizedIcons = iconBounds.map(bounds => {
-    const sliced = tf.slice(
-      image,
-      [bounds.y, bounds.x, 0],
-      [bounds.height, bounds.width, 3],
-    );
-    const resized = tf.image.resizeBilinear(sliced, [32, 32]);
-    sliced.dispose();
-
-    return resized;
-  });
-  image.dispose();
-
-  const iconsBatch = tf.stack(resizedIcons);
-  resizedIcons.forEach(t => t.dispose());
-
-  const predictions = (await model).predict(iconsBatch);
-  const bestIndices = Array.from(await predictions.argMax(1).data());
-  iconsBatch.dispose();
-  predictions.dispose();
-
-  return bestIndices.map(idx => {
-    const key = classNames[idx];
+  return bestIndices.map(index => {
+    const key = classNames[index];
     return {
       CodeName: key.replace(CRATED_REGEXP, ''),
       isCrated: !!key.match(CRATED_REGEXP),
+    };
+  });
+}
+
+async function classifyQuantities(canvas, quantityBounds, model, classNames) {
+  const bestIndices = await batchPredict(canvas, quantityBounds, model, classNames, [21, 16], 1);
+
+  return bestIndices.map(index => {
+    const label = classNames[index];
+    let value;
+
+    if (label.match(/k\+$/)) {
+      value = parseInt(label.slice(0, -2), 10) * 1000;
+    } else if (label.match(/x$/)) {
+      value = parseInt(label.slice(0, -1), 10);
+    } else {
+      value = parseInt(label, 10);
+    }
+
+    return {
+      label: label,
+      value: value,
     };
   });
 }
@@ -216,77 +259,3 @@ function cropCanvas(input, box, filter, resize) {
   return output;
 }
 
-function autoCropCanvas(image, outputWidth, outputHeight) {
-  const MIN_VALUE_CROP = 128;
-
-  const imageWidth = image.width;
-  const imageHeight = image.height;
-
-  let top = 0;
-  let right = imageWidth - 1;
-  let bottom = imageHeight - 1;
-  let left = 0;
-
-  const imgContext = image.getContext('2d', { alpha: false, willReadFrequently: true });
-  const imgPixels = imgContext.getImageData(0, 0, imageWidth, imageHeight).data;
-
-  for (let offset = 0; offset < imgPixels.length; offset += 4) {
-    if ((imgPixels[offset] < MIN_VALUE_CROP) ||
-        (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
-        (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
-      top = Math.floor((offset - 4) / 4 / imageWidth);
-      break;
-    }
-  }
-
-  right:
-  for (let col = imageWidth - 1; col >= 0; --col) {
-    for (let row = 0; row <= imageHeight; ++row) {
-      const offset = (row * imageWidth + col) * 4;
-      if ((imgPixels[offset] < MIN_VALUE_CROP) ||
-          (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
-          (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
-        right = col;
-        break right;
-      }
-    }
-  }
-
-  for (let offset = imgPixels.length - 4; offset >= 0; offset -= 4) {
-    if ((imgPixels[offset] < MIN_VALUE_CROP) ||
-        (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
-        (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
-      bottom = Math.floor((offset + 4) / 4 / imageWidth);
-      break;
-    }
-  }
-
-  left:
-  for (let col = 0; col < imageWidth; ++col) {
-    for (let row = 0; row < imageHeight; ++row) {
-      const offset = (row * imageWidth + col) * 4;
-      if ((imgPixels[offset] < MIN_VALUE_CROP) ||
-          (imgPixels[offset + 1] < MIN_VALUE_CROP) ||
-          (imgPixels[offset + 2] < MIN_VALUE_CROP)) {
-        left = col;
-        break left;
-      }
-    }
-  }
-
-  const cropWidth = right - left + 1;
-  const cropHeight = bottom - top + 1;
-
-  const canvas = document.createElement('canvas');
-  canvas.width = outputWidth;
-  canvas.height = outputHeight;
-  const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
-  //context.filter = 'blur(2px)';
-  context.drawImage(image,
-    left, top, cropWidth, cropHeight,
-    0, 0, outputWidth, outputHeight);
-  //document.body.appendChild(cropCanvas);
-  //console.log("top: " + top + " right: " + right + " bottom: " + bottom + " left: " + left);
-
-  return canvas;
-}
