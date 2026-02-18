@@ -1,4 +1,4 @@
-import * as front from './frontend.mjs'
+import * as front from './frontend.mjs';
 
 const VALID_VERSIONS = new Set([
   'entrenched',
@@ -38,6 +38,7 @@ await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);
   const downloadCollage = document.querySelector('button.collage');
   const downloadTotals = document.querySelector('button.totals');
   const downloadTSV = document.querySelector('button.tsv');
+  const copyTSV = document.querySelector('button.copy-tsv');
   const appendGoogle = document.querySelector('button.append-google');
 
   front.registerDefaultListeners();
@@ -45,5 +46,6 @@ await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);
   front.addDownloadCollageListener(downloadCollage);
   front.addDownloadTotalsListener(downloadTotals);
   front.addDownloadTSVListener(downloadTSV);
+  front.addCopyTSVListener(copyTSV);
   await front.addAppendGoogleListener(appendGoogle);
 })();
