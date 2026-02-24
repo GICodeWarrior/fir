@@ -27,11 +27,11 @@ import os
 import sys
 
 
-EPOCHS = int(sys.argv[1])
-COLOR_MODE = sys.argv[2]
-DROPOUT=float(sys.argv[3])
-VALIDATION_SPLIT=float(sys.argv[4])
-DATA_DIR = sys.argv[5]
+EPOCHS = 500
+COLOR_MODE = "rgb"
+DROPOUT = 0.3
+VALIDATION_SPLIT = 0.005
+DATA_DIR = sys.argv[1]
 
 IMG_SIZE = (32, 32)
 
@@ -91,6 +91,7 @@ model = Sequential([
   #layers.Conv2D(16, 3, padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.0000001)),
   layers.BatchNormalization(),
   layers.Activation('relu'),
+  layers.SpatialDropout2D(DROPOUT),
   layers.MaxPooling2D(),
   layers.GaussianDropout(DROPOUT),
   layers.Conv2D(32, 3, padding='same'),
@@ -105,14 +106,14 @@ model = Sequential([
   layers.Activation('relu'),
   layers.MaxPooling2D(),
   #layers.GaussianDropout(DROPOUT),
-  layers.Dropout(DROPOUT),
   layers.Flatten(),
+  layers.Dropout(DROPOUT),
 #  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
   layers.Dense(output_dim, name='outputs')
 ])
 
 model.compile(
-  optimizer=keras.optimizers.Adam(learning_rate=0.0001),
+  optimizer=keras.optimizers.Adam(learning_rate=0.0001, weight_decay=0.1),
   loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
   metrics=['accuracy'],
   #steps_per_execution='auto',

@@ -472,7 +472,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
-    "FuelTank": 350,
+    "FuelTank": 425,
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 8300,
@@ -566,7 +566,7 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
     "ShippableInfo": "EShippableType::Large",
-    "FuelTank": 350,
+    "FuelTank": 250,
     "bCanUseStructures": true,
     "VehicleDynamicData": {
       "MaxHealth": 8300,
@@ -1520,7 +1520,7 @@
       "ResourcesPerBuildCycle": 1,
       "ItemHolderCapacity": 1,
       "FuelCapacity": 100,
-      "FuelConsumptionPerSecond": 0.2453,
+      "FuelConsumptionPerSecond": 0.258,
       "SwimmingFuelConsumptionModifier": 1,
       "DefaultSurfaceMovementRate": 0.3,
       "OffroadSnowPenalty": 1,
@@ -1705,12 +1705,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -1774,12 +1778,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -1843,12 +1851,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -1912,12 +1924,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2026,12 +2042,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2095,12 +2115,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2164,12 +2188,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2233,12 +2261,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2302,12 +2334,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2371,12 +2407,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2440,12 +2480,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2509,12 +2553,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2578,12 +2626,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -2647,12 +2699,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -4986,12 +5042,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "ProductionCategories": {
@@ -5114,12 +5174,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5184,12 +5248,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5254,12 +5322,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5324,12 +5396,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5394,12 +5470,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5464,12 +5544,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5607,12 +5691,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     }
   },
@@ -5807,12 +5895,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -5875,12 +5967,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -6142,12 +6238,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 475,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -6272,12 +6372,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 475,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -6404,12 +6508,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 50,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 475,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -6671,12 +6779,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -6740,12 +6852,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8196,12 +8312,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8264,12 +8384,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8332,12 +8456,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8400,12 +8528,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8468,12 +8600,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8536,12 +8672,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8604,12 +8744,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8672,12 +8816,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8740,12 +8888,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8808,12 +8960,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -8876,12 +9032,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -9452,12 +9612,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -9517,12 +9681,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -9609,12 +9777,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10287,12 +10459,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10380,12 +10556,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10474,12 +10654,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10568,12 +10752,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10664,12 +10852,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10733,12 +10925,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10802,12 +10998,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10846,12 +11046,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10915,12 +11119,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -10959,12 +11167,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11028,12 +11240,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11097,12 +11313,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 100,
+      "DamageDrivingOverIce": 85,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11293,12 +11513,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11362,12 +11586,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11809,10 +12037,10 @@
     "ChassisName": "Landing APC",
     "DisplayName": "AB-8 “Acheron”",
     "Description": "The \"Acheron\" is an armoured amphibious vehicle designed for carrying troops across large bodies of water to aid in coordinated beach landings and flanking assaults. ",
+    "VehicleProfileType": "EVehicleProfileType::LandingCraft",
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockLandingCraft",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingCraftVehicleIcon.0",
-    "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Large",
@@ -11845,12 +12073,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11910,12 +12142,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -11941,10 +12177,10 @@
     "ChassisName": "Landing APC",
     "DisplayName": "Mulloy LPC",
     "Description": "The Mulloy Landing Personnel Carrier is an armoured amphibious vehicle designed for carrying troops across large bodies of water to aid in coordinated beach landings and flanking assaults.",
+    "VehicleProfileType": "EVehicleProfileType::LandingCraft",
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingCraftWarVehicleIcon.0",
     "TechID": "ETechID::UnlockLandingCraft",
-    "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier1Tank",
     "ShippableInfo": "EShippableType::Large",
@@ -11977,12 +12213,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12042,12 +12282,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12138,12 +12382,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12233,12 +12481,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12314,12 +12566,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12382,12 +12638,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12450,12 +12710,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12518,12 +12782,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12586,12 +12854,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 17.5,
       "bEnableStealth": true,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 40,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12623,6 +12895,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
     "FuelTank": 3000,
+    "MapIconType": "EMapIconType::LargeShipAircraftC",
     "bIsStockpilable": false,
     "VehicleDynamicData": {
       "MaxHealth": 78050,
@@ -12652,12 +12925,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12743,12 +13020,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12804,6 +13085,7 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
     "FuelTank": 3500,
+    "MapIconType": "EMapIconType::LargeShipBattleshipAircraftW",
     "bIsStockpilable": false,
     "VehicleDynamicData": {
       "MaxHealth": 74750,
@@ -12833,12 +13115,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -12924,12 +13210,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13015,12 +13305,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13106,12 +13400,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13197,12 +13495,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13287,12 +13589,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13378,12 +13684,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13469,12 +13779,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13560,12 +13874,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13740,12 +14058,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13833,12 +14155,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -13929,12 +14255,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14065,12 +14395,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14134,12 +14468,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14203,12 +14541,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14272,12 +14614,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14343,12 +14689,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14412,12 +14762,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14481,12 +14835,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14858,12 +15216,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -14924,12 +15286,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15077,12 +15443,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15170,12 +15540,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15266,12 +15640,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15337,12 +15715,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15408,12 +15790,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15479,12 +15865,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15548,12 +15938,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15619,12 +16013,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15688,12 +16086,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15757,12 +16159,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15827,12 +16233,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15897,12 +16307,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -15967,12 +16381,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -16036,12 +16454,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -16105,12 +16527,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -16602,12 +17028,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": false,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 37,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 0,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -17320,12 +17750,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -17385,12 +17819,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": true,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 30,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "StructureDynamicData": {
@@ -17455,12 +17893,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -17524,12 +17966,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -17594,12 +18040,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -18690,12 +19140,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     }
   },
@@ -18742,12 +19196,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -18810,12 +19268,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -18915,12 +19377,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -18986,12 +19452,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -19055,12 +19525,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -20972,12 +21446,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21041,12 +21519,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21110,12 +21592,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 7,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 800,
+      "DamageDrivingOverIce": 100,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21268,12 +21754,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21336,12 +21826,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21404,12 +21898,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21471,12 +21969,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21539,12 +22041,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -21607,12 +22113,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -22160,12 +22670,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -22223,12 +22737,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -22286,12 +22804,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -22349,12 +22871,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -22412,12 +22938,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -23578,7 +24108,6 @@
       "EnvironmentImpactAmount": 0,
       "ObjectPath": "War/Content/Blueprints/Data/BPAmmoDynamicData"
     },
-    "SubTypeIcon": "War/Content/Textures/UI/ItemIcons/SubtypeAPIcon.0",
     "ItemDynamicData": {
       "CostPerCrate": [
         {
@@ -23737,12 +24266,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -23805,12 +24338,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -23873,12 +24410,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -23941,12 +24482,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": true,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 25,
+      "DamageDrivingOverIce": 70,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24228,12 +24773,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 25,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24294,12 +24843,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 25,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24360,12 +24913,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 0,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 25,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24427,12 +24984,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24491,12 +25052,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24556,12 +25121,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24621,12 +25190,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24685,12 +25258,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24749,12 +25326,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24813,12 +25394,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24877,12 +25462,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -24941,12 +25530,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 103,
       "bUsesGas": false,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 0,
+      "DamageDrivingOverIce": 0,
+      "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25098,12 +25691,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25165,12 +25762,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25233,12 +25834,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25301,12 +25906,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25370,12 +25979,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25437,12 +26050,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25504,12 +26121,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25571,12 +26192,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25639,12 +26264,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25707,12 +26336,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {
@@ -25774,12 +26407,16 @@
     "VehicleProfileData": {
       "bUsesRollTrace": true,
       "bCanTriggerMine": false,
+      "bCanTriggerInfantryMine": true,
+      "bCanTriggerWaterMine": false,
       "RamDamageDealtFlags": 5,
       "bUsesGas": true,
       "DrivingSpeedThreshold": 100,
       "MaxVehicleAngle": 45,
       "bEnableStealth": false,
       "DamageDrivingOverStructures": 10,
+      "DamageDrivingOverIce": 60,
+      "bIsAllowedToLoadMultiple": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
     },
     "VehicleMovementProfileData": {

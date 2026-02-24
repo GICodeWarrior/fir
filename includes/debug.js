@@ -36,14 +36,8 @@ document.querySelector('form input').addEventListener('change', function() {
         const box = stockpile.bounds;
         drawOutline(context, box, '#FF00FFAA');
 
-        const stockpileCanvas = document.createElement('canvas');
-        stockpileCanvas.width = box.width;
-        stockpileCanvas.height = box.height;
-
+        const stockpileCanvas = crop(canvas, box);
         const stockpileContext = stockpileCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
-        stockpileContext.drawImage(canvas,
-          box.x, box.y, box.width, box.height,
-          0, 0, box.width, box.height);
 
         function offset(b) {
           return { x: b.x - box.x, y: b.y - box.y, width: b.width, height: b.height };
@@ -56,8 +50,10 @@ document.querySelector('form input').addEventListener('change', function() {
 
         if (stockpile.header) {
           drawOutline(stockpileContext, offset(stockpile.header.stockpile_type.bounds), '#FF0000AA');
+          //document.body.appendChild(crop(canvas, stockpile.header.stockpile_type.bounds));
           if (stockpile.header.stockpile_name) {
             drawOutline(stockpileContext, offset(stockpile.header.stockpile_name.bounds), '#00FF00AA');
+            //document.body.appendChild(crop(canvas, stockpile.header.stockpile_name.bounds));
           }
         }
 
@@ -78,6 +74,19 @@ document.querySelector('form input').addEventListener('change', function() {
   });
   image.src = URL.createObjectURL(file);
 });
+
+function crop(canvas, box) {
+  const croppedCanvas = document.createElement('canvas');
+  croppedCanvas.width = box.width;
+  croppedCanvas.height = box.height;
+
+  const context = croppedCanvas.getContext('2d', { alpha: false, willReadFrequently: true });
+  context.drawImage(canvas,
+    box.x, box.y, box.width, box.height,
+    0, 0, box.width, box.height);
+
+  return croppedCanvas;
+}
 
 function drawOutline(context, box, color) {
   context.strokeStyle = color;

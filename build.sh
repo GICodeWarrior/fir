@@ -22,18 +22,27 @@ parseCatalog() {
 }
 
 generateIconTraining() {
+  cpus=$(nproc)
+
   echo "Generating icon training images."
   cd catalog
+  find training/* -type d | xargs -n1 -P$cpus rm -r || true
   rm -r training || true
 
-  cpus=$(nproc)
   rangeMax=$(expr ${cpus} - 1)
   seq 0 $rangeMax | xargs -I@ -n1 -P$cpus node generate_training.js "${warLocation}" ../foxhole/${version}/catalog.json training @ $cpus
 
   ./find-duplicates.sh $cpus
 
+  cd ..; saveIconCatalog; cd catalog
+
   echo "Copying each training png to jpg."
   find training/* -type d | xargs -I@ -n1 -P$cpus sh -c "cd @; mogrify -quality 89 -format jpg -strip *.png"
+
+  echo "Resizing each training image to 32x32px."
+  cd ../native; cargo build --release --bin batch_resizer; cd ../catalog
+  find training/* -type d \
+    | xargs -n1 -P$cpus ../native/target/release/batch_resizer rgb 32 32
 
   cd ..
 }
@@ -74,14 +83,12 @@ buildClassifier() {
   export TF_FORCE_GPU_ALLOW_GROWTH=true
 
   rm -r model-tf || true
-  pipenv run python train.py 100 rgb 0.20 0.005 ../catalog/training/
+  pipenv run python train.py ../catalog/training/
 
   echo "Training complete, assembling results."
   rm -r ../foxhole/${version}/classifier || true
   mkdir -p ../foxhole/${version}/classifier
   mv class_names.json ../foxhole/${version}/classifier/class_names.json
-
-  #pipenv run python train.py 16 grayscale 0.05 0.05 quantity_training
 
   cd convert
   pipenv clean
@@ -96,6 +103,5 @@ buildClassifier() {
 
 parseCatalog
 generateIconTraining
-saveIconCatalog
 buildClassifier
 

@@ -1,21 +1,11 @@
 use std::collections::HashMap;
 
 use serde::Serialize;
-use wasm_bindgen::prelude::*;
 
 const MAX_MERGE_VARIANCE: isize = 3;
 
-/*
-#[wasm_bindgen]
-extern "C" {
-    #[wasm_bindgen(js_namespace = console)]
-    fn log(s: &str);
-}
-*/
-// log(&format!("message {}", variable));
-
 #[derive(Serialize)]
-struct Bounds {
+pub struct Bounds {
     pub x: usize,
     pub y: usize,
     pub width: usize,
@@ -23,7 +13,7 @@ struct Bounds {
 }
 
 impl Bounds {
-    fn offset(&self, x: usize, y: usize) -> Bounds {
+    pub fn offset(&self, x: usize, y: usize) -> Bounds {
         Bounds {
             x: self.x + x,
             y: self.y + y,
@@ -34,40 +24,45 @@ impl Bounds {
 }
 
 #[derive(Serialize)]
-struct StockpileType {
+pub struct StockpileType {
     pub bounds: Bounds,
 }
 
 #[derive(Serialize)]
-struct StockpileName {
+pub struct StockpileName {
     pub bounds: Bounds,
 }
 
 #[derive(Serialize)]
-struct Header {
+pub struct Header {
     pub bounds: Bounds,
     pub stockpile_type: StockpileType,
     pub stockpile_name: Option<StockpileName>,
 }
 
 #[derive(Serialize)]
-struct Icon {
+#[allow(non_snake_case)]
+pub struct Icon {
     pub bounds: Bounds,
+    pub CodeName: Option<String>,
+    pub isCrated: Option<bool>,
 }
 
 #[derive(Serialize)]
-struct Quantity {
+pub struct Quantity {
     pub bounds: Bounds,
+    pub label: Option<String>,
+    pub value: Option<u32>,
 }
 
 #[derive(Serialize)]
-struct Entry {
+pub struct Entry {
     pub icon: Icon,
     pub quantity: Quantity,
 }
 
 #[derive(Serialize)]
-struct Stockpile {
+pub struct Stockpile {
     pub bounds: Bounds,
     pub header: Option<Header>,
     pub contents: Vec<Entry>,
@@ -78,7 +73,7 @@ fn calc_red_index(row: usize, col: usize, width: usize) -> usize {
     (row * width + col) * 4
 }
 
-fn slice_rgba(rgba: &[u8], width: usize, bounds: &Bounds) -> Vec<u8> {
+pub fn slice_rgba(rgba: &[u8], width: usize, bounds: &Bounds) -> Vec<u8> {
     let mut sliced_rgba: Vec<u8> = Vec::with_capacity(bounds.width * bounds.height * 4);
 
     for row in bounds.y..(bounds.y + bounds.height) {
@@ -90,8 +85,7 @@ fn slice_rgba(rgba: &[u8], width: usize, bounds: &Bounds) -> Vec<u8> {
     sliced_rgba
 }
 
-#[wasm_bindgen]
-pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<JsValue> {
+pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
     let Some(body) = find_stockpile(rgba, width) else {
         return None;
     };
@@ -105,9 +99,13 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<JsValue> {
         contents.push(Entry {
             icon: Icon {
                 bounds: icon_bounds.offset(body.x, body.y),
+                CodeName: None,
+                isCrated: None,
             },
             quantity: Quantity {
                 bounds: quantity_bounds.offset(body.x, body.y),
+                label: None,
+                value: None,
             },
         });
     }
@@ -165,19 +163,18 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<JsValue> {
         });
     }
 
-    let stockpile = Stockpile {
+    Some(Stockpile {
         bounds,
         header,
         contents,
         quantity_grey: Some(quantity_grey), // temporary
-    };
-    Some(serde_wasm_bindgen::to_value(&stockpile).ok()?)
+    })
 }
 
 struct Stripe {
     row: usize,
     right: usize,
-    left: usize,
+    _left: usize,
 }
 
 #[derive(Copy, Clone)]
@@ -297,7 +294,7 @@ fn find_stockpile(rgba: &[u8], width: usize) -> Option<Bounds> {
                 dark_stripes.entry(left).or_default().push(Stripe {
                     row,
                     right: col - 1,
-                    left,
+                    _left: left,
                 });
                 dark_count = 0;
             } else {

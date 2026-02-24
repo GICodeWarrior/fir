@@ -311,6 +311,10 @@ function coalesceObject(coreObject) {
     combinedObject.SubTypeIcon = 'War/Content/Textures/UI/ItemIcons/SubtypeSEIcon.0';
   }
 
+  if (combinedObject.CodeName == 'SurfaceWaterMine') {
+    delete combinedObject.SubTypeIcon;
+  }
+
   const grenadeProperties = [
     ['MinTossSpeed'],
     ['MaxTossSpeed'],
@@ -460,12 +464,16 @@ function coalesceObject(coreObject) {
   const vehicleProfileProperties = [
     ['bUsesRollTrace'],
     ['bCanTriggerMine'],
+    ['bCanTriggerInfantryMine'],
+    ['bCanTriggerWaterMine'],
     ['RamDamageDealtFlags'],
     ['bUsesGas'],
     ['DrivingSpeedThreshold'],
     ['MaxVehicleAngle'],
     ['bEnableStealth'],
     ['DamageDrivingOverStructures'],
+    ['DamageDrivingOverIce'],
+    ['bIsAllowedToLoadMultiple'],
   ];
   common.vehicleProfileList.bundleValues(
     ['Properties', 'VehicleProfileMap', combinedObject.VehicleProfileType],

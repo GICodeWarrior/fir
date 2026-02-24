@@ -22,6 +22,7 @@ from keras import regularizers
 from keras.models import Sequential
 
 import datetime
+import gc
 import json
 import os
 import sys
@@ -33,7 +34,7 @@ DROPOUT = float(sys.argv[1])
 VALIDATION_SPLIT = float(sys.argv[2])
 DATA_DIR = sys.argv[3]
 
-IMG_SIZE = (21, 16)
+IMG_SIZE = (16, 21)
 
 PREFETCH_SIZE = tf.data.AUTOTUNE
 BATCH_SIZE = 1024
@@ -62,14 +63,14 @@ with open('class_names.json', 'w', encoding='utf-8') as f:
   f.write(json.dumps(class_names, indent=2));
   f.write('\n');
 
-raw_counts = dict()
-total_files = 0
-for root, dirs, files in os.walk(DATA_DIR):
-  if root == DATA_DIR:
-    continue
-  raw_counts[root[len(DATA_DIR):]] = len(files)
-  total_files += len(files)
-
+#raw_counts = dict()
+#total_files = 0
+#for root, dirs, files in os.walk(DATA_DIR):
+#  if root == DATA_DIR:
+#    continue
+#  raw_counts[root[len(DATA_DIR):]] = len(files)
+#  total_files += len(files)
+#
 #class_weights = dict()
 #for index, name in enumerate(class_names):
 #  class_weights[index] = total_files / (output_dim * raw_counts[name])
@@ -92,22 +93,25 @@ model = Sequential([
   layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
-  layers.GaussianDropout(DROPOUT),
-  layers.Conv2D(32, 3, padding='same'),
+  #layers.GaussianDropout(DROPOUT),
+  #layers.Conv2D(32, 3, padding='same'),
+  layers.Conv2D(32, 3, padding='same', use_bias=False),
   #layers.Conv2D(32, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
-  #layers.BatchNormalization(),
+  layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
   #layers.GaussianDropout(DROPOUT),
-  layers.Conv2D(64, 3, padding='same'),
+  #layers.Conv2D(64, 3, padding='same'),
+  layers.Conv2D(64, 3, padding='same', use_bias=False),
   #layers.Conv2D(64, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
-  #layers.BatchNormalization(),
+  layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
   #layers.GaussianDropout(DROPOUT),
+  layers.GlobalAveragePooling2D(),
+  #layers.Dropout(DROPOUT),
+  layers.Dense(256, activation='relu'),
   layers.Dropout(DROPOUT),
-  layers.Flatten(),
-#  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
   layers.Dense(output_dim, name='outputs')
 ])
 
@@ -115,6 +119,7 @@ model.compile(
   optimizer=keras.optimizers.Adam(learning_rate=0.0001),
   loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
   metrics=['accuracy'],
+  #steps_per_execution=100,
   #steps_per_execution='auto',
   #jit_compile=False,
 )
@@ -127,6 +132,8 @@ early_stopping = keras.callbacks.EarlyStopping(
 
 #log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 #tensorboard = keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1, profile_batch=(10,20))
+
+gc.collect()
 
 model.fit(
   train_ds,

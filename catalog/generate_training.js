@@ -21,8 +21,20 @@ async function writePNG(canvas, file) {
   await events.once(out, 'finish');
 }
 
-async function loadCornerIcon(path) {
-  const image = await loadImage(path);
+async function loadCornerIcon(iconPath, modName) {
+  let iconFile;
+  if (modName) {
+    const modIconPath = `mod-files/${modName}/${iconPath}`;
+    iconFile = `${WAR_LOCATION}/${modIconPath}`;
+    if (!fs.existsSync(iconFile)) {
+      iconFile = undefined;
+    }
+  }
+  if (!iconFile) {
+    iconFile = `${WAR_LOCATION}/${iconPath}`;
+  }
+
+  const image = await loadImage(iconFile);
   const canvas = createCanvas(image.width, image.height);
   const context = canvas.getContext('2d');
 
@@ -31,13 +43,23 @@ async function loadCornerIcon(path) {
   const imageData = context.getImageData(0, 0, image.width, image.height);
   const length = imageData.data.length;
 
+  let accumulator = 0;
+
   // Attempt to replicate brown effect on corner icons
   for (let offset = 0; offset < length; offset += 4) {
+    accumulator += imageData.data[offset] + imageData.data[offset + 1] + imageData.data[offset + 2];
+
     imageData.data[offset] *= 240 / 255;
     imageData.data[offset + 1] *= 234 / 255;
     imageData.data[offset + 2] *= 220 / 255;
   }
-  context.putImageData(imageData, 0, 0);
+
+  // if all-black, treat as transparent (workaround umodel export error)
+  if (accumulator == 0) {
+    context.clearRect(0, 0, image.width, image.height);
+  } else {
+    context.putImageData(imageData, 0, 0);
+  }
 
   return canvas;
 }
@@ -67,7 +89,8 @@ async function drawIcon(objectValues, size, xsmear, ysmear, cache, modName) {
 
   if (objectValues.SubTypeIcon) {
     cache.subTypeIcon ||= await loadCornerIcon(
-      `${WAR_LOCATION}/${objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png')}`
+      `${objectValues.SubTypeIcon.replace(/\.[0-9]+$/, '.png')}`,
+      modName,
     );
     const cornerWidth = (size + xsmear) * CORNER_ICON_RATIO;
     const cornerHeight = (size + ysmear) * CORNER_ICON_RATIO;
@@ -80,7 +103,7 @@ async function drawIcon(objectValues, size, xsmear, ysmear, cache, modName) {
   return canvas;
 }
 
-const CRATE_ICON = loadCornerIcon(`${WAR_LOCATION}/War/Content/Textures/UI/Menus/IconFilterCrates.png`);
+const CRATE_ICON = loadCornerIcon('War/Content/Textures/UI/Menus/IconFilterCrates.png');
 async function addCrate(canvas, xsmear, ysmear) {
   const size = canvas.width;
 

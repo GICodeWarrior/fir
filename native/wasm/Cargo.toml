@@ -1,0 +1,13 @@
+[package]
+name = "foxhole-inventory-wasm"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "fiw"
+
+[dependencies]
+foxhole-inventory-shared = { path = "../shared" }
+serde-wasm-bindgen = "0.6"
+wasm-bindgen = "0.2"

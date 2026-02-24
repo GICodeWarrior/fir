@@ -478,7 +478,7 @@ function getProcessImage(label, lastModified) {
         return {
           file: s.label.textContent.trim(),
           version: window.FIR_CATALOG_VERSION,
-          box: stockpile.bounds,
+          box: s.bounds,
           header: {
             type: s.header && s.header.stockpile_type.value,
             name: s.header && s.header.stockpile_name && s.header.stockpile_name.value || null,

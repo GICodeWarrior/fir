@@ -1,85 +1,206 @@
+import argparse
 import os
+from dataclasses import dataclass
+from functools import lru_cache
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
-from datetime import datetime
-from random import Random
-from sys import stderr
+from PIL import Image, ImageDraw, ImageFont
 
-DATA_DIR = "quantities"
-rand = Random()
-rand.seed(5724042)
 
-chances = [True, *([False] * 499)]
+DATA_DIR_DEFAULT = "quantities"
 
-shifts = [
-  ('noshift', ''),
-  ('shifte', '-gravity east -splice 1x0 +repage -gravity center -crop {width}x{height}+1+0 +repage'),
-  ('shiftw', '-gravity west -splice 1x0 +repage -gravity center -crop {width}x{height}-1+0 +repage'),
-  ('shiftn', '-gravity north -splice 0x1 +repage -gravity center -crop {width}x{height}+0-1 +repage'),
-  ('shifts', '-gravity south -splice 0x1 +repage -gravity center -crop {width}x{height}+0+1 +repage'),
-  ('shiftse', '-gravity southeast -splice 1x1 +repage -gravity center -crop {width}x{height}+1+1 +repage'),
-  ('shiftnw', '-gravity northwest -splice 1x1 +repage -gravity center -crop {width}x{height}-1-1 +repage'),
-  ('shiftsw', '-gravity southwest -splice 1x1 +repage -gravity center -crop {width}x{height}-1+1 +repage'),
-  ('shiftne', '-gravity northeast -splice 1x1 +repage -gravity center -crop {width}x{height}+1-1 +repage'),
+PRIORITY_HEIGHT = {22, 27, 32, 34, 43, 64}
+PRIORITY_VALUE = {68, 84, 98}
 
-  ('shift2e', '-gravity east -splice 2x0 +repage -gravity center -crop {width}x{height}+2+0 +repage'),
-  ('shift2w', '-gravity west -splice 2x0 +repage -gravity center -crop {width}x{height}-2+0 +repage'),
-  ('shift2n', '-gravity north -splice 0x2 +repage -gravity center -crop {width}x{height}+0-2 +repage'),
-  ('shift2s', '-gravity south -splice 0x2 +repage -gravity center -crop {width}x{height}+0+2 +repage'),
-  ('shift2se', '-gravity southeast -splice 2x2 +repage -gravity center -crop {width}x{height}+2+2 +repage'),
-  ('shift2nw', '-gravity northwest -splice 2x2 +repage -gravity center -crop {width}x{height}-2-2 +repage'),
-  ('shift2sw', '-gravity southwest -splice 2x2 +repage -gravity center -crop {width}x{height}-2+2 +repage'),
-  ('shift2ne', '-gravity northeast -splice 2x2 +repage -gravity center -crop {width}x{height}+2-2 +repage'),
+
+@dataclass(frozen=True)
+class ShiftSpec:
+    label: str
+    dx: int
+    dy: int
+
+
+@dataclass(frozen=True)
+class SmearSpec:
+    label: str
+    dw: int
+    dh: int
+
+
+SHIFTS = [
+    ShiftSpec("noshift", 0, 0),
+
+    ShiftSpec("shiftw", -1, 0),
+    ShiftSpec("shifte", +1, 0),
+    ShiftSpec("shifts", 0, +1),
+    ShiftSpec("shiftn", 0, -1),
+
+    ShiftSpec("shiftnw", -1, -1),
+    ShiftSpec("shiftse", +1, +1),
+    ShiftSpec("shiftne", +1, -1),
+    ShiftSpec("shiftsw", -1, +1),
+
+    ShiftSpec("shift2w", -2, 0),
+    ShiftSpec("shift2e", +2, 0),
+    ShiftSpec("shift2s", 0, +2),
+    ShiftSpec("shift2n", 0, -2),
+
+    ShiftSpec("shift2nw", -2, -2),
+    ShiftSpec("shift2se", +2, +2),
+    ShiftSpec("shift2ne", +2, -2),
+    ShiftSpec("shift2sw", -2, +2),
 ]
 
-smears = [
-  ('nosmear', ''),
-  ('smearh', "-resize '{width}x{height_plus}!'"),
-  ('smearw', "-resize '{width_plus}x{height}!'"),
-  ('smearwh', "-resize '{width_plus}x{height_plus}!'"),
+SMEARS = [
+    SmearSpec("nosmear", 0, 0),
+    SmearSpec("smearh", 0, +1),
+    SmearSpec("smearw", +1, 0),
+    SmearSpec("smearwh", +1, +1),
 
-  ('smear2h', "-resize '{width}x{height_plus_plus}!'"),
-  ('smear2w', "-resize '{width_plus_plus}x{height}!'"),
+    SmearSpec("smear2h", 0, +2),
+    SmearSpec("smear2w", +2, 0),
 ]
 
-priority_height = {16, 22, 27, 32, 34, 43, 64}
-priority_value = {68, 84, 98}
 
-for i in range(1000):
-  percent_complete = i / 10
-  if percent_complete % 5 == 0:
-    print(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: ~{int(percent_complete)}%", file=stderr)
+def compute_width(height: int) -> int:
+    return round(21 * height / 16)
 
-  for suffix in ['', 'k+', 'x']:
-    quantity = f"{i}{suffix}"
-    path = f"{DATA_DIR}/{quantity}"
-    os.mkdir(path)
+
+def compute_font_size(height: int) -> int:
+    return round(height / 2)
+
+
+def ensure_dir(path: str) -> None:
+    os.makedirs(path, exist_ok=True)
+
+
+def shift_with_fill(img: Image.Image, dx: int, dy: int, fill_rgba: tuple[int, int, int, int]) -> Image.Image:
+    if dx == 0 and dy == 0:
+        return img
+    w, h = img.size
+    out = Image.new("RGBA", (w, h), fill_rgba)
+    out.paste(img, (dx, dy))
+    return out
+
+
+def smear_resize(img: Image.Image, target_w: int, target_h: int) -> Image.Image:
+    if img.size == (target_w, target_h):
+        return img
+    return img.resize((target_w, target_h), resample=Image.Resampling.LANCZOS)
+
+
+def load_font(font_path: str, font_size: int) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(font_path, font_size, layout_engine=ImageFont.Layout.BASIC)
+
+
+def render_text_layer(quantity: str, width: int, height: int, font: ImageFont.ImageFont) -> Image.Image:
+    out = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    d = ImageDraw.Draw(out)
+
+    left, top, right, bottom = d.textbbox((0, 0), quantity, font=font)
+    text_w = right - left
+    text_h = bottom - top
+
+    x = (width - text_w) / 2 - left
+    y = (height - text_h) / 2 - top
+
+    d.text((x, y), quantity, font=font, fill=(255, 255, 255, 255))
+    return out
+
+
+def should_emit(height: int, value: int, shift_label: str, smear_label: str) -> bool:
+    if not (height in PRIORITY_HEIGHT and value in PRIORITY_VALUE):
+        return False
+    if height < 32 and shift_label.startswith("shift2"):
+        return False
+    return True
+
+
+def generate_for_quantity(
+    quantity: str,
+    out_dir: str,
+    font_path: str | None,
+    overwrite: bool,
+) -> int:
+    q_dir = os.path.join(out_dir, quantity)
+    ensure_dir(q_dir)
+
+    written = 0
 
     for height in range(16, 65):
-      for value in range(64, 113):
-        for shift_label, shift in shifts:
-          for smear_label, smear in smears:
-            #if not (height in priority_height and value in priority_value and smear_label == "nosmear") and not rand.choice(chances):
-            if not rand.choice(chances):
-              continue
+        width = compute_width(height)
+        font_size = compute_font_size(height)
 
-            width = round(21 * height / 16)
-            font_size = round(3 * height / 8)
-            color = f"{value:02X}{value:02X}{value:02X}"
+        font = load_font(font_path, font_size)
+        text_layer = render_text_layer(quantity, width, height, font)
 
-            formatted_shift = shift.format(width=width, height=height)
-            formatted_smear = smear.format(
-              width=width,
-              height=height,
-              width_plus=width + 1,
-              height_plus=height + 1,
-              width_plus_plus=width + 2,
-              height_plus_plus=height + 2,
-            )
+        for value in range(64, 113):
+            for sh in SHIFTS:
+                for sm in SMEARS:
+                    if not should_emit(height, value, sh.label, sm.label):
+                        continue
 
-            filename = f"{width}x{height}-{font_size}pt-{color}-{shift_label}-{smear_label}"
-            full_path = f"{path}/{filename}.png"
+                    color_hex = f"{value:02X}{value:02X}{value:02X}"
+                    filename = f"{width}x{height}-{font_size}pt-{color_hex}-{sh.label}-{sm.label}.png"
+                    full_path = os.path.join(q_dir, filename)
 
-            #if os.path.exists(full_path):
-            #  continue
+                    if (not overwrite) and os.path.exists(full_path):
+                        continue
 
-            print(f"-background '#{color}' -fill white 'pango:<span font=\"Renner*\" size=\"{font_size}pt\">{quantity}</span>' -trim -gravity center -extent {width}x{height} {formatted_shift} {formatted_smear} -strip {full_path}")
+                    bg_rgba = (value, value, value, 255)
+
+                    base = Image.new("RGBA", (width, height), bg_rgba)
+                    base.alpha_composite(text_layer)
+
+                    shifted = shift_with_fill(base, sh.dx, sh.dy, bg_rgba)
+
+                    target_w = width + sm.dw
+                    target_h = height + sm.dh
+                    final_img = smear_resize(shifted, target_w, target_h)
+
+                    final_img.save(full_path, format="PNG", optimize=True)
+                    written += 1
+
+    return written
+
+
+def iter_quantities() -> list[str]:
+    out = []
+    for i in range(1000):
+        for suffix in ("", "k+", "x"):
+            if suffix == "k+" and (i < 1 or i > 32):
+                continue
+            out.append(f"{i}{suffix}")
+    return out
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default=DATA_DIR_DEFAULT, help="Output root directory (default: quantities)")
+    ap.add_argument("--font", default=None, help="Path to a .ttf/.otf font file (recommended for Renner)")
+    ap.add_argument("--procs", type=int, default=os.cpu_count() or 4, help="Number of worker processes")
+    ap.add_argument("--overwrite", action="store_true", help="Overwrite existing PNGs")
+    args = ap.parse_args()
+
+    ensure_dir(args.out)
+    quantities = iter_quantities()
+
+    total_written = 0
+    with ProcessPoolExecutor(max_workers=args.procs) as ex:
+        futures = {
+            ex.submit(generate_for_quantity, q, args.out, args.font, args.overwrite): q
+            for q in quantities
+        }
+        for fut in as_completed(futures):
+            q = futures[fut]
+            try:
+                written = fut.result()
+                total_written += written
+            except Exception as e:
+                raise RuntimeError(f"Failed for quantity {q}: {e}") from e
+
+    print(f"Wrote {total_written} files to {args.out}")
+
+
+if __name__ == "__main__":
+    main()

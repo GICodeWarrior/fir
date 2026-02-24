@@ -1,0 +1,16 @@
+[package]
+name = "foxhole-inventory-companion"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "fic"
+path = "src/main.rs"
+
+[dependencies]
+foxhole-inventory-shared = { path = "../shared" }
+image = "0.25.9"
+regex = "1.12.3"
+serde_json = "1.0.149"
+tensorflow = "0.21.0"
+
