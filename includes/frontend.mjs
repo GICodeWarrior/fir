@@ -202,25 +202,29 @@ export function getAppendGoogleRows(format="gapi") {
   for (const stockpile of stockpiles) {
     const stockpileTime = new Date(stockpile.lastModified);
     const stockpileID = Math.floor(Math.random() * 1000000000000000);
+    const stockpileType = stockpile.header && stockpile.header.stockpile_type.value || '';
+    const stockpileName = stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '';
+
     let isEmpty = true;
     for (const element of stockpile.contents) {
       if (element.quantity.value == 0) {
         continue;
       }
-      isEmpty = false;
 
       const details = res.CATALOG.find(e => e.CodeName == element.icon.CodeName);
       if (typeof details == 'undefined') {
         continue;
       }
 
+      isEmpty = false;
+
       if (format == "gapi") {
         rows.push({
           values: [
             dateValue(exportTime),
             dateValue(stockpileTime),
-            stringValue(stockpile.header && stockpile.header.stockpile_type.value || ''),
-            stringValue(stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || ''),
+            stringValue(stockpileType),
+            stringValue(stockpileName),
             stringValue(stockpile.label.textContent.trim()),
             stringValue(element.icon.CodeName),
             stringValue(details.DisplayName),
@@ -233,8 +237,8 @@ export function getAppendGoogleRows(format="gapi") {
         rows.push([
           exportTime.toString(),
           stockpileTime.toString(),
-          stockpile.header && stockpile.header.stockpile_type.value || '',
-          stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '',
+          stockpileType,
+          stockpileName,
           stockpile.label.textContent.trim(),
           element.icon.CodeName,
           details.DisplayName,
@@ -246,19 +250,37 @@ export function getAppendGoogleRows(format="gapi") {
         console.error("Unexpected format");
       }
     }
-    if (format == "google-script" && isEmpty) {
-      rows.push([
-        exportTime.toString(),
-        stockpileTime.toString(),
-        stockpile.header.type || '',
-        stockpile.header.name || '',
-        stockpile.label.textContent.trim(),
-        "Update as empty stockpile",
-        "nulling this stockpile",
-        0,
-        true,
-        stockpileID,
-      ]);
+    if (isEmpty) {
+      if (format == "gapi") {
+        rows.push({
+          values: [
+            dateValue(exportTime),
+            dateValue(stockpileTime),
+            stringValue(stockpileType),
+            stringValue(stockpileName),
+            stringValue(stockpile.label.textContent.trim()),
+            stringValue("__FIR_EMPTY__"),
+            stringValue("Stockpile is empty."),
+            numberValue(0),
+            { userEnteredValue: { boolValue: true } },
+            numberValue(stockpileID),
+          ],
+        });
+
+      } else if (format == "google-script") {
+        rows.push([
+          exportTime.toString(),
+          stockpileTime.toString(),
+          stockpileType,
+          stockpileName,
+          stockpile.label.textContent.trim(),
+          "__FIR_EMPTY__",
+          "Stockpile is empty.",
+          0,
+          true,
+          stockpileID,
+        ]);
+      }
     }
   }
   return rows;
