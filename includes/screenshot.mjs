@@ -74,7 +74,7 @@ export async function process(screenshotCanvas, iconModelURL, iconClassNames, qu
         stockpile.header.stockpile_type.bounds,
         stockpile.quantity_grey,
       ).then(value => {
-        value = value.replace(/[^A-Za-z ]/g, '');
+        value = value.replace(/[^A-Za-z ]/g, '').trim();
         stockpile.header.stockpile_type.value = value;
       })
     );
