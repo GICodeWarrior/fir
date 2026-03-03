@@ -29,7 +29,8 @@ import sys
 
 EPOCHS = 500
 COLOR_MODE = "rgb"
-DROPOUT = 0.3
+CONV_DROPOUT = 0.2
+DENSE_DROPOUT = 0.3
 VALIDATION_SPLIT = 0.005
 DATA_DIR = sys.argv[1]
 
@@ -53,6 +54,7 @@ train_ds, val_ds = keras.utils.image_dataset_from_directory(
   image_size=IMG_SIZE,
   batch_size=None,
   shuffle=True,
+  label_mode="categorical",
 )
 
 class_names = train_ds.class_names
@@ -67,7 +69,7 @@ total_files = 0
 for root, dirs, files in os.walk(DATA_DIR):
   if root == DATA_DIR:
     continue
-  raw_counts[root[len(DATA_DIR):]] = len(files)
+  raw_counts[os.path.basename(root)] = len(files)
   total_files += len(files)
 
 class_weights = dict()
@@ -87,34 +89,61 @@ model = Sequential([
 #  layers.RandomBrightness(0.05),
 #  layers.RandomContrast(0.05),
   layers.Rescaling(1./255),
-  layers.Conv2D(16, 3, padding='same', use_bias=False),
   #layers.Conv2D(16, 3, padding='same', use_bias=False, kernel_regularizer=regularizers.l2(0.0000001)),
+  layers.Conv2D(16, 3, padding='same', use_bias=False),
   layers.BatchNormalization(),
   layers.Activation('relu'),
-  layers.SpatialDropout2D(DROPOUT),
+  #layers.Conv2D(16, 3, padding='same', use_bias=False),
+  #layers.BatchNormalization(),
+  #layers.Activation('relu'),
+  layers.SpatialDropout2D(CONV_DROPOUT),
   layers.MaxPooling2D(),
-  layers.GaussianDropout(DROPOUT),
-  layers.Conv2D(32, 3, padding='same'),
+  #layers.GaussianDropout(CONV_DROPOUT),
   #layers.Conv2D(32, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
+  layers.Conv2D(32, 3, padding='same'), #, use_bias=False),
   #layers.BatchNormalization(),
   layers.Activation('relu'),
+  #layers.Conv2D(32, 3, padding='same', use_bias=False),
+  #layers.BatchNormalization(),
+  #layers.Activation('relu'),
   layers.MaxPooling2D(),
   #layers.GaussianDropout(DROPOUT),
-  layers.Conv2D(64, 3, padding='same'),
   #layers.Conv2D(64, 3, padding='same', kernel_regularizer=regularizers.l2(0.0000001)),
+  layers.Conv2D(64, 3, padding='same'), #, use_bias=False),
   #layers.BatchNormalization(),
   layers.Activation('relu'),
   layers.MaxPooling2D(),
+  #layers.Conv2D(128, 3, padding='same'), #, use_bias=False),
+  #layers.BatchNormalization(),
+  #layers.Activation('relu'),
+  #layers.MaxPooling2D(),
+  #layers.Conv2D(256, 3, padding='same'), #, use_bias=False),
+  #layers.BatchNormalization(),
+  #layers.Activation('relu'),
+  #layers.MaxPooling2D(),
   #layers.GaussianDropout(DROPOUT),
+  #layers.GlobalAveragePooling2D(),
   layers.Flatten(),
-  layers.Dropout(DROPOUT),
-#  layers.Dense(256, activation='relu'), # used by quantity model but not icon model
+  layers.Dropout(DENSE_DROPOUT),
+  #layers.Dense(128, activation='relu'), # used by quantity model but not icon model
+  #layers.Dropout(DENSE_DROPOUT),
   layers.Dense(output_dim, name='outputs')
 ])
 
+steps_per_epoch = tf.data.experimental.cardinality(train_ds).numpy()
+learning_rate = keras.optimizers.schedules.CosineDecay(
+    initial_learning_rate=5e-4,
+    decay_steps=steps_per_epoch * 50,
+    alpha=0.1
+)
+optimizer = keras.optimizers.AdamW(learning_rate=learning_rate, weight_decay=1e-4, use_ema=True)
+
+loss = keras.losses.CategoricalCrossentropy(from_logits=True, label_smoothing=0.05)
+#loss = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+
 model.compile(
-  optimizer=keras.optimizers.Adam(learning_rate=0.0001, weight_decay=0.1),
-  loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+  optimizer=optimizer,#keras.optimizers.Adam(learning_rate=0.0001, weight_decay=0.1),
+  loss=loss,
   metrics=['accuracy'],
   #steps_per_execution='auto',
   #jit_compile=False,

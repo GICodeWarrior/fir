@@ -753,6 +753,7 @@ const searchDirectories = [
   'War/Content/Blueprints/Structures/Facilities/',
   'War/Content/Blueprints/Structures/Rocket/',
   'War/Content/Blueprints/Structures/Ships/',
+  'War/Content/Blueprints/Structures/SuperStructures/',
 ];
 
 const objects = [];
