@@ -118,6 +118,7 @@ async function ocrHeader(canvas, box, quantityGrey) {
   //document.body.appendChild(canvas);
 
   let value = result.data.text.trim();
+  value = value.replace(/l/, "I").replace(/([a-z])I([^A-Z]|$)/, "$1l$2");
   if (!value.length) {
     console.log('empty header text', box);
   }
