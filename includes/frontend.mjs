@@ -1,4 +1,4 @@
-import Screenshot from './screenshot.mjs'
+import Screenshot from './screenshot.mjs';
 
 let res = {};
 let ICON_MODEL_URL = "";
@@ -106,6 +106,59 @@ export function addDownloadTotalsListener(downloadTotals) {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    });
+  });
+}
+
+export function addCopyTSVListener(copyTSV) {
+  copyTSV.addEventListener('click', function() {
+    gtag('event', 'select_content', {content_type: 'copy', item_id: 'copy_tsv'});
+    const items = [[
+      'Stockpile Title',
+      'Stockpile Name',
+      'Structure Type',
+      'Quantity',
+      'Name',
+      'Crated?',
+      'Per Crate',
+      'Total',
+      'Description',
+      'CodeName',
+    ].join('\t')];
+    for (const stockpile of stockpiles) {
+      for (const element of stockpile.contents) {
+        if (element.quantity == 0) {
+          continue;
+        }
+
+        const details = res.CATALOG.find(e => e.CodeName == element.CodeName);
+        if (typeof details == 'undefined') {
+          continue;
+        }
+        const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
+            + (details.VehiclesPerCrateBonusQuantity || 0);
+        const perUnit = element.isCrated ? perCrate : 1;
+
+        items.push([
+          stockpile.label.textContent.trim(),
+          stockpile.header.name || '',
+          stockpile.header.type || '',
+          element.quantity,
+          details.DisplayName,
+          element.isCrated,
+          element.isCrated ? perUnit : '',
+          element.quantity * perUnit,
+          details.Description,
+          element.CodeName,
+        ].join('\t'));
+      }
+    }
+
+    const tsvText = items.join('\n');
+    navigator.clipboard.writeText(tsvText).then(function() {
+      console.log('TSV copied to clipboard');
+    }, function(err) {
+      console.error('Could not copy TSV: ', err);
     });
   });
 }
