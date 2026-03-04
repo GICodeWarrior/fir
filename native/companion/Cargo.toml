@@ -10,7 +10,5 @@ path = "src/main.rs"
 [dependencies]
 foxhole-inventory-shared = { path = "../shared" }
 image = "0.25.9"
-regex = "1.12.3"
 serde_json = "1.0.149"
-tensorflow = "0.21.0"
 

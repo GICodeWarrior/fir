@@ -1,14 +1,33 @@
-import Screenshot from '../includes/screenshot.mjs';
+import fiw_init, { ScreenshotProcessor } from '../includes/wasm/fiw.js'
 
 const CURRENT_VERSION = 'airborne-63';
 
 const JASMINE_TIMEOUT = 60000;
-const ICON_MODEL_URL = `./foxhole/${CURRENT_VERSION}/classifier/model.json`;
-const ICON_CLASS_NAMES = await fetch(`./foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json());
-const QUANTITY_MODEL_URL = './includes/quantities/model.json';
-const QUANTITY_CLASS_NAMES = await fetch('./includes/quantities/class_names.json').then(r => r.json());
 
-const EXPECTED_STOCKPILES = await fetch('./spec/data/stockpiles.json').then(r => r.json());
+const [
+  OCR_RECOGNITION_ONNX,
+  ICON_ONNX,
+  ICON_CLASS_NAMES,
+  QUANTITY_ONNX,
+  QUANTITY_CLASS_NAMES,
+  EXPECTED_STOCKPILES,
+] = await Promise.all([
+  fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
+  fetch(`./foxhole/${CURRENT_VERSION}/classifier/model.onnx`).then(r => r.bytes()),
+  fetch(`./foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json()),
+  fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
+  fetch('./includes/quantities/class_names.json').then(r => r.json()),
+  fetch('./spec/data/stockpiles.json').then(r => r.json()),
+  fiw_init(),
+]);
+
+const SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
+  OCR_RECOGNITION_ONNX,
+  ICON_ONNX,
+  ICON_CLASS_NAMES,
+  QUANTITY_ONNX,
+  QUANTITY_CLASS_NAMES,
+);
 
 const CRATED_LABEL = {
   true: 'crated',
@@ -104,20 +123,24 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
       const image = new Image();
       image.src = `spec/data/screenshots/${expectedStockpile.file}`;
 
-      const canvas = await new Promise(function(resolve) {
+      const [width, height, rgba] = await new Promise(function(resolve) {
         image.addEventListener('load', function() {
+          const width = this.width;
+          const height = this.height;
+
           const canvas = document.createElement('canvas');
-          canvas.width = this.width;
-          canvas.height = this.height;
+          canvas.width = width;
+          canvas.height = height;
 
           const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
           context.drawImage(this, 0, 0);
+          const rgba = context.getImageData(0, 0, width, height).data;
 
-          resolve(canvas);
+          resolve([width, height, rgba]);
         });
       });
 
-      this.actualStockpile = await Screenshot.process(canvas, ICON_MODEL_URL, ICON_CLASS_NAMES, QUANTITY_MODEL_URL, QUANTITY_CLASS_NAMES);
+      this.actualStockpile = SCREENSHOT_PROCESSOR.extract_stockpile(rgba, width);
     }, JASMINE_TIMEOUT);
 
     const box = expectedStockpile.box;
@@ -130,7 +153,7 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
 
     if (expectedStockpile.header.type) {
       it(`has structure type ${expectedStockpile.header.type}`, function() {
-        expect(this.actualStockpile.header.stockpile_type.value).toBe(expectedStockpile.header.type);
+        expect(this.actualStockpile.header.structure_type.value).toBe(expectedStockpile.header.type);
       });
     } else {
       it(`has no structure type`, function() {
@@ -158,9 +181,9 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
       const expectedCratedStatus = CRATED_LABEL[expectedElement.isCrated];
       it(`contains ${expectedElement.quantity} ${expectedElement.CodeName} (${expectedCratedStatus})`, function() {
         const actualElement = this.actualStockpile.contents[index] || {};
-        const actualCratedStatus = CRATED_LABEL[actualElement.icon.isCrated];
+        const actualCratedStatus = CRATED_LABEL[actualElement.icon.is_crated];
 
-        expect(actualElement.icon.CodeName).toBe(expectedElement.CodeName);
+        expect(actualElement.icon.code_name).toBe(expectedElement.CodeName);
         expect(actualElement.quantity.value).toBe(expectedElement.quantity);
         expect(actualCratedStatus).toBe(expectedCratedStatus);
       });

@@ -221,8 +221,7 @@ impl TapTable {
         for j in 0..dst_len {
             // center = (j + 0.5) * scale - 0.5  (Q16)
             let j_q16: i64 = (j as i64) << QPOS;
-            let center_q16: i64 =
-                (((j_q16 + (ONE_POS / 2)) * scale_q16) >> QPOS) - (ONE_POS / 2);
+            let center_q16: i64 = (((j_q16 + (ONE_POS / 2)) * scale_q16) >> QPOS) - (ONE_POS / 2);
 
             // Candidate integer range around center within support (+margin for quantization).
             let start: i32 = ((center_q16 - support_q16) >> QPOS) as i32 - 2;

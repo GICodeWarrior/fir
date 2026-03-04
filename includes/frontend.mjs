@@ -1,18 +1,13 @@
-import Screenshot from './screenshot.mjs'
+import fiw_init, { ScreenshotProcessor } from './wasm/fiw.js'
 
-let res = {};
-let ICON_MODEL_URL = "";
-let QUANTITY_MODEL_URL = "";
+let CATALOG;
+let SCREENSHOT_PROCESSOR;
 
 let stockpiles = [];
 let imagesProcessed = 0;
 let imagesTotal = 0;
 
-export async function init(resources, icon_model_url, quantity_model_url) {
-  res = resources;
-  ICON_MODEL_URL = icon_model_url;
-  QUANTITY_MODEL_URL = quantity_model_url;
-
+export async function init(resources) {
   const ready = new Promise(function(resolve) {
     if (document.readyState != 'loading') {
       resolve();
@@ -21,12 +16,22 @@ export async function init(resources, icon_model_url, quantity_model_url) {
     }
   });
 
-  await Promise.all([...Object.values(res), ready]).then(function (results) {
+  await Promise.all([...Object.values(resources), fiw_init(), ready]).then(function (results) {
     let index = 0;
-    for (const key of Object.keys(res)) {
-      res[key] = results[index++];
+    for (const key of Object.keys(resources)) {
+      resources[key] = results[index++];
     }
   });
+
+  CATALOG = resources.CATALOG;
+
+  SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
+    resources.OCR_RECOGNITION_ONNX,
+    resources.ICON_ONNX,
+    resources.ICON_CLASS_NAMES,
+    resources.QUANTITY_ONNX,
+    resources.QUANTITY_CLASS_NAMES,
+  );
 }
 
 export function registerDefaultListeners() {
@@ -131,25 +136,25 @@ export function addDownloadTSVListener(downloadTSV) {
           continue;
         }
 
-        const details = res.CATALOG.find(e => e.CodeName == element.icon.CodeName);
+        const details = CATALOG.find(e => e.CodeName == element.icon.code_name);
         if (typeof details == 'undefined') {
           continue;
         }
         const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
             + (details.VehiclesPerCrateBonusQuantity || 0);
-        const perUnit = element.icon.isCrated ? perCrate : 1;
+        const perUnit = element.icon.is_crated ? perCrate : 1;
 
         items.push([
           stockpile.label.textContent.trim(),
           stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '',
-          stockpile.header && stockpile.header.stockpile_type.value || '',
+          stockpile.header && stockpile.header.structure_type.value || '',
           element.quantity.value,
           details.DisplayName,
-          element.icon.isCrated,
-          element.icon.isCrated ? perUnit : '',
+          element.icon.is_crated,
+          element.icon.is_crated ? perUnit : '',
           element.quantity.value * perUnit,
           details.Description,
-          element.icon.CodeName,
+          element.icon.code_name,
         ].join('\t'));
       }
     }
@@ -202,7 +207,7 @@ export function getAppendGoogleRows(format="gapi") {
   for (const stockpile of stockpiles) {
     const stockpileTime = new Date(stockpile.lastModified);
     const stockpileID = Math.floor(Math.random() * 1000000000000000);
-    const stockpileType = stockpile.header && stockpile.header.stockpile_type.value || '';
+    const stockpileType = stockpile.header && stockpile.header.structure_type.value || '';
     const stockpileName = stockpile.header && stockpile.header.stockpile_name && stockpile.header.stockpile_name.value || '';
 
     let isEmpty = true;
@@ -211,7 +216,7 @@ export function getAppendGoogleRows(format="gapi") {
         continue;
       }
 
-      const details = res.CATALOG.find(e => e.CodeName == element.icon.CodeName);
+      const details = CATALOG.find(e => e.CodeName == element.icon.code_name);
       if (typeof details == 'undefined') {
         continue;
       }
@@ -226,10 +231,10 @@ export function getAppendGoogleRows(format="gapi") {
             stringValue(stockpileType),
             stringValue(stockpileName),
             stringValue(stockpile.label.textContent.trim()),
-            stringValue(element.icon.CodeName),
+            stringValue(element.icon.code_name),
             stringValue(details.DisplayName),
             numberValue(element.quantity.value),
-            { userEnteredValue: { boolValue: element.icon.isCrated } },
+            { userEnteredValue: { boolValue: element.icon.is_crated } },
             numberValue(stockpileID),
           ],
         });
@@ -240,10 +245,10 @@ export function getAppendGoogleRows(format="gapi") {
           stockpileType,
           stockpileName,
           stockpile.label.textContent.trim(),
-          element.icon.CodeName,
+          element.icon.code_name,
           details.DisplayName,
           element.quantity.value,
-          element.icon.isCrated,
+          element.icon.is_crated,
           stockpileID,
         ]);
       } else {
@@ -461,17 +466,20 @@ function getProcessImage(label, lastModified) {
     return processImage.call(this, label, lastModified);
   };
 
-  async function processImage(label, lastModified) {
+  function processImage(label, lastModified) {
     URL.revokeObjectURL(this.src);
 
     const canvas = document.createElement('canvas');
-    canvas.width = this.width;
-    canvas.height = this.height;
+    const width = this.width;
+    const height = this.height;
+    canvas.width = width;
+    canvas.height = height;
 
     const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
     context.drawImage(this, 0, 0);
+    const rgba = context.getImageData(0, 0, width, height).data;
 
-    const stockpile = await Screenshot.process(canvas, ICON_MODEL_URL, res.ICON_CLASS_NAMES, QUANTITY_MODEL_URL, res.QUANTITY_CLASS_NAMES);
+    const stockpile = SCREENSHOT_PROCESSOR.extract_stockpile(rgba, width);
     if (stockpile) {
       const box = stockpile.bounds;
       const stockpileCanvas = document.createElement('canvas');
@@ -502,14 +510,14 @@ function getProcessImage(label, lastModified) {
           version: window.FIR_CATALOG_VERSION,
           box: s.bounds,
           header: {
-            type: s.header && s.header.stockpile_type.value,
+            type: s.header && s.header.structure_type.value,
             name: s.header && s.header.stockpile_name && s.header.stockpile_name.value || null,
           },
           contents: s.contents.map(function(e) {
             return {
-              CodeName: e.icon.CodeName,
+              CodeName: e.icon.code_name,
               quantity: e.quantity.value,
-              isCrated: e.icon.isCrated,
+              isCrated: e.icon.is_crated,
             };
           }),
         };
@@ -539,15 +547,15 @@ function outputTotals() {
 
   for (const stockpile of stockpiles) {
     for (const element of stockpile.contents) {
-      let key = element.icon.CodeName;
-      if (element.icon.isCrated) {
+      let key = element.icon.code_name;
+      if (element.icon.is_crated) {
         key += '-crated';
       }
 
       if (!totals[key]) {
-        const catalogItem = res.CATALOG.find(e=>e.CodeName == element.icon.CodeName);
+        const catalogItem = CATALOG.find(e=>e.CodeName == element.icon.code_name);
         if (!catalogItem) {
-          console.log(`${element.icon.CodeName} missing from catalog`);
+          console.log(`${element.icon.code_name} missing from catalog`);
           continue;
         }
 
@@ -561,8 +569,8 @@ function outputTotals() {
         categories[category].push(key);
 
         totals[key] = {
-          CodeName: element.icon.CodeName,
-          isCrated: element.icon.isCrated,
+          CodeName: element.icon.code_name,
+          isCrated: element.icon.is_crated,
           name: catalogItem.DisplayName,
           category: category,
           total: 0,

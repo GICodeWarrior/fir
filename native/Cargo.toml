@@ -2,5 +2,14 @@
 resolver = "3"
 members = ["companion", "shared", "wasm"]
 
+[profile.dev.package.rten]
+opt-level = 3
+[profile.dev.package.rten-imageproc]
+opt-level = 3
+[profile.dev.package.rten-tensor]
+opt-level = 3
+[profile.dev.package.ocrs]
+opt-level = 3
+
 [profile.release]
 lto = "fat"

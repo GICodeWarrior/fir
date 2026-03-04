@@ -2,5 +2,7 @@ catalog/node_modules
 catalog/training
 trainer/logs
 trainer/quantities
+trainer/model-tf
+trainer/quantity-model-tf
 native/target
 spec/data

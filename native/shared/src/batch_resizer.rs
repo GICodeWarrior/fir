@@ -12,10 +12,7 @@ use fis::resizer::BicubicResizerFixed;
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = env::args().collect();
     if args.len() != 5 {
-        eprintln!(
-            "Usage: {} <rgb|grayscale> <width> <height> <dir>",
-            args[0]
-        );
+        eprintln!("Usage: {} <rgb|grayscale> <width> <height> <dir>", args[0]);
         std::process::exit(1);
     }
 
@@ -34,7 +31,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let mut bicubic = BicubicResizerFixed::new();
 
-    for entry in fs::read_dir(dir)?.collect::<Vec<io::Result<fs::DirEntry>>>().into_iter() {
+    for entry in fs::read_dir(dir)?
+        .collect::<Vec<io::Result<fs::DirEntry>>>()
+        .into_iter()
+    {
         let entry = entry?;
         let path = entry.path();
 
@@ -62,11 +62,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let file = fs::File::create(&out_path)?;
         let writer = BufWriter::new(file);
 
-        let encoder = PngEncoder::new_with_quality(
-            writer,
-            CompressionType::Best,
-            FilterType::Adaptive,
-        );
+        let encoder =
+            PngEncoder::new_with_quality(writer, CompressionType::Best, FilterType::Adaptive);
 
         let out_img = DynamicImage::ImageRgba8(
             ImageBuffer::from_raw(dst_w, dst_h, resized).expect("Invalid image buffer size"),

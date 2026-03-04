@@ -1,15 +1,6 @@
 import * as front from './frontend.mjs'
 
 const VALID_VERSIONS = new Set([
-  'entrenched',
-  'inferno',
-  'inferno-52',
-  'naval',
-  'naval-56',
-  'naval-57',
-  'infantry-59',
-  'infantry-60',
-  'infantry-61',
   'airborne-63',
 ]);
 
@@ -24,14 +15,14 @@ console.log(`Loading resources for "${VERSION}"`);
 
 const res = {
   CATALOG: fetch(`./foxhole/${VERSION}/catalog.json`).then(r => r.json()),
+  OCR_RECOGNITION_ONNX: fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
+  ICON_ONNX: fetch(`./foxhole/${VERSION}/classifier/model.onnx`).then(r => r.bytes()),
   ICON_CLASS_NAMES: fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
+  QUANTITY_ONNX: fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
   QUANTITY_CLASS_NAMES: fetch('./includes/quantities/class_names.json').then(r => r.json()),
 }
 
-const ICON_MODEL_URL = `./foxhole/${VERSION}/classifier/model.json`;
-const QUANTITY_MODEL_URL = './includes/quantities/model.json';
-
-await front.init(res, ICON_MODEL_URL, QUANTITY_MODEL_URL);
+await front.init(res);
 
 (async function() {
   const input = document.querySelector('form input');

@@ -1,73 +1,8 @@
 use std::collections::HashMap;
 
-use serde::Serialize;
+use crate::types::*;
 
 const MAX_MERGE_VARIANCE: isize = 3;
-
-#[derive(Serialize)]
-pub struct Bounds {
-    pub x: usize,
-    pub y: usize,
-    pub width: usize,
-    pub height: usize,
-}
-
-impl Bounds {
-    pub fn offset(&self, x: usize, y: usize) -> Bounds {
-        Bounds {
-            x: self.x + x,
-            y: self.y + y,
-            width: self.width,
-            height: self.height,
-        }
-    }
-}
-
-#[derive(Serialize)]
-pub struct StockpileType {
-    pub bounds: Bounds,
-}
-
-#[derive(Serialize)]
-pub struct StockpileName {
-    pub bounds: Bounds,
-}
-
-#[derive(Serialize)]
-pub struct Header {
-    pub bounds: Bounds,
-    pub stockpile_type: StockpileType,
-    pub stockpile_name: Option<StockpileName>,
-}
-
-#[derive(Serialize)]
-#[allow(non_snake_case)]
-pub struct Icon {
-    pub bounds: Bounds,
-    pub CodeName: Option<String>,
-    pub isCrated: Option<bool>,
-}
-
-#[derive(Serialize)]
-pub struct Quantity {
-    pub bounds: Bounds,
-    pub label: Option<String>,
-    pub value: Option<u32>,
-}
-
-#[derive(Serialize)]
-pub struct Entry {
-    pub icon: Icon,
-    pub quantity: Quantity,
-}
-
-#[derive(Serialize)]
-pub struct Stockpile {
-    pub bounds: Bounds,
-    pub header: Option<Header>,
-    pub contents: Vec<Entry>,
-    pub quantity_grey: Option<u8>, // temporary
-}
 
 fn calc_red_index(row: usize, col: usize, width: usize) -> usize {
     (row * width + col) * 4
@@ -92,21 +27,13 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
 
     // TODO avoid copy
     let body_rgba: Vec<u8> = slice_rgba(&rgba, width, &body);
-    let (raw_contents, quantity_grey) = extract_contents(&body_rgba, body.width, body.height);
+    let raw_contents = extract_contents(&body_rgba, body.width, body.height);
 
     let mut contents: Vec<Entry> = Vec::with_capacity(raw_contents.len());
     for (icon_bounds, quantity_bounds) in raw_contents {
         contents.push(Entry {
-            icon: Icon {
-                bounds: icon_bounds.offset(body.x, body.y),
-                CodeName: None,
-                isCrated: None,
-            },
-            quantity: Quantity {
-                bounds: quantity_bounds.offset(body.x, body.y),
-                label: None,
-                value: None,
-            },
+            icon: Icon::from(icon_bounds.offset(body.x, body.y)),
+            quantity: Quantity::from(quantity_bounds.offset(body.x, body.y)),
         });
     }
 
@@ -144,13 +71,15 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
             contents[0].quantity.bounds.width,
         );
 
-        let stockpile_type = StockpileType {
+        let structure_type = StructureType {
             bounds: type_bounds.offset(header_bounds.x, header_bounds.y),
+            value: None,
         };
 
         let stockpile_name = if let Some(name_bounds) = name_bounds {
             Some(StockpileName {
                 bounds: name_bounds.offset(header_bounds.x, header_bounds.y),
+                value: None,
             })
         } else {
             None
@@ -158,7 +87,7 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
 
         header = Some(Header {
             bounds: header_bounds,
-            stockpile_type,
+            structure_type,
             stockpile_name,
         });
     }
@@ -167,7 +96,6 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
         bounds,
         header,
         contents,
-        quantity_grey: Some(quantity_grey), // temporary
     })
 }
 
@@ -444,7 +372,7 @@ fn find_stockpile(rgba: &[u8], width: usize) -> Option<Bounds> {
     })
 }
 
-fn extract_contents(rgba: &[u8], width: usize, height: usize) -> (Vec<(Bounds, Bounds)>, u8) {
+fn extract_contents(rgba: &[u8], width: usize, height: usize) -> Vec<(Bounds, Bounds)> {
     const MIN_QUANTITY_WIDTH: usize = 30;
     const MAX_QUANTITY_WIDTH: usize = 90;
     const MIN_QUANTITY_HEIGHT: usize = 22;
@@ -540,7 +468,7 @@ fn extract_contents(rgba: &[u8], width: usize, height: usize) -> (Vec<(Bounds, B
         row = quantity_bottom.map_or(row + 1, |qb| qb + 1);
     }
 
-    (contents, *quantity_grey_value)
+    contents
 }
 
 fn find_qty_bottom<F: Fn(u8, u8, u8) -> bool>(
