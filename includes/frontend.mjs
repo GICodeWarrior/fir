@@ -7,6 +7,8 @@ let stockpiles = [];
 let imagesProcessed = 0;
 let imagesTotal = 0;
 
+let internalInit;
+
 export async function init(resources) {
   const ready = new Promise(function(resolve) {
     if (document.readyState != 'loading') {
@@ -16,22 +18,22 @@ export async function init(resources) {
     }
   });
 
-  await Promise.all([...Object.values(resources), fiw_init(), ready]).then(function (results) {
+  internalInit = Promise.all([...Object.values(resources), fiw_init()]).then(function (results) {
     let index = 0;
     for (const key of Object.keys(resources)) {
       resources[key] = results[index++];
     }
+
+    CATALOG = resources.CATALOG;
+
+    SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
+      resources.OCR_RECOGNITION_ONNX,
+      resources.ICON_ONNX,
+      resources.ICON_CLASS_NAMES,
+      resources.QUANTITY_ONNX,
+      resources.QUANTITY_CLASS_NAMES,
+    );
   });
-
-  CATALOG = resources.CATALOG;
-
-  SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
-    resources.OCR_RECOGNITION_ONNX,
-    resources.ICON_ONNX,
-    resources.ICON_CLASS_NAMES,
-    resources.QUANTITY_ONNX,
-    resources.QUANTITY_CLASS_NAMES,
-  );
 }
 
 export function registerDefaultListeners() {
@@ -466,7 +468,8 @@ function getProcessImage(label, lastModified) {
     return processImage.call(this, label, lastModified);
   };
 
-  function processImage(label, lastModified) {
+  async function processImage(label, lastModified) {
+    await internalInit;
     URL.revokeObjectURL(this.src);
 
     const canvas = document.createElement('canvas');
