@@ -90,13 +90,7 @@ buildClassifier() {
   mkdir -p ../foxhole/${version}/classifier
   mv class_names.json ../foxhole/${version}/classifier/class_names.json
 
-  cd convert
-  pipenv clean
-  pipenv install
-  pipenv run tensorflowjs_converter --input_format tf_saved_model --output_format=tfjs_graph_model ../model-tf ../../foxhole/${version}/classifier
-  cd ..
-
-  pipenv run python sort_json.py ../foxhole/${version}/classifier/model.json
+  pipenv run python -m tf2onnx.convert --saved-model model-tf --output ../foxhole/${version}/classifier/model.onnx --opset 18
 
   cd ..
 }

@@ -60,13 +60,7 @@ buildClassifier() {
   mkdir -p ../includes/quantities
   mv class_names.json ../includes/quantities/class_names.json
 
-  cd convert
-  pipenv clean
-  pipenv install
-  pipenv run tensorflowjs_converter --input_format tf_saved_model --output_format=tfjs_graph_model ../quantity-model-tf ../../includes/quantities
-  cd ..
-
-  pipenv run python sort_json.py ../includes/quantities/model.json
+  pipenv run python -m tf2onnx.convert --saved-model quantity-model-tf --output ../includes/quantities/model.onnx --opset 18
 
   cd ..
 }
