@@ -1,33 +1,12 @@
-import fiw_init, { ScreenshotProcessor } from '../includes/wasm/fiw.js'
+import WorkerPool from '../includes/worker_pool.mjs'
 
 const CURRENT_VERSION = 'airborne-63';
 
 const JASMINE_TIMEOUT = 60000;
 
-const [
-  OCR_RECOGNITION_ONNX,
-  ICON_ONNX,
-  ICON_CLASS_NAMES,
-  QUANTITY_ONNX,
-  QUANTITY_CLASS_NAMES,
-  EXPECTED_STOCKPILES,
-] = await Promise.all([
-  fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
-  fetch(`./foxhole/${CURRENT_VERSION}/classifier/model.onnx`).then(r => r.bytes()),
-  fetch(`./foxhole/${CURRENT_VERSION}/classifier/class_names.json`).then(r => r.json()),
-  fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
-  fetch('./includes/quantities/class_names.json').then(r => r.json()),
-  fetch('./spec/data/stockpiles.json').then(r => r.json()),
-  fiw_init(),
-]);
+const EXPECTED_STOCKPILES = await fetch('./spec/data/stockpiles.json').then(r => r.json());
 
-const SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
-  OCR_RECOGNITION_ONNX,
-  ICON_ONNX,
-  ICON_CLASS_NAMES,
-  QUANTITY_ONNX,
-  QUANTITY_CLASS_NAMES,
-);
+const WORKER_POOL = new WorkerPool("../includes/worker.mjs", {version: CURRENT_VERSION});
 
 const CRATED_LABEL = {
   true: 'crated',
@@ -118,29 +97,32 @@ function mapCodeNameIfChanged(stockpileVersion, codeName) {
 }
 
 for (const expectedStockpile of EXPECTED_STOCKPILES) {
+  const image = new Image();
+  image.src = `spec/data/screenshots/${expectedStockpile.file}`;
+
+  expectedStockpile.actualStockpile = new Promise(function(resolve) {
+    image.addEventListener('load', function() {
+      const width = this.width;
+      const height = this.height;
+
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+
+      const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
+      context.drawImage(this, 0, 0);
+      const rgba = context.getImageData(0, 0, width, height).data;
+
+      resolve(WORKER_POOL.extract_stockpile(rgba, width));
+    });
+  });
+
+}
+
+for (const expectedStockpile of EXPECTED_STOCKPILES) {
   describe(`Screenshot ${expectedStockpile.file}`, function() {
     beforeAll(async function() {
-      const image = new Image();
-      image.src = `spec/data/screenshots/${expectedStockpile.file}`;
-
-      const [width, height, rgba] = await new Promise(function(resolve) {
-        image.addEventListener('load', function() {
-          const width = this.width;
-          const height = this.height;
-
-          const canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-
-          const context = canvas.getContext('2d', { alpha: false, willReadFrequently: true });
-          context.drawImage(this, 0, 0);
-          const rgba = context.getImageData(0, 0, width, height).data;
-
-          resolve([width, height, rgba]);
-        });
-      });
-
-      this.actualStockpile = SCREENSHOT_PROCESSOR.extract_stockpile(rgba, width);
+      this.actualStockpile = await expectedStockpile.actualStockpile;
     }, JASMINE_TIMEOUT);
 
     const box = expectedStockpile.box;

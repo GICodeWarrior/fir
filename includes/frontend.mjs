@@ -411,6 +411,8 @@ function addImages(files) {
   const collage = document.querySelector('div.render');
   document.querySelector('li span').textContent = imagesProcessed + " of " + imagesTotal;
 
+  WORKER_POOL.setCount(files.length);
+
   files.forEach(function(file) {
     const container = document.createElement('div');
     const label = document.createElement('span');

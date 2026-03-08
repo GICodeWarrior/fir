@@ -9,22 +9,30 @@ class WorkerPool {
   #idleDelay;
 
   #url;
-  #size;
+  #maxCount;
+  #count;
   #version;
 
-  constructor(url, { size = Math.ceil(navigator.hardwareConcurrency / 2), version, idleTimeout = 15_000 } = {}) {
+  constructor(url, { maxCount = Math.ceil(navigator.hardwareConcurrency / 2), version, idleTimeout = 15_000 } = {}) {
     this.#url = url;
-    this.#size = size;
+    this.#maxCount = maxCount;
+    this.#count = maxCount;
     this.#version = version;
     this.#idleDelay = idleTimeout;
   }
 
   #start() {
-    const workers = Array.from({ length: this.#size }, () => new Worker(this.#url, { type: 'module' }));
+    console.log(`Starting ${this.#count} workers.`);
+
+    const workers = Array.from({ length: this.#count }, () => new Worker(this.#url, { type: 'module' }));
     workers.forEach(w => w.postMessage({ type: 'init', version: this.#version }));
 
     this.#running = true;
     this.#idle = workers;
+  }
+
+  setCount(count) {
+    this.#count = Math.min(this.#maxCount, count);
   }
 
   async extract_stockpile(rgba, width) {
@@ -77,6 +85,7 @@ class WorkerPool {
   }
 
   #terminate() {
+    console.log(`Stopping ${this.#idle.length} workers.`);
     this.#idle.forEach(w => w.terminate());
     this.#idle = [];
     this.#running = false;
