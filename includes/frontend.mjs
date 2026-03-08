@@ -1,7 +1,7 @@
-import fiw_init, { ScreenshotProcessor } from './wasm/fiw.js'
+import WorkerPool from './worker_pool.mjs'
 
 let CATALOG;
-let SCREENSHOT_PROCESSOR;
+let WORKER_POOL;
 
 let stockpiles = [];
 let imagesProcessed = 0;
@@ -9,7 +9,7 @@ let imagesTotal = 0;
 
 let internalInit;
 
-export async function init(resources) {
+export async function init(version, catalog) {
   const ready = new Promise(function(resolve) {
     if (document.readyState != 'loading') {
       resolve();
@@ -18,21 +18,10 @@ export async function init(resources) {
     }
   });
 
-  internalInit = Promise.all([...Object.values(resources), fiw_init()]).then(function (results) {
-    let index = 0;
-    for (const key of Object.keys(resources)) {
-      resources[key] = results[index++];
-    }
+  WORKER_POOL = new WorkerPool("./includes/worker.mjs", {version: version});
 
-    CATALOG = resources.CATALOG;
-
-    SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
-      resources.OCR_RECOGNITION_ONNX,
-      resources.ICON_ONNX,
-      resources.ICON_CLASS_NAMES,
-      resources.QUANTITY_ONNX,
-      resources.QUANTITY_CLASS_NAMES,
-    );
+  internalInit = Promise.all([catalog]).then(function (results) {
+    CATALOG = results[0];
   });
 }
 
@@ -475,7 +464,7 @@ function getProcessImage(label, lastModified) {
     context.drawImage(this, 0, 0);
     const rgba = context.getImageData(0, 0, width, height).data;
 
-    const stockpile = SCREENSHOT_PROCESSOR.extract_stockpile(rgba, width);
+    const stockpile = await WORKER_POOL.extract_stockpile(rgba, width);
     if (stockpile) {
       const box = stockpile.bounds;
       const stockpileCanvas = document.createElement('canvas');

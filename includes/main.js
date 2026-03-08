@@ -13,16 +13,18 @@ if (!VALID_VERSIONS.has(VERSION)) {
 window.FIR_CATALOG_VERSION = VERSION;
 console.log(`Loading resources for "${VERSION}"`);
 
-const res = {
-  CATALOG: fetch(`./foxhole/${VERSION}/catalog.json`).then(r => r.json()),
-  OCR_RECOGNITION_ONNX: fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
-  ICON_ONNX: fetch(`./foxhole/${VERSION}/classifier/model.onnx`).then(r => r.bytes()),
-  ICON_CLASS_NAMES: fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
-  QUANTITY_ONNX: fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
-  QUANTITY_CLASS_NAMES: fetch('./includes/quantities/class_names.json').then(r => r.json()),
-}
+// Preload for workers
+[
+  './includes/text-recognition-model.onnx',
+  `./foxhole/${VERSION}/classifier/model.onnx`,
+  `./foxhole/${VERSION}/classifier/class_names.json`,
+  './includes/quantities/model.onnx',
+  './includes/quantities/class_names.json',
+].forEach(url => fetch(url));
 
-await front.init(res);
+const CATALOG = fetch(`./foxhole/${VERSION}/catalog.json`).then(r => r.json());
+
+await front.init(VERSION, CATALOG);
 
 (async function() {
   const input = document.querySelector('form input');
