@@ -1,4 +1,4 @@
-import * as front from './frontend.mjs'
+import * as front from './frontend.mjs';
 
 const VALID_VERSIONS = new Set([
   'airborne-63',

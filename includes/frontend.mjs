@@ -1,4 +1,4 @@
-import WorkerPool from './worker_pool.mjs'
+import WorkerPool from './worker_pool.mjs';
 
 let CATALOG;
 let WORKER_POOL;

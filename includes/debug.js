@@ -1,29 +1,31 @@
-import fiw_init, { ScreenshotProcessor } from './wasm/fiw.js'
+import fiw_init, { ScreenshotProcessor } from './wasm/fiw.js';
 
 const VERSION = 'airborne-63';
 
-const [
-  OCR_RECOGNITION_ONNX,
-  ICON_ONNX,
-  ICON_CLASS_NAMES,
-  QUANTITY_ONNX,
-  QUANTITY_CLASS_NAMES,
-] = await Promise.all([
-  fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
-  fetch(`./foxhole/${VERSION}/classifier/model.onnx`).then(r => r.bytes()),
-  fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
-  fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
-  fetch('./includes/quantities/class_names.json').then(r => r.json()),
-  fiw_init(),
-]);
+const PROCESSOR = (async function() {
+  const [
+    OCR_RECOGNITION_ONNX,
+    ICON_ONNX,
+    ICON_CLASS_NAMES,
+    QUANTITY_ONNX,
+    QUANTITY_CLASS_NAMES,
+  ] = await Promise.all([
+    fetch(`./includes/text-recognition-model.onnx`).then(r => r.bytes()),
+    fetch(`./foxhole/${VERSION}/classifier/model.onnx`).then(r => r.bytes()),
+    fetch(`./foxhole/${VERSION}/classifier/class_names.json`).then(r => r.json()),
+    fetch('./includes/quantities/model.onnx').then(r => r.bytes()),
+    fetch('./includes/quantities/class_names.json').then(r => r.json()),
+    fiw_init(),
+  ]);
 
-const SCREENSHOT_PROCESSOR = new ScreenshotProcessor(
-  OCR_RECOGNITION_ONNX,
-  ICON_ONNX,
-  ICON_CLASS_NAMES,
-  QUANTITY_ONNX,
-  QUANTITY_CLASS_NAMES,
-);
+  return new ScreenshotProcessor(
+    OCR_RECOGNITION_ONNX,
+    ICON_ONNX,
+    ICON_CLASS_NAMES,
+    QUANTITY_ONNX,
+    QUANTITY_CLASS_NAMES,
+  );
+})();
 
 document.querySelector('form').addEventListener('submit', function(e) {
   // Prevent a submit that would cause a page refresh
@@ -37,7 +39,7 @@ document.querySelector('form input').addEventListener('change', function() {
 
   const file = this.files[0];
   const image = document.createElement('img');
-  image.addEventListener('load', function() {
+  image.addEventListener('load', async function() {
     URL.revokeObjectURL(this.src);
 
     const canvas = document.createElement('canvas');
@@ -50,7 +52,7 @@ document.querySelector('form input').addEventListener('change', function() {
     context.drawImage(this, 0, 0);
     const rgba = context.getImageData(0, 0, width, height).data;
 
-    const stockpile = SCREENSHOT_PROCESSOR.extract_stockpile(rgba, width);
+    const stockpile = (await PROCESSOR).extract_stockpile(rgba, width);
     //console.log(stockpile);
     if (stockpile) {
       globalThis.stockpile = stockpile;
