@@ -584,8 +584,8 @@ fn extract_header(
     height: usize,
     quantity_width: usize,
 ) -> (Bounds, Option<Bounds>) {
-    const MAX_GREY_CHROMA: u8 = 16;
-    const MAX_GREY_LIGHTNESS_VARIANCE: u8 = 16;
+    const MAX_GREY_CHROMA: u8 = 32;
+    const MAX_GREY_LIGHTNESS_VARIANCE: u8 = 24;
 
     // Build lightness histogram over all pixels
     let mut histogram: HashMap<u8, usize> = HashMap::new();
