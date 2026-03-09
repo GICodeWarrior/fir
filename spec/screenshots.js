@@ -1,11 +1,9 @@
 import WorkerPool from '../includes/worker_pool.mjs'
 
 const CURRENT_VERSION = 'airborne-63';
-
 const JASMINE_TIMEOUT = 60000;
 
 const EXPECTED_STOCKPILES = await fetch('./spec/data/stockpiles.json').then(r => r.json());
-
 const WORKER_POOL = new WorkerPool("../includes/worker.mjs", {version: CURRENT_VERSION});
 
 const CRATED_LABEL = {
@@ -150,6 +148,23 @@ for (const expectedStockpile of EXPECTED_STOCKPILES) {
     } else {
       it(`has no stockpile name`, function() {
         expect(this.actualStockpile.header && this.actualStockpile.header.stockpile_name).toBeUndefined();
+      });
+    }
+
+    if (Array.isArray(expectedStockpile.structure_technologies)) {
+      it(`has ${expectedStockpile.structure_technologies.length} structure technologies`, function() {
+        expect(this.actualStockpile.structure_technologies).toBeInstanceOf(Array);
+        expect(this.actualStockpile.structure_technologies).toHaveSize(expectedStockpile.structure_technologies.length);
+      });
+
+      for (const [index, technology] of expectedStockpile.structure_technologies.entries()) {
+        it(`contains matching structure technology index ${index}`, function() {
+          expect(this.actualStockpile.structure_technologies[index]).toEqual(technology);
+        });
+      }
+    } else {
+      it(`has no structure technologies`, function() {
+        expect(this.actualStockpile.structure_technologies).toBeUndefined();
       });
     }
 

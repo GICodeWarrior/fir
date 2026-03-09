@@ -500,6 +500,7 @@ function getProcessImage(label, lastModified) {
             type: s.header && s.header.structure_type.value,
             name: s.header && s.header.stockpile_name && s.header.stockpile_name.value || null,
           },
+          structure_technologies: s.structure_technologies,
           contents: s.contents.map(function(e) {
             return {
               CodeName: e.icon.code_name,
