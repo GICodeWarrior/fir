@@ -116,7 +116,9 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
 
     let first_icon_bottom = first_icon_bounds.y + first_icon_bounds.height;
 
-    let Some(second_row_icon_top) = stockpile.contents.iter()
+    let Some(second_row_icon_top) = stockpile
+        .contents
+        .iter()
         .map(|entry| entry.icon.bounds.y)
         .find(|&y| y > first_icon_bottom)
     else {
@@ -152,17 +154,11 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
             let end_red_index = calc_red_index(row_middle, column_left + icon_dimension, width);
 
             for pixel in rgba[left_red_index..end_red_index].chunks_exact(4) {
-                if pixel[0] - pixel[2] > 100
-                    && pixel[0] > pixel[1]
-                    && pixel[1] > pixel[2]
-                {
+                if pixel[0] - pixel[2] > 100 && pixel[0] > pixel[1] && pixel[1] > pixel[2] {
                     technology_found = true;
                     technology_complete = true;
                     break;
-                } else if pixel[0] > 100
-                    && pixel[1] > 100
-                    && pixel[2] > 100
-                {
+                } else if pixel[0] > 100 && pixel[1] > 100 && pixel[2] > 100 {
                     technology_found = true;
                 }
             }
