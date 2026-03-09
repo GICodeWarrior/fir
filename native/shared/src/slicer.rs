@@ -95,8 +95,96 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
     Some(Stockpile {
         bounds,
         header,
+        structure_technologies: None,
         contents,
     })
+}
+
+pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Stockpile) {
+    let body_bounds = match &stockpile.header {
+        Some(header) => stockpile.bounds.offset(0, header.bounds.height),
+        None => stockpile.bounds.offset(0, 0),
+    };
+
+    if stockpile.contents.len() < 1 {
+        return;
+    }
+    let first_icon_bounds = &stockpile.contents[0].icon.bounds;
+    let horizontal_margin = first_icon_bounds.x - body_bounds.x;
+    let vertical_margin = first_icon_bounds.y - body_bounds.y;
+    let icon_dimension = first_icon_bounds.width;
+
+    let first_icon_bottom = first_icon_bounds.y + first_icon_bounds.height;
+
+    let Some(second_row_icon_top) = stockpile.contents.iter()
+        .map(|entry| entry.icon.bounds.y)
+        .find(|&y| y > first_icon_bottom)
+    else {
+        return;
+    };
+
+    let technology_gap_height = second_row_icon_top - first_icon_bottom;
+    let technology_row_height = vertical_margin + icon_dimension;
+    let technology_rows = (technology_gap_height - vertical_margin) / technology_row_height;
+
+    if technology_rows < 1 {
+        return;
+    }
+
+    let technology_height = technology_rows * technology_row_height - vertical_margin;
+    let technology_middle = first_icon_bottom + (technology_gap_height + 1) / 2;
+    let technology_top = technology_middle - (technology_height + 1) / 2;
+
+    let technology_column_width = horizontal_margin + icon_dimension;
+    let technologies_per_row = (body_bounds.width - horizontal_margin) / technology_column_width;
+
+    let mut technologies: Vec<StructureTechnology> = Vec::with_capacity(16);
+    for row in 0..technology_rows {
+        let row_top = technology_top + technology_row_height * row;
+        let row_middle = row_top + (icon_dimension + 1) / 2;
+
+        for column in 0..technologies_per_row {
+            let column_left = body_bounds.x + horizontal_margin + technology_column_width * column;
+
+            let mut technology_found = false;
+            let mut technology_complete = false;
+            let left_red_index = calc_red_index(row_middle, column_left, width);
+            let end_red_index = calc_red_index(row_middle, column_left + icon_dimension, width);
+
+            for pixel in rgba[left_red_index..end_red_index].chunks_exact(4) {
+                if pixel[0] - pixel[2] > 100
+                    && pixel[0] > pixel[1]
+                    && pixel[1] > pixel[2]
+                {
+                    technology_found = true;
+                    technology_complete = true;
+                    break;
+                } else if pixel[0] > 100
+                    && pixel[1] > 100
+                    && pixel[2] > 100
+                {
+                    technology_found = true;
+                }
+            }
+
+            if !technology_found {
+                break;
+            }
+
+            let technology_bounds = Bounds {
+                x: column_left,
+                y: row_top,
+                width: icon_dimension,
+                height: icon_dimension,
+            };
+            technologies.push(StructureTechnology {
+                bounds: technology_bounds,
+                is_complete: technology_complete,
+            });
+        }
+    }
+
+    stockpile.structure_technologies = Some(technologies);
 }
 
 struct Stripe {

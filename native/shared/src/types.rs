@@ -31,34 +31,40 @@ macro_rules! impl_from_bounds {
     };
 }
 
-#[derive(Default, Serialize)]
+#[derive(Debug, Default, Serialize)]
 pub struct StructureType {
     pub bounds: Bounds,
     pub value: Option<String>,
 }
 
-#[derive(Default, Serialize)]
+#[derive(Debug, Default, Serialize)]
 pub struct StockpileName {
     pub bounds: Bounds,
     pub value: Option<String>,
 }
 impl_from_bounds!(StructureType, StockpileName);
 
-#[derive(Serialize)]
+#[derive(Debug, Serialize)]
 pub struct Header {
     pub bounds: Bounds,
     pub structure_type: StructureType,
     pub stockpile_name: Option<StockpileName>,
 }
 
-#[derive(Default, Serialize)]
+#[derive(Debug, Serialize)]
+pub struct StructureTechnology {
+    pub bounds: Bounds,
+    pub is_complete: bool,
+}
+
+#[derive(Debug, Default, Serialize)]
 pub struct Icon {
     pub bounds: Bounds,
     pub code_name: Option<String>,
     pub is_crated: Option<bool>,
 }
 
-#[derive(Default, Serialize)]
+#[derive(Debug, Default, Serialize)]
 pub struct Quantity {
     pub bounds: Bounds,
     pub label: Option<String>,
@@ -66,15 +72,16 @@ pub struct Quantity {
 }
 impl_from_bounds!(Icon, Quantity);
 
-#[derive(Serialize)]
+#[derive(Debug, Serialize)]
 pub struct Entry {
     pub icon: Icon,
     pub quantity: Quantity,
 }
 
-#[derive(Serialize)]
+#[derive(Debug, Serialize)]
 pub struct Stockpile {
     pub bounds: Bounds,
     pub header: Option<Header>,
+    pub structure_technologies: Option<Vec<StructureTechnology>>,
     pub contents: Vec<Entry>,
 }

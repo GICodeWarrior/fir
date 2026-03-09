@@ -42,6 +42,8 @@ pub fn extract_stockpile(
         None => return Ok(None),
     };
 
+    slicer::slice_structure_technology(rgba, width, &mut stockpile);
+
     if let Some(header) = &mut stockpile.header {
         header.structure_type.value =
             Some(ocr.recognize_header(&rgba, width, &header.structure_type.bounds)?);

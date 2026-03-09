@@ -78,6 +78,10 @@ document.querySelector('form input').addEventListener('change', function() {
         }
       }
 
+      for (const technology of stockpile.structure_technologies || []) {
+        drawOutline(stockpileContext, offset(technology.bounds), '#FFFFFFAA');
+      }
+
       document.body.appendChild(stockpileCanvas);
     }
 
