@@ -23,8 +23,9 @@ console.log(`Loading resources for "${VERSION}"`);
 ].forEach(url => fetch(url));
 
 const CATALOG = fetch(`./foxhole/${VERSION}/catalog.json`).then(r => r.json());
+const WORKER_PATH = './includes/worker.mjs';
 
-await front.init(VERSION, CATALOG);
+await front.init(VERSION, CATALOG, WORKER_PATH);
 
 (async function() {
   const input = document.querySelector('form input');

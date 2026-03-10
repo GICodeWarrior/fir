@@ -9,7 +9,7 @@ let imagesTotal = 0;
 
 let internalInit;
 
-export async function init(version, catalog) {
+export async function init(version, catalog, worker_path) {
   const ready = new Promise(function(resolve) {
     if (document.readyState != 'loading') {
       resolve();
@@ -18,7 +18,7 @@ export async function init(version, catalog) {
     }
   });
 
-  WORKER_POOL = new WorkerPool("./includes/worker.mjs", {version: version});
+  WORKER_POOL = new WorkerPool(worker_path, {version: version});
 
   internalInit = Promise.all([catalog]).then(function (results) {
     CATALOG = results[0];
