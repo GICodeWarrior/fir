@@ -7,6 +7,10 @@ edition = "2024"
 name = "batch_resizer"
 path = "src/batch_resizer.rs"
 
+[[bin]]
+name = "fis_test"
+path = "src/specs.rs"
+
 [lib]
 crate-type = ["cdylib", "rlib"]
 name = "fis"

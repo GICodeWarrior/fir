@@ -1,5 +1,6 @@
 use std::fs::File;
 use std::io::{self, Read};
+use std::time::Instant;
 
 use fis::Classifier;
 use fis::Ocr;
