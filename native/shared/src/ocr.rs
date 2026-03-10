@@ -36,6 +36,12 @@ impl Ocr {
         Self::new(Model::load(recognition_model)?)
     }
 
+    pub fn new_from_static(
+        recognition_model: &'static [u8],
+    ) -> Result<Ocr, Box<dyn std::error::Error>> {
+        Self::new(Model::load_static_slice(recognition_model)?)
+    }
+
     fn new(recognition_model: Model) -> Result<Ocr, Box<dyn std::error::Error>> {
         Ok(Ocr {
             engine: OcrEngine::new(OcrEngineParams {

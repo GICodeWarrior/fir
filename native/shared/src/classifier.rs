@@ -44,6 +44,17 @@ impl Classifier {
         Self::new(loaded_model, model_shape, channels, class_names)
     }
 
+    pub fn new_from_static(
+        model: &'static [u8],
+        model_shape: (usize, usize),
+        channels: u8,
+        class_names: Vec<String>,
+    ) -> Result<Self, Box<dyn std::error::Error>> {
+        let loaded_model = Model::load_static_slice(model)?;
+
+        Self::new(loaded_model, model_shape, channels, class_names)
+    }
+
     fn new(
         model: Model,
         model_shape: (usize, usize),
