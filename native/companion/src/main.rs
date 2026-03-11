@@ -1,6 +1,8 @@
 use std::fs::File;
 use std::io::{self, Read};
 
+use tiny_http::{Header, Method, Response, Server, StatusCode};
+
 use fis::Classifier;
 use fis::Ocr;
 use fis::extract_stockpile;
@@ -20,6 +22,7 @@ macro_rules! fir_path {
     };
 }
 
+static VERSION: &str = fir_version!();
 static OCR_RECOGNITION_ONNX: &[u8] =
     include_bytes!(fir_path!(includes / "text-recognition-model.onnx"));
 static ICON_ONNX: &[u8] = include_bytes!(fir_path!(foxhole / "classifier/model.onnx"));
@@ -41,33 +44,30 @@ fn read_input_bytes(filename: &str) -> Result<Vec<u8>, Box<dyn std::error::Error
     Ok(bytes)
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    unsafe {
-        std::env::set_var("RTEN_NUM_THREADS", "1");
-    }
+fn get_classifiers() -> Result<(Ocr, Classifier, Classifier), Box<dyn std::error::Error>> {
+    Ok((
+        Ocr::new_from_static(OCR_RECOGNITION_ONNX)?,
+        Classifier::new_from_static(
+            ICON_ONNX,
+            (32, 32),
+            3,
+            serde_json::from_str(ICON_CLASS_NAMES_JSON)?,
+        )?,
+        Classifier::new_from_static(
+            QUANTITY_ONNX,
+            (16, 21),
+            1,
+            serde_json::from_str(QUANTITY_CLASS_NAMES_JSON)?,
+        )?,
+    ))
+}
 
-    let mut args = std::env::args();
-    let _exe = args.next();
-    let filenames: Vec<String> = args.collect();
+fn command_extract(filenames: Vec<String>) -> Result<(), Box<dyn std::error::Error>> {
     if filenames.is_empty() {
-        return Ok(());
+        return Err("No files provided to extract.".into());
     }
 
-    let ocr = Ocr::new_from_static(OCR_RECOGNITION_ONNX)?;
-
-    let mut icon_classifier = Classifier::new_from_static(
-        ICON_ONNX,
-        (32, 32),
-        3,
-        serde_json::from_str(ICON_CLASS_NAMES_JSON)?,
-    )?;
-
-    let mut quantity_classifier = Classifier::new_from_static(
-        QUANTITY_ONNX,
-        (16, 21),
-        1,
-        serde_json::from_str(QUANTITY_CLASS_NAMES_JSON)?,
-    )?;
+    let (ocr, mut icon_classifier, mut quantity_classifier) = get_classifiers()?;
 
     let mut outputs: Vec<Option<_>> = Vec::with_capacity(filenames.len());
 
@@ -88,4 +88,88 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("{}", serde_json::to_string_pretty(&outputs)?);
 
     Ok(())
+}
+
+fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Error>> {
+    let [addr] = <[String; 1]>::try_from(args)
+        .map_err(|_| "Expecting server address only (e.g. 127.0.0.1:8000)")?;
+
+    let server = Server::http(addr).map_err(|_| "Failed to start server.")?;
+    eprintln!("Listening on http://{}", server.server_addr().to_string());
+
+    let (ocr, mut icon_classifier, mut quantity_classifier) = get_classifiers()?;
+    let content_type_header = Header::from_bytes("Content-Type", "application/json").unwrap();
+
+    for mut request in server.incoming_requests() {
+        let start = std::time::Instant::now();
+        let method = request.method().to_string();
+        let url = request.url().to_string();
+        let remote_addr = request
+            .remote_addr()
+            .map(|a| a.to_string())
+            .unwrap_or_default();
+
+        if request.method() != &Method::Post || request.url() != "/extract" {
+            eprintln!("{remote_addr} {method} {url} 404 {:?}", start.elapsed());
+            let r = Response::from_string("Not Found").with_status_code(StatusCode(404));
+            let _ = request.respond(r);
+            continue;
+        }
+
+        let result = (|| -> Result<String, Box<dyn std::error::Error>> {
+            let mut body = Vec::new();
+            request.as_reader().read_to_end(&mut body)?;
+            let image = image::load_from_memory(&body)?.into_rgba8();
+            let stockpile = extract_stockpile(
+                &image,
+                image.width() as usize,
+                &ocr,
+                &mut icon_classifier,
+                &mut quantity_classifier,
+            )?;
+            Ok(serde_json::to_string_pretty(&stockpile)?)
+        })();
+
+        match result {
+            Ok(json) => {
+                eprintln!("{remote_addr} {method} {url} 200 {:?}", start.elapsed());
+                let r = Response::from_string(json).with_header(content_type_header.clone());
+                let _ = request.respond(r);
+            }
+            Err(e) => {
+                eprintln!("{remote_addr} {method} {url} 500 {:?} {e}", start.elapsed());
+                let r = Response::from_string(format!("Internal Server Error: {e}"))
+                    .with_status_code(StatusCode(500));
+                let _ = request.respond(r);
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    unsafe {
+        std::env::set_var("RTEN_NUM_THREADS", "1");
+    }
+
+    let mut args = std::env::args();
+    let _exe = args.next();
+    let command = match args.next() {
+        Some(c) => c,
+        None => {
+            return Err("Missing command".into());
+        }
+    };
+
+    if command == "extract" {
+        command_extract(args.collect())
+    } else if command == "http-server" {
+        command_http_server(args.collect())
+    } else if command == "version" {
+        eprintln!("{}", VERSION);
+        Ok(())
+    } else {
+        Err("Invalid command".into())
+    }
 }
