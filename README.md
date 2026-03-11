@@ -1,18 +1,65 @@
 # Foxhole Inventory Report (fir)
 
-This tool prepares [Foxhole](https://www.foxholegame.com/about-foxhole) stockpile screenshots into a visual report and machine-readable numbers.
+fir is known for accurate recognition of [Foxhole](https://www.foxholegame.com/about-foxhole) stockpile information.
 
-1. Screenshot multiple inventories from the map view in-game.  Do this in the order you'd like them to appear in the report.
-2. Select your screenshots in the tool.
-3. Wait for processing.
-4. Edit the titles for each inventory in the report by clicking on them.
-5. Download the result as a PNG, text report, TSV, or append to a google spreadsheet.
+Given a map-view screenshot of any stockpile, the following are extracted:
+* Structure name (i.e. Seaport, Bunker Base, etc.)
+* Stockpile name (for private stockpiles)
+* Structure technology (i.e. bunker garrison upgrade status)
+* Stockpile contents (each item and quantity)
+* Pixel boundary information for each of the above (i.e. if you want to display or highlight part of the image)
 
-## Status
+All common (and most other) icon mods are supported.
 
-Under development. However, it is already being used "in production" within regiment(s) for evaluation. 
+The goal is 100% accuracy, so please share any problematic screenshots via Discord or GitHub!
 
-## Deployment
+## General Usage
+
+### Website
+
+At https://fir.gicode.net/, stockpile screenshots can be compiled into visual reports and exported to machine-readable formats.
+
+### Spreadsheets
+
+The website can be used to process screenshots and append to a Google Spreadsheet.  Multiple spreadsheet templates exist.
+
+Note: the sundial spreadsheet sidebar integration is currently broken and needs a maintainer
+
+## Developer Integrations
+
+### Browser or Node.js (via WebAssembly)
+
+See `includes/debug.js` for a relatively succinct example.
+
+### API
+
+Runs on at least Windows and Linux.
+
+```shell
+$ ./fic http-server 127.0.0.1:8000
+Listening on http://127.0.0.1:8000
+127.0.0.1:54422 POST /extract 200 61.317955ms
+127.0.0.1:50236 POST /extract 200 56.144978ms
+127.0.0.1:50252 POST /extract 200 54.504678ms
+```
+
+```shell
+$ curl -v --data-binary @<image-file> http://localhost:8000/extract
+{ ...stockpile-json... }
+```
+
+### Command Line
+
+Runs on at least Windows and Linux.
+
+```shell
+$ ./fic extract <image-file>...
+[{ ...stockpile-json... }]
+```
+
+## Hosting (website)
+The static files in the repo are all you need, so you can host with any webserver you like.  Some examples are below.
+
 ### Local
 To deploy a non-containerized server run:
 ```
@@ -20,24 +67,22 @@ cd fir
 python3 -m http.server
 ```
 ### Docker
-#### Building the Docker Container
 To build the docker container run:
 ```
 docker build -f Dockerfile.server --tag 'fir_server' .
 ```
 
-##### Overriding the listen port
 If you'd like to override the override the port the server listens on run:
 ```
 docker build -f Dockerfile.server --build-arg PORT=<override port> --tag 'fir_server' .
 ```
-#### Running the Docker Container
-To run the FIR server in the built docker continer:
+
+To run the fir server in the built docker continer:
 ```
 docker run -p <host port>:<fir port> fir_server
 ```
-The `-p` argument maps the host port to the fir server port inside the container. FIR defaults to listening on port
-8000. To override the port please see [this section](#overriding-the-listen-port).
+The `-p` argument maps the host port to the fir server port inside the container. fir defaults to listening on port
+8000.
 
 ## Development
 
@@ -49,14 +94,16 @@ python3 -m http.server
 
 To build the google spreadsheet sidebar, run `./sundial/gs-build.sh` and find the files to be added to Google Apps Script in `./sundial/gs-build`.
 
-## Training
+### Training
 
-### Standalone
+The training process is somewhat complex.  If you are interested in running the training, please reach out on Discord for more information.
+
+#### Standalone
 
 The standalone method will require you to manually install all the necessary dependencies, such as Node, NPM, TensorFlow, etc.
 To begin training, simply run `build.sh <FModel-Data-Directory>`.
 
-### Docker
+#### Docker
 
 Training can also be performed using a Docker container instead. [https://docs.docker.com/desktop/features/wsl/]
 If you plan to use your GPU(s) for training, you will need to install NVIDIA drivers and the NVIDIA Container Toolkit. [https://docs.nvidia.com/ai-enterprise/deployment/vmware/latest/docker.html]
