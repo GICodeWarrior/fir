@@ -1,0 +1,17 @@
+FROM docker.io/library/rust:alpine AS builder
+
+WORKDIR /fir
+COPY foxhole foxhole
+COPY includes includes
+COPY native native
+
+WORKDIR /fir/native
+RUN cargo build --release --bin fic
+
+
+FROM docker.io/library/alpine:latest
+
+COPY --from=builder /fir/native/target/release/fic /usr/local/bin/fic
+COPY LICENSE /LICENSE
+
+ENTRYPOINT ["fic"]

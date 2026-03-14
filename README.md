@@ -57,28 +57,56 @@ $ ./fic extract <image-file>...
 [{ ...stockpile-json... }]
 ```
 
+## Building (companion)
+
+The companion is a single executable file that can be run without any other dependencies.
+
+```shell
+$ cd native
+$ cargo build --release --bin fic
+$ target/release/fic http-server 0.0.0.0:8000
+Listening on http://0.0.0.0:8000
+127.0.0.1:37770 POST /extract 200 67.819248ms
+127.0.0.1:37786 POST /extract 200 57.156195ms
+127.0.0.1:37798 POST /extract 200 52.225086ms
+127.0.0.1:37814 POST /extract 200 52.553023ms
+```
+
+If you'd like to run it in Docker, here are some example commands.
+
+```shell
+$ podman build -f Dockerfile.companion -t fir_companion .
+$ podman run -it --rm --init -p 8000:8000 fir_companion http-server 0.0.0.0:8000
+Listening on http://0.0.0.0:8000
+10.0.2.100:41668 POST /extract 200 69.883099ms
+10.0.2.100:41678 POST /extract 200 66.47351ms
+10.0.2.100:41694 POST /extract 200 67.601909ms
+10.0.2.100:41710 POST /extract 200 72.63238ms
+```
+
+Note the Docker runtimes seem ~20% slower for whatever reason.
+
 ## Hosting (website)
 The static files in the repo are all you need, so you can host with any webserver you like.  Some examples are below.
 
 ### Local
-To deploy a non-containerized server run:
-```
+```shell
 cd fir
 python3 -m http.server
 ```
 ### Docker
 To build the docker container run:
-```
+```shell
 docker build -f Dockerfile.server --tag 'fir_server' .
 ```
 
 If you'd like to override the override the port the server listens on run:
-```
+```shell
 docker build -f Dockerfile.server --build-arg PORT=<override port> --tag 'fir_server' .
 ```
 
 To run the fir server in the built docker continer:
-```
+```shell
 docker run -p <host port>:<fir port> fir_server
 ```
 The `-p` argument maps the host port to the fir server port inside the container. fir defaults to listening on port
@@ -87,7 +115,7 @@ The `-p` argument maps the host port to the fir server port inside the container
 ## Development
 
 Standalone website:
-```
+```shell
 cd fir
 python3 -m http.server
 ```
@@ -110,9 +138,9 @@ If you plan to use your GPU(s) for training, you will need to install NVIDIA dri
 
 Build the docker container by running docker `docker build -f Dockerfile.trainer --tag 'fir_trainer' .`
 
-If you only want to utilize your CPU for training, run `docker run -f Dockerfile.trainer -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+If you only want to utilize your CPU for training, run `docker run -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
-If you want to utilize both your CPU and GPU(s) for training, run `docker run -f Dockerfile.trainer --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
+If you want to utilize both your CPU and GPU(s) for training, run `docker run --gpus all -it --rm -v $PWD:/tmp -w /tmp -e WAR_LOCATION=<FModel-Data-Directory> fir_trainer`
 
 ## License
 
