@@ -1,4 +1,4 @@
-FROM docker.io/library/rust:alpine AS builder
+FROM docker.io/library/rust:slim AS builder
 
 WORKDIR /fir
 COPY foxhole foxhole
@@ -9,7 +9,7 @@ WORKDIR /fir/native
 RUN cargo build --release --bin fic
 
 
-FROM docker.io/library/alpine:latest
+FROM gcr.io/distroless/cc-debian13:latest
 
 COPY --from=builder /fir/native/target/release/fic /usr/local/bin/fic
 COPY LICENSE /LICENSE
