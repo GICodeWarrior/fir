@@ -101,7 +101,8 @@ impl Ocr {
                 height: (max_y - min_y + 1 + 2 * padding).min(crop_bounds.height - y),
             }
         } else {
-            return Err("no valid text pixels found: {}".into());
+            return Ok("".into());
+            //return Err("no valid text pixels found: {}".into());
         };
 
         /*
