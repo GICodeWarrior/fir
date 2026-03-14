@@ -62,7 +62,7 @@ impl Ocr {
         let crop_bounds = Bounds {
             x: bounds.x + crop_offset,
             y: bounds.y + crop_offset,
-            width: bounds.width - crop_offset,
+            width: bounds.width.saturating_sub(crop_offset),
             height: text_height,
         };
 
@@ -101,8 +101,8 @@ impl Ocr {
                 height: (max_y - min_y + 1 + 2 * padding).min(crop_bounds.height - y),
             }
         } else {
-            return Ok("".into());
-            //return Err("no valid text pixels found: {}".into());
+            //return Ok("".into());
+            return Err("no valid text pixels found: {}".into());
         };
 
         /*

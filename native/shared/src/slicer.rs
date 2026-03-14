@@ -154,7 +154,7 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
             let end_red_index = calc_red_index(row_middle, column_left + icon_dimension, width);
 
             for pixel in rgba[left_red_index..end_red_index].chunks_exact(4) {
-                if pixel[0] - pixel[2] > 100 && pixel[0] > pixel[1] && pixel[1] > pixel[2] {
+                if pixel[0].saturating_sub(pixel[2]) > 100 && pixel[0] > pixel[1] && pixel[1] > pixel[2] {
                     technology_found = true;
                     technology_complete = true;
                     break;
@@ -580,8 +580,7 @@ fn extract_header(
     height: usize,
     quantity_width: usize,
 ) -> (Bounds, Option<Bounds>) {
-    const MAX_GREY_CHROMA: u8 = 32;
-    const MAX_GREY_LIGHTNESS_VARIANCE: u8 = 24;
+    const MAX_EXPECTED_CHROMA: u8 = 16;
 
     // Build lightness histogram over all pixels
     let mut histogram: HashMap<u8, usize> = HashMap::new();
@@ -597,7 +596,9 @@ fn extract_header(
         .map(|(value, _)| value)
         .unwrap_or(&128u8);
 
-    let dark_value_cutoff = grey_value - MAX_GREY_LIGHTNESS_VARIANCE;
+    let tab_value_cutoff = (*grey_value as u16 * 3 / 4) as u8;
+    let dark_value_cutoff = (*grey_value as u16 * 2 / 3) as u8;
+    let bright_value_cutoff = grey_value.saturating_add(grey_value / 4);
 
     // Scan the middle row of the header
     let packed_width = width * 4;
@@ -612,14 +613,8 @@ fn extract_header(
     let mut has_name = true;
 
     let is_grey = |r: u8, g: u8, b: u8| -> bool {
-        check_pixel(
-            r,
-            g,
-            b,
-            MAX_GREY_CHROMA,
-            *grey_value,
-            MAX_GREY_LIGHTNESS_VARIANCE,
-        )
+        let (chroma, lightness) = get_cl(r, g, b);
+        chroma >= MAX_EXPECTED_CHROMA || (lightness > dark_value_cutoff && lightness < bright_value_cutoff)
     };
 
     for offset in (scan_start..scan_end).step_by(4) {
@@ -642,7 +637,7 @@ fn extract_header(
 
         if offset >= expect_tab {
             let (chroma, lightness) = get_cl(r, g, b);
-            if chroma < MAX_GREY_CHROMA && lightness < dark_value_cutoff {
+            if chroma < MAX_EXPECTED_CHROMA && lightness < tab_value_cutoff {
                 tab_start = Some((offset - scan_start) / 4);
                 break;
             }
