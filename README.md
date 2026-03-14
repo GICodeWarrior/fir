@@ -62,29 +62,17 @@ $ ./fic extract <image-file>...
 The companion is a single executable file that can be run without any other dependencies.
 
 ```shell
-$ cd native
-$ cargo build --release --bin fic
-$ target/release/fic http-server 0.0.0.0:8000
-Listening on http://0.0.0.0:8000
-127.0.0.1:37770 POST /extract 200 67.819248ms
-127.0.0.1:37786 POST /extract 200 57.156195ms
-127.0.0.1:37798 POST /extract 200 52.225086ms
-127.0.0.1:37814 POST /extract 200 52.553023ms
+cd native
+cargo build --release --bin fic
+target/release/fic http-server 0.0.0.0:8000
 ```
 
 If you'd like to run it in Docker, here are some example commands.
 
 ```shell
-$ podman build -f Dockerfile.companion -t fir_companion .
-$ podman run -it --rm --init -p 8000:8000 fir_companion http-server 0.0.0.0:8000
-Listening on http://0.0.0.0:8000
-10.0.2.100:41668 POST /extract 200 69.883099ms
-10.0.2.100:41678 POST /extract 200 66.47351ms
-10.0.2.100:41694 POST /extract 200 67.601909ms
-10.0.2.100:41710 POST /extract 200 72.63238ms
+podman build -f Dockerfile.companion -t fir_companion .
+podman run -it --rm --init -p 8000:8000 fir_companion http-server 0.0.0.0:8000
 ```
-
-Note the Docker runtimes seem ~20% slower for whatever reason.
 
 ## Hosting (website)
 The static files in the repo are all you need, so you can host with any webserver you like.  Some examples are below.
