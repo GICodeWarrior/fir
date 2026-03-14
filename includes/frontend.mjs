@@ -548,7 +548,8 @@ function outputTotals() {
         }
 
         const itemCategory = (catalogItem.ItemCategory || '').replace(/^EItemCategory::/, '');
-        const vehicleCategory = catalogItem.VehicleProfileType ? 'Vehicles' : undefined;
+        const vehicleCategory = (catalogItem.VehicleProfileType ? 'Vehicles' : undefined)
+            || ((catalogItem.ArmourType || '').match(/^EArmourType::Tier.Aircraft$/) ? 'Vehicles' : undefined);
         const structureCategory = catalogItem.BuildLocationType
             || (catalogItem.ProfileType == 'EStructureProfileType::Shippable') ? 'Structures' : undefined;
 
