@@ -21,9 +21,16 @@ At https://fir.gicode.net/, stockpile screenshots can be compiled into visual re
 
 ### Spreadsheets
 
-The website can be used to process screenshots and append to a Google Spreadsheet.  Multiple spreadsheet templates exist.
+The website can be used to process screenshots and append to a Google Spreadsheet.
 
-Note: the sundial spreadsheet sidebar integration is currently broken and needs a maintainer
+* [Create New Spreadsheet from Template](https://docs.google.com/spreadsheets/d/1hoAZIjBNFf8JW3XHvChwYpt-szgbi4XByvbncbZnj-8/copy)
+* [View Demo Spreadsheet](https://docs.google.com/spreadsheets/d/1_TQFog_pDrwGmH4so63c8IW7sm7hlMl0kBs3WtM6CiE/edit?gid=1920645043)
+
+![Demo Spreadsheet](.readme-assets/2026-03-04-demo-spreadsheet.png)
+
+Multiple alternate spreadsheets exist.
+
+Note: the sundial spreadsheet sidebar integration is currently broken and needs a maintainer.  However, the website can be used to import into that sheet as well.
 
 ## Developer Integrations
 
