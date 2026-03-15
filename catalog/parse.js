@@ -151,7 +151,7 @@ function coalesceObject(coreObject) {
     ['VehicleProfileType'],
     ['VehicleMovementProfileType'],
     ['ArmourType'],
-    ['ShippableInfo', 'Type'],
+    ['ShippableInfo'],
     ['FuelTank', 'FuelCapacity'],
     ['DepthCuttoffForSwimDamage'],
     ['BuildLocationType'],
@@ -634,6 +634,7 @@ function coalesceObject(coreObject) {
 
   productionCategories.MassProductionFactory = (common.massProductionFactoryProductionCategories.find(c => c.CategoryItems.find(e => e.CodeName == combinedObject.CodeName)) || {}).Type;
 
+  /* // Inaccurate
   if (!productionCategories.MassProductionFactory) {
     const vehicleType = combinedObject.VehicleBuildType;
     const structureType = combinedObject.BuildLocationType;
@@ -643,6 +644,7 @@ function coalesceObject(coreObject) {
       productionCategories.MassProductionFactory = 'EFactoryQueueType::Structures';
     }
   }
+  */
 
   if (Object.values(productionCategories).filter(e => !!e).length) {
     combinedObject.ProductionCategories = productionCategories;

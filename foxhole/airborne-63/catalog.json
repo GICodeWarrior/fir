@@ -151,7 +151,10 @@
     "TechID": "ETechID::UnlockAircraftBomber",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftBomberCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "FuelTank": 350,
     "VehicleDynamicData": {
       "MaxHealth": 15000,
@@ -215,7 +218,10 @@
     "TechID": "ETechID::UnlockAircraftBomber",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftBomberWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "FuelTank": 300,
     "VehicleDynamicData": {
       "MaxHealth": 15000,
@@ -279,7 +285,10 @@
     "TechID": "ETechID::UnlockAircraftDive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftDiveCIcon_copy.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "VehicleDynamicData": {
       "MaxHealth": 5500,
       "MinorDamagePercent": 0.5,
@@ -343,7 +352,10 @@
     "TechID": "ETechID::UnlockAircraftFighter",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftFigtherCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "VehicleDynamicData": {
       "MaxHealth": 5500,
       "MinorDamagePercent": 0.5,
@@ -407,7 +419,10 @@
     "TechID": "ETechID::UnlockAircraftFighter",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftFighterWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "VehicleDynamicData": {
       "MaxHealth": 6000,
       "MinorDamagePercent": 0.5,
@@ -471,7 +486,10 @@
     "TechID": "ETechID::UnlockAircraftParatrooper",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "FuelTank": 425,
     "bCanUseStructures": true,
     "VehicleDynamicData": {
@@ -565,7 +583,10 @@
     "TechID": "ETechID::UnlockAircraftParatrooper",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftParatrooperWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "FuelTank": 250,
     "bCanUseStructures": true,
     "VehicleDynamicData": {
@@ -1248,7 +1269,9 @@
     "TechID": "ETechID::UnlockAircraftScout",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftScoutCIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "VehicleBuildType": "EVehicleBuildType::AircraftFactory",
     "VehicleDynamicData": {
       "MaxHealth": 500,
@@ -1332,9 +1355,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1346,7 +1366,9 @@
     "TechID": "ETechID::UnlockAircraftScout",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftScoutWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 230,
     "VehicleBuildType": "EVehicleBuildType::AircraftFactory",
     "VehicleDynamicData": {
@@ -1431,9 +1453,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1445,7 +1464,10 @@
     "TechID": "ETechID::UnlockAircraftTorpedo",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftTorpedoWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "FuelTank": 200,
     "VehicleDynamicData": {
       "MaxHealth": 10800,
@@ -1510,7 +1532,10 @@
     "TechID": "ETechID::UnlockAircraftWater",
     "Icon": "War/Content/Textures/UI/VehicleIcons/AircraftWaterWIcon.0",
     "ArmourType": "EArmourType::Tier1Aircraft",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large",
+      "bAllowPackagingToCrate": true
+    },
     "DepthCuttoffForSwimDamage": 100,
     "VehicleDynamicData": {
       "MaxHealth": 5750,
@@ -1673,7 +1698,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "bCanUseStructures": true,
@@ -1729,9 +1756,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1746,7 +1770,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
@@ -1802,9 +1828,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1819,7 +1842,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
@@ -1875,9 +1900,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -1892,7 +1914,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 220,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "bCanUseStructures": true,
@@ -1948,9 +1972,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2011,7 +2032,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2066,9 +2089,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2084,7 +2104,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2139,9 +2161,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2156,7 +2175,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -2212,9 +2233,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2230,7 +2248,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2285,9 +2305,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2302,7 +2319,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -2358,9 +2377,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2376,7 +2392,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2431,9 +2449,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2449,7 +2464,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2504,9 +2521,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2522,7 +2536,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2577,9 +2593,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2595,7 +2608,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
@@ -2650,9 +2665,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -2667,7 +2679,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCar",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -2723,9 +2737,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5053,9 +5064,6 @@
       "DamageDrivingOverIce": 0,
       "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5144,7 +5152,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 6250,
@@ -5198,9 +5208,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5218,7 +5225,9 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTank.0",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 6250,
@@ -5272,9 +5281,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5292,7 +5298,9 @@
     "TechID": "ETechID::UnlockBattleTank",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 5100,
@@ -5346,9 +5354,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5366,7 +5371,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 6250,
@@ -5420,9 +5427,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5432,7 +5436,9 @@
     "Description": "Built on an inverted Flood chassis, the Mk. IX Stain is a fully-featured mobile artillery platform. Once deployed, the Stain can fire a 150mm cannon over long-distances to pummel enemy positions with indirect fire.",
     "TechID": "ETechID::UnlockBattleTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/BattleTankHeavyArtilleryWIcon.0",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 600,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Battle Tank",
@@ -5494,9 +5500,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5514,7 +5517,9 @@
     "TechID": "ETechID::UnlockBattleTank",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 5100,
@@ -5568,9 +5573,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5919,9 +5921,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -5991,9 +5990,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6157,7 +6153,9 @@
     "TechID": "ETechID::UnlockConcreteMixer",
     "Icon": "War/Content/Textures/UI/StructureIcons/ConcreteMixerIcon.0",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1200,
     "bIsStockpilable": true,
@@ -6191,9 +6189,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -6206,7 +6201,9 @@
     "VehicleProfileType": "EVehicleProfileType::Construction",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 265,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "bCanUseStructures": true,
@@ -6275,9 +6272,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6290,7 +6284,9 @@
     "TechID": "ETechID::UnlockConstructionEquipment",
     "Icon": "War/Content/Textures/UI/StructureIcons/ConstructionEquipment.0",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1200,
     "bIsStockpilable": true,
@@ -6324,9 +6320,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -6340,7 +6333,9 @@
     "VehicleProfileType": "EVehicleProfileType::Construction",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ConstructionTracked",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 265,
     "VehicleBuildType": "EVehicleBuildType::BuildableAnywhere",
     "bCanUseStructures": true,
@@ -6396,9 +6391,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6545,9 +6537,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6749,7 +6738,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2200,
@@ -6803,9 +6794,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6822,7 +6810,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2200,
@@ -6876,9 +6866,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -6999,7 +6986,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedAircraft",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedAircraftCIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
     "bIsStockpilable": true,
@@ -7015,9 +7004,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7029,7 +7015,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedAircraft",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedAircraftWIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
     "bIsStockpilable": true,
@@ -7045,9 +7033,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7059,7 +7044,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedATLarge",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedATLargeWIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::Facility",
     "MaxHealth": 2650,
     "bIsStockpilable": true,
@@ -7086,7 +7073,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedATGun",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedATIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1500,
     "bIsStockpilable": true,
@@ -7102,9 +7091,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7116,7 +7102,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedCannonLarge",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedCannonLargeC.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::Facility",
     "MaxHealth": 2650,
     "bIsStockpilable": true,
@@ -7143,7 +7131,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedHeavyArtillery",
     "Icon": "War/Content/Textures/UI/StructureIcons/HeavyArtilleryCIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1000,
     "bIsStockpilable": true,
@@ -7159,9 +7149,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7173,7 +7160,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedHeavyArtillery",
     "Icon": "War/Content/Textures/UI/StructureIcons/HeavyArtilleryW.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1250,
     "bIsStockpilable": true,
@@ -7189,9 +7178,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7203,7 +7189,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedIndirect",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedIndirectCIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1500,
     "bIsStockpilable": true,
@@ -7219,9 +7207,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7233,7 +7218,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedFieldMG",
     "Icon": "War/Content/Textures/UI/VehicleIcons/EmplacedInfantryCIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1650,
     "bIsStockpilable": true,
@@ -7249,9 +7236,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7263,7 +7247,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedFieldMG",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedMGIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1500,
     "bIsStockpilable": true,
@@ -7279,9 +7265,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7293,7 +7276,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "TechID": "ETechID::UnlockEmplacedLightArtillery",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedHowitzerIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 750,
     "bIsStockpilable": true,
@@ -7309,9 +7294,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -7323,7 +7305,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "TechID": "ETechID::UnlockEmplacedMulti",
     "Icon": "War/Content/Textures/UI/StructureIcons/EmplacedMultiCStructureIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::Facility",
     "MaxHealth": 750,
     "bIsStockpilable": true,
@@ -8282,7 +8266,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 1600,
@@ -8336,9 +8322,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8354,7 +8337,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 1600,
@@ -8408,9 +8393,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8426,7 +8408,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 2850,
@@ -8480,9 +8464,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8498,7 +8479,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
@@ -8552,9 +8535,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8570,7 +8550,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 2850,
@@ -8624,9 +8606,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8642,7 +8621,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
@@ -8696,9 +8677,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8714,7 +8692,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 2850,
@@ -8768,9 +8748,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8786,7 +8763,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 1850,
@@ -8840,9 +8819,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8858,7 +8834,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 1850,
@@ -8912,9 +8890,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -8929,7 +8904,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -8984,9 +8961,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -9001,7 +8975,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalked",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -9056,9 +9032,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -9636,9 +9609,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -9650,7 +9620,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9694,7 +9666,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9738,7 +9712,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9782,7 +9758,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9826,7 +9804,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9869,7 +9849,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -9913,7 +9895,9 @@
     "MaxHealth": 1000,
     "ProfileType": "EStructureProfileType::Shippable",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -10038,9 +10022,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10134,9 +10115,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10816,9 +10794,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -10913,9 +10888,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11011,9 +10983,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11109,9 +11078,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11127,7 +11093,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleDynamicData": {
@@ -11182,9 +11150,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11199,7 +11164,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -11255,9 +11222,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11273,7 +11237,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleDynamicData": {
@@ -11328,9 +11294,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11345,7 +11308,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
@@ -11376,9 +11341,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11394,7 +11356,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleDynamicData": {
@@ -11449,9 +11413,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11467,7 +11428,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleProfileData": {
@@ -11497,9 +11460,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11514,7 +11474,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Halftrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "DepthCuttoffForSwimDamage": 260,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -11570,9 +11532,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11586,7 +11545,9 @@
     "VehicleProfileType": "EVehicleProfileType::TrackedTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 200,
     "DepthCuttoffForSwimDamage": 185,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
@@ -11643,9 +11604,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11843,9 +11801,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -11916,9 +11871,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12349,7 +12301,9 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/LandingCraftVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "VehicleDynamicData": {
       "MaxHealth": 2000,
@@ -12418,7 +12372,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "VehicleDynamicData": {
       "MaxHealth": 2000,
@@ -12472,9 +12428,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12489,7 +12442,9 @@
     "TechID": "ETechID::UnlockLandingCraft",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 150,
     "VehicleDynamicData": {
       "MaxHealth": 2000,
@@ -12639,9 +12594,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12739,9 +12691,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12824,9 +12773,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12842,7 +12788,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 5000,
@@ -12896,9 +12844,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12914,7 +12859,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleDynamicData": {
       "MaxHealth": 5000,
@@ -12968,9 +12915,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -12985,7 +12929,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -13040,9 +12986,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13057,7 +13000,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
@@ -13112,9 +13057,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13129,7 +13071,9 @@
     "VehicleProfileType": "EVehicleProfileType::FieldWeapon",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FieldWalkedLarge",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
@@ -13184,9 +13128,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -13390,6 +13331,10 @@
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
+    "ShippableInfo": {
+      "bAllowShippableTransfer": true,
+      "MaxSupportedSize": "EShippableType::Large"
+    },
     "FuelTank": 3500,
     "MapIconType": "EMapIconType::LargeShipBattleshipAircraftW",
     "bIsStockpilable": false,
@@ -13865,6 +13810,10 @@
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
+    "ShippableInfo": {
+      "bAllowShippableTransfer": true,
+      "MaxSupportedSize": "EShippableType::Large"
+    },
     "FuelTank": 1500,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -13959,6 +13908,10 @@
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
+    "ShippableInfo": {
+      "bAllowShippableTransfer": true,
+      "MaxSupportedSize": "EShippableType::Large"
+    },
     "FuelTank": 3500,
     "MapIconType": "EMapIconType::LargeShipStorageShip",
     "bIsStockpilable": false,
@@ -14055,6 +14008,10 @@
     "VehicleProfileType": "EVehicleProfileType::CombatShip",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1LargeShip",
+    "ShippableInfo": {
+      "bAllowShippableTransfer": true,
+      "MaxSupportedSize": "EShippableType::Normal"
+    },
     "FuelTank": 1200,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -14415,9 +14372,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14512,9 +14466,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14530,7 +14481,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -14585,9 +14538,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14665,7 +14615,9 @@
     "Description": "A modified Devitt fitted with a specialized Caine mortar turret at the expense of top speed.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankArtilleryWar.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 300,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
@@ -14725,9 +14677,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14736,7 +14685,9 @@
     "ChassisName": "Light Tank",
     "DisplayName": "H-5 \"Hatchet\"",
     "Description": "A highly maneuverable lightweight tank. Designed for urban environments, the “Hatchet” is fitted with a 40mm cannon.",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "FactionVariant": "EFactionId::Colonials",
@@ -14798,9 +14749,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14811,7 +14759,9 @@
     "Description": "The Ironhide Light Tank is similar to the Mk. III but reinforced with plates of heavy steel at the expense of speed and maneuverability.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarDefensiveVehicleIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 300,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
@@ -14871,9 +14821,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14884,7 +14831,9 @@
     "Description": "This modified “Hatchet” features a reinforced fuel cell fixed to its rear alongside a flamethrower turret. This light tank can launch litres of burning fuel a fair distance, while its crew remains protected behind light armour plating.",
     "TechID": "ETechID::UnlockLightTankFlame",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankFlameCIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 325,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
@@ -14944,9 +14893,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -14957,7 +14903,9 @@
     "Description": "The “Kranesca” Light Tank is fitted with an overpowered engine and a reinforced chassis, capable of boosting its top speed at the expense of overall acceleration and maneuverability.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankColMobilityVehicleIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 300,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "BoostSpeedModifier": 1.8,
@@ -15019,9 +14967,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15032,7 +14977,9 @@
     "Description": "The “Pelekys” H-class light tank is heavily modified with an open top chassis and equipped with a devastating long-range anti-tank cannon.",
     "TechID": "ETechID::UnlockLightTankOffensive",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankOffensiveCVehicleIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 325,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Colonials",
@@ -15092,9 +15039,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15103,7 +15047,9 @@
     "ChassisName": "Light Tank",
     "DisplayName": "Devitt Mk. III",
     "Description": "A highly maneuverable lightweight tank. Designed for urban environments, the Devitt is fitted with a 40mm cannon.",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FactionVariant": "EFactionId::Wardens",
     "Icon": "War/Content/Textures/UI/VehicleIcons/LightTankWarVehicleIcon.0",
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
@@ -15165,9 +15111,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15176,7 +15119,9 @@
     "DisplayName": "Liquid Container",
     "Description": "A container for storing high volumes of liquids. Nearby structures and vehicles can refill directly from this container. ",
     "Icon": "War/Content/Textures/UI/StructureIcons/FuelTankIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1000,
     "bIsStockpilable": true,
@@ -15192,9 +15137,6 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -15473,9 +15415,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -15490,7 +15429,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Mech",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 250,
     "DepthCuttoffForSwimDamage": 350,
     "bIsStockpilable": false,
@@ -15560,7 +15501,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Mech",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 250,
     "DepthCuttoffForSwimDamage": 240,
     "bIsStockpilable": false,
@@ -15800,9 +15743,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15897,9 +15837,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15915,7 +15852,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -15970,9 +15909,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -15991,7 +15927,9 @@
     "BoostGasUsageModifier": 6,
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2650,
@@ -16045,9 +15983,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16066,7 +16001,9 @@
     "BoostGasUsageModifier": 6,
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2950,
@@ -16120,9 +16057,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16141,7 +16075,9 @@
     "BoostGasUsageModifier": 6,
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 2950,
@@ -16195,9 +16131,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16214,7 +16147,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
@@ -16268,9 +16203,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16288,7 +16220,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -16343,9 +16277,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16361,7 +16292,9 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ArmoredCarLarge",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -16416,9 +16349,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16435,7 +16365,9 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 3100,
@@ -16489,9 +16421,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16508,7 +16437,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -16563,9 +16494,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16583,7 +16511,9 @@
     "VehiclesPerCrateBonusQuantity": 2,
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 4000,
@@ -16637,9 +16567,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16657,7 +16584,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 3650,
@@ -16711,9 +16640,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16730,7 +16656,9 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleDynamicData": {
       "MaxHealth": 3100,
@@ -16784,9 +16712,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -16802,7 +16727,9 @@
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackMediumTanks",
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -16857,9 +16784,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -17385,9 +17309,6 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -18026,7 +17947,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Fulltrack",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleDynamicData": {
       "MaxHealth": 3300,
@@ -18080,9 +18003,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -18149,9 +18069,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -18166,7 +18083,9 @@
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Motorcycle",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "BoostSpeedModifier": 1.25,
@@ -18223,9 +18142,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -18240,7 +18156,9 @@
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Motorcycle",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "BoostSpeedModifier": 1.25,
     "BoostGasUsageModifier": 4,
@@ -18296,9 +18214,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -18313,7 +18228,9 @@
     "VehicleProfileType": "EVehicleProfileType::OpenRoofWheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Motorcycle",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "BoostSpeedModifier": 1.25,
@@ -18370,9 +18287,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19526,9 +19440,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19598,9 +19509,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19648,7 +19556,9 @@
     "TechID": "ETechID::UnlockRelicMediumTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ColonialRelicMediumTankVehicleIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
-    "ShippableInfo": "EShippableType::None",
+    "ShippableInfo": {
+      "Type": "EShippableType::None"
+    },
     "FuelTank": 450,
     "bIsStockpilable": false,
     "VehicleProfileType": "EVehicleProfileType::Tank",
@@ -19707,9 +19617,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19782,9 +19689,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19855,9 +19759,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -19903,7 +19804,9 @@
     "DisplayName": "Resource Container",
     "Description": "A container that can carry large quantities of resources and can be transported by certain vehicles.",
     "Icon": "War/Content/Textures/UI/StructureIcons/ResourceContainerIcon.0",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 600,
     "bIsStockpilable": true,
@@ -19919,9 +19822,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -21156,7 +21056,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "TechID": "ETechID::UnlockRocket",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -21200,7 +21102,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "TechID": "ETechID::UnlockRocket",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -21244,7 +21148,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "TechID": "ETechID::UnlockRocket",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "bIsStockpilable": true,
     "ProfileData": {
       "bHasDynamicStartingCondition": false,
@@ -21720,7 +21626,9 @@
     "VehicleProfileType": "EVehicleProfileType::Tank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLightTanks",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "FuelTank": 350,
     "DepthCuttoffForSwimDamage": 225,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
@@ -21776,9 +21684,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -21788,7 +21693,9 @@
     "Description": "A heavily armoured variant of the King Spire, the Gallant Mk. II boasts a weighty 30mm cannon at the cost of top speed.",
     "TechID": "ETechID::UnlockFacilityTier2",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutTankOffensiveWIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 350,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Scout Tank",
@@ -21849,9 +21756,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -21859,7 +21763,9 @@
     "CodeName": "ScoutTankW",
     "DisplayName": "King Spire Mk. I",
     "TechID": "ETechID::UnlockScoutTank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "ChassisName": "Scout Tank",
     "Description": "This small tank has been recently recommissioned to the Warden arsenal. It boasts high maneuverability and an antenna that allows for long-range communications during high-stakes recon operations.",
     "FactionVariant": "EFactionId::Wardens",
@@ -21922,9 +21828,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22029,7 +21932,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -22084,9 +21989,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22102,7 +22004,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleDynamicData": {
       "MaxHealth": 1300,
@@ -22156,9 +22060,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22174,7 +22075,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleDynamicData": {
       "MaxHealth": 1150,
@@ -22228,9 +22131,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22245,7 +22145,9 @@
     "FactionVariant": "EFactionId::Colonials",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleDynamicData": {
       "MaxHealth": 1250,
@@ -22299,9 +22201,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22315,7 +22214,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "bCanUseStructures": true,
@@ -22371,9 +22272,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22388,7 +22286,9 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/ScoutVehicleWarVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::ScoutVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "DepthCuttoffForSwimDamage": 205,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -22443,9 +22343,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -22456,7 +22353,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ShipPart1.0",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "MaxHealth": 1000,
     "TechID": "ETechID::UnlockFacilityVehicleFactory3",
     "bIsStockpilable": true,
@@ -22500,7 +22399,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ShipPart2.0",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "MaxHealth": 1000,
     "TechID": "ETechID::UnlockFacilityVehicleFactory3",
     "bIsStockpilable": true,
@@ -22544,7 +22445,9 @@
     "ProfileType": "EStructureProfileType::Shippable",
     "Icon": "War/Content/Textures/UI/VehicleIcons/ShipPart3.0",
     "ArmourType": "EArmourType::Tier2Structure",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "MaxHealth": 1000,
     "TechID": "ETechID::UnlockFacilityVehicleFactory3",
     "bIsStockpilable": true,
@@ -22586,7 +22489,9 @@
     "DisplayName": "Shipping Container",
     "Description": "A container for shipping very large quantities of Crates using Crane loaded vehicles. This type of container can only be unloaded at Storage Depots and Seaports.",
     "Icon": "War/Content/Textures/UI/StructureIcons/ShippingContainerStructureIcon.0",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "BuildLocationType": "EBuildLocationType::ConstructionYard",
     "MaxHealth": 1000,
     "bIsStockpilable": true,
@@ -22602,9 +22507,6 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Structures"
     }
   },
   {
@@ -22945,7 +22847,9 @@
     "VehicleProfileType": "EVehicleProfileType::Rail",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -23012,7 +22916,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -23079,7 +22985,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -23146,7 +23054,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -23213,7 +23123,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Small",
+    "ShippableInfo": {
+      "Type": "EShippableType::Small"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -24267,7 +24179,9 @@
     "TechID": "ETechID::UnlockSuperTank",
     "Icon": "War/Content/Textures/UI/VehicleIcons/SuperTankCtemIcon.0",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::BattleTank",
-    "ShippableInfo": "EShippableType::None",
+    "ShippableInfo": {
+      "Type": "EShippableType::None"
+    },
     "FuelTank": 600,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "ChassisName": "Super Tank",
@@ -24314,9 +24228,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24329,7 +24240,9 @@
     "Icon": "War/Content/Textures/UI/VehicleIcons/SuperTankWVehicleIcon.0",
     "VehicleProfileType": "EVehicleProfileType::SuperTank",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::SuperTankW",
-    "ShippableInfo": "EShippableType::None",
+    "ShippableInfo": {
+      "Type": "EShippableType::None"
+    },
     "FuelTank": 600,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "FactionVariant": "EFactionId::Wardens",
@@ -24373,9 +24286,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24541,7 +24451,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -24596,9 +24508,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24614,7 +24523,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "VehicleDynamicData": {
       "MaxHealth": 1350,
@@ -24668,9 +24579,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24685,7 +24593,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
@@ -24740,9 +24650,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -24758,7 +24665,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledArmoured",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::FulltrackLight",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "FuelTank": 150,
     "VehicleDynamicData": {
       "MaxHealth": 1350,
@@ -24812,9 +24721,6 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25050,7 +24956,9 @@
     "VehicleProfileType": "EVehicleProfileType::Trailer",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Trailer",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.5,
@@ -25103,9 +25011,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25120,7 +25025,9 @@
     "VehicleProfileType": "EVehicleProfileType::Trailer",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Trailer",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.5,
@@ -25173,9 +25080,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25190,7 +25094,9 @@
     "VehicleProfileType": "EVehicleProfileType::Trailer",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Trailer",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Normal",
+    "ShippableInfo": {
+      "Type": "EShippableType::Normal"
+    },
     "VehicleDynamicData": {
       "MaxHealth": 900,
       "MinorDamagePercent": 0.5,
@@ -25243,9 +25149,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -25259,7 +25162,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25327,7 +25232,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25396,7 +25303,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25465,7 +25374,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25533,7 +25444,9 @@
     "VehicleProfileType": "EVehicleProfileType::Rail",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25601,7 +25514,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25669,7 +25584,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25737,7 +25654,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier1Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25805,7 +25724,9 @@
     "VehicleProfileType": "EVehicleProfileType::RailCar",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::Tier2Tank",
-    "ShippableInfo": "EShippableType::ExtraLarge",
+    "ShippableInfo": {
+      "Type": "EShippableType::ExtraLarge"
+    },
     "bCanUseStructures": true,
     "bIsStockpilable": false,
     "VehicleDynamicData": {
@@ -25966,7 +25887,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -26021,9 +25944,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26038,7 +25958,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleDynamicData": {
       "MaxHealth": 900,
@@ -26092,9 +26014,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26108,7 +26027,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "bCanUseStructures": true,
@@ -26164,9 +26085,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26180,7 +26098,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::LightTruck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 235,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "bCanUseStructures": true,
@@ -26236,9 +26156,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26255,7 +26172,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleDynamicData": {
       "MaxHealth": 900,
@@ -26309,9 +26228,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26326,7 +26242,9 @@
     "FactionVariant": "EFactionId::Wardens",
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleDynamicData": {
       "MaxHealth": 900,
@@ -26380,9 +26298,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26396,7 +26311,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFacility",
     "VehicleDynamicData": {
@@ -26451,9 +26368,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26468,7 +26382,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleDynamicData": {
       "MaxHealth": 900,
@@ -26522,9 +26438,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26539,7 +26452,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -26594,9 +26509,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26611,7 +26523,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -26666,9 +26580,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
@@ -26682,7 +26593,9 @@
     "VehicleProfileType": "EVehicleProfileType::WheeledTransport",
     "VehicleMovementProfileType": "EVehicleMovementProfileType::Truck",
     "ArmourType": "EArmourType::LightVehicle",
-    "ShippableInfo": "EShippableType::Large",
+    "ShippableInfo": {
+      "Type": "EShippableType::Large"
+    },
     "DepthCuttoffForSwimDamage": 255,
     "VehicleBuildType": "EVehicleBuildType::VehicleFactory",
     "VehicleDynamicData": {
@@ -26737,9 +26650,6 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
-    },
-    "ProductionCategories": {
-      "MassProductionFactory": "EFactoryQueueType::Vehicles"
     }
   },
   {
