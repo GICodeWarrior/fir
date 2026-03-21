@@ -1,4 +1,6 @@
 use serde::Serialize;
+use serde_json::Value;
+use std::collections::HashMap;
 
 #[derive(Debug, Default, Serialize)]
 pub struct Bounds {
@@ -76,6 +78,7 @@ impl_from_bounds!(Icon, Quantity);
 pub struct Entry {
     pub icon: Icon,
     pub quantity: Quantity,
+    pub attributes: Option<HashMap<String, Value>>,
 }
 
 #[derive(Debug, Serialize)]

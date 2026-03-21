@@ -12,4 +12,5 @@ foxhole-inventory-shared = { path = "../shared" }
 image = "0.25.9"
 serde_json = "1.0.149"
 tiny_http = "0.12.0"
+url = "2.5.8"
 
