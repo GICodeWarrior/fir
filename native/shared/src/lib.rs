@@ -121,7 +121,11 @@ pub fn extract_stockpile(
             Ok(q) => q,
             Err(_) => return Ok(None),
         };
-        classified_contents.push(Entry { icon, quantity, attributes: None });
+        classified_contents.push(Entry {
+            icon,
+            quantity,
+            attributes: None,
+        });
     }
 
     stockpile.contents = classified_contents;

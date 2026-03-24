@@ -1,15 +1,13 @@
-use std::collections::HashSet;
 use std::fs::File;
 use std::io::{self, Read};
 
+use form_urlencoded;
 use tiny_http::{Header, Method, Response, Server, StatusCode};
 
 use fis::Catalog;
 use fis::Classifier;
 use fis::Ocr;
 use fis::extract_stockpile;
-
-use url::form_urlencoded;
 
 macro_rules! fir_version {
     () => {
@@ -36,8 +34,7 @@ static ICON_CLASS_NAMES_JSON: &str =
     include_str!(fir_path!(foxhole / "classifier/class_names.json"));
 static QUANTITY_CLASS_NAMES_JSON: &str =
     include_str!(fir_path!(includes / "quantities/class_names.json"));
-static CATALOG_JSON: &str =
-    include_str!(fir_path!(foxhole / "catalog.json"));
+static CATALOG_JSON: &str = include_str!(fir_path!(foxhole / "catalog.json"));
 
 // Helper: read bytes from a filename, where "-" means stdin.
 fn read_input_bytes(filename: &str) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
@@ -128,20 +125,24 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
             continue;
         }
 
-        let include_attributes: HashSet<String> = query
-            .map(|q| {
-                form_urlencoded::parse(q.as_bytes())
-                    .filter(|(key, _)| key == "include")
-                    .flat_map(|(_, value)| {
-                        value
-                            .into_owned()
-                            .split(',')
-                            .map(|v| v.trim().to_string())
-                            .collect::<Vec<_>>()
-                    })
-                    .collect()
+        let Ok(includes) = query
+            .into_iter()
+            .flat_map(|q| form_urlencoded::parse(q.as_bytes()))
+            .filter(|(key, _)| key == "include")
+            .flat_map(|(_, value)| value.split(',').map(String::from).collect::<Vec<_>>())
+            .map(|value| {
+                value
+                    .strip_prefix('.')
+                    .ok_or(())
+                    .map(|s| s.split('.').map(String::from).collect())
             })
-            .unwrap_or_default();
+            .collect::<Result<Vec<Vec<String>>, _>>()
+        else {
+            eprintln!("{remote_addr} {method} {url} 400 {:?}", start.elapsed());
+            let r = Response::from_string("Bad Request").with_status_code(StatusCode(400));
+            let _ = request.respond(r);
+            continue;
+        };
 
         let result = (|| -> Result<String, Box<dyn std::error::Error>> {
             let mut body = Vec::new();
@@ -154,10 +155,12 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
                 &mut icon_classifier,
                 &mut quantity_classifier,
             )?;
-            if !include_attributes.is_empty() {
+            if !includes.is_empty() {
                 if let Some(stockpile) = &mut stockpile {
                     for entry in &mut stockpile.contents {
-                        catalog.get_attributes(entry, &include_attributes);
+                        let mut attributes = entry.attributes.get_or_insert_default();
+                        let code_name = &entry.icon.code_name.as_ref().ok_or("Missing CodeName")?;
+                        let _ = catalog.merge_attributes(code_name, &includes, &mut attributes);
                     }
                 }
             }

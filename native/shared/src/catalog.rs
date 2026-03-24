@@ -1,62 +1,53 @@
-use crate::types::Entry;
+use serde_json::{Value, json};
 
-use std::collections::HashSet;
-use std::collections::HashMap;
-
-use serde_json::Value;
+use crate::types::JsonObject;
 
 pub struct Catalog {
-    pub items: Vec<Value>
+    entries: Vec<JsonObject>,
 }
 
 impl Catalog {
     pub fn new_from_json(json: &str) -> Result<Self, Box<dyn std::error::Error>> {
-        let items: Vec<Value> = serde_json::from_str(json)?;
-        Ok(Self { items })
+        let entries: Vec<JsonObject> = serde_json::from_str(json)?;
+        Ok(Self { entries })
     }
 
-    fn get_path<'a>(value: &'a Value, path: &str) -> Option<&'a Value> {
-    let mut current = value;
-
-    // trim leading dot: ".foo.bar" -> "foo.bar"
-    let path = path.trim_start_matches('.');
-
-    for key in path.split('.') {
-        match current {
-            Value::Object(map) => {
-                current = map.get(key)?;
-            }
-            _ => return None,
+    fn get_path<'a>(entry: &'a JsonObject, path: &[String]) -> Option<&'a Value> {
+        let (first, rest) = path.split_first()?;
+        let mut current = entry.get(first)?;
+        for key in rest {
+            current = current.get(key)?;
         }
+        Some(current)
     }
 
-    Some(current)
-    }
-
-    pub fn get_attributes(
+    pub fn merge_attributes(
         &self,
-        entry: &mut Entry,
-        includes: &HashSet<String>,
-    ) {
-        let Some(code_name) = entry.icon.code_name.as_deref() else {
-            println!("Code Name missing");
-            return;
-        };
+        code_name: &str,
+        paths: &[Vec<String>],
+        attributes: &mut JsonObject,
+    ) -> Result<(), Box<dyn std::error::Error>> {
+        let entry = self
+            .entries
+            .iter()
+            .find(|entry| entry.get("CodeName").and_then(Value::as_str) == Some(code_name))
+            .ok_or("No matching catalog item found.")?;
 
-        let Some(item) = self.items.iter().find(|item| {
-            item.get("CodeName")
-                .and_then(|v| v.as_str())
-                == Some(code_name)
-        }) else {
-            println!("No matching catalog item found");
-            return;
-        };
-
-        let attrs = entry.attributes.get_or_insert_with(HashMap::new);
-        for path in includes {
-            if let Some(value) = Self::get_path(item, path) {
-                attrs.insert(path.clone(), value.clone());
+        for path in paths {
+            let (last_key, object_keys) = path.split_last().ok_or("Received empty path")?;
+            if let Some(attribute_value) = Self::get_path(entry, path) {
+                let mut parent: &mut JsonObject = attributes;
+                for key in object_keys.iter() {
+                    parent = parent
+                        .entry(key)
+                        .or_insert(json!({}))
+                        .as_object_mut()
+                        .ok_or(format!("Expected nested value to be an object ({key})"))?;
+                }
+                parent.insert(last_key.to_string(), attribute_value.clone());
             }
         }
+
+        Ok(())
     }
 }
