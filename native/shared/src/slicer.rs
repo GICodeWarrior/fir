@@ -127,15 +127,16 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
 
     let technology_gap_height = second_row_icon_top - first_icon_bottom;
     let technology_row_height = vertical_margin + icon_dimension;
-    let technology_rows = (technology_gap_height - vertical_margin) / technology_row_height;
+    let technology_rows =
+        technology_gap_height.saturating_sub(vertical_margin) / technology_row_height;
 
     if technology_rows < 1 {
         return;
     }
 
     let technology_height = technology_rows * technology_row_height - vertical_margin;
-    let technology_middle = first_icon_bottom + (technology_gap_height + 1) / 2;
-    let technology_top = technology_middle - (technology_height + 1) / 2;
+    let technology_margin = (technology_gap_height - technology_height) / 2;
+    let technology_top = first_icon_bottom + technology_margin;
 
     let technology_column_width = horizontal_margin + icon_dimension;
     let technologies_per_row = (body_bounds.width - horizontal_margin) / technology_column_width;
@@ -154,7 +155,10 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
             let end_red_index = calc_red_index(row_middle, column_left + icon_dimension, width);
 
             for pixel in rgba[left_red_index..end_red_index].chunks_exact(4) {
-                if pixel[0].saturating_sub(pixel[2]) > 100 && pixel[0] > pixel[1] && pixel[1] > pixel[2] {
+                if pixel[0].saturating_sub(pixel[2]) > 100
+                    && pixel[0] > pixel[1]
+                    && pixel[1] > pixel[2]
+                {
                     technology_found = true;
                     technology_complete = true;
                     break;
@@ -183,13 +187,14 @@ pub fn slice_structure_technology(rgba: &[u8], width: usize, stockpile: &mut Sto
     stockpile.structure_technologies = Some(technologies);
 }
 
+#[derive(Debug)]
 struct Stripe {
     row: usize,
     right: usize,
     _left: usize,
 }
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug)]
 struct InternalBox {
     top: usize,
     right: usize,
@@ -227,7 +232,7 @@ fn is_dark(rgba: &[u8], offset: usize) -> bool {
     let b = rgba[offset + 2];
     let (chroma, lightness) = get_cl(r, g, b);
 
-    chroma <= MAX_DARK_CHANNEL_CHROMA && lightness < MAX_DARK_PIXEL_LIGHTNESS
+    chroma <= MAX_DARK_CHANNEL_CHROMA && lightness <= MAX_DARK_PIXEL_LIGHTNESS
 }
 
 fn fit_dark_sides(rgba: &[u8], width: usize, b: &mut InternalBox) -> bool {
@@ -320,50 +325,85 @@ fn find_stockpile(rgba: &[u8], width: usize) -> Option<Bounds> {
     for left in dark_stripes.keys() {
         let mut stripes: Vec<&Stripe> = Vec::new();
 
-        let merge_start = (*left as isize) - MAX_MERGE_VARIANCE + 1;
-        let merge_end = (*left as isize) + MAX_MERGE_VARIANCE;
-
-        for left_offset in merge_start..merge_end {
-            if left_offset < 0 {
-                continue;
-            }
+        let merge_start = left.saturating_sub(MAX_MERGE_VARIANCE as usize);
+        for left_offset in merge_start..=*left {
             if let Some(s) = dark_stripes.get(&(left_offset as usize)) {
                 stripes.extend(s.iter());
             }
         }
 
-        let mut rights: HashMap<usize, usize> = HashMap::new();
-        for stripe in &stripes {
-            *rights.entry(stripe.right).or_insert(0) += 1;
-        }
+        let min_row = stripes.iter().map(|s| s.row).min().unwrap();
+        let max_row = stripes.iter().map(|s| s.row).max().unwrap();
 
-        let most_right = *rights
-            .iter()
-            .max_by_key(|(_, count)| **count)
-            .map(|(right, _)| right)
-            .unwrap();
+        let mut dark_pixels = 0;
+        let mut dark_top = min_row;
+        let mut col_red_index = calc_red_index(min_row, *left, width);
 
-        let mut top = usize::MAX;
-        let mut bottom = 0usize;
-        let mut stripes_count = 0usize;
+        for row in min_row..=max_row {
+            let (chroma, _) = get_cl(
+                rgba[col_red_index],
+                rgba[col_red_index + 1],
+                rgba[col_red_index + 2],
+            );
+            let is_dark_col = chroma <= 24;
 
-        for stripe in &stripes {
-            if ((stripe.right as isize) > (most_right as isize) - MAX_MERGE_VARIANCE)
-                || ((stripe.right as isize) < (most_right as isize) + MAX_MERGE_VARIANCE)
-            {
-                top = top.min(stripe.row);
-                bottom = bottom.max(stripe.row);
-                stripes_count += 1;
+            if is_dark_col {
+                if dark_pixels == 0 {
+                    dark_top = row;
+                }
+                dark_pixels += 1;
             }
-        }
 
-        boxes.push(InternalBox {
-            top,
-            right: most_right,
-            bottom,
-            left: *left,
-            dark_stripes: stripes_count,
-        });
+            if (row == max_row || !is_dark_col) && dark_pixels >= MIN_INVENTORY_HEIGHT {
+                let dark_bottom = dark_top + dark_pixels;
+                let continuous_stripes: Vec<&Stripe> = stripes
+                    .iter()
+                    .filter(|s| (dark_top..dark_bottom).contains(&s.row))
+                    .copied()
+                    .collect();
+
+                if continuous_stripes.len() >= 2 {
+                    let mut rights: HashMap<usize, usize> = HashMap::new();
+                    for stripe in &continuous_stripes {
+                        *rights.entry(stripe.right).or_insert(0) += 1;
+                    }
+
+                    let most_right = *rights
+                        .iter()
+                        .max_by_key(|(_, count)| **count)
+                        .map(|(right, _)| right)
+                        .unwrap();
+
+                    let mut top = usize::MAX;
+                    let mut bottom = 0usize;
+                    let mut stripes_count = 0usize;
+
+                    for stripe in &continuous_stripes {
+                        if ((stripe.right as isize) > (most_right as isize) - MAX_MERGE_VARIANCE)
+                            || ((stripe.right as isize)
+                                < (most_right as isize) + MAX_MERGE_VARIANCE)
+                        {
+                            top = top.min(stripe.row);
+                            bottom = bottom.max(stripe.row);
+                            stripes_count += 1;
+                        }
+                    }
+
+                    boxes.push(InternalBox {
+                        top,
+                        right: most_right,
+                        bottom,
+                        left: *left,
+                        dark_stripes: stripes_count,
+                    });
+                }
+            }
+
+            if !is_dark_col {
+                dark_pixels = 0;
+            }
+            col_red_index += width * 4;
+        }
     }
 
     if boxes.is_empty() {
@@ -614,7 +654,8 @@ fn extract_header(
 
     let is_grey = |r: u8, g: u8, b: u8| -> bool {
         let (chroma, lightness) = get_cl(r, g, b);
-        chroma >= MAX_EXPECTED_CHROMA || (lightness > dark_value_cutoff && lightness < bright_value_cutoff)
+        chroma >= MAX_EXPECTED_CHROMA
+            || (lightness > dark_value_cutoff && lightness < bright_value_cutoff)
     };
 
     for offset in (scan_start..scan_end).step_by(4) {
