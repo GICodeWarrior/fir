@@ -126,8 +126,10 @@ export function addDownloadTSVListener(downloadTSV) {
         if (typeof details == 'undefined') {
           continue;
         }
-        const perCrate = ((details.ItemDynamicData || {}).QuantityPerCrate || 3)
-            + (details.VehiclesPerCrateBonusQuantity || 0);
+        const perCrate = details.__FIG__.quantity_per_crate;
+        if (element.icon.is_crated && perCrate === undefined) {
+          console.error(`Unexpected crated item ${element.icon.code_name}`);
+        }
         const perUnit = element.icon.is_crated ? perCrate : 1;
 
         items.push([
@@ -547,13 +549,7 @@ function outputTotals() {
           continue;
         }
 
-        const itemCategory = (catalogItem.ItemCategory || '').replace(/^EItemCategory::/, '');
-        const vehicleCategory = (catalogItem.VehicleProfileType ? 'Vehicles' : undefined)
-            || ((catalogItem.ArmourType || '').match(/^EArmourType::Tier.Aircraft$/) ? 'Vehicles' : undefined);
-        const structureCategory = catalogItem.BuildLocationType
-            || (catalogItem.ProfileType == 'EStructureProfileType::Shippable') ? 'Structures' : undefined;
-
-        const category = itemCategory || vehicleCategory || structureCategory;
+        const category = catalogItem.__FIG__.ui_category;
         categories[category] ||= [];
         categories[category].push(key);
 
@@ -573,15 +569,15 @@ function outputTotals() {
   }
 
   const categoryOrder = {
-    SmallArms: 1,
-    HeavyArms: 2,
-    HeavyAmmo: 3,
-    Utility: 4,
-    Medical: 5,
-    Supplies: 6,
-    Uniforms: 7,
-    Vehicles: 8,
-    Structures: 9,
+    'Small Weapons': 1,
+    'Heavy Weapons': 2,
+    'Heavy Ammunition': 3,
+    'Utility': 4,
+    'Medical': 5,
+    'Resources': 6,
+    'Uniforms': 7,
+    'Vehicles': 8,
+    'Shippables': 9,
   };
   const sortedCategories = Object.keys(categories).sort(function(a, b) {
     return (categoryOrder[a] || Infinity) - (categoryOrder[b] || Infinity);

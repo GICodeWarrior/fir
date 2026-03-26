@@ -71,6 +71,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -140,6 +146,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -207,6 +219,12 @@
       "MinSpeedFlaps": 0.5,
       "MinSpeedOffset": 0.2,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -274,6 +292,12 @@
       "MinSpeedFlaps": 0.5,
       "MinSpeedOffset": 0.2,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -341,6 +365,12 @@
       "MinSpeedFlaps": 1,
       "MinSpeedOffset": 0.1,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -408,6 +438,12 @@
       "MinSpeedFlaps": 1,
       "MinSpeedOffset": 0.2,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -475,6 +511,12 @@
       "MinSpeedFlaps": 1,
       "MinSpeedOffset": 0.1,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -572,6 +614,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -642,6 +690,12 @@
       "MinSpeedFlaps": 0.5,
       "MinSpeedOffset": 0.2,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -680,6 +734,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -718,6 +777,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -757,6 +821,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -796,6 +865,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -834,6 +908,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -872,6 +951,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -911,6 +995,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -950,6 +1039,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -988,6 +1082,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1026,6 +1125,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1065,6 +1169,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1104,6 +1213,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1142,6 +1256,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1180,6 +1299,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1219,6 +1343,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1258,6 +1387,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Aircraft Parts",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1355,6 +1489,11 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1453,6 +1592,11 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1521,6 +1665,12 @@
       "MinSpeedFlaps": 1,
       "MinSpeedOffset": 0.1,
       "ObjectPath": "War/Content/Blueprints/Data/BPAirDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -1617,6 +1767,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 1,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -1648,6 +1804,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1684,6 +1845,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -1756,6 +1923,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -1828,6 +2001,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1900,6 +2078,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -1972,6 +2155,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -2017,6 +2206,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -2089,6 +2284,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2161,6 +2361,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2233,6 +2438,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -2305,6 +2516,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2377,6 +2593,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -2449,6 +2671,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2521,6 +2748,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2593,6 +2825,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2665,6 +2902,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -2737,6 +2979,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -2782,6 +3030,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -2827,6 +3081,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -2890,6 +3150,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 30
     }
   },
   {
@@ -2978,6 +3244,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3066,6 +3338,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3153,6 +3431,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3240,6 +3524,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3309,6 +3599,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3391,6 +3687,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -3463,6 +3765,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -3543,6 +3851,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -3610,6 +3924,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -3697,6 +4017,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -3785,6 +4111,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -3872,6 +4204,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -3959,6 +4297,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -4015,6 +4359,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4106,6 +4456,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -4175,6 +4531,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -4275,6 +4637,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4376,6 +4744,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4477,6 +4851,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4547,6 +4927,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -4649,6 +5035,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -4730,6 +5122,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4832,6 +5230,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4878,6 +5282,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 50
     }
   },
   {
@@ -4923,6 +5333,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -4968,6 +5384,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -5012,6 +5434,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -5064,6 +5492,12 @@
       "DamageDrivingOverIce": 0,
       "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -5135,6 +5569,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -5208,6 +5648,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5281,6 +5725,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5354,6 +5802,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5427,6 +5879,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5500,6 +5956,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5573,6 +6033,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5651,6 +6115,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -5704,6 +6174,10 @@
       "DamageDrivingOverIce": 0,
       "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -5749,6 +6223,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -5788,6 +6268,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 50
     }
   },
   {
@@ -5852,6 +6338,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -5921,6 +6413,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -5990,6 +6488,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6027,6 +6531,12 @@
       "RetrieveQuantity": 20,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 100
     }
   },
   {
@@ -6062,6 +6572,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6098,6 +6613,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6141,6 +6661,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6189,6 +6714,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6272,6 +6803,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6320,6 +6857,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6391,6 +6934,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6422,6 +6970,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6457,6 +7010,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -6537,6 +7096,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6581,6 +7146,10 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": false
     }
   },
   {
@@ -6658,6 +7227,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -6722,6 +7297,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -6794,6 +7375,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -6866,6 +7452,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -6907,6 +7499,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -6975,6 +7573,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -7004,6 +7608,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7033,6 +7643,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7062,6 +7678,11 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -7091,6 +7712,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7120,6 +7747,11 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -7149,6 +7781,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7178,6 +7816,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7207,6 +7851,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7236,6 +7886,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7265,6 +7921,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7294,6 +7956,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -7323,6 +7991,11 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -7368,6 +8041,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -7413,6 +8092,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -7449,6 +8134,12 @@
       "RetrieveQuantity": 20,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -7520,6 +8211,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -7572,6 +8269,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -7608,6 +8311,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -7644,6 +8352,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -7681,6 +8394,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -7726,6 +8445,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7771,6 +8496,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7809,6 +8540,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7853,6 +8590,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7897,6 +8640,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7942,6 +8691,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -7987,6 +8742,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8032,6 +8793,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8077,6 +8844,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8122,6 +8895,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8167,6 +8946,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8209,6 +8994,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8251,6 +9042,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -8322,6 +9119,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -8393,6 +9195,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -8464,6 +9271,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -8535,6 +9348,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -8606,6 +9424,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -8677,6 +9501,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -8748,6 +9577,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -8819,6 +9654,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -8890,6 +9731,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -8961,6 +9808,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -9032,6 +9885,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -9104,6 +9963,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -9150,6 +10015,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -9221,6 +10092,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -9288,6 +10165,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -9355,6 +10238,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -9448,6 +10337,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -9541,6 +10436,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -9609,6 +10510,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -9654,6 +10561,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9700,6 +10612,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9746,6 +10663,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9792,6 +10714,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9838,6 +10765,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9883,6 +10815,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -9929,6 +10866,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -10022,6 +10964,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -10115,6 +11063,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -10155,6 +11109,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -10194,6 +11154,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -10266,6 +11232,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -10313,6 +11285,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -10392,6 +11370,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 25
     }
   },
   {
@@ -10476,6 +11460,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -10540,6 +11530,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -10585,6 +11581,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -10664,6 +11666,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -10700,6 +11708,12 @@
       "RetrieveQuantity": 20,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -10794,6 +11808,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -10888,6 +11908,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -10983,6 +12009,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -11078,6 +12110,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -11150,6 +12188,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11222,6 +12265,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -11294,6 +12343,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11341,6 +12395,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11413,6 +12472,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11460,6 +12524,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11532,6 +12601,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -11604,6 +12679,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11695,6 +12775,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -11731,6 +12817,12 @@
       "RetrieveQuantity": 20,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 30
     }
   },
   {
@@ -11801,6 +12893,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11871,6 +12968,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -11947,6 +13049,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -12022,6 +13130,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -12094,6 +13208,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -12163,6 +13283,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -12194,6 +13320,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -12229,6 +13360,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -12287,6 +13424,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -12357,6 +13500,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -12428,6 +13577,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -12498,6 +13652,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -12594,6 +13754,10 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -12691,6 +13855,10 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 3,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -12773,6 +13941,10 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -12844,6 +14016,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -12915,6 +14092,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -12986,6 +14168,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -13057,6 +14245,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -13128,6 +14321,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": true,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -13223,6 +14421,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 30,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13318,6 +14520,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13417,6 +14623,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 30,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13512,6 +14722,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 30,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13607,6 +14821,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 30,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13702,6 +14920,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13797,6 +15019,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13895,6 +15121,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -13994,6 +15224,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 10,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -14093,6 +15327,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -14188,6 +15426,10 @@
       "FullyFloodedEngineForceMultiplier": 0.05,
       "BeachedEngineForceMultiplier": 8,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -14279,6 +15521,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -14372,6 +15620,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -14466,6 +15720,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -14538,6 +15798,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -14605,6 +15871,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -14677,6 +15949,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -14749,6 +16026,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -14821,6 +16104,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -14893,6 +16181,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -14967,6 +16260,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -15039,6 +16337,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -15111,6 +16414,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15137,6 +16446,12 @@
       "IsVaultable": false,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15185,6 +16500,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -15273,6 +16594,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -15351,6 +16678,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -15391,6 +16724,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Supplies",
       "MassProductionFactory": "EFactoryQueueType::Supplies"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 100
     }
   },
   {
@@ -15415,6 +16754,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15487,6 +16832,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -15559,6 +16908,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -15604,6 +16957,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -15649,6 +17008,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -15743,6 +17108,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15837,6 +17208,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15909,6 +17286,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -15983,6 +17366,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16057,6 +17445,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16131,6 +17524,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16203,6 +17601,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16277,6 +17680,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -16349,6 +17758,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -16421,6 +17836,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16494,6 +17914,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -16567,6 +17993,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16640,6 +18071,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16712,6 +18148,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16784,6 +18225,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -16820,6 +18267,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -16867,6 +18319,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -16930,6 +18388,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -17017,6 +18481,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17072,6 +18542,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17127,6 +18603,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17215,6 +18697,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17309,6 +18797,12 @@
       "FullyFloodedEngineForceMultiplier": 1,
       "BeachedEngineForceMultiplier": 5,
       "ObjectPath": "War/Content/Blueprints/Data/BPShipDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -17376,6 +18870,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -17451,6 +18951,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17527,6 +19033,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17592,6 +19104,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -17655,6 +19173,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -17720,6 +19244,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -17787,6 +19317,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -17859,6 +19395,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -17931,6 +19473,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -18003,6 +19551,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -18069,6 +19622,10 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -18142,6 +19699,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -18214,6 +19777,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -18287,6 +19855,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -18332,6 +19906,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -18377,6 +19957,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -18422,6 +20008,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -18467,6 +20059,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -18508,6 +20106,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -18550,6 +20154,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -18591,6 +20201,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -18632,6 +20248,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -18673,6 +20295,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -18714,6 +20342,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -18755,6 +20389,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -18799,6 +20439,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 2
     }
   },
   {
@@ -18861,6 +20507,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -18944,6 +20596,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -19032,6 +20690,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -19115,6 +20779,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -19154,6 +20824,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -19194,6 +20870,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -19238,6 +20920,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -19283,6 +20971,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -19319,6 +21013,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -19371,6 +21070,10 @@
       "DamageDrivingOverIce": 100,
       "bIsAllowedToLoadMultiple": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19440,6 +21143,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19509,6 +21216,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19545,6 +21256,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -19617,6 +21334,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19689,6 +21410,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19759,6 +21484,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -19796,6 +21525,10 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": false
     }
   },
   {
@@ -19822,6 +21555,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -19910,6 +21649,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 30
     }
   },
   {
@@ -19972,6 +21717,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -20034,6 +21785,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -20122,6 +21879,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -20208,6 +21971,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -20301,6 +22070,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -20395,6 +22170,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -20489,6 +22270,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -20582,6 +22369,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -20676,6 +22469,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -20770,6 +22569,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -20864,6 +22669,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -20952,6 +22763,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -21044,6 +22861,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -21090,6 +22913,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -21136,6 +22964,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -21182,6 +23015,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -21245,6 +23083,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -21323,6 +23167,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -21422,6 +23272,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -21469,6 +23325,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -21541,6 +23403,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -21612,6 +23480,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -21684,6 +23558,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -21756,6 +23635,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -21828,6 +23712,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -21873,6 +23763,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -21918,6 +23814,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -21989,6 +23891,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -22060,6 +23968,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22131,6 +24044,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22201,6 +24119,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22272,6 +24195,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22343,6 +24271,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -22389,6 +24323,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22435,6 +24374,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22481,6 +24425,11 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -22507,6 +24456,12 @@
       "IsVaultable": true,
       "bIsDamagedWhileDrivingOver": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPStructureDynamicData"
+    },
+    "__FIG__": {
+      "ui_category": "Shippables",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -22569,6 +24524,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -22656,6 +24617,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -22744,6 +24711,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -22789,6 +24762,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -22835,6 +24814,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -22904,6 +24889,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -22973,6 +24962,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -23042,6 +25035,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -23111,6 +25108,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -23180,6 +25181,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -23242,6 +25247,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 40
     }
   },
   {
@@ -23330,6 +25341,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -23417,6 +25434,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -23505,6 +25528,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -23592,6 +25621,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -23662,6 +25697,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -23754,6 +25795,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -23846,6 +25893,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::SmallArms",
       "MassProductionFactory": "EFactoryQueueType::SmallArms"
+    },
+    "__FIG__": {
+      "ui_category": "Small Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -23891,6 +25944,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -23936,6 +25995,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -23975,6 +26040,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -24014,6 +26085,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -24053,6 +26130,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -24133,6 +26216,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyArms",
       "MassProductionFactory": "EFactoryQueueType::HeavyArms"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Weapons",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -24169,6 +26258,11 @@
       "RetrieveQuantity": 100,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -24228,6 +26322,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -24286,6 +26384,10 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -24358,6 +26460,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::HeavyAmmo",
       "MassProductionFactory": "EFactoryQueueType::HeavyAmmo"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -24436,6 +26544,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -24508,6 +26622,12 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -24579,6 +26699,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -24650,6 +26775,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -24721,6 +26851,11 @@
       "bUsesDifferentialSteering": true,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -24790,6 +26925,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -24835,6 +26976,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -24880,6 +27027,12 @@
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Uniforms",
       "MassProductionFactory": "EFactoryQueueType::Uniforms"
+    },
+    "__FIG__": {
+      "ui_category": "Uniforms",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 15
     }
   },
   {
@@ -24942,6 +27095,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Heavy Ammunition",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -25011,6 +27169,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -25080,6 +27243,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -25149,6 +27317,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -25219,6 +27393,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25289,6 +27467,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25360,6 +27542,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25431,6 +27617,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25501,6 +27691,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25571,6 +27765,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25641,6 +27839,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25711,6 +27913,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25781,6 +27987,10 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": false
     }
   },
   {
@@ -25827,6 +28037,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Medical"
+    },
+    "__FIG__": {
+      "ui_category": "Medical",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 10
     }
   },
   {
@@ -25874,6 +28090,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -25944,6 +28166,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26014,6 +28242,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -26085,6 +28318,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26156,6 +28395,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26228,6 +28473,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -26298,6 +28548,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -26368,6 +28623,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -26438,6 +28698,11 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   },
   {
@@ -26509,6 +28774,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26580,6 +28851,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26650,6 +28927,12 @@
       "bUsesDifferentialSteering": false,
       "bCanRotateInPlace": false,
       "ObjectPath": "War/Content/Blueprints/Data/BPVehicleMovementProfileList"
+    },
+    "__FIG__": {
+      "ui_category": "Vehicles",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 3
     }
   },
   {
@@ -26708,6 +28991,10 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": false
     }
   },
   {
@@ -26772,6 +29059,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -26871,6 +29164,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 50
     }
   },
   {
@@ -26932,6 +29231,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 1
     }
   },
   {
@@ -26980,6 +29285,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -27017,6 +29328,12 @@
       "RetrieveQuantity": 10,
       "ReserveStockpileMaxQuantity": 300,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -27058,6 +29375,12 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 20
     }
   },
   {
@@ -27102,6 +29425,12 @@
     },
     "ProductionCategories": {
       "Factory": "EFactoryQueueType::Utility"
+    },
+    "__FIG__": {
+      "ui_category": "Utility",
+      "is_stockpilable": true,
+      "crates_exist": true,
+      "quantity_per_crate": 5
     }
   },
   {
@@ -27134,6 +29463,11 @@
       "RetrieveQuantity": 1,
       "ReserveStockpileMaxQuantity": 100,
       "ObjectPath": "War/Content/Blueprints/Data/BPItemProfileTable"
+    },
+    "__FIG__": {
+      "ui_category": "Resources",
+      "is_stockpilable": true,
+      "crates_exist": false
     }
   }
 ]

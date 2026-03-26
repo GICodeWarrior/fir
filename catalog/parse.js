@@ -817,6 +817,59 @@ for (const directory of searchDirectories) {
   }
 }
 
+const NON_CRATED_VEHICLE_BUILD_TYPES = new Set([
+  'EVehicleBuildType::VehicleFacility',
+  'EVehicleBuildType::BuildableAnywhere',
+  'EVehicleBuildType::AircraftFactory',
+]);
+objects.forEach(function(entry) {
+  const computed = {};
+
+  if (entry['VehicleProfileType'] || (entry['ArmourType'] || '').match(/^EArmourType::Tier[0-9]Aircraft$/)) {
+    computed['ui_category'] = 'Vehicles';
+  } else if (entry['BuildLocationType'] || entry['ProfileType'] == 'EStructureProfileType::Shippable') {
+    computed['ui_category'] = 'Shippables';
+  } else if (entry['ItemCategory']) {
+    computed['ui_category'] = entry['ItemCategory']
+      .replace(/^.*::/, '')
+      .replace(/(.)([A-Z])/g, '$1 $2')
+      .replace(/^Parts$/, 'Aircraft Parts')
+      .replace(/ Arms$/, ' Weapons')
+      .replace(/ Ammo$/, ' Ammunition')
+      .replace(/^Supplies$/, 'Resources');
+  }
+
+  computed['is_stockpilable'] = entry['bIsStockpilable'] !== false
+    && (entry['ItemProfileData'] || {})['bIsStockpilable'] !== false;
+
+  if (computed['is_stockpilable']) {
+    if ((entry['ItemProfileData'] || {})['bIsCratable'] === false) {
+      computed['crates_exist'] = false;
+    } else if (computed['ui_category'] == "Shippables") {
+      computed['crates_exist'] = entry['BuildLocationType'] == "EBuildLocationType::ConstructionYard";
+    } else if (computed['ui_category'] == "Vehicles") {
+      computed['crates_exist'] = !NON_CRATED_VEHICLE_BUILD_TYPES.has(entry['VehicleBuildType']);
+    } else {
+      computed['crates_exist'] = true;
+    }
+  }
+
+  if (computed['crates_exist']) {
+    let base_quantity = (entry['ItemDynamicData'] || {})['QuantityPerCrate'];
+    if (base_quantity === undefined) {
+      if ((entry['ArmourType'] || '').match(/^EArmourType::Tier[0-9]Aircraft$/)) {
+        base_quantity = 1;
+      } else {
+        base_quantity = 3;
+      }
+    }
+
+    computed['quantity_per_crate'] = base_quantity + (entry['VehiclesPerCrateBonusQuantity'] || 0);
+  }
+
+  entry['__FIG__'] = computed;
+});
+
 objects.sort(function(a, b) {
   const aName = a.CodeName.toLowerCase();
   const bName = b.CodeName.toLowerCase();
