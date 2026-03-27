@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Foxhole Inventory Report</title>
+    <meta charset="utf-8" />
+
+    <!-- local dev testing -->
+    <!-- <link rel="stylesheet" href="../imports/styles.css" /> -->
+
+    <!-- CDN imports, from a source of your choosing, can be the the authors repo, your repo or any cdn/non-cdn self hosted place, latest version, specific version or commit hash -->
+    <!-- EXAMPLES -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir/gs-sidebar/imports/styles.css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName/gs-sidebar/imports/styles.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir@3.2/gs-sidebar/imports/styles.css" /> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir@b470e7d2f8ad9a2d95949a472a1e7022687e1235/gs-sidebar/imports/styles.css" /> -->
+    
+
+
+
+    <!-- local dev testing -->
+    <!-- <script type="module" src="../imports/sidebar.js"></script> -->
+
+    <!-- CDN imports, from a source of your choosing, can be the the authors repo, your repo or any cdn/non-cdn self hosted place, latest version, specific version or commit hash -->
+    <!-- EXAMPLES -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir/gs-sidebar/imports/sidebar.js"></script>
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName/gs-sidebar/imports/sidebar.js"></script> -->
+    
+
+  </head>
+
+  <body>
+    <form id="file-form">
+      <label for="map-screenshot">
+        Select map screenshot to upload:
+      </label>
+      <small>(or paste from clipboard)</small>
+
+      <input id="map-screenshot" accept="image/*" type="file" multiple>
+    </form>
+
+    <li>Wait for processing to complete.
+      <div>Processed: <span id="processed-count">0 of 0</span></div>
+    </li>
+
+    <button id="append" class="append-google">Append to Spreadsheet</button>
+
+    <section>
+      <div id="render-div" class="render"></div>
+      <div id="report-div" class="report"></div>
+    </section>
+
+  </body>
+
+</html>

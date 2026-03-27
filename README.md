@@ -30,7 +30,6 @@ The website can be used to process screenshots and append to a Google Spreadshee
 
 Multiple alternate spreadsheets exist.
 
-Note: the sundial spreadsheet sidebar integration is currently broken and needs a maintainer.  However, the website can be used to import into that sheet as well.
 
 ## Developer Integrations
 
@@ -106,6 +105,10 @@ docker run -p <host port>:<fir port> fir_server
 ```
 The `-p` argument maps the host port to the fir server port inside the container. fir defaults to listening on port
 8000.
+
+## Sidebar
+The project also includes a Google Script spreadsheet sidebar, as an alternative way to import Stockpile data into a spreadsheet.
+Find details in the [/gs-sidebar/readme.md](gs-sidebar/readme.md)
 
 ## Development
 
