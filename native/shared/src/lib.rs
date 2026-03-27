@@ -9,6 +9,9 @@ pub mod types;
 mod ocr;
 pub use ocr::Ocr;
 
+pub mod catalog;
+pub use catalog::Catalog;
+
 mod classifier;
 pub use classifier::Classifier;
 
@@ -118,7 +121,11 @@ pub fn extract_stockpile(
             Ok(q) => q,
             Err(_) => return Ok(None),
         };
-        classified_contents.push(Entry { icon, quantity });
+        classified_contents.push(Entry {
+            icon,
+            quantity,
+            attributes: None,
+        });
     }
 
     stockpile.contents = classified_contents;

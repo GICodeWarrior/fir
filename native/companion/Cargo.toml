@@ -8,6 +8,7 @@ name = "fic"
 path = "src/main.rs"
 
 [dependencies]
+form_urlencoded = "1.2.2"
 foxhole-inventory-shared = { path = "../shared" }
 image = "0.25.9"
 serde_json = "1.0.149"

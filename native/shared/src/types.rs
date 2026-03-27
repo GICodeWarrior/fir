@@ -1,5 +1,7 @@
 use serde::Serialize;
 
+pub type JsonObject = serde_json::Map<String, serde_json::Value>;
+
 #[derive(Debug, Default, Serialize)]
 pub struct Bounds {
     pub x: usize,
@@ -76,6 +78,7 @@ impl_from_bounds!(Icon, Quantity);
 pub struct Entry {
     pub icon: Icon,
     pub quantity: Quantity,
+    pub attributes: Option<JsonObject>,
 }
 
 #[derive(Debug, Serialize)]

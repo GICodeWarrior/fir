@@ -34,6 +34,7 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
         contents.push(Entry {
             icon: Icon::from(icon_bounds.offset(body.x, body.y)),
             quantity: Quantity::from(quantity_bounds.offset(body.x, body.y)),
+            attributes: None,
         });
     }
 
