@@ -1,5 +1,5 @@
 use std::path::Path;
-use std::sync::OnceLock;
+use std::sync::LazyLock;
 
 use regex::Regex;
 
@@ -11,15 +11,7 @@ use rten_imageproc::RotatedRect;
 
 use crate::types::Bounds;
 
-static L_TO_I_REGEX: OnceLock<Regex> = OnceLock::new();
-fn l_to_i_regex() -> &'static Regex {
-    L_TO_I_REGEX.get_or_init(|| Regex::new(r"l").unwrap())
-}
-
-static I_TO_L_REGEX: OnceLock<Regex> = OnceLock::new();
-fn i_to_l_regex() -> &'static Regex {
-    I_TO_L_REGEX.get_or_init(|| Regex::new(r"([a-z])I([^A-Z]|$)").unwrap())
-}
+static I_TO_L_REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"([a-z])I([^A-Z]|$)").unwrap());
 
 pub struct Ocr {
     engine: OcrEngine,
@@ -144,11 +136,9 @@ impl Ocr {
             .recognize_text(&ocr_input, &[[rect].to_vec()])?
             .into_iter()
             .flatten()
-            .map(|l| {
-                let owned = l.to_string();
-                let s = owned.trim();
-                let s = l_to_i_regex().replace_all(&s, "I");
-                let s = i_to_l_regex().replace_all(&s, "${1}l${2}");
+            .map(|label| {
+                let s = label.to_string().trim().replace("l", "I");
+                let s = I_TO_L_REGEX.replace_all(&s, "${1}l${2}");
                 s.to_string()
             });
 

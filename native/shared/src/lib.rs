@@ -1,4 +1,4 @@
-use std::sync::OnceLock;
+use std::sync::LazyLock;
 
 use regex::Regex;
 
@@ -9,7 +9,7 @@ pub mod types;
 mod ocr;
 pub use ocr::Ocr;
 
-pub mod catalog;
+mod catalog;
 pub use catalog::Catalog;
 
 mod classifier;
@@ -17,21 +17,9 @@ pub use classifier::Classifier;
 
 use types::{Entry, Icon, Quantity, Stockpile};
 
-static CRATED_REGEX: OnceLock<Regex> = OnceLock::new();
-static THOUSANDS_REGEX: OnceLock<Regex> = OnceLock::new();
-static NODES_REGEX: OnceLock<Regex> = OnceLock::new();
-
-fn crated_regex() -> &'static Regex {
-    CRATED_REGEX.get_or_init(|| Regex::new(r"-crated$").unwrap())
-}
-
-fn thousands_regex() -> &'static Regex {
-    THOUSANDS_REGEX.get_or_init(|| Regex::new(r"k\+$").unwrap())
-}
-
-fn nodes_regex() -> &'static Regex {
-    NODES_REGEX.get_or_init(|| Regex::new(r"x$").unwrap())
-}
+static CRATED_REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"-crated$").unwrap());
+static THOUSANDS_REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"k\+$").unwrap());
+static NODES_REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(r"x$").unwrap());
 
 pub fn extract_stockpile(
     rgba: &[u8],
@@ -74,11 +62,11 @@ pub fn extract_stockpile(
         .map(|(index, entry)| Icon {
             bounds: entry.icon.bounds.offset(0, 0),
             code_name: Some(
-                crated_regex()
+                CRATED_REGEX
                     .replace(&raw_icon_code_names[index], "")
                     .into_owned(),
             ),
-            is_crated: Some(crated_regex().is_match(&raw_icon_code_names[index])),
+            is_crated: Some(CRATED_REGEX.is_match(&raw_icon_code_names[index])),
         });
 
     let raw_quantities = quantity_classifier.batch_predict(
@@ -92,11 +80,11 @@ pub fn extract_stockpile(
 
         // If parsing fails, treat extraction as failed for this image (=> null).
         let value = (|| -> Option<u32> {
-            if thousands_regex().is_match(&label) {
-                let n = thousands_regex().replace(&label, "");
+            if THOUSANDS_REGEX.is_match(&label) {
+                let n = THOUSANDS_REGEX.replace(&label, "");
                 n.parse::<u32>().ok()?.checked_mul(1000)
-            } else if nodes_regex().is_match(&label) {
-                let n = nodes_regex().replace(&label, "");
+            } else if NODES_REGEX.is_match(&label) {
+                let n = NODES_REGEX.replace(&label, "");
                 n.parse::<u32>().ok()
             } else {
                 label.parse::<u32>().ok()
