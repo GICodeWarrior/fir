@@ -4,28 +4,19 @@
     <title>Foxhole Inventory Report</title>
     <meta charset="utf-8" />
 
-    <!-- local dev testing -->
-    <!-- <link rel="stylesheet" href="../imports/styles.css" /> -->
+    <!-- Recommended: update commit sha with the latest from GitHub -->
+    <base href="https://cdn.jsdelivr.net/gh/Gilbert-S/fir@ca8fc80926b9c6f52996337c826690e91ca0e641/gs-sidebar/fir-sidebar/" />
+    <!--
+      Alternately: set a custom base URL (or none for local development)
+      CDN imports, from a source of your choosing, can be the the authors repo,
+      your repo or any cdn/non-cdn self hosted place, latest version, specific
+      version or commit hash.
 
-    <!-- CDN imports, from a source of your choosing, can be the the authors repo, your repo or any cdn/non-cdn self hosted place, latest version, specific version or commit hash -->
-    <!-- EXAMPLES -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir/gs-sidebar/imports/styles.css" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName/gs-sidebar/imports/styles.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir@3.2/gs-sidebar/imports/styles.css" /> -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir@b470e7d2f8ad9a2d95949a472a1e7022687e1235/gs-sidebar/imports/styles.css" /> -->
-    
+    <base href="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName@<branch-or-tag-or-sha>/gs-sidebar/fir-sidebar/" />
+    -->
 
-
-
-    <!-- local dev testing -->
-    <!-- <script type="module" src="../imports/sidebar.js"></script> -->
-
-    <!-- CDN imports, from a source of your choosing, can be the the authors repo, your repo or any cdn/non-cdn self hosted place, latest version, specific version or commit hash -->
-    <!-- EXAMPLES -->
-    <script type="module" src="https://cdn.jsdelivr.net/gh/GICodeWarrior/fir/gs-sidebar/imports/sidebar.js"></script>
-    <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName/gs-sidebar/imports/sidebar.js"></script> -->
-    
-
+    <link rel="stylesheet" href="../imports/styles.css" />
+    <script type="module" src="../imports/sidebar.js"></script>
   </head>
 
   <body>
@@ -48,7 +39,5 @@
       <div id="render-div" class="render"></div>
       <div id="report-div" class="report"></div>
     </section>
-
   </body>
-
 </html>
