@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Foxhole Inventory Report</title>
+    <meta charset="utf-8" />
+
+    <!-- Recommended: update commit sha with the latest from GitHub -->
+    <base href="https://cdn.jsdelivr.net/gh/Gilbert-S/fir@ca8fc80926b9c6f52996337c826690e91ca0e641/gs-sidebar/fir-sidebar/" />
+    <!--
+      Alternately: set a custom base URL (or none for local development)
+      CDN imports, from a source of your choosing, can be the the authors repo,
+      your repo or any cdn/non-cdn self hosted place, latest version, specific
+      version or commit hash.
+
+    <base href="https://cdn.jsdelivr.net/gh/YourUsername/YourRepoName@<branch-or-tag-or-sha>/gs-sidebar/fir-sidebar/" />
+    -->
+
+    <link rel="stylesheet" href="../imports/styles.css" />
+    <script type="module" src="../imports/sidebar.js"></script>
+  </head>
+
+  <body>
+    <form id="file-form">
+      <label for="map-screenshot">
+        Select map screenshot to upload:
+      </label>
+      <small>(or paste from clipboard)</small>
+
+      <input id="map-screenshot" accept="image/*" type="file" multiple>
+    </form>
+
+    <li>Wait for processing to complete.
+      <div>Processed: <span id="processed-count">0 of 0</span></div>
+    </li>
+
+    <button id="append" class="append-google">Append to Spreadsheet</button>
+
+    <section>
+      <div id="render-div" class="render"></div>
+      <div id="report-div" class="report"></div>
+    </section>
+  </body>
+</html>

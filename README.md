@@ -19,7 +19,7 @@ The goal is 100% accuracy, so please share any problematic screenshots via Disco
 
 At https://fir.gicode.net/, stockpile screenshots can be compiled into visual reports and exported to machine-readable formats.
 
-### Spreadsheets
+### Google Spreadsheets
 
 The website can be used to process screenshots and append to a Google Spreadsheet.
 
@@ -30,7 +30,11 @@ The website can be used to process screenshots and append to a Google Spreadshee
 
 Multiple alternate spreadsheets exist.
 
-Note: the sundial spreadsheet sidebar integration is currently broken and needs a maintainer.  However, the website can be used to import into that sheet as well.
+### Google Spreadsheet Sidebar
+
+The sidebar adds an interface to your Google Spreadsheet where stockpile screenshots can be processed without leaving the spreadsheet.
+
+Details in: [/gs-sidebar/readme.md](gs-sidebar/readme.md)
 
 ## Developer Integrations
 

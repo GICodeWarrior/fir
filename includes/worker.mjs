@@ -17,11 +17,11 @@ self.onmessage = async (e) => {
         quantityOnnx,
         quantityClassNames,
       ] = await Promise.all([
-        fetch('./text-recognition-model.onnx').then(r => r.bytes()),
-        fetch(`../foxhole/${version}/classifier/model.onnx`).then(r => r.bytes()),
-        fetch(`../foxhole/${version}/classifier/class_names.json`).then(r => r.json()),
-        fetch('./quantities/model.onnx').then(r => r.bytes()),
-        fetch('./quantities/class_names.json').then(r => r.json()),
+        fetch(new URL('./text-recognition-model.onnx', import.meta.url)).then(r => r.bytes()),
+        fetch(new URL(`../foxhole/${version}/classifier/model.onnx`, import.meta.url)).then(r => r.bytes()),
+        fetch(new URL(`../foxhole/${version}/classifier/class_names.json`, import.meta.url)).then(r => r.json()),
+        fetch(new URL('./quantities/model.onnx', import.meta.url)).then(r => r.bytes()),
+        fetch(new URL('./quantities/class_names.json', import.meta.url)).then(r => r.json()),
         fiw_init(),
       ]);
 
