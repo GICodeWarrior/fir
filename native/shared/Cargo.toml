@@ -17,7 +17,8 @@ name = "fis"
 
 [dependencies]
 image = "0.25.9"
-ocrs = "0.12.1"
+#ocrs = { version = "0.12.1", default-features = false }
+ocrs = { git = "https://github.com/robertknight/ocrs.git", rev = "5a101aaa500b8199aaec2a5708b0c3256351e43b", default-features = false }
 regex = "1.12.3"
 rten = { version = "0.24.0", features = ["onnx_format"], default-features = false }
 rten-imageproc = "0.24.0"
