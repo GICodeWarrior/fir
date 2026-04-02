@@ -100,6 +100,15 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
     let server = Server::http(addr).map_err(|_| "Failed to start server.")?;
     eprintln!("Listening on http://{}", server.server_addr().to_string());
 
+    // Optional API key authentication via FIR_API_KEY env var.
+    // When set, requests must include "Authorization: Bearer <key>" header.
+    let api_key = std::env::var("FIR_API_KEY").ok().filter(|k| !k.is_empty());
+    if api_key.is_some() {
+        eprintln!("API key authentication enabled");
+    } else {
+        eprintln!("Warning: FIR_API_KEY not set — server is open to all requests");
+    }
+
     let (ocr, mut icon_classifier, mut quantity_classifier) = get_classifiers()?;
     let content_type_header = Header::from_bytes("Content-Type", "application/json").unwrap();
     let catalog = Catalog::new_from_json(CATALOG_JSON)?;
@@ -123,6 +132,29 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
             let r = Response::from_string("Not Found").with_status_code(StatusCode(404));
             let _ = request.respond(r);
             continue;
+        }
+
+        // Check API key if configured
+        if let Some(ref expected_key) = api_key {
+            let auth_header = request
+                .headers()
+                .iter()
+                .find(|h| h.field.equiv("Authorization"))
+                .map(|h| h.value.as_str().to_string());
+
+            let is_valid = auth_header
+                .as_ref()
+                .and_then(|v| v.strip_prefix("Bearer "))
+                .map(|token| token == expected_key)
+                .unwrap_or(false);
+
+            if !is_valid {
+                eprintln!("{remote_addr} {method} {url} 401 {:?}", start.elapsed());
+                let r = Response::from_string("Unauthorized: invalid or missing API key")
+                    .with_status_code(StatusCode(401));
+                let _ = request.respond(r);
+                continue;
+            }
         }
 
         let Ok(includes) = query
