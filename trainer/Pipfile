@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 tensorflow = {extras = ["and-cuda"], version = "~=2.19"}
 nvidia-cudnn-cu12 = "*"
-tensorboard-plugin-profile = "*"
+#tensorboard-plugin-profile = "*"
 pillow = ">=11.2.1"
 tf2onnx = ">=1.17.0"
 
