@@ -23,10 +23,10 @@ At https://fir.gicode.net/, stockpile screenshots can be compiled into visual re
 
 The website can be used to process screenshots and append to a Google Spreadsheet.
 
-* [Create New Spreadsheet from Template](https://docs.google.com/spreadsheets/d/1hoAZIjBNFf8JW3XHvChwYpt-szgbi4XByvbncbZnj-8/copy)
-* [View Demo Spreadsheet](https://docs.google.com/spreadsheets/d/1_TQFog_pDrwGmH4so63c8IW7sm7hlMl0kBs3WtM6CiE/edit?gid=1920645043)
+* [Create New Spreadsheet from Template](https://docs.google.com/spreadsheets/d/1htC05vjare0K5ZP5hMQ3x7LU7M80k21O3EZO5VV39nI/copy)
+* [View Demo Spreadsheet](https://docs.google.com/spreadsheets/d/1jHgatViFeWZRZwIOKaNJTluQbisK-q2G8-LREUjMWLE/edit?gid=1920645043)
 
-![Demo Spreadsheet](.readme-assets/2026-03-04-demo-spreadsheet.png)
+![Demo Spreadsheet](.readme-assets/2026-04-02-demo-spreadsheet.png)
 
 Multiple alternate spreadsheets exist.
 
