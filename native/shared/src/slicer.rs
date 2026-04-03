@@ -346,7 +346,7 @@ fn find_stockpile(rgba: &[u8], width: usize) -> Option<Bounds> {
                 rgba[col_red_index + 1],
                 rgba[col_red_index + 2],
             );
-            let is_dark_col = chroma <= 24;
+            let is_dark_col = chroma <= 32;
 
             if is_dark_col {
                 if dark_pixels == 0 {
