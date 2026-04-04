@@ -101,17 +101,14 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
     let server = Server::http(addr).map_err(|_| "Failed to start server.")?;
     eprintln!("Listening on http://{}", server.server_addr().to_string());
 
-    // Optional API key authentication via FIR_API_KEY env var.
-    // When set, requests must include an "X-API-Key: <key>" header.
-    // Uses constant-time comparison (subtle crate) to prevent timing attacks.
-    // Note: the key is transmitted in plaintext — configure TLS via a reverse
-    // proxy (e.g. nginx, caddy, or your hosting platform) in production.
-    let api_key = std::env::var("FIR_API_KEY").ok().filter(|k| !k.is_empty());
+    let api_key = std::env::var("FIC_API_KEY")
+        .ok()
+        .filter(|k| !k.is_empty())
+        .map(String::into_bytes);
     if api_key.is_some() {
-        eprintln!("API key authentication enabled (X-API-Key header)");
-        eprintln!("Warning: API key is transmitted in plaintext — ensure TLS is configured via reverse proxy");
-    } else {
-        eprintln!("Warning: FIR_API_KEY not set — server is open to all requests");
+        eprintln!(
+            "Warning: API key authentication enabled via HTTP.  Implement a TLS proxy for public/shared networks."
+        );
     }
 
     let (ocr, mut icon_classifier, mut quantity_classifier) = get_classifiers()?;
@@ -139,26 +136,18 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
             continue;
         }
 
-        // Check API key if configured (constant-time comparison)
         if let Some(ref expected_key) = api_key {
-            let provided_key = request
+            let authorized = request
                 .headers()
                 .iter()
-                .find(|h| h.field.equiv("X-API-Key"))
-                .map(|h| h.value.as_str().to_string());
+                .find(|h| h.field.equiv("Authorization"))
+                .and_then(|h| h.value.as_str().strip_prefix("X-API-Key "))
+                .map(|k| k.as_bytes())
+                .is_some_and(|k| k.len() == expected_key.len() && k.ct_eq(expected_key).into());
 
-            let is_valid = provided_key
-                .as_ref()
-                .map(|k| {
-                    k.as_bytes().len() == expected_key.as_bytes().len()
-                        && k.as_bytes().ct_eq(expected_key.as_bytes()).into()
-                })
-                .unwrap_or(false);
-
-            if !is_valid {
+            if !authorized {
                 eprintln!("{remote_addr} {method} {url} 401 {:?}", start.elapsed());
-                let r = Response::from_string("Unauthorized: invalid or missing X-API-Key header")
-                    .with_status_code(StatusCode(401));
+                let r = Response::from_string("Unauthorized").with_status_code(StatusCode(401));
                 let _ = request.respond(r);
                 continue;
             }
