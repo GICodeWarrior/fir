@@ -2,6 +2,7 @@ use std::fs::File;
 use std::io::{self, Read};
 
 use form_urlencoded;
+use subtle::ConstantTimeEq;
 use tiny_http::{Header, Method, Response, Server, StatusCode};
 
 use fis::Catalog;
@@ -100,6 +101,16 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
     let server = Server::http(addr).map_err(|_| "Failed to start server.")?;
     eprintln!("Listening on http://{}", server.server_addr().to_string());
 
+    let api_key = std::env::var("FIC_API_KEY")
+        .ok()
+        .filter(|k| !k.is_empty())
+        .map(String::into_bytes);
+    if api_key.is_some() {
+        eprintln!(
+            "Warning: API key authentication enabled via HTTP.  Implement a TLS proxy for public/shared networks."
+        );
+    }
+
     let (ocr, mut icon_classifier, mut quantity_classifier) = get_classifiers()?;
     let content_type_header = Header::from_bytes("Content-Type", "application/json").unwrap();
     let catalog = Catalog::new_from_json(CATALOG_JSON)?;
@@ -123,6 +134,23 @@ fn command_http_server(args: Vec<String>) -> Result<(), Box<dyn std::error::Erro
             let r = Response::from_string("Not Found").with_status_code(StatusCode(404));
             let _ = request.respond(r);
             continue;
+        }
+
+        if let Some(ref expected_key) = api_key {
+            let authorized = request
+                .headers()
+                .iter()
+                .find(|h| h.field.equiv("Authorization"))
+                .and_then(|h| h.value.as_str().strip_prefix("X-API-Key "))
+                .map(|k| k.as_bytes())
+                .is_some_and(|k| k.len() == expected_key.len() && k.ct_eq(expected_key).into());
+
+            if !authorized {
+                eprintln!("{remote_addr} {method} {url} 401 {:?}", start.elapsed());
+                let r = Response::from_string("Unauthorized").with_status_code(StatusCode(401));
+                let _ = request.respond(r);
+                continue;
+            }
         }
 
         let Ok(includes) = query
