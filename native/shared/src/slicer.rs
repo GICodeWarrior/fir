@@ -44,7 +44,7 @@ pub fn slice_stockpile(rgba: &[u8], width: usize) -> Option<Stockpile> {
         let header_y = bounds.y.saturating_sub(contents[0].quantity.bounds.height);
         let header_height = bounds.y - header_y;
 
-        if header_height > contents[0].quantity.bounds.height * 9 / 10 {
+        if header_height > contents[0].quantity.bounds.height * 7 / 8 {
             header_bounds = Some(Bounds {
                 x: bounds.x,
                 y: header_y,

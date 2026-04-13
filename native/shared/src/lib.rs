@@ -35,13 +35,24 @@ pub fn extract_stockpile(
 
     slicer::slice_structure_technology(rgba, width, &mut stockpile);
 
-    if let Some(header) = &mut stockpile.header {
-        header.structure_type.value =
-            Some(ocr.recognize_header(&rgba, width, &header.structure_type.bounds)?);
+    if let Some(header) = &mut stockpile.header
+        && let Some(first_entry) = stockpile.contents.first()
+    {
+        let quantity_height = first_entry.quantity.bounds.height;
+        header.structure_type.value = Some(ocr.recognize_header(
+            &rgba,
+            width,
+            &header.structure_type.bounds,
+            quantity_height,
+        )?);
 
         if let Some(stockpile_name) = &mut header.stockpile_name {
-            stockpile_name.value =
-                Some(ocr.recognize_header(&rgba, width, &stockpile_name.bounds)?);
+            stockpile_name.value = Some(ocr.recognize_header(
+                &rgba,
+                width,
+                &stockpile_name.bounds,
+                quantity_height,
+            )?);
         }
     }
 

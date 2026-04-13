@@ -48,12 +48,14 @@ impl Ocr {
         rgba: &[u8],
         width: usize,
         bounds: &Bounds,
+        quantity_height: usize,
     ) -> Result<String, Box<dyn std::error::Error>> {
-        let text_height = (bounds.height * 5 + 4) / 8;
-        let crop_offset = ((bounds.height - text_height) * 2 + 1) / 3;
+        let text_height = (quantity_height * 5 + 4) / 8;
+        let crop_offset = ((quantity_height - text_height) * 2 + 1) / 3;
+        let missing_height = quantity_height - bounds.height;
         let crop_bounds = Bounds {
             x: bounds.x + crop_offset,
-            y: bounds.y + crop_offset,
+            y: bounds.y + crop_offset.saturating_sub(missing_height),
             width: bounds.width.saturating_sub(crop_offset),
             height: text_height,
         };
