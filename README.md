@@ -1,3 +1,11 @@
+# Project Status 2026-06-13: Unmaintained
+
+Four years after launching fir, the game now has built-in data export capabilities.  For that and a variety of other reasons, I'm no longer updating fir.
+
+If you have interest in updating or improving fir, please feel free to reach out via Discord or GitHub.
+
+Thank you all for your support and feedback over the years!
+
 # Foxhole Inventory Report (fir)
 
 fir is known for accurate recognition of [Foxhole](https://www.foxholegame.com/about-foxhole) stockpile information.
